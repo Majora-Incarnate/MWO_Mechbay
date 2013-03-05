@@ -16,7 +16,7 @@ public class Cicada extends Mech implements MechCommon {
         };
         
         limitsForPitchYaw = new int[][] {
-            {120,20},
+            {125,20},
             {0,30}  };
         
         health = new int[]
