@@ -1,84 +1,88 @@
-package MWOMechbay.GUI;
+package GUI;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
+import javax.swing.JDialog;
+import javax.swing.JRootPane;
 
-/**
- *
- * @author Quicksilver
- */
-public class ColorDialog extends javax.swing.JDialog {
-    private Color editedColor;
-    
-    public ColorDialog(javax.swing.JDialog parent, Color nFlag) {
-        super(parent, true);
-        editedColor = nFlag;
-        initComponents();
-    }
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-        GridBagConstraints gridBagConstraints;
-
-        okButton = new JButton();
-        cancelButton = new JButton();
-        jColorChooser1 = new JColorChooser(editedColor);
-
-        getContentPane().setLayout(new GridBagLayout());
-
-        okButton.setText("OK");
-        okButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                okButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.weightx = 1.0;
-        getContentPane().add(okButton, gridBagConstraints);
-        getRootPane().setDefaultButton(okButton);
-
-        cancelButton.setText("Cancel");
-        cancelButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                cancelButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.weightx = 1.0;
-        getContentPane().add(cancelButton, gridBagConstraints);
-
-        jColorChooser1.setName("jColorChooser1"); // NOI18N
-        gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.weightx = 1.0;
-        getContentPane().add(jColorChooser1, gridBagConstraints);
-
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
-
-    private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        editedColor = jColorChooser1.getColor();
-        dispose();
-    }//GEN-LAST:event_okButtonActionPerformed
-    
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        dispose();
-    }//GEN-LAST:event_cancelButtonActionPerformed
-    
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private JButton cancelButton;
-    private JColorChooser jColorChooser1;
-    private JButton okButton;
-    // End of variables declaration//GEN-END:variables
+public class ColorDialog
+  extends JDialog
+{
+  private Color editedColor;
+  private JButton cancelButton;
+  private JColorChooser jColorChooser1;
+  private JButton okButton;
+  
+  public ColorDialog(JDialog paramJDialog, Color paramColor)
+  {
+    super(paramJDialog, true);
+    this.editedColor = paramColor;
+    initComponents();
+  }
+  
+  private void initComponents()
+  {
+    this.okButton = new JButton();
+    this.cancelButton = new JButton();
+    this.jColorChooser1 = new JColorChooser(this.editedColor);
+    getContentPane().setLayout(new GridBagLayout());
+    this.okButton.setText("OK");
+    this.okButton.addActionListener(new ActionListener()
+    {
+      public void actionPerformed(ActionEvent paramAnonymousActionEvent)
+      {
+        ColorDialog.this.okButtonActionPerformed(paramAnonymousActionEvent);
+      }
+    });
+    GridBagConstraints localGridBagConstraints = new GridBagConstraints();
+    localGridBagConstraints.gridx = 0;
+    localGridBagConstraints.gridy = 1;
+    localGridBagConstraints.weightx = 1.0D;
+    getContentPane().add(this.okButton, localGridBagConstraints);
+    getRootPane().setDefaultButton(this.okButton);
+    this.cancelButton.setText("Cancel");
+    this.cancelButton.addActionListener(new ActionListener()
+    {
+      public void actionPerformed(ActionEvent paramAnonymousActionEvent)
+      {
+        ColorDialog.this.cancelButtonActionPerformed(paramAnonymousActionEvent);
+      }
+    });
+    localGridBagConstraints = new GridBagConstraints();
+    localGridBagConstraints.gridx = 1;
+    localGridBagConstraints.gridy = 1;
+    localGridBagConstraints.weightx = 1.0D;
+    getContentPane().add(this.cancelButton, localGridBagConstraints);
+    this.jColorChooser1.setName("jColorChooser1");
+    localGridBagConstraints = new GridBagConstraints();
+    localGridBagConstraints.gridx = 0;
+    localGridBagConstraints.gridy = 0;
+    localGridBagConstraints.gridwidth = 2;
+    localGridBagConstraints.weightx = 1.0D;
+    getContentPane().add(this.jColorChooser1, localGridBagConstraints);
+    pack();
+  }
+  
+  private void okButtonActionPerformed(ActionEvent paramActionEvent)
+  {
+    this.editedColor = this.jColorChooser1.getColor();
+    dispose();
+  }
+  
+  private void cancelButtonActionPerformed(ActionEvent paramActionEvent)
+  {
+    dispose();
+  }
 }
+
+
+/* Location:              C:\Users\Trevin\Dropbox\Public\MWO Mechbay.zip!\MWO_Mechbay.jar!\GUI\ColorDialog.class
+ * Java compiler version: 8 (52.0)
+ * JD-Core Version:       0.7.1
+ */

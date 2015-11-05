@@ -1,0 +1,61 @@
+Name;ID;Type;L1 XP;L2 XP;L3 XP;L4 XP;L5 XP;Cost;Description
+Advanced Sensor Range;0;Sensors;5000;7500;-1;-1;-1;2000000;This is a test description.
+Seismic Sensors;0;Sensors;7500;10000;-1;-1;-1;6000000;This is a test description.
+Target Info;0;Sensors;10000;-1;-1;-1;-1;4000000;This is a test description.
+Air Strike Accuracy;0;Support;5000;-1;-1;-1;-1;4000000;This is a test description.
+Artillery Accuracy;0;Support;5000;-1;-1;-1;-1;4000000;This is a test description.
+Capture Accelerator;0;Support;15000;-1;-1;-1;-1;6000000;This is a test description.
+Improved Gyros;0;Support;5000;-1;-1;-1;-1;2000000;This is a test description.
+Hill Climb;0;Support;15000;-1;-1;-1;-1;6000000;This is a test description.
+Shock Absorbance;0;Support;15000;-1;-1;-1;-1;6000000;This is a test description.
+Speed Retention;0;Support;15000;-1;-1;-1;-1;6000000;This is a test description.
+360 Target Retention;0;Target;15000;-1;-1;-1;-1;6000000;This is a test description.
+Advanced Target Decay;0;Target;5000;7500;-1;-1;-1;6000000;This is a test description.
+Radar Deprivation;0;Target;15000;-1;-1;-1;-1;6000000;This is a test description.
+Advanced Zoom;0;Vision;5000;-1;-1;-1;-1;2000000;This is a test description.
+9 By 9;0;Consumable;15000;-1;-1;-1;-1;0;This is a test description.
+Cool Boost;0;Consumable;15000;-1;-1;-1;-1;0;This is a test description.
+Improved Air Strike;0;Consumable;15000;-1;-1;-1;-1;0;This is a test description.
+Improved Artillery;0;Consumable;15000;-1;-1;-1;-1;0;This is a test description.
+Improved UAV;0;Consumable;15000;-1;-1;-1;-1;0;This is a test description.
+UAV Upgrade;0;Consumable;15000;-1;-1;-1;-1;0;This is a test description.
+AMS Overload;0;Weapon;10000;-1;-1;-1;-1;4000000;This is a test description.
+Enhanced NARC;0;Weapon;10000;-1;-1;-1;-1;4000000;This is a test description.
+Small Laser Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Medium Laser Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Large Laser Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+ER Large Laser Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Small Pulse Laser Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Medium Pulse Laser Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Large Pulse Laser Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Flamer Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+SRM2 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+SRM4 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+SRM6 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+SSRM2 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+AC2 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+AC5 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+AC10 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+AC20 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+LBX10 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+UAC5 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Machine Gun Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+AMS Range;0;Weapon;750;900;1000;1100;1200;3000000;This is a test description.
+Clan AMS Range;0;Weapon;750;900;1000;1100;1200;3000000;This is a test description.
+Clan ER Small Laser Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Clan ER Medium Laser Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Clan ER Large Laser Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Clan Small Pulse Laser Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Clan Medium Pulse Laser Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Clan Large Pulse Laser Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Clan Flamer Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Clan SRM2 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Clan SRM4 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Clan SRM6 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Clan SSRM6 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Clan LBX10 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Clan UAC2 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Clan UAC5 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Clan UAC10 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Clan UAC20 Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.
+Clan Machine Gun Range;0;Weapon;500;600;700;800;900;3000000;This is a test description.

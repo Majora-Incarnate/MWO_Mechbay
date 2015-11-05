@@ -1,0 +1,4 @@
+Name;ID;Tech Base;Item Type;Tonnage;Criticals
+CASE;0;ALL;CASE;0.5;1
+CASE II (IS);-1;IS;CASE;1.0;1
+CASE II (CL);-1;CLAN;CASE;0.5;1

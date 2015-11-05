@@ -1,0 +1,4 @@
+Name;ID;Tech Base;Critical Mod;Tonnage Mod;Criticals;Tonnage;Upgrade Cost
+MASC (CL);0;CLAN;0.25;0.25;-1;-1;0
+MASC (IS);0;IS;0.2;0.2;-1;-1;0
+TSM;-1;IS;-1;-1;6;0;0

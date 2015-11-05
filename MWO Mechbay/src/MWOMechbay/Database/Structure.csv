@@ -1,0 +1,8 @@
+Name;ID;Tech Base;Criticals;Tonnage Modifier;Cost Multiplier;Upgrade Multiplier
+Standard;0;ALL;0;0.1;0;5000
+Endo Steel (CL);0;CLAN;7;0.05;0;10000
+Endo Steel (IS);0;IS;14;0.05;0;10000
+Endo Composite (CL);-1;CLAN;4;0.075;0;0
+Endo Composite (IS);-1;IS;7;0.075;0;0
+Composite (IS);-1;IS;0;0.05;0;0
+Reinforced (IS);-1;IS;0;0.2;0;0

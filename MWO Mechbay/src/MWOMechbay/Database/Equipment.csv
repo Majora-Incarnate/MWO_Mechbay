@@ -1,0 +1,22 @@
+Name;ID;Tech Base;Hardpoint Type;Tonnage;Criticals
+Beagle Active Probe;0;IS;None;1.5;2
+Guardiam ECM;0;IS;ECM;1.5;2
+Active Probe;0;CLAN;None;1.0;1
+ECM Suite;0;CLAN;ECM;1.0;1
+Angel ECM;-1;ALL;ECM;2.0;2
+Bloodhound Active Probe;-1;IS;None;2.0;3
+Targeting Computer Mk I (CL);0;CLAN;None;1.0;1
+Targeting Computer Mk II (CL);0;CLAN;None;2.0;2
+Targeting Computer Mk III (CL);0;CLAN;None;3.0;3
+Targeting Computer Mk IV (CL);0;CLAN;None;4.0;4
+Targeting Computer Mk V (CL);0;CLAN;None;5.0;5
+Targeting Computer Mk VI (CL);0;CLAN;None;6.0;6
+Targeting Computer Mk VII (CL);0;CLAN;None;7.0;7
+Targeting Computer Mk I (IS);-1;IS;None;1.0;1
+Targeting Computer Mk II (IS);-1;IS;None;2.0;2
+Targeting Computer Mk III (IS);-1;IS;None;3.0;3
+Targeting Computer Mk IV (IS);-1;IS;None;4.0;4
+Targeting Computer Mk V (IS);-1;IS;None;5.0;5
+Targeting Computer Mk VI (IS);-1;IS;None;6.0;6
+Targeting Computer Mk VII (IS);-1;IS;None;7.0;7
+Light Active Probe;-1;CLAN;None;0.5;1

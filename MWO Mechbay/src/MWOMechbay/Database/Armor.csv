@@ -1,0 +1,7 @@
+Name;ID;Tech Base;Criticals;PPT;Cost Multiplier;Upgrade Multiplier
+Standard;0;ALL;0;32;0;2500
+Ferro Fibrous (CL);0;CLAN;7;38.4;0;5000
+Light Ferro Fibrous (IS);-1;IS;7;33.92;0;0
+Ferro Fibrous (IS);0;IS;14;35.84;0;5000
+Heavy Ferro Fibrous (IS);-1;IS;21;39.68;0;0
+Hardened;-1;ALL;0;16;0;0
