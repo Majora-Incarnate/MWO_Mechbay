@@ -1,7 +1,6 @@
 package GUI;
 
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -9,7 +8,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JDialog;
-import javax.swing.JRootPane;
 
 public class ColorDialog
   extends JDialog
@@ -35,6 +33,7 @@ public class ColorDialog
     this.okButton.setText("OK");
     this.okButton.addActionListener(new ActionListener()
     {
+      @Override
       public void actionPerformed(ActionEvent paramAnonymousActionEvent)
       {
         ColorDialog.this.okButtonActionPerformed(paramAnonymousActionEvent);
@@ -49,6 +48,7 @@ public class ColorDialog
     this.cancelButton.setText("Cancel");
     this.cancelButton.addActionListener(new ActionListener()
     {
+      @Override
       public void actionPerformed(ActionEvent paramAnonymousActionEvent)
       {
         ColorDialog.this.cancelButtonActionPerformed(paramAnonymousActionEvent);

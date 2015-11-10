@@ -1,9 +1,7 @@
 package GUI;
 
-import Utility.Constants;
 import Utility.Preferences;
 import Utility.User;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
@@ -17,7 +15,6 @@ import java.io.IOException;
 import java.io.InvalidClassException;
 import java.io.NotSerializableException;
 import java.io.ObjectOutputStream;
-import java.io.PrintStream;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -28,10 +25,7 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JTextField;
 
-public class PreferenceDialogBox
-  extends JDialog
-  implements Constants
-{
+public class PreferenceDialogBox extends JDialog {
   Preferences u = User.preferences;
   private JPanel ArmorDistributionPanel;
   private JPanel ButtonPanel;
@@ -345,6 +339,7 @@ public class PreferenceDialogBox
     this.jButton7.setPreferredSize(new Dimension(50, 25));
     this.jButton7.addActionListener(new ActionListener()
     {
+      @Override
       public void actionPerformed(ActionEvent paramAnonymousActionEvent)
       {
         PreferenceDialogBox.this.jButton7ActionPerformed(paramAnonymousActionEvent);
@@ -365,6 +360,7 @@ public class PreferenceDialogBox
     this.jButton8.setPreferredSize(new Dimension(50, 25));
     this.jButton8.addActionListener(new ActionListener()
     {
+      @Override
       public void actionPerformed(ActionEvent paramAnonymousActionEvent)
       {
         PreferenceDialogBox.this.jButton8ActionPerformed(paramAnonymousActionEvent);
@@ -385,6 +381,7 @@ public class PreferenceDialogBox
     this.jButton9.setPreferredSize(new Dimension(50, 25));
     this.jButton9.addActionListener(new ActionListener()
     {
+      @Override
       public void actionPerformed(ActionEvent paramAnonymousActionEvent)
       {
         PreferenceDialogBox.this.jButton9ActionPerformed(paramAnonymousActionEvent);
@@ -405,6 +402,7 @@ public class PreferenceDialogBox
     this.jButton10.setPreferredSize(new Dimension(50, 25));
     this.jButton10.addActionListener(new ActionListener()
     {
+      @Override
       public void actionPerformed(ActionEvent paramAnonymousActionEvent)
       {
         PreferenceDialogBox.this.jButton10ActionPerformed(paramAnonymousActionEvent);
@@ -425,6 +423,7 @@ public class PreferenceDialogBox
     this.jButton11.setPreferredSize(new Dimension(50, 25));
     this.jButton11.addActionListener(new ActionListener()
     {
+      @Override
       public void actionPerformed(ActionEvent paramAnonymousActionEvent)
       {
         PreferenceDialogBox.this.jButton11ActionPerformed(paramAnonymousActionEvent);
@@ -445,6 +444,7 @@ public class PreferenceDialogBox
     this.jButton12.setPreferredSize(new Dimension(50, 25));
     this.jButton12.addActionListener(new ActionListener()
     {
+      @Override
       public void actionPerformed(ActionEvent paramAnonymousActionEvent)
       {
         PreferenceDialogBox.this.jButton12ActionPerformed(paramAnonymousActionEvent);
@@ -465,6 +465,7 @@ public class PreferenceDialogBox
     this.jButton13.setPreferredSize(new Dimension(50, 25));
     this.jButton13.addActionListener(new ActionListener()
     {
+      @Override
       public void actionPerformed(ActionEvent paramAnonymousActionEvent)
       {
         PreferenceDialogBox.this.jButton13ActionPerformed(paramAnonymousActionEvent);
@@ -485,6 +486,7 @@ public class PreferenceDialogBox
     this.jButton14.setPreferredSize(new Dimension(50, 25));
     this.jButton14.addActionListener(new ActionListener()
     {
+      @Override
       public void actionPerformed(ActionEvent paramAnonymousActionEvent)
       {
         PreferenceDialogBox.this.jButton14ActionPerformed(paramAnonymousActionEvent);
@@ -669,6 +671,7 @@ public class PreferenceDialogBox
     this.jButton17.setPreferredSize(new Dimension(75, 25));
     this.jButton17.addActionListener(new ActionListener()
     {
+      @Override
       public void actionPerformed(ActionEvent paramAnonymousActionEvent)
       {
         PreferenceDialogBox.this.jButton17ActionPerformed(paramAnonymousActionEvent);
@@ -688,6 +691,7 @@ public class PreferenceDialogBox
     this.jButton18.setPreferredSize(new Dimension(75, 25));
     this.jButton18.addActionListener(new ActionListener()
     {
+      @Override
       public void actionPerformed(ActionEvent paramAnonymousActionEvent)
       {
         PreferenceDialogBox.this.jButton18ActionPerformed(paramAnonymousActionEvent);
@@ -717,19 +721,17 @@ public class PreferenceDialogBox
   {
     try
     {
-      FileOutputStream localFileOutputStream = new FileOutputStream("UserPreferences.pref");
-      ObjectOutputStream localObjectOutputStream = new ObjectOutputStream(localFileOutputStream);
-      localObjectOutputStream.writeObject(this.u.SELECTED_CRITICAL_PANEL_COLOR);
-      localObjectOutputStream.writeObject(this.u.DEFAULT_CRITICAL_PANEL_COLOR);
-      localObjectOutputStream.writeObject(this.u.BALLISTIC_COLOR);
-      localObjectOutputStream.writeObject(this.u.ENERGY_COLOR);
-      localObjectOutputStream.writeObject(this.u.MISSILE_COLOR);
-      localObjectOutputStream.writeObject(this.u.AMS_COLOR);
-      localObjectOutputStream.writeObject(this.u.ARMOR_COLOR);
-      localObjectOutputStream.writeObject(this.u.STRUCTURE_COLOR);
-      localObjectOutputStream.writeDouble(Integer.parseInt(this.jTextField1.getText()) / 100.0D);
-      localObjectOutputStream.close();
-      localFileOutputStream.close();
+        try (FileOutputStream localFileOutputStream = new FileOutputStream("UserPreferences.pref"); ObjectOutputStream localObjectOutputStream = new ObjectOutputStream(localFileOutputStream)) {
+            localObjectOutputStream.writeObject(this.u.SELECTED_CRITICAL_PANEL_COLOR);
+            localObjectOutputStream.writeObject(this.u.DEFAULT_CRITICAL_PANEL_COLOR);
+            localObjectOutputStream.writeObject(this.u.BALLISTIC_COLOR);
+            localObjectOutputStream.writeObject(this.u.ENERGY_COLOR);
+            localObjectOutputStream.writeObject(this.u.MISSILE_COLOR);
+            localObjectOutputStream.writeObject(this.u.AMS_COLOR);
+            localObjectOutputStream.writeObject(this.u.ARMOR_COLOR);
+            localObjectOutputStream.writeObject(this.u.STRUCTURE_COLOR);
+            localObjectOutputStream.writeDouble(Integer.parseInt(this.jTextField1.getText()) / 100.0D);
+        }
       System.out.println("Saved Correctly");
     }
     catch (InvalidClassException localInvalidClassException)
@@ -756,7 +758,7 @@ public class PreferenceDialogBox
     {
       JOptionPane.showMessageDialog(this, "IO Error: " + localIOException.getMessage());
     }
-    catch (Exception localException)
+    catch (NumberFormatException localException)
     {
       JOptionPane.showMessageDialog(this, "Error: " + localException.getMessage());
     }

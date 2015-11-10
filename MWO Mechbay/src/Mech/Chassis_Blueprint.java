@@ -57,9 +57,3 @@ public class Chassis_Blueprint
     return this.chassis_name;
   }
 }
-
-
-/* Location:              C:\Users\Trevin\Dropbox\Public\MWO Mechbay.zip!\MWO_Mechbay.jar!\Mech\Chassis_Blueprint.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       0.7.1
- */

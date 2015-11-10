@@ -35,9 +35,9 @@ public class Section
       this.maximum_hardpoints[i] = paramSection_Blueprint.hardpoints[i];
       this.current_hardpoints[i] = 0;
     }
-    for (i = 0; i < paramSection_Blueprint.minimum_actuator_count; i++)
+    for (int i = 0; i < paramSection_Blueprint.minimum_actuator_count; i++)
     {
-      Iterator localIterator = Database.master_actuator_blueprints.iterator();
+      Iterator localIterator = Database.MASTER_ACTUATOR_BLUEPRINTS.iterator();
       while (localIterator.hasNext())
       {
         Actuator_Blueprint localActuator_Blueprint = (Actuator_Blueprint)localIterator.next();
@@ -50,14 +50,11 @@ public class Section
   
   public void Remove_Omni_Restrictions()
   {
-    Iterator localIterator = this.components.iterator();
-    while (localIterator.hasNext())
-    {
-      Crittable localCrittable = (Crittable)localIterator.next();
-      if ((localCrittable.is_locked) && ((localCrittable.item_type.equals("Armor")) || (localCrittable.item_type.equals("Structure")) || (localCrittable.item_type.equals("Heat Sink")) || (localCrittable.item_type.equals("Equipment")) || (localCrittable.item_type.equals("Jump Jet")) || (localCrittable.item_type.equals("Weapon")))) {
-        localCrittable.is_locked = false;
+      for (Crittable localCrittable : this.components) {
+          if ((localCrittable.is_locked) && ((localCrittable.item_type.equals("Armor")) || (localCrittable.item_type.equals("Structure")) || (localCrittable.item_type.equals("Heat Sink")) || (localCrittable.item_type.equals("Equipment")) || (localCrittable.item_type.equals("Jump Jet")) || (localCrittable.item_type.equals("Weapon")))) {
+              localCrittable.is_locked = false;
+          }
       }
-    }
   }
   
   public boolean Toggle_Arm_Actuator(int paramInt)
@@ -78,7 +75,7 @@ public class Section
         return false;
       }
     }
-    localIterator = Database.master_actuator_blueprints.iterator();
+    localIterator = Database.MASTER_ACTUATOR_BLUEPRINTS.iterator();
     while (localIterator.hasNext())
     {
       localObject = (Actuator_Blueprint)localIterator.next();
@@ -99,7 +96,7 @@ public class Section
         this.components.remove(i);
       }
     }
-    for (i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++) {
       this.maximum_hardpoints[i] = paramSection_Blueprint.hardpoints[i];
     }
     Calculate_Criticals();
@@ -113,9 +110,10 @@ public class Section
     }
     if (!paramCrittable.hardpoint_type.equals("None"))
     {
-      for (int i = 0; (i < 5) && (!Utility.Constants.HARDPOINT_TYPES[i].equals(paramCrittable.hardpoint_type)); i++) {}
-      if (this.current_hardpoints[i] + 1 > this.maximum_hardpoints[i]) {
-        return false;
+      for (int i = 0; (i < 5) && (!Utility.Constants.HARDPOINT_TYPES[i].equals(paramCrittable.hardpoint_type)); i++) {
+        if (this.current_hardpoints[i] + 1 > this.maximum_hardpoints[i]) {
+          return false;
+        }
       }
     }
     if (this.current_criticals + paramCrittable.criticals > this.maximum_criticals) {

@@ -2,7 +2,6 @@ package GUI;
 
 import Utility.Preferences;
 import Utility.User;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
@@ -14,7 +13,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JRootPane;
 
 public class AboutDialogBox
   extends JDialog
@@ -73,6 +71,7 @@ public class AboutDialogBox
     this.closeButton.setPreferredSize(new Dimension(128, 24));
     this.closeButton.addActionListener(new ActionListener()
     {
+      @Override
       public void actionPerformed(ActionEvent paramAnonymousActionEvent)
       {
         AboutDialogBox.this.closeButtonActionPerformed(paramAnonymousActionEvent);

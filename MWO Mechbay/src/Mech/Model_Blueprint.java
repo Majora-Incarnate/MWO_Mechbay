@@ -61,7 +61,7 @@ public class Model_Blueprint
     this.mech_modules_override = Integer.parseInt(arrayOfString[(i++)]);
     this.weapon_modules_override = Integer.parseInt(arrayOfString[(i++)]);
     this.consumable_modules_override = Integer.parseInt(arrayOfString[(i++)]);
-    for (j = 0; j < 8; j++) {
+    for (int j = 0; j < 8; j++) {
       this.section_models[j] = arrayOfString[(i++)];
     }
     this.engine_type = arrayOfString[(i++)];
@@ -78,14 +78,9 @@ public class Model_Blueprint
   
   public void Print() {}
   
+  @Override
   public String toString()
   {
     return this.model_name;
   }
 }
-
-
-/* Location:              C:\Users\Trevin\Dropbox\Public\MWO Mechbay.zip!\MWO_Mechbay.jar!\Mech\Model_Blueprint.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       0.7.1
- */

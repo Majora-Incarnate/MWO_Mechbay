@@ -1,6 +1,6 @@
 package Utility;
 
-public abstract interface Constants
+public class Constants
 {
   public static final int DEFAULT_CRITICAL_HEIGHT = 12;
   public static final boolean DEFAULT_FRANKENMECHS = false;
@@ -120,6 +120,10 @@ public abstract interface Constants
   public static final String CBILL_FORMAT = "#,### C-Bills";
   public static final String MC_FORMAT = "#,### MC";
   public static final String SPEED_FORMAT = "#.## kph";
+  
+  private Constants() throws Exception {
+      throw new Exception();
+  }
 }
 
 

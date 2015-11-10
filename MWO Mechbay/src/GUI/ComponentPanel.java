@@ -17,17 +17,12 @@ import Utility.User;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.util.Formatter;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-public class ComponentPanel
-  extends JPanel
-  implements Constants
-{
-  private Formatter formatter;
+public class ComponentPanel extends JPanel {
   public JLabel Label1;
   public JLabel Label2;
   public JLabel Label3;
@@ -159,8 +154,8 @@ public class ComponentPanel
   {
     ((TitledBorder)getBorder()).setTitle("Armor");
     Set_Label(this.Label1, "Type", paramArmor_Blueprint.name);
-    Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", new Object[] { Integer.valueOf(paramArmor_Blueprint.Get_Item_Cost(paramInt)) }));
-    Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", new Object[] { Double.valueOf(paramArmor_Blueprint.Get_Tonnage(paramInt)) }));
+    Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", new Object[] { paramArmor_Blueprint.Get_Item_Cost(paramInt) }));
+    Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", new Object[] { paramArmor_Blueprint.Get_Tonnage(paramInt) }));
     Set_Label(this.Label4, "Criticals", "" + paramArmor_Blueprint.criticals);
     Set_Bottom_Row_Usage(false);
   }
@@ -169,20 +164,20 @@ public class ComponentPanel
   {
     ((TitledBorder)getBorder()).setTitle("Heat Sinks");
     Set_Label(this.Label1, "Type", paramHeatsink_Blueprint.name);
-    Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", new Object[] { Integer.valueOf(paramHeatsink_Blueprint.Get_Item_Cost(paramInt2, paramInt1)) }));
-    Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", new Object[] { Double.valueOf(paramHeatsink_Blueprint.Get_Tonnage(paramInt2, paramInt1)) }));
+    Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", new Object[] { paramHeatsink_Blueprint.Get_Item_Cost(paramInt2, paramInt1) }));
+    Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", new Object[] { paramHeatsink_Blueprint.Get_Tonnage(paramInt2, paramInt1) }));
     Set_Label(this.Label4, "Count", "" + paramInt2);
     Set_Bottom_Row_Usage(true);
-    Set_Label(this.Label5, "Dissipation", String.format("%.2f hps", new Object[] { Double.valueOf(0.0D - paramHeatsink_Blueprint.Get_Dissipation(paramInt2, paramInt1)) }));
-    Set_Label(this.Label6, "Threshold", String.format("%.2f heat", new Object[] { Double.valueOf(paramHeatsink_Blueprint.Get_Threshold(paramInt2)) }));
+    Set_Label(this.Label5, "Dissipation", String.format("%.2f hps", new Object[] { 0.0D - paramHeatsink_Blueprint.Get_Dissipation(paramInt2, paramInt1)}));
+    Set_Label(this.Label6, "Threshold", String.format("%.2f heat", new Object[] { paramHeatsink_Blueprint.Get_Threshold(paramInt2) }));
   }
   
   public void Set_Structure(Structure_Blueprint paramStructure_Blueprint, double paramDouble)
   {
     ((TitledBorder)getBorder()).setTitle("Structure");
     Set_Label(this.Label1, "Type", paramStructure_Blueprint.name);
-    Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", new Object[] { Integer.valueOf(paramStructure_Blueprint.Get_Item_Cost(paramDouble)) }));
-    Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", new Object[] { Double.valueOf(paramStructure_Blueprint.Get_Tonnage(paramDouble)) }));
+    Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", new Object[] { paramStructure_Blueprint.Get_Item_Cost(paramDouble) }));
+    Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", new Object[] { paramStructure_Blueprint.Get_Tonnage(paramDouble) }));
     Set_Label(this.Label4, "Criticals", "" + paramStructure_Blueprint.criticals);
     Set_Bottom_Row_Usage(false);
   }
@@ -191,8 +186,8 @@ public class ComponentPanel
   {
     ((TitledBorder)getBorder()).setTitle("Jump Jets");
     Set_Label(this.Label1, "Type", paramJumpjet_Blueprint.name);
-    Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", new Object[] { Integer.valueOf(paramInt * paramJumpjet_Blueprint.Get_Item_Cost(paramDouble)) }));
-    Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", new Object[] { Double.valueOf(paramInt * paramJumpjet_Blueprint.Get_Base_Tonnage(paramDouble)) }));
+    Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", new Object[] { paramInt * paramJumpjet_Blueprint.Get_Item_Cost(paramDouble)}));
+    Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", new Object[] { paramInt * paramJumpjet_Blueprint.Get_Base_Tonnage(paramDouble)}));
     Set_Label(this.Label4, "Criticals", "" + paramJumpjet_Blueprint.criticals);
     Set_Bottom_Row_Usage(false);
   }
@@ -207,8 +202,8 @@ public class ComponentPanel
   {
     ((TitledBorder)getBorder()).setTitle("Engine");
     Set_Label(this.Label1, "Type", paramEngine_Blueprint.name);
-    Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", new Object[] { Integer.valueOf(paramEngine_Blueprint.Get_Cost(paramInt)) }));
-    Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", new Object[] { Double.valueOf(paramEngine_Blueprint.Get_Tonnage(paramInt)) }));
+    Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", new Object[] { paramEngine_Blueprint.Get_Cost(paramInt) }));
+    Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", new Object[] { paramEngine_Blueprint.Get_Tonnage(paramInt) }));
     Set_Label(this.Label4, "Criticals", "" + (paramEngine_Blueprint.center_torso_criticals + paramEngine_Blueprint.side_torso_criticals));
     Set_Bottom_Row_Usage(true);
     Set_Label(this.Label5, "Engine Rating", "" + paramInt);
@@ -219,8 +214,8 @@ public class ComponentPanel
   {
     ((TitledBorder)getBorder()).setTitle("Cockpit");
     Set_Label(this.Label1, "Type", paramCockpit_Blueprint.name);
-    Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", new Object[] { Integer.valueOf(paramCockpit_Blueprint.item_cost) }));
-    Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", new Object[] { Double.valueOf(paramCockpit_Blueprint.tonnage) }));
+    Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", new Object[] { paramCockpit_Blueprint.item_cost}));
+    Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", new Object[] { paramCockpit_Blueprint.tonnage}));
     Set_Label(this.Label4, "Criticals", "" + paramCockpit_Blueprint.criticals);
     Set_Bottom_Row_Usage(false);
   }
@@ -229,8 +224,8 @@ public class ComponentPanel
   {
     ((TitledBorder)getBorder()).setTitle("Gyro");
     Set_Label(this.Label1, "Type", paramGyro_Blueprint.name);
-    Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", new Object[] { Integer.valueOf(paramGyro_Blueprint.Get_Item_Cost(paramInt)) }));
-    Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", new Object[] { Double.valueOf(paramGyro_Blueprint.Get_Tonnage(paramInt)) }));
+    Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", new Object[] { paramGyro_Blueprint.Get_Item_Cost(paramInt) }));
+    Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", new Object[] { paramGyro_Blueprint.Get_Tonnage(paramInt) }));
     Set_Label(this.Label4, "Criticals", "" + paramGyro_Blueprint.criticals);
     Set_Bottom_Row_Usage(false);
   }
@@ -240,24 +235,24 @@ public class ComponentPanel
     ((TitledBorder)getBorder()).setTitle("Speed Limits");
     Set_Label(this.Label1, "Min Rating", "" + Variant.GetMinEngineRating(paramChassis_Blueprint, paramModel_Blueprint, paramBoolean));
     Set_Label(this.Label2, "Max Rating", "" + Variant.GetMaxEngineRating(paramChassis_Blueprint, paramModel_Blueprint, paramBoolean));
-    Set_Label(this.Label3, "Min Speed", String.format("%.2f kph", new Object[] { Double.valueOf(Variant.GetMinEngineRating(paramChassis_Blueprint, paramModel_Blueprint, paramBoolean) * paramDouble1 * paramDouble2 / paramDouble3) }));
-    Set_Label(this.Label4, "Max Speed", String.format("%.2f kph", new Object[] { Double.valueOf(Variant.GetMaxEngineRating(paramChassis_Blueprint, paramModel_Blueprint, paramBoolean) * paramDouble1 * paramDouble2 / paramDouble3) }));
+    Set_Label(this.Label3, "Min Speed", String.format("%.2f kph", new Object[] { Variant.GetMinEngineRating(paramChassis_Blueprint, paramModel_Blueprint, paramBoolean) * paramDouble1 * paramDouble2 / paramDouble3}));
+    Set_Label(this.Label4, "Max Speed", String.format("%.2f kph", new Object[] { Variant.GetMaxEngineRating(paramChassis_Blueprint, paramModel_Blueprint, paramBoolean) * paramDouble1 * paramDouble2 / paramDouble3}));
     Set_Bottom_Row_Usage(false);
   }
   
   public void Set_Overview(Chassis_Blueprint paramChassis_Blueprint, Model_Blueprint paramModel_Blueprint)
   {
     ((TitledBorder)getBorder()).setTitle("Overview");
-    Set_Label(this.Label1, "Weight", String.format("%.2f kph", new Object[] { Double.valueOf(paramChassis_Blueprint.tonnage) }));
-    Set_Label(this.Label2, "Cost (C-Bills)", String.format("%,d C-Bills", new Object[] { Long.valueOf(paramModel_Blueprint.cbill_cost) }));
+    Set_Label(this.Label1, "Weight", String.format("%.2f kph", new Object[] { paramChassis_Blueprint.tonnage}));
+    Set_Label(this.Label2, "Cost (C-Bills)", String.format("%,d C-Bills", new Object[] { paramModel_Blueprint.cbill_cost}));
     if (User.variant.chassis_type.tonnage > 75.0D) {
-      Set_Label(this.Label3, "Class", weigthClasses[3]);
+      Set_Label(this.Label3, "Class", Constants.weigthClasses[3]);
     } else if (User.variant.chassis_type.tonnage > 55.0D) {
-      Set_Label(this.Label3, "Class", weigthClasses[2]);
+      Set_Label(this.Label3, "Class", Constants.weigthClasses[2]);
     } else if (User.variant.chassis_type.tonnage > 35.0D) {
-      Set_Label(this.Label3, "Class", weigthClasses[1]);
+      Set_Label(this.Label3, "Class", Constants.weigthClasses[1]);
     } else {
-      Set_Label(this.Label3, "Class", weigthClasses[0]);
+      Set_Label(this.Label3, "Class", Constants.weigthClasses[0]);
     }
     if (User.variant.model_type.cbill_cost != 0L) {
       User.variant.model_type.mc_cost = ((int)(User.variant.model_type.cbill_cost / 2500L));
@@ -268,7 +263,7 @@ public class ComponentPanel
     } else {
       User.variant.model_type.mc_cost = 0;
     }
-    Set_Label(this.Label4, "Cost (MC)", String.format("%,d MC", new Object[] { Integer.valueOf(paramModel_Blueprint.mc_cost) }));
+    Set_Label(this.Label4, "Cost (MC)", String.format("%,d MC", new Object[] { paramModel_Blueprint.mc_cost}));
     Set_Bottom_Row_Usage(false);
   }
   
@@ -287,10 +282,10 @@ public class ComponentPanel
     ((TitledBorder)getBorder()).setTitle("Movement Archetype");
     Set_Label(this.Label1, "Type", paramString);
     Set_Label(this.Label2, "", "");
-    Set_Label(this.Label3, "Max Climb", String.format("%.1f", new Object[] { Double.valueOf(45.0D) }));
+    Set_Label(this.Label3, "Max Climb", String.format("%.1f", new Object[] { 45.0D}));
     for (int i = 0; i < 5; i++) {
-      if (paramString.equals(MOVEMENT_ARCHETYPES[i])) {
-        Set_Label(this.Label4, "Min Climb", String.format("%.1f", new Object[] { Double.valueOf(MIN_CLIMB_ANGLE[i]) }));
+      if (paramString.equals(Constants.MOVEMENT_ARCHETYPES[i])) {
+        Set_Label(this.Label4, "Min Climb", String.format("%.1f", new Object[] { Constants.MIN_CLIMB_ANGLE[i]}));
       }
     }
     Set_Bottom_Row_Usage(false);
@@ -299,9 +294,9 @@ public class ComponentPanel
   public void Set_Manueverability(Chassis_Blueprint paramChassis_Blueprint, Model_Blueprint paramModel_Blueprint, int paramInt, double paramDouble1, double paramDouble2, double paramDouble3)
   {
     ((TitledBorder)getBorder()).setTitle("Manueverability");
-    Set_Label(this.Label1, "Acceleration", String.format("%.1f", new Object[] { Double.valueOf((paramModel_Blueprint.acceleration_override > 0.0D ? paramChassis_Blueprint.acceleration : paramModel_Blueprint.acceleration_override) * paramDouble2) }));
-    Set_Label(this.Label2, "Deceleration", String.format("%.1f", new Object[] { Double.valueOf((paramModel_Blueprint.deceleration_override > 0.0D ? paramChassis_Blueprint.deceleration : paramModel_Blueprint.deceleration_override) * paramDouble3) }));
-    Set_Label(this.Label3, "Turn Rate", String.format("%.1f", new Object[] { Double.valueOf((paramModel_Blueprint.turn_rate_override > 0.0D ? paramChassis_Blueprint.turn_rate : paramModel_Blueprint.turn_rate_override) * paramDouble1) }));
+    Set_Label(this.Label1, "Acceleration", String.format("%.1f", new Object[] { (paramModel_Blueprint.acceleration_override > 0.0D ? paramChassis_Blueprint.acceleration : paramModel_Blueprint.acceleration_override) * paramDouble2}));
+    Set_Label(this.Label2, "Deceleration", String.format("%.1f", new Object[] { (paramModel_Blueprint.deceleration_override > 0.0D ? paramChassis_Blueprint.deceleration : paramModel_Blueprint.deceleration_override) * paramDouble3}));
+    Set_Label(this.Label3, "Turn Rate", String.format("%.1f", new Object[] { (paramModel_Blueprint.turn_rate_override > 0.0D ? paramChassis_Blueprint.turn_rate : paramModel_Blueprint.turn_rate_override) * paramDouble1}));
     Set_Label(this.Label4, "Jump Jet Max", "" + paramInt);
     Set_Bottom_Row_Usage(false);
   }
@@ -309,20 +304,20 @@ public class ComponentPanel
   public void Set_Movement_Range(Chassis_Blueprint paramChassis_Blueprint, Model_Blueprint paramModel_Blueprint, double paramDouble)
   {
     ((TitledBorder)getBorder()).setTitle("Movement Range");
-    Set_Label(this.Label1, "Torso Yaw", String.format("%.1f", new Object[] { Double.valueOf((paramModel_Blueprint.movement_range_overrides[0][0] > 0.0D ? paramModel_Blueprint.movement_range_overrides[0][0] : paramChassis_Blueprint.movement_ranges[0][0]) * paramDouble) }));
-    Set_Label(this.Label2, "Torso Pitch", String.format("%.1f", new Object[] { Double.valueOf(paramModel_Blueprint.movement_range_overrides[0][1] > 0.0D ? paramModel_Blueprint.movement_range_overrides[0][1] : paramChassis_Blueprint.movement_ranges[0][1]) }));
-    Set_Label(this.Label3, "Arm Yaw", String.format("%.1f", new Object[] { Double.valueOf(paramModel_Blueprint.movement_range_overrides[1][0] > 0.0D ? paramModel_Blueprint.movement_range_overrides[1][0] : paramChassis_Blueprint.movement_ranges[1][0]) }));
-    Set_Label(this.Label4, "Arm Pitch", String.format("%.1f", new Object[] { Double.valueOf(paramModel_Blueprint.movement_range_overrides[1][1] > 0.0D ? paramModel_Blueprint.movement_range_overrides[1][1] : paramChassis_Blueprint.movement_ranges[1][1]) }));
+    Set_Label(this.Label1, "Torso Yaw", String.format("%.1f", new Object[] { (paramModel_Blueprint.movement_range_overrides[0][0] > 0.0D ? paramModel_Blueprint.movement_range_overrides[0][0] : paramChassis_Blueprint.movement_ranges[0][0]) * paramDouble}));
+    Set_Label(this.Label2, "Torso Pitch", String.format("%.1f", new Object[] { paramModel_Blueprint.movement_range_overrides[0][1] > 0.0D ? paramModel_Blueprint.movement_range_overrides[0][1] : paramChassis_Blueprint.movement_ranges[0][1]}));
+    Set_Label(this.Label3, "Arm Yaw", String.format("%.1f", new Object[] { paramModel_Blueprint.movement_range_overrides[1][0] > 0.0D ? paramModel_Blueprint.movement_range_overrides[1][0] : paramChassis_Blueprint.movement_ranges[1][0]}));
+    Set_Label(this.Label4, "Arm Pitch", String.format("%.1f", new Object[] { paramModel_Blueprint.movement_range_overrides[1][1] > 0.0D ? paramModel_Blueprint.movement_range_overrides[1][1] : paramChassis_Blueprint.movement_ranges[1][1]}));
     Set_Bottom_Row_Usage(false);
   }
   
   public void Set_Movement_Speed(Chassis_Blueprint paramChassis_Blueprint, Model_Blueprint paramModel_Blueprint, double paramDouble1, double paramDouble2)
   {
     ((TitledBorder)getBorder()).setTitle("Movement Speed");
-    Set_Label(this.Label1, "Torso Yaw", String.format("%.1f", new Object[] { Double.valueOf((paramModel_Blueprint.movement_speed_overrides[0][0] > 0.0D ? paramModel_Blueprint.movement_speed_overrides[0][0] : paramChassis_Blueprint.movement_speeds[0][0]) * paramDouble1) }));
-    Set_Label(this.Label2, "Torso Pitch", String.format("%.1f", new Object[] { Double.valueOf((paramModel_Blueprint.movement_speed_overrides[0][1] > 0.0D ? paramModel_Blueprint.movement_speed_overrides[0][1] : paramChassis_Blueprint.movement_speeds[0][1]) * paramDouble1) }));
-    Set_Label(this.Label3, "Arm Yaw", String.format("%.1f", new Object[] { Double.valueOf((paramModel_Blueprint.movement_speed_overrides[1][0] > 0.0D ? paramModel_Blueprint.movement_speed_overrides[1][0] : paramChassis_Blueprint.movement_speeds[1][0]) * paramDouble2) }));
-    Set_Label(this.Label4, "Arm Pitch", String.format("%.1f", new Object[] { Double.valueOf((paramModel_Blueprint.movement_speed_overrides[1][1] > 0.0D ? paramModel_Blueprint.movement_speed_overrides[1][1] : paramChassis_Blueprint.movement_speeds[1][1]) * paramDouble2) }));
+    Set_Label(this.Label1, "Torso Yaw", String.format("%.1f", new Object[] { (paramModel_Blueprint.movement_speed_overrides[0][0] > 0.0D ? paramModel_Blueprint.movement_speed_overrides[0][0] : paramChassis_Blueprint.movement_speeds[0][0]) * paramDouble1}));
+    Set_Label(this.Label2, "Torso Pitch", String.format("%.1f", new Object[] { (paramModel_Blueprint.movement_speed_overrides[0][1] > 0.0D ? paramModel_Blueprint.movement_speed_overrides[0][1] : paramChassis_Blueprint.movement_speeds[0][1]) * paramDouble1}));
+    Set_Label(this.Label3, "Arm Yaw", String.format("%.1f", new Object[] { (paramModel_Blueprint.movement_speed_overrides[1][0] > 0.0D ? paramModel_Blueprint.movement_speed_overrides[1][0] : paramChassis_Blueprint.movement_speeds[1][0]) * paramDouble2}));
+    Set_Label(this.Label4, "Arm Pitch", String.format("%.1f", new Object[] { (paramModel_Blueprint.movement_speed_overrides[1][1] > 0.0D ? paramModel_Blueprint.movement_speed_overrides[1][1] : paramChassis_Blueprint.movement_speeds[1][1]) * paramDouble2}));
     Set_Bottom_Row_Usage(false);
   }
   
@@ -346,9 +341,3 @@ public class ComponentPanel
     Set_Bottom_Row_Usage(false);
   }
 }
-
-
-/* Location:              C:\Users\Trevin\Dropbox\Public\MWO Mechbay.zip!\MWO_Mechbay.jar!\GUI\ComponentPanel.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       0.7.1
- */

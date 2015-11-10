@@ -506,6 +506,7 @@ public class MechTreeDialogBox
     this.closeButton.setPreferredSize(new Dimension(110, 30));
     this.closeButton.addActionListener(new ActionListener()
     {
+      @Override
       public void actionPerformed(ActionEvent paramAnonymousActionEvent)
       {
         MechTreeDialogBox.this.closeButtonActionPerformed(paramAnonymousActionEvent);
