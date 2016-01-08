@@ -115,10 +115,10 @@ public class WeaponBlueprint extends Blueprint {
         int i = 0;
         this.name = arrayOfString[(i++)];
         this.id = Integer.parseInt(arrayOfString[(i++)]);
-        this.tech_base = TechBase.valueOf(arrayOfString[(i++)]);
+        this.tech_base = TechBase.getEnum(arrayOfString[(i++)]);
         this.health = Integer.parseInt(arrayOfString[(i++)]);
         this.criticals = Integer.parseInt(arrayOfString[(i++)]);
-        this.hardpoint_type = HardpointType.valueOf(arrayOfString[(i++)]);
+        this.hardpoint_type = HardpointType.getEnum(arrayOfString[(i++)]);
         this.actuator_compatible = Boolean.parseBoolean(arrayOfString[(i++)]);
         this.artemis_capable = Boolean.parseBoolean(arrayOfString[(i++)]);
         this.apollo_capable = Boolean.parseBoolean(arrayOfString[(i++)]);

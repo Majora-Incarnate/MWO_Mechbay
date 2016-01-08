@@ -1,7 +1,7 @@
 package Utility;
 
 public class CockpitBlueprint extends Blueprint {
-    public String tech_base;
+    public TechBase tech_base;
     public double tonnage;
     public int criticals;
     public int item_cost;
@@ -12,7 +12,7 @@ public class CockpitBlueprint extends Blueprint {
         int i = 0;
         this.name = arrayOfString[(i++)];
         this.id = Integer.parseInt(arrayOfString[(i++)]);
-        this.tech_base = arrayOfString[(i++)];
+        this.tech_base = TechBase.getEnum(arrayOfString[(i++)]);
         this.tonnage = Double.parseDouble(arrayOfString[(i++)]);
         this.criticals = Integer.parseInt(arrayOfString[(i++)]);
         this.item_cost = Integer.parseInt(arrayOfString[(i++)]);

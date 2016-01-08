@@ -5,10 +5,11 @@ import Utility.User;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class AboutDialogBox
-        extends JDialog {
+public class AboutDialogBox extends JDialog {
+
+    private static final long serialVersionUID = -6163429021390520229L;
+    
     private JLabel MWOLabel;
     private JLabel MWOTitle;
     private JLabel authorLabel;
@@ -22,13 +23,13 @@ public class AboutDialogBox
     private JLabel versionLabel;
     private JLabel versionTitle;
 
-    public AboutDialogBox(Frame paramFrame, boolean paramBoolean, String paramString) {
-        super(paramFrame, paramBoolean);
+    public AboutDialogBox(final Frame parent, final boolean isModal, final String mechbayVersion, final String mwoVersion) {
+        super(parent, isModal);
         initComponents();
-        setTitle("About " + paramFrame.getTitle());
-        this.titleLabel.setText(paramFrame.getTitle());
-        this.versionLabel.setText(paramString);
-        this.MWOLabel.setText(User.mwo_stage);
+        setTitle("About " + parent.getTitle());
+        this.titleLabel.setText(parent.getTitle());
+        this.versionLabel.setText(mechbayVersion);
+        this.MWOLabel.setText(mwoVersion);
     }
 
     private void initComponents() {
@@ -59,11 +60,8 @@ public class AboutDialogBox
         this.closeButton.setMaximumSize(new Dimension(128, 24));
         this.closeButton.setMinimumSize(new Dimension(128, 24));
         this.closeButton.setPreferredSize(new Dimension(128, 24));
-        this.closeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent paramAnonymousActionEvent) {
-                AboutDialogBox.this.closeButtonActionPerformed(paramAnonymousActionEvent);
-            }
+        this.closeButton.addActionListener((ActionEvent paramAnonymousActionEvent) -> {
+            AboutDialogBox.this.closeButtonActionPerformed(paramAnonymousActionEvent);
         });
         GridBagConstraints localGridBagConstraints = new GridBagConstraints();
         localGridBagConstraints.gridx = 1;

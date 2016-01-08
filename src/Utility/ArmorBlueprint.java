@@ -1,9 +1,10 @@
 package Utility;
 
 public class ArmorBlueprint extends Blueprint {
-    public String tech_base;
+    public TechBase tech_base;
     public int criticals;
     public double points_per_ton;
+    public double armor_per_point;
     public double cost_per_ton;
     public double upgrade_modifier;
 
@@ -12,9 +13,10 @@ public class ArmorBlueprint extends Blueprint {
         int i = 0;
         this.name = arrayOfString[(i++)];
         this.id = Integer.parseInt(arrayOfString[(i++)]);
-        this.tech_base = arrayOfString[(i++)];
+        this.tech_base = TechBase.getEnum(arrayOfString[(i++)]);
         this.criticals = Integer.parseInt(arrayOfString[(i++)]);
         this.points_per_ton = Double.parseDouble(arrayOfString[(i++)]);
+        this.armor_per_point = Double.parseDouble(arrayOfString[(i++)]);
         this.cost_per_ton = Double.parseDouble(arrayOfString[(i++)]);
         this.upgrade_modifier = Double.parseDouble(arrayOfString[(i++)]);
     }
@@ -29,9 +31,6 @@ public class ArmorBlueprint extends Blueprint {
 
     public double Get_Tonnage(int paramInt) {
         return paramInt / this.points_per_ton;
-    }
-
-    public void Print() {
     }
 
     @Override

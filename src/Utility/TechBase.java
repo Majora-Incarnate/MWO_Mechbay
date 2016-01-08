@@ -4,8 +4,9 @@ package Utility;
  * @author Trevin
  */
 public enum TechBase {
-    IS_TECH_BASE("IS", "InnerSphere", 0),
-    CLAN_TECH_BASE("CL", "Clan", 1);
+    UNIVERSAL_TECH_BASE("U", "Universal", 0),
+    IS_TECH_BASE("IS", "InnerSphere", 1),
+    CLAN_TECH_BASE("CL", "Clan", 2);
 
     public String short_name;
     public String long_name;
@@ -24,10 +25,16 @@ public enum TechBase {
 
     public static TechBase getEnum(String value) {
         switch(value) {
+            case "IS":
             case "InnerSphere":
+            case "INNERSPHERE":
                 return IS_TECH_BASE;
+            case "CL":
             case "Clan":
+            case "CLAN":
                 return CLAN_TECH_BASE;
+            case "ALL":
+                return UNIVERSAL_TECH_BASE;
             default:
                 throw new IllegalArgumentException(String.format("Could not create enum based on given value: %s", value));
         }

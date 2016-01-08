@@ -1,8 +1,7 @@
 package Utility;
 
-public class FireControlBlueprint
-        extends Blueprint {
-    public String tech_base;
+public class FireControlBlueprint extends Blueprint {
+    public TechBase tech_base;
     public double spread_modifier;
     public int criticals_modifier;
     public double tonnage_modifier;
@@ -14,7 +13,7 @@ public class FireControlBlueprint
         int i = 0;
         this.name = arrayOfString[(i++)];
         this.id = Integer.parseInt(arrayOfString[(i++)]);
-        this.tech_base = arrayOfString[(i++)];
+        this.tech_base = TechBase.getEnum(arrayOfString[(i++)]);
         this.criticals_modifier = Integer.parseInt(arrayOfString[(i++)]);
         this.tonnage_modifier = Double.parseDouble(arrayOfString[(i++)]);
         this.spread_modifier = Double.parseDouble(arrayOfString[(i++)]);

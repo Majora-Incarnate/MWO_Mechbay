@@ -1,7 +1,7 @@
 package Utility;
 
 public class AmmoBlueprint extends Blueprint {
-    public String tech_base;
+    public TechBase tech_base;
     public int health;
     public int criticals;
     public String type;
@@ -16,7 +16,7 @@ public class AmmoBlueprint extends Blueprint {
         int i = 0;
         this.name = arrayOfString[(i++)];
         this.id = Integer.parseInt(arrayOfString[(i++)]);
-        this.tech_base = arrayOfString[(i++)];
+        this.tech_base = TechBase.getEnum(arrayOfString[(i++)]);
         this.artemis_capable = Boolean.parseBoolean(arrayOfString[(i++)]);
         this.apollo_capable = Boolean.parseBoolean(arrayOfString[(i++)]);
         this.health = Integer.parseInt(arrayOfString[(i++)]);

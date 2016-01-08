@@ -1,22 +1,22 @@
 package Utility;
 
 public class HeatSinkBlueprint extends Blueprint {
-    public String tech_base;
-    public double tonnage;
-    public int criticals;
-    public double engine_dissipation;
-    public double normal_dissipation;
-    public double threshold_boost;
-    public int space_modifier;
-    public int item_cost;
-    public int upgrade_cost;
+    public final TechBase tech_base;
+    public final double tonnage;
+    public final int criticals;
+    public final double engine_dissipation;
+    public final double normal_dissipation;
+    public final double threshold_boost;
+    public final int space_modifier;
+    public final int item_cost;
+    public final int upgrade_cost;
 
     public HeatSinkBlueprint(String paramString) {
         String[] arrayOfString = paramString.split(";");
         int i = 0;
         this.name = arrayOfString[(i++)];
         this.id = Integer.parseInt(arrayOfString[(i++)]);
-        this.tech_base = arrayOfString[(i++)];
+        this.tech_base = TechBase.getEnum(arrayOfString[(i++)]);
         this.tonnage = Double.parseDouble(arrayOfString[(i++)]);
         this.criticals = Integer.parseInt(arrayOfString[(i++)]);
         this.engine_dissipation = Double.parseDouble(arrayOfString[(i++)]);
@@ -27,32 +27,33 @@ public class HeatSinkBlueprint extends Blueprint {
         this.upgrade_cost = Integer.parseInt(arrayOfString[(i++)]);
     }
 
-    public int Get_Item_Cost(int paramInt1, int paramInt2) {
-        if (paramInt2 < 250) {
-            return this.item_cost * (paramInt1 - (10 - paramInt2 / 250));
+    public int Get_Item_Cost(int heatSinkCount, int engineRating) {
+        if (engineRating < 250) {
+            return this.item_cost * (heatSinkCount - (10 - engineRating / 250));
         }
-        return this.item_cost * (paramInt1 - 10);
+        return this.item_cost * (heatSinkCount - 10);
     }
 
     public int Get_Upgrade_Cost() {
         return this.upgrade_cost;
     }
 
-    public double Get_Tonnage(int paramInt1, int paramInt2) {
-        if (paramInt2 < 250) {
-            return this.tonnage * (paramInt1 - (10 - paramInt2 / 250));
+    public double Get_Tonnage(int heatSinkCount, int engineRating) {
+        if (engineRating < 250) {
+            return this.tonnage * (heatSinkCount - (10 - engineRating / 250));
         }
-        return this.tonnage * (paramInt1 - 10);
+        return this.tonnage * (heatSinkCount - 10);
     }
 
-    public double Get_Dissipation(int paramInt1, int paramInt2) {
-        paramInt2 = paramInt2 > 250 ? 10 : paramInt2 / 25;
-        paramInt1 -= paramInt2;
-        return this.engine_dissipation * paramInt2 + paramInt1 * this.normal_dissipation;
+    public double Get_Dissipation(final int heatSinkCount, final int engineRating) {
+        final int engineHeatSinks = engineRating > 250 ? 10 : engineRating / 25;
+        final int externalHeatSinkCount = heatSinkCount - engineHeatSinks;
+        
+        return this.engine_dissipation * engineHeatSinks + externalHeatSinkCount * this.normal_dissipation;
     }
 
-    public double Get_Threshold(int paramInt) {
-        return 30.0D + paramInt * this.threshold_boost;
+    public double Get_Threshold(int heatSinkCount) {
+        return 30.0D + heatSinkCount * this.threshold_boost;
     }
 
     public void Print() {

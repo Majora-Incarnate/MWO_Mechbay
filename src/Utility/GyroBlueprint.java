@@ -1,18 +1,18 @@
 package Utility;
 
 public class GyroBlueprint extends Blueprint {
-    public String tech_base;
-    public double tonnage_modifier;
-    public int criticals;
-    public int item_modifier;
-    public int upgrade_cost;
+    public final TechBase tech_base;
+    public final double tonnage_modifier;
+    public final int criticals;
+    public final int item_modifier;
+    public final int upgrade_cost;
 
     public GyroBlueprint(String paramString) {
         String[] arrayOfString = paramString.split(";");
         int i = 0;
         this.name = arrayOfString[(i++)];
         this.id = Integer.parseInt(arrayOfString[(i++)]);
-        this.tech_base = arrayOfString[(i++)];
+        this.tech_base = TechBase.getEnum(arrayOfString[(i++)]);
         this.criticals = Integer.parseInt(arrayOfString[(i++)]);
         this.tonnage_modifier = Double.parseDouble(arrayOfString[(i++)]);
         this.item_modifier = Integer.parseInt(arrayOfString[(i++)]);

@@ -7,6 +7,9 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 
 public class ComponentPanel extends JPanel {
+
+    private static final long serialVersionUID = 7577995873909787972L;
+    
     public JLabel Label1;
     public JLabel Label2;
     public JLabel Label3;
@@ -32,6 +35,7 @@ public class ComponentPanel extends JPanel {
         setOpaque(false);
         setPreferredSize(new Dimension(295, 100));
         setLayout(new GridBagLayout());
+        
         this.Label1.setFont(User.preferences.DEFAULT_FONT_SIZE_10);
         this.Label1.setHorizontalAlignment(0);
         this.Label1.setAlignmentY(0.0F);
@@ -74,6 +78,7 @@ public class ComponentPanel extends JPanel {
         localGridBagConstraints.weightx = 1.0D;
         localGridBagConstraints.weighty = 1.0D;
         add(this.Label3, localGridBagConstraints);
+        
         this.Label4.setFont(User.preferences.DEFAULT_FONT_SIZE_10);
         this.Label4.setHorizontalAlignment(0);
         this.Label4.setAlignmentY(0.0F);
@@ -88,6 +93,7 @@ public class ComponentPanel extends JPanel {
         localGridBagConstraints.weightx = 1.0D;
         localGridBagConstraints.weighty = 1.0D;
         add(this.Label4, localGridBagConstraints);
+        
         this.Label5.setFont(User.preferences.DEFAULT_FONT_SIZE_10);
         this.Label5.setHorizontalAlignment(0);
         this.Label5.setAlignmentY(0.0F);
@@ -125,96 +131,96 @@ public class ComponentPanel extends JPanel {
         this.Label6.setVisible(paramBoolean);
     }
 
-    public void Set_Label(JLabel paramJLabel, String paramString1, String paramString2) {
-        paramJLabel.setText(paramString2);
-        ((TitledBorder) paramJLabel.getBorder()).setTitle(paramString1);
+    public void Set_Label(JLabel label, String title, String text) {
+        label.setText(text);
+        ((TitledBorder) label.getBorder()).setTitle(title);
     }
 
-    public void Set_Armor(ArmorBlueprint paramArmor_Blueprint, int paramInt) {
+    public void Set_Armor(ArmorBlueprint blueprint, int paramInt) {
         ((TitledBorder) getBorder()).setTitle("Armor");
-        Set_Label(this.Label1, "Type", paramArmor_Blueprint.name);
-        Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", paramArmor_Blueprint.Get_Item_Cost(paramInt)));
-        Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", paramArmor_Blueprint.Get_Tonnage(paramInt)));
-        Set_Label(this.Label4, "Criticals", "" + paramArmor_Blueprint.criticals);
+        Set_Label(this.Label1, "Type", blueprint.name);
+        Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", blueprint.Get_Item_Cost(paramInt)));
+        Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", blueprint.Get_Tonnage(paramInt)));
+        Set_Label(this.Label4, "Criticals", "" + blueprint.criticals);
         Set_Bottom_Row_Usage(false);
     }
 
-    public void Set_Heatsinks(HeatSinkBlueprint paramHeatsink_Blueprint, int paramInt1, int paramInt2) {
+    public void Set_Heatsinks(final HeatSinkBlueprint blueprint, final int heatSinkCount, final int engineRating) {
         ((TitledBorder) getBorder()).setTitle("Heat Sinks");
-        Set_Label(this.Label1, "Type", paramHeatsink_Blueprint.name);
-        Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", paramHeatsink_Blueprint.Get_Item_Cost(paramInt2, paramInt1)));
-        Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", paramHeatsink_Blueprint.Get_Tonnage(paramInt2, paramInt1)));
-        Set_Label(this.Label4, "Count", "" + paramInt2);
+        Set_Label(this.Label1, "Type", blueprint.name);
+        Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", blueprint.Get_Item_Cost(heatSinkCount, engineRating)));
+        Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", blueprint.Get_Tonnage(heatSinkCount, engineRating)));
+        Set_Label(this.Label4, "Count", "" + heatSinkCount);
         Set_Bottom_Row_Usage(true);
-        Set_Label(this.Label5, "Dissipation", String.format("%.2f hps", 0.0D - paramHeatsink_Blueprint.Get_Dissipation(paramInt2, paramInt1)));
-        Set_Label(this.Label6, "Threshold", String.format("%.2f heat", paramHeatsink_Blueprint.Get_Threshold(paramInt2)));
+        Set_Label(this.Label5, "Dissipation", String.format("%.2f hps", 0.0D - blueprint.Get_Dissipation(heatSinkCount, engineRating)));
+        Set_Label(this.Label6, "Threshold", String.format("%.2f heat", blueprint.Get_Threshold(heatSinkCount)));
     }
 
-    public void Set_Structure(StructureBlueprint paramStructure_Blueprint, double paramDouble) {
+    public void Set_Structure(StructureBlueprint blueprint, double tonnage) {
         ((TitledBorder) getBorder()).setTitle("Structure");
-        Set_Label(this.Label1, "Type", paramStructure_Blueprint.name);
-        Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", paramStructure_Blueprint.Get_Item_Cost(paramDouble)));
-        Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", paramStructure_Blueprint.Get_Tonnage(paramDouble)));
-        Set_Label(this.Label4, "Criticals", "" + paramStructure_Blueprint.criticals);
+        Set_Label(this.Label1, "Type", blueprint.name);
+        Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", blueprint.getItemCost(tonnage)));
+        Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", blueprint.getTonnage(tonnage)));
+        Set_Label(this.Label4, "Criticals", "" + blueprint.criticals);
         Set_Bottom_Row_Usage(false);
     }
 
-    public void Set_Jumpjets(JumpJetBlueprint paramJumpjet_Blueprint, int paramInt, double paramDouble) {
+    public void Set_Jumpjets(JumpJetBlueprint blueprint, int jump_jet_count, double tonnage) {
         ((TitledBorder) getBorder()).setTitle("Jump Jets");
-        Set_Label(this.Label1, "Type", paramJumpjet_Blueprint.name);
-        Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", paramInt * paramJumpjet_Blueprint.Get_Item_Cost(paramDouble)));
-        Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", paramInt * paramJumpjet_Blueprint.Get_Base_Tonnage(paramDouble)));
-        Set_Label(this.Label4, "Criticals", "" + paramJumpjet_Blueprint.criticals);
+        Set_Label(this.Label1, "Type", blueprint.name);
+        Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", jump_jet_count * blueprint.Get_Item_Cost(tonnage)));
+        Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", jump_jet_count * blueprint.Get_Base_Tonnage(tonnage)));
+        Set_Label(this.Label4, "Criticals", "" + blueprint.criticals);
         Set_Bottom_Row_Usage(false);
     }
 
-    public void Set_Myomer(MyomerBlueprint paramMyomer_Blueprint) {
+    public void Set_Myomer(MyomerBlueprint blueprint) {
         ((TitledBorder) getBorder()).setTitle("Myomer");
         Set_Bottom_Row_Usage(false);
     }
 
-    public void Set_Engine(EngineBlueprint paramEngine_Blueprint, int paramInt) {
+    public void Set_Engine(EngineBlueprint blueprint, int engine_rating) {
         ((TitledBorder) getBorder()).setTitle("Engine");
-        Set_Label(this.Label1, "Type", paramEngine_Blueprint.name);
-        Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", paramEngine_Blueprint.Get_Cost(paramInt)));
-        Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", paramEngine_Blueprint.Get_Tonnage(paramInt)));
-        Set_Label(this.Label4, "Criticals", "" + (paramEngine_Blueprint.center_torso_criticals + paramEngine_Blueprint.side_torso_criticals));
+        Set_Label(this.Label1, "Type", blueprint.name);
+        Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", blueprint.Get_Cost(engine_rating)));
+        Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", blueprint.Get_Tonnage(engine_rating)));
+        Set_Label(this.Label4, "Criticals", "" + (blueprint.center_torso_criticals + blueprint.side_torso_criticals));
         Set_Bottom_Row_Usage(true);
-        Set_Label(this.Label5, "Engine Rating", "" + paramInt);
-        Set_Label(this.Label6, "Internal Heat Sink", "" + paramInt / 25);
+        Set_Label(this.Label5, "Engine Rating", "" + engine_rating);
+        Set_Label(this.Label6, "Internal Heat Sink", "" + engine_rating / 25);
     }
 
-    public void Set_Cockpit(CockpitBlueprint paramCockpit_Blueprint) {
+    public void Set_Cockpit(CockpitBlueprint blueprint) {
         ((TitledBorder) getBorder()).setTitle("Cockpit");
-        Set_Label(this.Label1, "Type", paramCockpit_Blueprint.name);
-        Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", paramCockpit_Blueprint.item_cost));
-        Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", paramCockpit_Blueprint.tonnage));
-        Set_Label(this.Label4, "Criticals", "" + paramCockpit_Blueprint.criticals);
+        Set_Label(this.Label1, "Type", blueprint.name);
+        Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", blueprint.item_cost));
+        Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", blueprint.tonnage));
+        Set_Label(this.Label4, "Criticals", "" + blueprint.criticals);
         Set_Bottom_Row_Usage(false);
     }
 
-    public void Set_Gyro(GyroBlueprint paramGyro_Blueprint, int paramInt) {
+    public void Set_Gyro(GyroBlueprint blueprint, int engine_rating) {
         ((TitledBorder) getBorder()).setTitle("Gyro");
-        Set_Label(this.Label1, "Type", paramGyro_Blueprint.name);
-        Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", paramGyro_Blueprint.Get_Item_Cost(paramInt)));
-        Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", paramGyro_Blueprint.Get_Tonnage(paramInt)));
-        Set_Label(this.Label4, "Criticals", "" + paramGyro_Blueprint.criticals);
+        Set_Label(this.Label1, "Type", blueprint.name);
+        Set_Label(this.Label2, "Cost", String.format("%,d C-Bills", blueprint.Get_Item_Cost(engine_rating)));
+        Set_Label(this.Label3, "Tonnage", String.format("%.2f tons", blueprint.Get_Tonnage(engine_rating)));
+        Set_Label(this.Label4, "Criticals", "" + blueprint.criticals);
         Set_Bottom_Row_Usage(false);
     }
 
-    public void Set_Speed_Limits(ChassisBlueprint paramChassis_Blueprint, ModelBlueprint paramModel_Blueprint, double paramDouble1, double paramDouble2, double paramDouble3, boolean paramBoolean) {
+    public void Set_Speed_Limits(ChassisBlueprint chassis_blueprint, ModelBlueprint model_blueprint, double speedModifier, double mascModifier) {
         ((TitledBorder) getBorder()).setTitle("Speed Limits");
-        Set_Label(this.Label1, "Min Rating", "" + Variant.GetMinEngineRating(paramChassis_Blueprint, paramModel_Blueprint, paramBoolean));
-        Set_Label(this.Label2, "Max Rating", "" + Variant.GetMaxEngineRating(paramChassis_Blueprint, paramModel_Blueprint, paramBoolean));
-        Set_Label(this.Label3, "Min Speed", String.format("%.2f kph", Variant.GetMinEngineRating(paramChassis_Blueprint, paramModel_Blueprint, paramBoolean) * paramDouble1 * paramDouble2 / paramDouble3));
-        Set_Label(this.Label4, "Max Speed", String.format("%.2f kph", Variant.GetMaxEngineRating(paramChassis_Blueprint, paramModel_Blueprint, paramBoolean) * paramDouble1 * paramDouble2 / paramDouble3));
+        Set_Label(this.Label1, "Min Rating", "" + Variant.GetMinEngineRating(chassis_blueprint, model_blueprint));
+        Set_Label(this.Label2, "Max Rating", "" + Variant.GetMaxEngineRating(chassis_blueprint, model_blueprint));
+        Set_Label(this.Label3, "Min Speed", String.format("%.2f kph", Variant.GetMinEngineRating(chassis_blueprint, model_blueprint) * speedModifier * mascModifier / chassis_blueprint.tonnage));
+        Set_Label(this.Label4, "Max Speed", String.format("%.2f kph", Variant.GetMaxEngineRating(chassis_blueprint, model_blueprint) * speedModifier * mascModifier / chassis_blueprint.tonnage));
         Set_Bottom_Row_Usage(false);
     }
 
-    public void Set_Overview(ChassisBlueprint paramChassis_Blueprint, ModelBlueprint paramModel_Blueprint) {
+    public void Set_Overview(ChassisBlueprint chassis_blueprint, ModelBlueprint model_blueprint) {
         ((TitledBorder) getBorder()).setTitle("Overview");
-        Set_Label(this.Label1, "Weight", String.format("%.2f kph", paramChassis_Blueprint.tonnage));
-        Set_Label(this.Label2, "Cost (C-Bills)", String.format("%,d C-Bills", paramModel_Blueprint.cbill_cost));
+        Set_Label(this.Label1, "Weight", String.format("%.2f kph", chassis_blueprint.tonnage));
+        Set_Label(this.Label2, "Cost (C-Bills)", String.format("%,d C-Bills", model_blueprint.cbill_cost));
         if (User.variant.chassis_type.tonnage > 75.0D) {
             Set_Label(this.Label3, "Class", WeightClass.ASSAULT.toString());
         } else if (User.variant.chassis_type.tonnage > 55.0D) {
@@ -233,56 +239,52 @@ public class ComponentPanel extends JPanel {
         } else {
             User.variant.model_type.mc_cost = 0;
         }
-        Set_Label(this.Label4, "Cost (MC)", String.format("%,d MC", paramModel_Blueprint.mc_cost));
+        Set_Label(this.Label4, "Cost (MC)", String.format("%,d MC", model_blueprint.mc_cost));
         Set_Bottom_Row_Usage(false);
     }
 
-    public void Set_Modules(ChassisBlueprint paramChassis_Blueprint, ModelBlueprint paramModel_Blueprint, boolean paramBoolean) {
+    public void Set_Modules(ChassisBlueprint chassis_blueprint, ModelBlueprint model_blueprint, boolean isMastered) {
         ((TitledBorder) getBorder()).setTitle("Modules");
-        Set_Label(this.Label1, "Hybrid", "" + (paramBoolean ? 1 : 0));
-        Set_Label(this.Label2, "Mech", "" + (paramModel_Blueprint.mech_modules_override != -1 ? paramModel_Blueprint.mech_modules_override : paramChassis_Blueprint.mech_modules));
-        Set_Label(this.Label3, "Consumable", "" + (paramModel_Blueprint.consumable_modules_override != -1 ? paramModel_Blueprint.consumable_modules_override : paramChassis_Blueprint.consumable_modules));
-        Set_Label(this.Label4, "Weapon", "" + (paramModel_Blueprint.weapon_modules_override != -1 ? paramModel_Blueprint.weapon_modules_override : paramChassis_Blueprint.weapon_modules));
+        Set_Label(this.Label1, "Hybrid", "" + (isMastered ? 1 : 0));
+        Set_Label(this.Label2, "Mech", "" + model_blueprint.mech_modules);
+        Set_Label(this.Label3, "Consumable", "" + model_blueprint.consumable_modules);
+        Set_Label(this.Label4, "Weapon", "" + model_blueprint.weapon_modules);
         Set_Bottom_Row_Usage(false);
     }
 
-    public void Set_Movement_Archetype(String paramString) {
+    public void Set_Movement_Archetype(MovementArchetype archetype) {
         ((TitledBorder) getBorder()).setTitle("Movement Archetype");
-        Set_Label(this.Label1, "Type", paramString);
+        Set_Label(this.Label1, "Type", archetype.name);
         Set_Label(this.Label2, "", "");
-        Set_Label(this.Label3, "Max Climb", String.format("%.1f", 45.0D));
-        for (int i = 0; i < 5; i++) {
-            if (paramString.equals(MovementArchetype.values()[i].name)) {
-                Set_Label(this.Label4, "Min Climb", String.format("%.1f", MovementArchetype.values()[i].min_climb_angle));
-            }
-        }
+        Set_Label(this.Label3, "Max Climb", String.format("%.1f", archetype.max_climb_angle));
+        Set_Label(this.Label4, "Min Climb", String.format("%.1f", archetype.min_climb_angle));
         Set_Bottom_Row_Usage(false);
     }
 
-    public void Set_Manueverability(ChassisBlueprint paramChassis_Blueprint, ModelBlueprint paramModel_Blueprint, int paramInt, double paramDouble1, double paramDouble2, double paramDouble3) {
+    public void Set_Manueverability(ChassisBlueprint chassis_blueprint, ModelBlueprint model_blueprint, int numberOfJumpJets) {
         ((TitledBorder) getBorder()).setTitle("Manueverability");
-        Set_Label(this.Label1, "Acceleration", String.format("%.1f", (paramModel_Blueprint.acceleration_override > 0.0D ? paramChassis_Blueprint.acceleration : paramModel_Blueprint.acceleration_override) * paramDouble2));
-        Set_Label(this.Label2, "Deceleration", String.format("%.1f", (paramModel_Blueprint.deceleration_override > 0.0D ? paramChassis_Blueprint.deceleration : paramModel_Blueprint.deceleration_override) * paramDouble3));
-        Set_Label(this.Label3, "Turn Rate", String.format("%.1f", (paramModel_Blueprint.turn_rate_override > 0.0D ? paramChassis_Blueprint.turn_rate : paramModel_Blueprint.turn_rate_override) * paramDouble1));
-        Set_Label(this.Label4, "Jump Jet Max", "" + paramInt);
+        Set_Label(this.Label1, "Acceleration", String.format("%.1f", model_blueprint.acceleration * User.kinetic_burst_modifier));
+        Set_Label(this.Label2, "Deceleration", String.format("%.1f", model_blueprint.deceleration * User.hard_brake_modifier));
+        Set_Label(this.Label3, "Turn Rate", String.format("%.1f", model_blueprint.turn_rate * User.anchor_turn_modifier));
+        Set_Label(this.Label4, "Jump Jet Max", "" + numberOfJumpJets);
         Set_Bottom_Row_Usage(false);
     }
 
-    public void Set_Movement_Range(ChassisBlueprint paramChassis_Blueprint, ModelBlueprint paramModel_Blueprint, double paramDouble) {
+    public void Set_Movement_Range(ChassisBlueprint chassis_blueprint, ModelBlueprint model_blueprint) {
         ((TitledBorder) getBorder()).setTitle("Movement Range");
-        Set_Label(this.Label1, "Torso Yaw", String.format("%.1f", (paramModel_Blueprint.movement_range_overrides[0][0] > 0.0D ? paramModel_Blueprint.movement_range_overrides[0][0] : paramChassis_Blueprint.movement_ranges[0][0]) * paramDouble));
-        Set_Label(this.Label2, "Torso Pitch", String.format("%.1f", paramModel_Blueprint.movement_range_overrides[0][1] > 0.0D ? paramModel_Blueprint.movement_range_overrides[0][1] : paramChassis_Blueprint.movement_ranges[0][1]));
-        Set_Label(this.Label3, "Arm Yaw", String.format("%.1f", paramModel_Blueprint.movement_range_overrides[1][0] > 0.0D ? paramModel_Blueprint.movement_range_overrides[1][0] : paramChassis_Blueprint.movement_ranges[1][0]));
-        Set_Label(this.Label4, "Arm Pitch", String.format("%.1f", paramModel_Blueprint.movement_range_overrides[1][1] > 0.0D ? paramModel_Blueprint.movement_range_overrides[1][1] : paramChassis_Blueprint.movement_ranges[1][1]));
+        Set_Label(this.Label1, "Torso Yaw", String.format("%.1f", model_blueprint.movement_ranges[0][0] * User.twist_x_modifier));
+        Set_Label(this.Label2, "Torso Pitch", String.format("%.1f", model_blueprint.movement_ranges[0][1]));
+        Set_Label(this.Label3, "Arm Yaw", String.format("%.1f", model_blueprint.movement_ranges[1][0]));
+        Set_Label(this.Label4, "Arm Pitch", String.format("%.1f", model_blueprint.movement_ranges[1][1]));
         Set_Bottom_Row_Usage(false);
     }
 
-    public void Set_Movement_Speed(ChassisBlueprint paramChassis_Blueprint, ModelBlueprint paramModel_Blueprint, double paramDouble1, double paramDouble2) {
+    public void Set_Movement_Speed(ChassisBlueprint chassis_blueprint, ModelBlueprint model_blueprint) {
         ((TitledBorder) getBorder()).setTitle("Movement Speed");
-        Set_Label(this.Label1, "Torso Yaw", String.format("%.1f", (paramModel_Blueprint.movement_speed_overrides[0][0] > 0.0D ? paramModel_Blueprint.movement_speed_overrides[0][0] : paramChassis_Blueprint.movement_speeds[0][0]) * paramDouble1));
-        Set_Label(this.Label2, "Torso Pitch", String.format("%.1f", (paramModel_Blueprint.movement_speed_overrides[0][1] > 0.0D ? paramModel_Blueprint.movement_speed_overrides[0][1] : paramChassis_Blueprint.movement_speeds[0][1]) * paramDouble1));
-        Set_Label(this.Label3, "Arm Yaw", String.format("%.1f", (paramModel_Blueprint.movement_speed_overrides[1][0] > 0.0D ? paramModel_Blueprint.movement_speed_overrides[1][0] : paramChassis_Blueprint.movement_speeds[1][0]) * paramDouble2));
-        Set_Label(this.Label4, "Arm Pitch", String.format("%.1f", (paramModel_Blueprint.movement_speed_overrides[1][1] > 0.0D ? paramModel_Blueprint.movement_speed_overrides[1][1] : paramChassis_Blueprint.movement_speeds[1][1]) * paramDouble2));
+        Set_Label(this.Label1, "Torso Yaw", String.format("%.1f", model_blueprint.movement_speeds[0][0] * User.twist_speed_modifier));
+        Set_Label(this.Label2, "Torso Pitch", String.format("%.1f", model_blueprint.movement_speeds[0][1] * User.twist_speed_modifier));
+        Set_Label(this.Label3, "Arm Yaw", String.format("%.1f", model_blueprint.movement_speeds[1][0] * User.arm_reflex_modifier));
+        Set_Label(this.Label4, "Arm Pitch", String.format("%.1f", model_blueprint.movement_speeds[1][1] * User.arm_reflex_modifier));
         Set_Bottom_Row_Usage(false);
     }
 
@@ -295,12 +297,12 @@ public class ComponentPanel extends JPanel {
         Set_Bottom_Row_Usage(false);
     }
 
-    public void Set_Total_Hardpoints(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+    public void Set_Total_Hardpoints(int ballistic_count, int energy_count, int missile_count, int ams_count) {
         ((TitledBorder) getBorder()).setTitle("Total Hardpoints");
-        Set_Label(this.Label1, "Ballistic", "" + paramInt1);
-        Set_Label(this.Label2, "Energy", "" + paramInt2);
-        Set_Label(this.Label3, "Missile", "" + paramInt3);
-        Set_Label(this.Label4, "AMS", "" + paramInt4);
+        Set_Label(this.Label1, "Ballistic", "" + ballistic_count);
+        Set_Label(this.Label2, "Energy", "" + energy_count);
+        Set_Label(this.Label3, "Missile", "" + missile_count);
+        Set_Label(this.Label4, "AMS", "" + ams_count);
         Set_Bottom_Row_Usage(false);
     }
 }

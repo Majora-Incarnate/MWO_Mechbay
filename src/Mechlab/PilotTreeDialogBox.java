@@ -5,8 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PilotTreeDialogBox
-        extends JDialog {
+public class PilotTreeDialogBox extends JDialog {
     JButton closeButton;
     private JPanel ButtonPanel;
     private JTabbedPane PilotTreeTabbedPane;

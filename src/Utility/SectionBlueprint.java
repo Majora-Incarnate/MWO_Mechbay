@@ -1,11 +1,9 @@
 package Utility;
 
-import java.util.ArrayList;
-
 public class SectionBlueprint extends Blueprint {
     public String chassis;
     public String model;
-    public String section;
+    public SectionType section;
     public int criticals;
     public int[] hardpoints;
     public int minimum_actuator_count;
@@ -23,7 +21,7 @@ public class SectionBlueprint extends Blueprint {
         int i = 0;
         this.chassis = arrayOfString[(i++)];
         this.model = arrayOfString[(i++)];
-        this.section = arrayOfString[(i++)];
+        this.section = SectionType.getEnum(arrayOfString[(i++)]);
         this.criticals = Integer.parseInt(arrayOfString[(i++)]);
         this.hardpoints = new int[5];
         for (int j = 0; j < 5; j++) {
@@ -37,13 +35,10 @@ public class SectionBlueprint extends Blueprint {
         this.hardwired_heatsinks = Integer.parseInt(arrayOfString[(i++)]);
         this.hardwired_armor = Integer.parseInt(arrayOfString[(i++)]);
         this.hardwired_structure = Integer.parseInt(arrayOfString[(i++)]);
-        this.hardwired_structure = Integer.parseInt(arrayOfString[(i++)]);
         this.quirks = arrayOfString[(i++)].split(",");
     }
 
-    public void Print() {
-    }
-
+    @Override
     public String toString() {
         return this.model;
     }

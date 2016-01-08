@@ -35,4 +35,37 @@ public enum SectionType {
     public String toString() {
         return long_name;
     }
+    
+    public static int numberOfSectionTypes() {
+        return RIGHT_LEG.index + 1;
+    }
+
+    public static SectionType getEnum(String value) {
+        switch(value) {
+            case "HD":
+                return HEAD;
+            case "LA":
+                return LEFT_ARM;
+            case "RA":
+                return RIGHT_ARM;
+            case "LT":
+                return LEFT_TORSO;
+            case "RT":
+                return RIGHT_TORSO;
+            case "CT":
+                return CENTER_TORSO;
+            case "LL":
+                return LEFT_LEG;
+            case "RL":
+                return RIGHT_LEG;
+            case "LRT":
+                return LEFT_REAR_TORSO;
+            case "RRT":
+                return RIGHT_REAR_TORSO;
+            case "CRT":
+                return CENTER_REAR_TORSO;
+            default:
+                return UNKNOWN;
+        }
+    }
 }

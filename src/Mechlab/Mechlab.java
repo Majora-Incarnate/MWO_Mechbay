@@ -1,9 +1,37 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Mechlab;
+
+import Utility.ChassisBlueprint;
+import javax.swing.JComboBox;
+
+import Utility.Database;
+import Utility.ModelBlueprint;
+import Utility.TechBase;
+import Utility.User;
+import Utility.Variant;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.AbstractListModel;
+import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JToggleButton;
+import javax.swing.LayoutStyle;
+import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
+import javax.swing.border.TitledBorder;
 
 /**
  *
@@ -11,11 +39,18 @@ package Mechlab;
  */
 public class Mechlab extends javax.swing.JFrame {
 
+    private static final long serialVersionUID = 6308465251921338657L;
+    private final Database masterDatabase;
+    private Database selectedDatabase;
+
     /**
      * Creates new form Mechlab
      */
     public Mechlab() {
+        masterDatabase = new Database();
+        selectedDatabase = new Database(masterDatabase, TechBase.CLAN_TECH_BASE, User.mixtech_enabled, User.futuretech_enabled);
         initComponents();
+        chassisComboBox.setSelectedIndex(0);
     }
 
     /**
@@ -26,61 +61,1898 @@ public class Mechlab extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        GridBagConstraints gridBagConstraints;
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1280, 720));
-        setMinimumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
+        chassisComboBox = new JComboBox<>();
+        modelComboBox = new JComboBox<>();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new Dimension(1280, 720));
+        getContentPane().setLayout(new GridBagLayout());
+
+        MainTabbedPane.setPreferredSize(new Dimension(256, 512));
+
+        ChassisPanel.setLayout(new GridBagLayout());
+
+        loadButton.setText("Load");
+        loadButton.setAlignmentY(0.0F);
+        loadButton.setEnabled(false);
+        loadButton.setHorizontalTextPosition(SwingConstants.CENTER);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        ChassisPanel.add(loadButton, gridBagConstraints);
+
+        saveButton.setText("Save");
+        saveButton.setAlignmentY(0.0F);
+        saveButton.setEnabled(false);
+        saveButton.setHorizontalTextPosition(SwingConstants.CENTER);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        ChassisPanel.add(saveButton, gridBagConstraints);
+
+        importButton.setText("Import");
+        importButton.setAlignmentY(0.0F);
+        importButton.setEnabled(false);
+        importButton.setHorizontalTextPosition(SwingConstants.CENTER);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        ChassisPanel.add(importButton, gridBagConstraints);
+
+        exportButton.setText("Export");
+        exportButton.setAlignmentY(0.0F);
+        exportButton.setEnabled(false);
+        exportButton.setHorizontalTextPosition(SwingConstants.CENTER);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        ChassisPanel.add(exportButton, gridBagConstraints);
+
+        chassisComboBox.setModel(new DefaultComboBoxModel(masterDatabase.CHASSIS_BLUEPRINTS.toArray()));
+        chassisComboBox.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                chassisComboBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        ChassisPanel.add(chassisComboBox, gridBagConstraints);
+
+        modelComboBox.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                modelComboBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        ChassisPanel.add(modelComboBox, gridBagConstraints);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        ChassisPanel.add(variantNameField, gridBagConstraints);
+
+        variantCostLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        variantCostLabel.setText("0 C-Bills");
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        ChassisPanel.add(variantCostLabel, gridBagConstraints);
+
+        techBaseLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        techBaseLabel.setText("CLAN TECH");
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        ChassisPanel.add(techBaseLabel, gridBagConstraints);
+
+        mechTypeLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        mechTypeLabel.setText("OMNIMECH");
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        ChassisPanel.add(mechTypeLabel, gridBagConstraints);
+
+        unreleasedLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        unreleasedLabel.setText("UNRELEASED");
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        ChassisPanel.add(unreleasedLabel, gridBagConstraints);
+
+        unconfirmedLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        unconfirmedLabel.setText("UNCONFIRMED");
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        ChassisPanel.add(unconfirmedLabel, gridBagConstraints);
+
+        ecmCapableLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        ecmCapableLabel.setText("ECM CAPABLE");
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        ChassisPanel.add(ecmCapableLabel, gridBagConstraints);
+
+        jumpCapableLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        jumpCapableLabel.setText("JUMP CAPABLE");
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        ChassisPanel.add(jumpCapableLabel, gridBagConstraints);
+
+        MainTabbedPane.addTab("Chassis", ChassisPanel);
+
+        UpgradesPanel.setLayout(new GridBagLayout());
+
+        GroupLayout SystemsPanelLayout = new GroupLayout(SystemsPanel);
+        SystemsPanel.setLayout(SystemsPanelLayout);
+        SystemsPanelLayout.setHorizontalGroup(SystemsPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+        SystemsPanelLayout.setVerticalGroup(SystemsPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        UpgradesPanel.add(SystemsPanel, gridBagConstraints);
+
+        GroupLayout ModulesPanelLayout = new GroupLayout(ModulesPanel);
+        ModulesPanel.setLayout(ModulesPanelLayout);
+        ModulesPanelLayout.setHorizontalGroup(ModulesPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        ModulesPanelLayout.setVerticalGroup(ModulesPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        UpgradesPanel.add(ModulesPanel, gridBagConstraints);
+
+        GroupLayout EfficienciesPanelLayout = new GroupLayout(EfficienciesPanel);
+        EfficienciesPanel.setLayout(EfficienciesPanelLayout);
+        EfficienciesPanelLayout.setHorizontalGroup(EfficienciesPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        EfficienciesPanelLayout.setVerticalGroup(EfficienciesPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        UpgradesPanel.add(EfficienciesPanel, gridBagConstraints);
+
+        AdjustmentsPanel.setPreferredSize(new Dimension(0, 0));
+
+        GroupLayout AdjustmentsPanelLayout = new GroupLayout(AdjustmentsPanel);
+        AdjustmentsPanel.setLayout(AdjustmentsPanelLayout);
+        AdjustmentsPanelLayout.setHorizontalGroup(AdjustmentsPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGap(0, 248, Short.MAX_VALUE)
+        );
+        AdjustmentsPanelLayout.setVerticalGroup(AdjustmentsPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGap(0, 124, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        UpgradesPanel.add(AdjustmentsPanel, gridBagConstraints);
+
+        UpgradesScrollPane.setViewportView(UpgradesPanel);
+
+        MainTabbedPane.addTab("Upgrades", UpgradesScrollPane);
+
+        WeaponsPanel.setLayout(new GridBagLayout());
+        MainTabbedPane.addTab("Weapons", WeaponsPanel);
+
+        ArmorPanel.setLayout(new GridBagLayout());
+        MainTabbedPane.addTab("Armor", ArmorPanel);
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        getContentPane().add(MainTabbedPane, gridBagConstraints);
+
+        statisticsPanel.setPreferredSize(new Dimension(256, 512));
+        statisticsPanel.setLayout(new GridBagLayout());
+
+        tonnageBar.setAlignmentX(0.0F);
+        tonnageBar.setAlignmentY(0.0F);
+        tonnageBar.setBorder(BorderFactory.createTitledBorder(null, "Tonnage", TitledBorder.LEADING, TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        tonnageBar.setMaximumSize(new Dimension(0, 0));
+        tonnageBar.setMinimumSize(new Dimension(0, 0));
+        tonnageBar.setPreferredSize(new Dimension(0, 0));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        statisticsPanel.add(tonnageBar, gridBagConstraints);
+
+        speedBar.setBorder(BorderFactory.createTitledBorder(null, "Speed", TitledBorder.LEADING, TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        speedBar.setMaximumSize(new Dimension(0, 0));
+        speedBar.setMinimumSize(new Dimension(0, 0));
+        speedBar.setPreferredSize(new Dimension(0, 0));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        statisticsPanel.add(speedBar, gridBagConstraints);
+
+        jumpDistanceBar.setBorder(BorderFactory.createTitledBorder(null, "Jump Distance", TitledBorder.LEADING, TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        jumpDistanceBar.setMaximumSize(new Dimension(0, 0));
+        jumpDistanceBar.setMinimumSize(new Dimension(0, 0));
+        jumpDistanceBar.setPreferredSize(new Dimension(0, 0));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        statisticsPanel.add(jumpDistanceBar, gridBagConstraints);
+
+        jumpHeightBar.setBorder(BorderFactory.createTitledBorder(null, "Jump Height", TitledBorder.LEADING, TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        jumpHeightBar.setMaximumSize(new Dimension(0, 0));
+        jumpHeightBar.setMinimumSize(new Dimension(0, 0));
+        jumpHeightBar.setPreferredSize(new Dimension(0, 0));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        statisticsPanel.add(jumpHeightBar, gridBagConstraints);
+
+        armorBar.setBorder(BorderFactory.createTitledBorder(null, "Armor", TitledBorder.LEADING, TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        armorBar.setMaximumSize(new Dimension(0, 0));
+        armorBar.setMinimumSize(new Dimension(0, 0));
+        armorBar.setPreferredSize(new Dimension(0, 0));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        statisticsPanel.add(armorBar, gridBagConstraints);
+
+        alphaDamageBar.setBorder(BorderFactory.createTitledBorder(null, "Alpha Damage", TitledBorder.LEADING, TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        alphaDamageBar.setMaximumSize(new Dimension(0, 0));
+        alphaDamageBar.setMinimumSize(new Dimension(0, 0));
+        alphaDamageBar.setPreferredSize(new Dimension(0, 0));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        statisticsPanel.add(alphaDamageBar, gridBagConstraints);
+
+        alphaHeatBar.setBorder(BorderFactory.createTitledBorder(null, "Alpha Heat", TitledBorder.LEADING, TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        alphaHeatBar.setMaximumSize(new Dimension(0, 0));
+        alphaHeatBar.setMinimumSize(new Dimension(0, 0));
+        alphaHeatBar.setPreferredSize(new Dimension(0, 0));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        statisticsPanel.add(alphaHeatBar, gridBagConstraints);
+
+        firepowerBar.setBorder(BorderFactory.createTitledBorder(null, "Firepower", TitledBorder.LEADING, TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        firepowerBar.setMaximumSize(new Dimension(0, 0));
+        firepowerBar.setMinimumSize(new Dimension(0, 0));
+        firepowerBar.setPreferredSize(new Dimension(0, 0));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        statisticsPanel.add(firepowerBar, gridBagConstraints);
+
+        heatEfficiencyBar.setBorder(BorderFactory.createTitledBorder(null, "Heat Efficiency", TitledBorder.LEADING, TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        heatEfficiencyBar.setMaximumSize(new Dimension(0, 0));
+        heatEfficiencyBar.setMinimumSize(new Dimension(0, 0));
+        heatEfficiencyBar.setPreferredSize(new Dimension(0, 0));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        statisticsPanel.add(heatEfficiencyBar, gridBagConstraints);
+
+        rangeBar.setBorder(BorderFactory.createTitledBorder(null, "Range", TitledBorder.LEADING, TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        rangeBar.setMaximumSize(new Dimension(0, 0));
+        rangeBar.setMinimumSize(new Dimension(0, 0));
+        rangeBar.setPreferredSize(new Dimension(0, 0));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        statisticsPanel.add(rangeBar, gridBagConstraints);
+
+        criticalsBar.setBorder(BorderFactory.createTitledBorder(null, "Criticals", TitledBorder.LEADING, TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        criticalsBar.setMaximumSize(new Dimension(0, 0));
+        criticalsBar.setMinimumSize(new Dimension(0, 0));
+        criticalsBar.setPreferredSize(new Dimension(0, 0));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        statisticsPanel.add(criticalsBar, gridBagConstraints);
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        getContentPane().add(statisticsPanel, gridBagConstraints);
+
+        mechPanel.setMinimumSize(new Dimension(512, 512));
+        mechPanel.setPreferredSize(new Dimension(512, 512));
+        mechPanel.setLayout(new GridBagLayout());
+
+        headPanel.setPreferredSize(new Dimension(100, 128));
+
+        jComboBox4.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel19.setText("jLabel1");
+
+        jLabel20.setText("jLabel1");
+
+        jList9.setModel(new AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane9.setViewportView(jList9);
+
+        GroupLayout headPanelLayout = new GroupLayout(headPanel);
+        headPanel.setLayout(headPanelLayout);
+        headPanelLayout.setHorizontalGroup(headPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(headPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jComboBox4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
+            .addGroup(headPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(headPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel19)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(headPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(headPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel20)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(headPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(headPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar15, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(headPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(headPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar16, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(headPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(headPanelLayout.createSequentialGroup()
+                    .addGap(57, 57, 57)
+                    .addComponent(jScrollPane9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(58, Short.MAX_VALUE)))
+        );
+        headPanelLayout.setVerticalGroup(headPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(headPanelLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jComboBox4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
+            .addGroup(headPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(headPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel19)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(headPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(headPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel20)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(headPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(headPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar15, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(headPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(headPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar16, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(headPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(headPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        mechPanel.add(headPanel, gridBagConstraints);
+
+        centerTorsoPanel.setPreferredSize(new Dimension(100, 256));
+
+        jComboBox3.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel5.setText("jLabel1");
+
+        jLabel6.setText("jLabel1");
+
+        jList4.setModel(new AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane4.setViewportView(jList4);
+
+        GroupLayout centerTorsoPanelLayout = new GroupLayout(centerTorsoPanel);
+        centerTorsoPanel.setLayout(centerTorsoPanelLayout);
+        centerTorsoPanelLayout.setHorizontalGroup(centerTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(centerTorsoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jComboBox3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(104, Short.MAX_VALUE))
+            .addGroup(centerTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(centerTorsoPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel5)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(centerTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(centerTorsoPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel6)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(centerTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(centerTorsoPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar19, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(centerTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(centerTorsoPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar20, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(centerTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(centerTorsoPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jProgressBar22, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(centerTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(centerTorsoPanelLayout.createSequentialGroup()
+                    .addGap(69, 69, 69)
+                    .addComponent(jScrollPane4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(70, Short.MAX_VALUE)))
+        );
+        centerTorsoPanelLayout.setVerticalGroup(centerTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(centerTorsoPanelLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jComboBox3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(164, Short.MAX_VALUE))
+            .addGroup(centerTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(centerTorsoPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel5)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(centerTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(centerTorsoPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel6)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(centerTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(centerTorsoPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar19, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(centerTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(centerTorsoPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar20, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(centerTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(centerTorsoPanelLayout.createSequentialGroup()
+                    .addGap(121, 121, 121)
+                    .addComponent(jProgressBar22, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(121, Short.MAX_VALUE)))
+            .addGroup(centerTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(centerTorsoPanelLayout.createSequentialGroup()
+                    .addGap(58, 58, 58)
+                    .addComponent(jScrollPane4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(59, Short.MAX_VALUE)))
+        );
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        mechPanel.add(centerTorsoPanel, gridBagConstraints);
+
+        leftTorsoPanel.setPreferredSize(new Dimension(100, 256));
+
+        jComboBox5.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel4.setText("jLabel1");
+
+        jLabel3.setText("jLabel1");
+
+        jToggleButton6.setText("jToggleButton1");
+
+        jList2.setModel(new AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jList2);
+
+        GroupLayout leftTorsoPanelLayout = new GroupLayout(leftTorsoPanel);
+        leftTorsoPanel.setLayout(leftTorsoPanelLayout);
+        leftTorsoPanelLayout.setHorizontalGroup(leftTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(leftTorsoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jComboBox5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(GroupLayout.Alignment.TRAILING, leftTorsoPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jProgressBar1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+            .addGroup(leftTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftTorsoPanelLayout.createSequentialGroup()
+                    .addGap(33, 33, 33)
+                    .addComponent(jLabel4)
+                    .addContainerGap(105, Short.MAX_VALUE)))
+            .addGroup(leftTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftTorsoPanelLayout.createSequentialGroup()
+                    .addGap(33, 33, 33)
+                    .addComponent(jLabel3)
+                    .addContainerGap(105, Short.MAX_VALUE)))
+            .addGroup(leftTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftTorsoPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jToggleButton6)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(leftTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftTorsoPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jProgressBar2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(leftTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(GroupLayout.Alignment.TRAILING, leftTorsoPanelLayout.createSequentialGroup()
+                    .addContainerGap(14, Short.MAX_VALUE)
+                    .addComponent(jProgressBar21, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(10, 10, 10)))
+            .addGroup(leftTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftTorsoPanelLayout.createSequentialGroup()
+                    .addGap(69, 69, 69)
+                    .addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(70, Short.MAX_VALUE)))
+        );
+        leftTorsoPanelLayout.setVerticalGroup(leftTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(leftTorsoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jProgressBar1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(jComboBox5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(164, Short.MAX_VALUE))
+            .addGroup(leftTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftTorsoPanelLayout.createSequentialGroup()
+                    .addGap(120, 120, 120)
+                    .addComponent(jLabel4)
+                    .addContainerGap(121, Short.MAX_VALUE)))
+            .addGroup(leftTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftTorsoPanelLayout.createSequentialGroup()
+                    .addGap(120, 120, 120)
+                    .addComponent(jLabel3)
+                    .addContainerGap(121, Short.MAX_VALUE)))
+            .addGroup(leftTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftTorsoPanelLayout.createSequentialGroup()
+                    .addGap(115, 115, 115)
+                    .addComponent(jToggleButton6)
+                    .addContainerGap(116, Short.MAX_VALUE)))
+            .addGroup(leftTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftTorsoPanelLayout.createSequentialGroup()
+                    .addGap(22, 22, 22)
+                    .addComponent(jProgressBar2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(220, Short.MAX_VALUE)))
+            .addGroup(leftTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftTorsoPanelLayout.createSequentialGroup()
+                    .addGap(22, 22, 22)
+                    .addComponent(jProgressBar21, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(220, Short.MAX_VALUE)))
+            .addGroup(leftTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftTorsoPanelLayout.createSequentialGroup()
+                    .addGap(58, 58, 58)
+                    .addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(59, Short.MAX_VALUE)))
+        );
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        mechPanel.add(leftTorsoPanel, gridBagConstraints);
+
+        rightTorsoPanel.setPreferredSize(new Dimension(100, 256));
+
+        jComboBox2.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel17.setText("jLabel1");
+
+        jLabel18.setText("jLabel1");
+
+        jToggleButton5.setText("jToggleButton1");
+
+        jList6.setModel(new AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane6.setViewportView(jList6);
+
+        GroupLayout rightTorsoPanelLayout = new GroupLayout(rightTorsoPanel);
+        rightTorsoPanel.setLayout(rightTorsoPanelLayout);
+        rightTorsoPanelLayout.setHorizontalGroup(rightTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(rightTorsoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jComboBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(104, Short.MAX_VALUE))
+            .addGroup(rightTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightTorsoPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel17)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightTorsoPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel18)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightTorsoPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jToggleButton5)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(rightTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightTorsoPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar17, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightTorsoPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar18, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightTorsoPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jProgressBar23, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(rightTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightTorsoPanelLayout.createSequentialGroup()
+                    .addGap(69, 69, 69)
+                    .addComponent(jScrollPane6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(70, Short.MAX_VALUE)))
+        );
+        rightTorsoPanelLayout.setVerticalGroup(rightTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(rightTorsoPanelLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jComboBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(164, Short.MAX_VALUE))
+            .addGroup(rightTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightTorsoPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel17)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightTorsoPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel18)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightTorsoPanelLayout.createSequentialGroup()
+                    .addGap(115, 115, 115)
+                    .addComponent(jToggleButton5)
+                    .addContainerGap(116, Short.MAX_VALUE)))
+            .addGroup(rightTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightTorsoPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar17, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightTorsoPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar18, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightTorsoPanelLayout.createSequentialGroup()
+                    .addGap(121, 121, 121)
+                    .addComponent(jProgressBar23, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(121, Short.MAX_VALUE)))
+            .addGroup(rightTorsoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightTorsoPanelLayout.createSequentialGroup()
+                    .addGap(58, 58, 58)
+                    .addComponent(jScrollPane6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(59, Short.MAX_VALUE)))
+        );
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        mechPanel.add(rightTorsoPanel, gridBagConstraints);
+
+        leftLegPanel.setPreferredSize(new Dimension(100, 128));
+
+        jComboBox7.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel9.setText("jLabel1");
+
+        jLabel10.setText("jLabel1");
+
+        jList3.setModel(new AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(jList3);
+
+        GroupLayout leftLegPanelLayout = new GroupLayout(leftLegPanel);
+        leftLegPanel.setLayout(leftLegPanelLayout);
+        leftLegPanelLayout.setHorizontalGroup(leftLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(leftLegPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jComboBox7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
+            .addGroup(leftLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftLegPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel9)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(leftLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftLegPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel10)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(leftLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftLegPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(leftLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftLegPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(leftLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftLegPanelLayout.createSequentialGroup()
+                    .addGap(57, 57, 57)
+                    .addComponent(jScrollPane3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(58, Short.MAX_VALUE)))
+        );
+        leftLegPanelLayout.setVerticalGroup(leftLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(leftLegPanelLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jComboBox7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
+            .addGroup(leftLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftLegPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel9)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(leftLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftLegPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel10)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(leftLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftLegPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(leftLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftLegPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(leftLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftLegPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        mechPanel.add(leftLegPanel, gridBagConstraints);
+
+        rightLegPanel.setPreferredSize(new Dimension(100, 128));
+
+        jComboBox6.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel7.setText("jLabel1");
+
+        jLabel8.setText("jLabel1");
+
+        jList5.setModel(new AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane5.setViewportView(jList5);
+
+        GroupLayout rightLegPanelLayout = new GroupLayout(rightLegPanel);
+        rightLegPanel.setLayout(rightLegPanelLayout);
+        rightLegPanelLayout.setHorizontalGroup(rightLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(rightLegPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jComboBox6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
+            .addGroup(rightLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightLegPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel7)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightLegPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel8)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightLegPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightLegPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightLegPanelLayout.createSequentialGroup()
+                    .addGap(57, 57, 57)
+                    .addComponent(jScrollPane5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(58, Short.MAX_VALUE)))
+        );
+        rightLegPanelLayout.setVerticalGroup(rightLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(rightLegPanelLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jComboBox6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
+            .addGroup(rightLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightLegPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel7)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightLegPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel8)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightLegPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightLegPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightLegPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightLegPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        mechPanel.add(rightLegPanel, gridBagConstraints);
+
+        leftArmPanel.setPreferredSize(new Dimension(100, 256));
+
+        jComboBox8.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel1.setText("jLabel1");
+
+        jLabel2.setText("jLabel1");
+
+        jToggleButton1.setText("jToggleButton1");
+
+        jToggleButton2.setText("jToggleButton1");
+
+        jList1.setModel(new AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        GroupLayout leftArmPanelLayout = new GroupLayout(leftArmPanel);
+        leftArmPanel.setLayout(leftArmPanelLayout);
+        leftArmPanelLayout.setHorizontalGroup(leftArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(leftArmPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(leftArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(GroupLayout.Alignment.TRAILING, leftArmPanelLayout.createSequentialGroup()
+                        .addGap(0, 20, Short.MAX_VALUE)
+                        .addComponent(jToggleButton1))
+                    .addGroup(leftArmPanelLayout.createSequentialGroup()
+                        .addGroup(leftArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(leftArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftArmPanelLayout.createSequentialGroup()
+                    .addGap(22, 22, 22)
+                    .addComponent(jLabel2)
+                    .addContainerGap(92, Short.MAX_VALUE)))
+            .addGroup(leftArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftArmPanelLayout.createSequentialGroup()
+                    .addGap(2, 2, 2)
+                    .addComponent(jToggleButton2)
+                    .addContainerGap(41, Short.MAX_VALUE)))
+            .addGroup(leftArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftArmPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(leftArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftArmPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        leftArmPanelLayout.setVerticalGroup(leftArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(leftArmPanelLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jToggleButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jComboBox8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(leftArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(GroupLayout.Alignment.TRAILING, leftArmPanelLayout.createSequentialGroup()
+                    .addContainerGap(179, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addGap(76, 76, 76)))
+            .addGroup(leftArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftArmPanelLayout.createSequentialGroup()
+                    .addGap(35, 35, 35)
+                    .addComponent(jToggleButton2)
+                    .addContainerGap(210, Short.MAX_VALUE)))
+            .addGroup(leftArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftArmPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(leftArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(leftArmPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        mechPanel.add(leftArmPanel, gridBagConstraints);
+
+        rightArmPanel.setPreferredSize(new Dimension(100, 256));
+
+        jComboBox1.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel15.setText("jLabel1");
+
+        jLabel16.setText("jLabel1");
+
+        jToggleButton3.setText("jToggleButton1");
+
+        jToggleButton4.setText("jToggleButton1");
+
+        jList7.setModel(new AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane7.setViewportView(jList7);
+
+        GroupLayout rightArmPanelLayout = new GroupLayout(rightArmPanel);
+        rightArmPanel.setLayout(rightArmPanelLayout);
+        rightArmPanelLayout.setHorizontalGroup(rightArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(rightArmPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
+            .addGroup(rightArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightArmPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel15)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightArmPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel16)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightArmPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jToggleButton3)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightArmPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jToggleButton4)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightArmPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightArmPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightArmPanelLayout.createSequentialGroup()
+                    .addGap(57, 57, 57)
+                    .addComponent(jScrollPane7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(58, Short.MAX_VALUE)))
+        );
+        rightArmPanelLayout.setVerticalGroup(rightArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(rightArmPanelLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(164, Short.MAX_VALUE))
+            .addGroup(rightArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightArmPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel15)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightArmPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel16)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightArmPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jToggleButton3)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightArmPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jToggleButton4)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightArmPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightArmPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightArmPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(rightArmPanelLayout.createSequentialGroup()
+                    .addGap(58, 58, 58)
+                    .addComponent(jScrollPane7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(59, Short.MAX_VALUE)))
+        );
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        mechPanel.add(rightArmPanel, gridBagConstraints);
+
+        section1Panel.setPreferredSize(new Dimension(100, 128));
+
+        jComboBox10.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel11.setText("jLabel1");
+
+        jLabel12.setText("jLabel1");
+
+        jList8.setModel(new AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane8.setViewportView(jList8);
+
+        GroupLayout section1PanelLayout = new GroupLayout(section1Panel);
+        section1Panel.setLayout(section1PanelLayout);
+        section1PanelLayout.setHorizontalGroup(section1PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(section1PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section1PanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel11)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(section1PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section1PanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel12)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(section1PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section1PanelLayout.createSequentialGroup()
+                    .addGap(22, 22, 22)
+                    .addComponent(jComboBox10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(70, Short.MAX_VALUE)))
+            .addGroup(section1PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section1PanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar13, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(section1PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section1PanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar14, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(section1PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section1PanelLayout.createSequentialGroup()
+                    .addGap(57, 57, 57)
+                    .addComponent(jScrollPane8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(58, Short.MAX_VALUE)))
+        );
+        section1PanelLayout.setVerticalGroup(section1PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(section1PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section1PanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel11)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(section1PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section1PanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel12)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(section1PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section1PanelLayout.createSequentialGroup()
+                    .addGap(52, 52, 52)
+                    .addComponent(jComboBox10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(87, Short.MAX_VALUE)))
+            .addGroup(section1PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section1PanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar13, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(section1PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section1PanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar14, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(section1PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section1PanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        mechPanel.add(section1Panel, gridBagConstraints);
+
+        section2Panel.setPreferredSize(new Dimension(100, 128));
+
+        jComboBox9.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel13.setText("jLabel1");
+
+        jLabel14.setText("jLabel1");
+
+        jList10.setModel(new AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane10.setViewportView(jList10);
+
+        GroupLayout section2PanelLayout = new GroupLayout(section2Panel);
+        section2Panel.setLayout(section2PanelLayout);
+        section2PanelLayout.setHorizontalGroup(section2PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(section2PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section2PanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel13)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(section2PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section2PanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel14)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(section2PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section2PanelLayout.createSequentialGroup()
+                    .addGap(22, 22, 22)
+                    .addComponent(jComboBox9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(70, Short.MAX_VALUE)))
+            .addGroup(section2PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section2PanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(section2PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section2PanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar12, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(section2PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section2PanelLayout.createSequentialGroup()
+                    .addGap(57, 57, 57)
+                    .addComponent(jScrollPane10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(58, Short.MAX_VALUE)))
+        );
+        section2PanelLayout.setVerticalGroup(section2PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(section2PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section2PanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel13)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(section2PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section2PanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel14)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(section2PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section2PanelLayout.createSequentialGroup()
+                    .addGap(52, 52, 52)
+                    .addComponent(jComboBox9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(87, Short.MAX_VALUE)))
+            .addGroup(section2PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section2PanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(section2PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section2PanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jProgressBar12, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(section2PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(section2PanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        mechPanel.add(section2Panel, gridBagConstraints);
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        getContentPane().add(mechPanel, gridBagConstraints);
+
+        secondaryTabbedPane.setPreferredSize(new Dimension(256, 512));
+
+        quirksPanel.setLayout(new GridBagLayout());
+        secondaryTabbedPane.addTab("Quirks", quirksPanel);
+
+        componentsPanel.setLayout(new GridBagLayout());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        componentsPanel.add(engineComponentPanel, gridBagConstraints);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        componentsPanel.add(gyroComponentPanel, gridBagConstraints);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        componentsPanel.add(armorComponentPanel, gridBagConstraints);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        componentsPanel.add(structureComponentPanel, gridBagConstraints);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        componentsPanel.add(heatSinksComponentPanel, gridBagConstraints);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        componentsPanel.add(jumpJetsComponentPanel, gridBagConstraints);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        componentsPanel.add(cockpitComponentPanel, gridBagConstraints);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        componentsPanel.add(myomerComponentPanel, gridBagConstraints);
+
+        componentsScrollPane.setViewportView(componentsPanel);
+
+        secondaryTabbedPane.addTab("Components", componentsScrollPane);
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        getContentPane().add(secondaryTabbedPane, gridBagConstraints);
+
+        InformationTabbedPane.setPreferredSize(new Dimension(1024, 256));
+
+        ModelOverviewPanel.setLayout(new GridBagLayout());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ModelOverviewPanel.add(overviewComponentPanel, gridBagConstraints);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ModelOverviewPanel.add(moduleComponentPanel, gridBagConstraints);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ModelOverviewPanel.add(hardpointComponentPanel, gridBagConstraints);
+
+        descriptionScrollPane.setMaximumSize(new Dimension(295, 100));
+        descriptionScrollPane.setMinimumSize(new Dimension(295, 100));
+        descriptionScrollPane.setPreferredSize(new Dimension(295, 100));
+
+        descriptionTextArea.setColumns(20);
+        descriptionTextArea.setRows(5);
+        descriptionScrollPane.setViewportView(descriptionTextArea);
+
+        ModelOverviewPanel.add(descriptionScrollPane, new GridBagConstraints());
+
+        InformationTabbedPane.addTab("Model Overview", ModelOverviewPanel);
+
+        ModelSpecificationsPanel.setLayout(new GridBagLayout());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ModelSpecificationsPanel.add(manueverabilityComponentPanel, gridBagConstraints);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ModelSpecificationsPanel.add(movementSpeedComponentPanel, gridBagConstraints);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ModelSpecificationsPanel.add(speedComponentPanel, gridBagConstraints);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ModelSpecificationsPanel.add(movementRangeComponentPanel, gridBagConstraints);
+
+        InformationTabbedPane.addTab("Model Specifications", ModelSpecificationsPanel);
+
+        InformationSpecificationsPanel.setLayout(new GridBagLayout());
+        InformationSpecificationsPanel.add(componentPanel5, new GridBagConstraints());
+        InformationSpecificationsPanel.add(componentPanel6, new GridBagConstraints());
+
+        InformationTabbedPane.addTab("Sensors/Targetting Specifications", InformationSpecificationsPanel);
+
+        EquipmentSpecificationsPanel.setLayout(new GridBagLayout());
+        InformationTabbedPane.addTab("Equipment Specifications", EquipmentSpecificationsPanel);
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        getContentPane().add(InformationTabbedPane, gridBagConstraints);
+
+        OptionsPanel.setMinimumSize(new Dimension(256, 256));
+        OptionsPanel.setPreferredSize(new Dimension(256, 256));
+        OptionsPanel.setLayout(new GridBagLayout());
+
+        InformationPanel.setPreferredSize(new Dimension(0, 0));
+        InformationPanel.setLayout(new GridBagLayout());
+
+        MechTreesButton.setText("Mech Trees");
+        MechTreesButton.setPreferredSize(new Dimension(0, 0));
+        MechTreesButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                MechTreesButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        InformationPanel.add(MechTreesButton, gridBagConstraints);
+
+        PilotTreesButton.setText("Pilot Trees");
+        PilotTreesButton.setPreferredSize(new Dimension(0, 0));
+        PilotTreesButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                PilotTreesButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        InformationPanel.add(PilotTreesButton, gridBagConstraints);
+
+        WeaponStatsButton.setText("Weapon Stats");
+        WeaponStatsButton.setEnabled(false);
+        WeaponStatsButton.setPreferredSize(new Dimension(0, 0));
+        WeaponStatsButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                WeaponStatsButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        InformationPanel.add(WeaponStatsButton, gridBagConstraints);
+
+        AboutButton.setText("About");
+        AboutButton.setPreferredSize(new Dimension(0, 0));
+        AboutButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                AboutButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        InformationPanel.add(AboutButton, gridBagConstraints);
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        OptionsPanel.add(InformationPanel, gridBagConstraints);
+
+        FeaturesPanel.setPreferredSize(new Dimension(0, 0));
+        FeaturesPanel.setLayout(new GridBagLayout());
+
+        FrankenmechToggle.setText("Frankenmechs");
+        FrankenmechToggle.setEnabled(false);
+        FrankenmechToggle.setHorizontalTextPosition(SwingConstants.CENTER);
+        FrankenmechToggle.setPreferredSize(new Dimension(0, 0));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        FeaturesPanel.add(FrankenmechToggle, gridBagConstraints);
+
+        MixtechToggle.setText("Mixtech");
+        MixtechToggle.setEnabled(false);
+        MixtechToggle.setHorizontalTextPosition(SwingConstants.CENTER);
+        MixtechToggle.setPreferredSize(new Dimension(0, 0));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        FeaturesPanel.add(MixtechToggle, gridBagConstraints);
+
+        FuturetechToggle.setText("Futuretech");
+        FuturetechToggle.setEnabled(false);
+        FuturetechToggle.setHorizontalTextPosition(SwingConstants.CENTER);
+        FuturetechToggle.setPreferredSize(new Dimension(0, 0));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        FeaturesPanel.add(FuturetechToggle, gridBagConstraints);
+
+        OmniRestrictionsToggle.setText("Omni Restrictions");
+        OmniRestrictionsToggle.setEnabled(false);
+        OmniRestrictionsToggle.setHorizontalTextPosition(SwingConstants.CENTER);
+        OmniRestrictionsToggle.setPreferredSize(new Dimension(0, 0));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
+        FeaturesPanel.add(OmniRestrictionsToggle, gridBagConstraints);
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        OptionsPanel.add(FeaturesPanel, gridBagConstraints);
+
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        getContentPane().add(OptionsPanel, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void chassisComboBoxActionPerformed(ActionEvent evt) {//GEN-FIRST:event_chassisComboBoxActionPerformed
+        ChassisBlueprint chassis = (ChassisBlueprint)chassisComboBox.getSelectedItem();
+        
+        selectedDatabase.MODEL_BLUEPRINTS.clear();
+        
+        for (ModelBlueprint model : masterDatabase.MODEL_BLUEPRINTS)
+            if (model.chassis_name.equals(chassis.chassis_name))
+                selectedDatabase.MODEL_BLUEPRINTS.add(model);
+        
+        modelComboBox.setModel(new DefaultComboBoxModel(selectedDatabase.MODEL_BLUEPRINTS.toArray()));
+        modelComboBox.setSelectedIndex(0);
+    }//GEN-LAST:event_chassisComboBoxActionPerformed
+
+    private void modelComboBoxActionPerformed(ActionEvent evt) {//GEN-FIRST:event_modelComboBoxActionPerformed
+        ChassisBlueprint chassis = (ChassisBlueprint)chassisComboBox.getSelectedItem();
+        ModelBlueprint model = (ModelBlueprint)modelComboBox.getSelectedItem();
+        
+        User.variant = new Variant();
+        User.variant.SetMech(selectedDatabase, chassis, model);
+        
+        techBaseLabel.setText(User.variant.chassis_type.tech_base.equals(TechBase.IS_TECH_BASE) ? "IS TECH" : "CLAN TECH");
+        mechTypeLabel.setText(User.variant.chassis_type.is_omnimech ? "OMNIMECH" : "BATTLEMECH");
+        unreleasedLabel.setText(User.variant.model_type.unreleased ? "UNRELEASED" : "RELEASED");
+        unconfirmedLabel.setText(User.variant.model_type.unconfirmed ? "UNCONFIRMED" : "CONFIRMED");
+        
+        overviewComponentPanel.Set_Overview(User.variant.chassis_type, User.variant.model_type);
+        moduleComponentPanel.Set_Modules(User.variant.chassis_type, User.variant.model_type, false);
+        hardpointComponentPanel.Set_Total_Hardpoints(0, 0, 0, 0);
+        speedComponentPanel.Set_Speed_Limits(User.variant.chassis_type, User.variant.model_type, 16.2, 1.0);
+        manueverabilityComponentPanel.Set_Manueverability(User.variant.chassis_type, User.variant.model_type, User.variant.current_jump_jets);
+        movementRangeComponentPanel.Set_Movement_Range(User.variant.chassis_type, User.variant.model_type);
+        movementSpeedComponentPanel.Set_Movement_Speed(User.variant.chassis_type, User.variant.model_type);
+        
+        //engineComponentPanel.Set_Engine(User.variant.engine, User.variant.current_engine_rating);
+        //gyroComponentPanel.Set_Gyro(User.variant.gyro, User.variant.current_engine_rating);
+        //armorComponentPanel.Set_Armor(User.variant.armor, User.variant.GetCurrentArmorTotal());
+        //structureComponentPanel.Set_Structure(User.variant.structure, User.variant.current_tonnage);
+        //heatSinksComponentPanel.Set_Heatsinks(User.variant.heatsinks, User.variant.current_heat_sink_count, User.variant.current_engine_rating);
+        //jumpJetsComponentPanel.Set_Jumpjets(User.variant.jumpjets, User.variant.current_jump_jets, User.variant.current_tonnage);
+        //cockpitComponentPanel.Set_Cockpit(User.variant.cockpit);
+        //myomerComponentPanel.Set_Myomer(User.variant.myomer);
+    }//GEN-LAST:event_modelComboBoxActionPerformed
+
+    private void AboutButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_AboutButtonActionPerformed
+        AboutDialogBox aboutDialogBox = new AboutDialogBox(this, true, "", User.mwo_stage);
+        aboutDialogBox.setLocationRelativeTo(this);
+        aboutDialogBox.setVisible(true);
+    }//GEN-LAST:event_AboutButtonActionPerformed
+
+    private void MechTreesButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_MechTreesButtonActionPerformed
+        MechTreeDialogBox mechTreeDialogBox = new MechTreeDialogBox(this, true);
+        mechTreeDialogBox.setLocationRelativeTo(this);
+        mechTreeDialogBox.setVisible(true);
+    }//GEN-LAST:event_MechTreesButtonActionPerformed
+
+    private void PilotTreesButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_PilotTreesButtonActionPerformed
+        PilotTreeDialogBox pilotTreeDialogBox = new PilotTreeDialogBox(this, true);
+        pilotTreeDialogBox.setLocationRelativeTo(this);
+        pilotTreeDialogBox.setVisible(true);
+    }//GEN-LAST:event_PilotTreesButtonActionPerformed
+
+    private void WeaponStatsButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_WeaponStatsButtonActionPerformed
+        //
+    }//GEN-LAST:event_WeaponStatsButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Mechlab.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Mechlab.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Mechlab.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Mechlab.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Mechlab().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Mechlab().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    final JButton AboutButton = new JButton();
+    final JPanel AdjustmentsPanel = new JPanel();
+    final JPanel ArmorPanel = new JPanel();
+    final JPanel ChassisPanel = new JPanel();
+    final JPanel EfficienciesPanel = new JPanel();
+    final JPanel EquipmentSpecificationsPanel = new JPanel();
+    final JPanel FeaturesPanel = new JPanel();
+    final JToggleButton FrankenmechToggle = new JToggleButton();
+    final JToggleButton FuturetechToggle = new JToggleButton();
+    final JPanel InformationPanel = new JPanel();
+    final JPanel InformationSpecificationsPanel = new JPanel();
+    final JTabbedPane InformationTabbedPane = new JTabbedPane();
+    final JTabbedPane MainTabbedPane = new JTabbedPane();
+    final JButton MechTreesButton = new JButton();
+    final JToggleButton MixtechToggle = new JToggleButton();
+    final JPanel ModelOverviewPanel = new JPanel();
+    final JPanel ModelSpecificationsPanel = new JPanel();
+    final JPanel ModulesPanel = new JPanel();
+    final JToggleButton OmniRestrictionsToggle = new JToggleButton();
+    final JPanel OptionsPanel = new JPanel();
+    final JButton PilotTreesButton = new JButton();
+    final JPanel SystemsPanel = new JPanel();
+    final JPanel UpgradesPanel = new JPanel();
+    final JScrollPane UpgradesScrollPane = new JScrollPane();
+    final JButton WeaponStatsButton = new JButton();
+    final JPanel WeaponsPanel = new JPanel();
+    final JProgressBar alphaDamageBar = new JProgressBar();
+    final JProgressBar alphaHeatBar = new JProgressBar();
+    final JProgressBar armorBar = new JProgressBar();
+    final ComponentPanel armorComponentPanel = new ComponentPanel();
+    final JPanel centerTorsoPanel = new JPanel();
+    JComboBox<String> chassisComboBox;
+    final ComponentPanel cockpitComponentPanel = new ComponentPanel();
+    final ComponentPanel componentPanel5 = new ComponentPanel();
+    final ComponentPanel componentPanel6 = new ComponentPanel();
+    final JPanel componentsPanel = new JPanel();
+    final JScrollPane componentsScrollPane = new JScrollPane();
+    final JProgressBar criticalsBar = new JProgressBar();
+    final JScrollPane descriptionScrollPane = new JScrollPane();
+    final JTextArea descriptionTextArea = new JTextArea();
+    final JLabel ecmCapableLabel = new JLabel();
+    final ComponentPanel engineComponentPanel = new ComponentPanel();
+    final JButton exportButton = new JButton();
+    final JProgressBar firepowerBar = new JProgressBar();
+    final ComponentPanel gyroComponentPanel = new ComponentPanel();
+    final ComponentPanel hardpointComponentPanel = new ComponentPanel();
+    final JPanel headPanel = new JPanel();
+    final JProgressBar heatEfficiencyBar = new JProgressBar();
+    final ComponentPanel heatSinksComponentPanel = new ComponentPanel();
+    final JButton importButton = new JButton();
+    final JComboBox<String> jComboBox1 = new JComboBox<>();
+    final JComboBox<String> jComboBox10 = new JComboBox<>();
+    final JComboBox<String> jComboBox2 = new JComboBox<>();
+    final JComboBox<String> jComboBox3 = new JComboBox<>();
+    final JComboBox<String> jComboBox4 = new JComboBox<>();
+    final JComboBox<String> jComboBox5 = new JComboBox<>();
+    final JComboBox<String> jComboBox6 = new JComboBox<>();
+    final JComboBox<String> jComboBox7 = new JComboBox<>();
+    final JComboBox<String> jComboBox8 = new JComboBox<>();
+    final JComboBox<String> jComboBox9 = new JComboBox<>();
+    final JLabel jLabel1 = new JLabel();
+    final JLabel jLabel10 = new JLabel();
+    final JLabel jLabel11 = new JLabel();
+    final JLabel jLabel12 = new JLabel();
+    final JLabel jLabel13 = new JLabel();
+    final JLabel jLabel14 = new JLabel();
+    final JLabel jLabel15 = new JLabel();
+    final JLabel jLabel16 = new JLabel();
+    final JLabel jLabel17 = new JLabel();
+    final JLabel jLabel18 = new JLabel();
+    final JLabel jLabel19 = new JLabel();
+    final JLabel jLabel2 = new JLabel();
+    final JLabel jLabel20 = new JLabel();
+    final JLabel jLabel3 = new JLabel();
+    final JLabel jLabel4 = new JLabel();
+    final JLabel jLabel5 = new JLabel();
+    final JLabel jLabel6 = new JLabel();
+    final JLabel jLabel7 = new JLabel();
+    final JLabel jLabel8 = new JLabel();
+    final JLabel jLabel9 = new JLabel();
+    final JList<String> jList1 = new JList<>();
+    final JList<String> jList10 = new JList<>();
+    final JList<String> jList2 = new JList<>();
+    final JList<String> jList3 = new JList<>();
+    final JList<String> jList4 = new JList<>();
+    final JList<String> jList5 = new JList<>();
+    final JList<String> jList6 = new JList<>();
+    final JList<String> jList7 = new JList<>();
+    final JList<String> jList8 = new JList<>();
+    final JList<String> jList9 = new JList<>();
+    final JProgressBar jProgressBar1 = new JProgressBar();
+    final JProgressBar jProgressBar10 = new JProgressBar();
+    final JProgressBar jProgressBar11 = new JProgressBar();
+    final JProgressBar jProgressBar12 = new JProgressBar();
+    final JProgressBar jProgressBar13 = new JProgressBar();
+    final JProgressBar jProgressBar14 = new JProgressBar();
+    final JProgressBar jProgressBar15 = new JProgressBar();
+    final JProgressBar jProgressBar16 = new JProgressBar();
+    final JProgressBar jProgressBar17 = new JProgressBar();
+    final JProgressBar jProgressBar18 = new JProgressBar();
+    final JProgressBar jProgressBar19 = new JProgressBar();
+    final JProgressBar jProgressBar2 = new JProgressBar();
+    final JProgressBar jProgressBar20 = new JProgressBar();
+    final JProgressBar jProgressBar21 = new JProgressBar();
+    final JProgressBar jProgressBar22 = new JProgressBar();
+    final JProgressBar jProgressBar23 = new JProgressBar();
+    final JProgressBar jProgressBar3 = new JProgressBar();
+    final JProgressBar jProgressBar4 = new JProgressBar();
+    final JProgressBar jProgressBar5 = new JProgressBar();
+    final JProgressBar jProgressBar6 = new JProgressBar();
+    final JProgressBar jProgressBar7 = new JProgressBar();
+    final JProgressBar jProgressBar8 = new JProgressBar();
+    final JProgressBar jProgressBar9 = new JProgressBar();
+    final JScrollPane jScrollPane1 = new JScrollPane();
+    final JScrollPane jScrollPane10 = new JScrollPane();
+    final JScrollPane jScrollPane2 = new JScrollPane();
+    final JScrollPane jScrollPane3 = new JScrollPane();
+    final JScrollPane jScrollPane4 = new JScrollPane();
+    final JScrollPane jScrollPane5 = new JScrollPane();
+    final JScrollPane jScrollPane6 = new JScrollPane();
+    final JScrollPane jScrollPane7 = new JScrollPane();
+    final JScrollPane jScrollPane8 = new JScrollPane();
+    final JScrollPane jScrollPane9 = new JScrollPane();
+    final JToggleButton jToggleButton1 = new JToggleButton();
+    final JToggleButton jToggleButton2 = new JToggleButton();
+    final JToggleButton jToggleButton3 = new JToggleButton();
+    final JToggleButton jToggleButton4 = new JToggleButton();
+    final JToggleButton jToggleButton5 = new JToggleButton();
+    final JToggleButton jToggleButton6 = new JToggleButton();
+    final JLabel jumpCapableLabel = new JLabel();
+    final JProgressBar jumpDistanceBar = new JProgressBar();
+    final JProgressBar jumpHeightBar = new JProgressBar();
+    final ComponentPanel jumpJetsComponentPanel = new ComponentPanel();
+    final JPanel leftArmPanel = new JPanel();
+    final JPanel leftLegPanel = new JPanel();
+    final JPanel leftTorsoPanel = new JPanel();
+    final JButton loadButton = new JButton();
+    final ComponentPanel manueverabilityComponentPanel = new ComponentPanel();
+    final JPanel mechPanel = new JPanel();
+    final JLabel mechTypeLabel = new JLabel();
+    JComboBox<String> modelComboBox;
+    final ComponentPanel moduleComponentPanel = new ComponentPanel();
+    final ComponentPanel movementRangeComponentPanel = new ComponentPanel();
+    final ComponentPanel movementSpeedComponentPanel = new ComponentPanel();
+    final ComponentPanel myomerComponentPanel = new ComponentPanel();
+    final ComponentPanel overviewComponentPanel = new ComponentPanel();
+    final JPanel quirksPanel = new JPanel();
+    final JProgressBar rangeBar = new JProgressBar();
+    final JPanel rightArmPanel = new JPanel();
+    final JPanel rightLegPanel = new JPanel();
+    final JPanel rightTorsoPanel = new JPanel();
+    final JButton saveButton = new JButton();
+    final JTabbedPane secondaryTabbedPane = new JTabbedPane();
+    final JPanel section1Panel = new JPanel();
+    final JPanel section2Panel = new JPanel();
+    final JProgressBar speedBar = new JProgressBar();
+    final ComponentPanel speedComponentPanel = new ComponentPanel();
+    final JPanel statisticsPanel = new JPanel();
+    final ComponentPanel structureComponentPanel = new ComponentPanel();
+    final JLabel techBaseLabel = new JLabel();
+    final JProgressBar tonnageBar = new JProgressBar();
+    final JLabel unconfirmedLabel = new JLabel();
+    final JLabel unreleasedLabel = new JLabel();
+    final JLabel variantCostLabel = new JLabel();
+    final JTextField variantNameField = new JTextField();
     // End of variables declaration//GEN-END:variables
 }

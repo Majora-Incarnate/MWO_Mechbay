@@ -26,4 +26,21 @@ public enum MovementArchetype {
     public String toString() {
         return name;
     }
+
+    public static MovementArchetype getEnum(String value) {
+        switch(value) {
+            case "Tiny":
+                return TINY_MOVEMENT_ARCHETYPE;
+            case "Small":
+                return SMALL_MOVEMENT_ARCHETYPE;
+            case "Medium":
+                return MEDIUM_MOVEMENT_ARCHETYPE;
+            case "Large":
+                return LARGE_MOVEMENT_ARCHETYPE;
+            case "Huge":
+                return HUGE_MOVEMENT_ARCHETYPE;
+            default:
+                return TINY_MOVEMENT_ARCHETYPE;
+        }
+    }
 }

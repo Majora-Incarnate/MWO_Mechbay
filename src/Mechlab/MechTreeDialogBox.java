@@ -5,8 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MechTreeDialogBox
-        extends JDialog {
+public class MechTreeDialogBox extends JDialog {
     JButton closeButton;
     private JPanel BasicPanel;
     private JPanel ButtonPanel;

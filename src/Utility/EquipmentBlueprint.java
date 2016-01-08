@@ -2,8 +2,8 @@ package Utility;
 
 public class EquipmentBlueprint
         extends Blueprint {
-    public String tech_base;
-    public String hardpoint_type;
+    public TechBase tech_base;
+    public HardpointType hardpoint_type;
     public double tonnage;
     public int criticals;
 
@@ -12,8 +12,8 @@ public class EquipmentBlueprint
         int i = 0;
         this.name = arrayOfString[(i++)];
         this.id = Integer.parseInt(arrayOfString[(i++)]);
-        this.tech_base = arrayOfString[(i++)];
-        this.hardpoint_type = arrayOfString[(i++)];
+        this.tech_base = TechBase.getEnum(arrayOfString[(i++)]);
+        this.hardpoint_type = HardpointType.getEnum(arrayOfString[(i++)]);
         this.tonnage = Double.parseDouble(arrayOfString[(i++)]);
         this.criticals = Integer.parseInt(arrayOfString[(i++)]);
     }

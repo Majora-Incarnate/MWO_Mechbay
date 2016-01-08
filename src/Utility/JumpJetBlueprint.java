@@ -1,20 +1,20 @@
 package Utility;
 
 public class JumpJetBlueprint extends Blueprint {
-    public String tech_base;
-    public double tonnage_modifier;
-    public int criticals;
-    public double horizontal_distance;
-    public double vertical_distance;
-    public double cost_modifier;
-    public int upgrade_cost;
+    public final TechBase tech_base;
+    public final double tonnage_modifier;
+    public final int criticals;
+    public final double horizontal_distance;
+    public final double vertical_distance;
+    public final double cost_modifier;
+    public final int upgrade_cost;
 
     public JumpJetBlueprint(String paramString) {
         String[] arrayOfString = paramString.split(";");
         int i = 0;
         this.name = arrayOfString[(i++)];
         this.id = Integer.parseInt(arrayOfString[(i++)]);
-        this.tech_base = arrayOfString[(i++)];
+        this.tech_base = TechBase.getEnum(arrayOfString[(i++)]);
         this.tonnage_modifier = Double.parseDouble(arrayOfString[(i++)]);
         this.criticals = Integer.parseInt(arrayOfString[(i++)]);
         this.horizontal_distance = Double.parseDouble(arrayOfString[(i++)]);

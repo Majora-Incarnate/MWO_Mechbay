@@ -28,4 +28,8 @@ public class User {
     public static boolean mixtech_enabled = false;
     public static boolean futuretech_enabled = false;
     public static boolean omni_restrictions_enabled = true;
+    
+    private User() {
+        throw new UnsupportedOperationException();
+    }
 }
