@@ -13,6 +13,8 @@ public enum SectionType {
     CENTER_TORSO("CT", "Center Torso", 5),
     LEFT_LEG("LL", "Left Leg", 6),
     RIGHT_LEG("RL", "Right Leg", 7),
+    SPECIAL_ONE("S1", "Special 1", 8),
+    SPECIAL_TWO("S2", "Special 2", 9),
     LEFT_REAR_TORSO("RLT", "Rear Left Torso", 0),
     RIGHT_REAR_TORSO("RRT", "Rear Right Torso", 1),
     CENTER_REAR_TORSO("RCT", "Rear Center Torso", 2);
