@@ -1,0 +1,1477 @@
+Chassis;Model;Section;Criticals;Ballistic HP;Energy HP;Missile HP;AMS HP;ECM HP;Min Actuator;Max Actuator;Actuator Type;Min JJ Mod;Max JJ Mod;Hardwired HS;Hardwired Armor;Hardwired Structure;Quirks
+Adder;ADR-PRIME;RA;12;0;1;0;0;0;2;4;Arms;0;0;0;1;0;None
+Adder;ADR-PRIME;LA;12;0;1;0;0;0;2;4;Arms;0;0;0;1;0;None
+Adder;ADR-PRIME;RT;12;0;0;0;1;0;0;0;None;0;0;1;2;1;None
+Adder;ADR-PRIME;LT;12;0;0;0;0;0;0;0;None;0;0;1;2;1;None
+Adder;ADR-PRIME;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;1;None
+Adder;ADR-PRIME;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Adder;ADR-PRIME;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Adder;ADR-PRIME;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Adder;ADR-A;RA;12;0;0;1;0;0;2;4;Arms;0;0;0;1;0;None
+Adder;ADR-A;LA;12;0;0;1;0;0;2;4;Arms;0;0;0;1;0;None
+Adder;ADR-A;RT;12;0;1;0;0;0;0;0;None;0;0;1;2;1;None
+Adder;ADR-A;LT;12;0;1;0;0;0;0;0;None;0;0;1;2;1;None
+Adder;ADR-A;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;1;None
+Adder;ADR-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Adder;ADR-A;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Adder;ADR-A;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Adder;ADR-B;RA;12;0;1;0;0;0;2;4;Arms;0;0;0;1;0;None
+Adder;ADR-B;LA;12;1;0;0;0;0;2;4;Arms;0;0;0;1;0;None
+Adder;ADR-B;RT;12;0;1;0;0;0;0;0;None;0;0;1;2;1;None
+Adder;ADR-B;LT;12;0;1;0;0;0;0;0;None;0;0;1;2;1;None
+Adder;ADR-B;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;1;None
+Adder;ADR-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Adder;ADR-B;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Adder;ADR-B;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Adder;ADR-C;RA;12;0;0;1;0;0;2;4;Arms;0;0;0;1;0;None
+Adder;ADR-C;LA;12;0;0;1;0;0;2;4;Arms;0;0;0;1;0;None
+Adder;ADR-C;RT;12;0;0;1;0;0;0;0;None;0;0;1;2;1;None
+Adder;ADR-C;LT;12;0;1;0;0;0;0;0;None;0;0;1;2;1;None
+Adder;ADR-C;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;1;None
+Adder;ADR-C;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Adder;ADR-C;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Adder;ADR-C;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Adder;ADR-D;RA;12;1;0;0;0;0;2;4;Arms;0;0;0;1;0;None
+Adder;ADR-D;LA;12;0;1;0;0;0;2;4;Arms;0;0;0;1;0;None
+Adder;ADR-D;RT;12;0;0;1;0;0;0;0;None;0;0;1;2;1;None
+Adder;ADR-D;LT;12;0;0;1;0;0;0;0;None;0;0;1;2;1;None
+Adder;ADR-D;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;1;None
+Adder;ADR-D;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Adder;ADR-D;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Adder;ADR-D;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Archer;ARC-2R;RA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Archer;ARC-5S;RA;12;0;1;1;0;0;4;4;Arms;0;0;0;0;0;None
+Archer;ARC-5W;RA;12;0;0;2;0;0;4;4;Arms;0;0;0;0;0;None
+Archer;ARC-2R;LA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Archer;ARC-5S;LA;12;0;1;1;0;0;4;4;Arms;0;0;0;0;0;None
+Archer;ARC-5W;LA;12;0;0;2;0;0;4;4;Arms;0;0;0;0;0;None
+Archer;ARC-2R;RT;12;0;0;1;1;0;0;0;None;0;0;0;0;0;None
+Archer;ARC-5W;RT;12;0;0;2;1;0;0;0;None;0;0;0;0;0;None
+Archer;ARC-2R;LT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Archer;ARC-T;LT;12;0;0;1;0;1;0;0;None;0;0;0;0;0;None
+Archer;ARC-2R;CT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Archer;ARC-5W;CT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Archer;ARC-T;CT;12;0;2;1;0;0;0;0;None;0;0;0;0;0;None
+Archer;ARC-2R;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Archer;ARC-2R;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Archer;ARC-2R;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Arctic Cheetah;ACH-PRIME;RA;12;0;1;1;0;0;2;4;Arms;0;0;0;1;1;None
+Arctic Cheetah;ACH-PRIME;LA;12;0;1;1;0;0;2;4;Arms;0;0;0;1;1;None
+Arctic Cheetah;ACH-PRIME;RT;12;0;1;0;0;0;0;0;None;0;0;1;2;2;None
+Arctic Cheetah;ACH-PRIME;LT;12;0;1;0;1;0;0;0;None;0;0;0;2;3;None
+Arctic Cheetah;ACH-PRIME;CT;12;0;0;0;0;0;0;0;None;2;2;0;0;0;None
+Arctic Cheetah;ACH-PRIME;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Arctic Cheetah;ACH-PRIME;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Arctic Cheetah;ACH-PRIME;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Arctic Cheetah;ACH-A;RA;12;0;1;1;0;0;2;4;Arms;0;0;0;1;1;None
+Arctic Cheetah;ACH-A;LA;12;0;1;1;0;0;2;4;Arms;0;0;0;1;1;None
+Arctic Cheetah;ACH-A;RT;12;0;0;0;0;0;0;0;None;0;0;1;2;2;None
+Arctic Cheetah;ACH-A;LT;12;0;0;0;0;0;0;0;None;0;0;0;2;3;None
+Arctic Cheetah;ACH-A;CT;12;0;0;0;0;0;0;0;None;2;2;0;0;0;None
+Arctic Cheetah;ACH-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Arctic Cheetah;ACH-A;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Arctic Cheetah;ACH-A;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Arctic Cheetah;ACH-B;RA;12;1;1;0;0;0;2;4;Arms;0;0;0;1;1;None
+Arctic Cheetah;ACH-B;LA;12;0;2;0;0;0;2;4;Arms;0;0;0;1;1;None
+Arctic Cheetah;ACH-B;RT;12;0;0;0;0;0;0;0;None;0;0;1;2;2;None
+Arctic Cheetah;ACH-B;LT;12;0;0;0;0;0;0;0;None;0;0;0;2;3;None
+Arctic Cheetah;ACH-B;CT;12;0;0;0;0;0;0;0;None;2;2;0;0;0;None
+Arctic Cheetah;ACH-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Arctic Cheetah;ACH-B;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Arctic Cheetah;ACH-B;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Arctic Cheetah;ACH-C;RA;12;0;2;0;0;0;2;4;Arms;0;0;0;1;1;None
+Arctic Cheetah;ACH-C;LA;12;0;2;0;0;0;2;4;Arms;0;0;0;1;1;None
+Arctic Cheetah;ACH-C;RT;12;0;1;0;0;0;0;0;None;0;0;1;2;2;None
+Arctic Cheetah;ACH-C;LT;12;0;2;0;0;0;0;0;None;0;0;0;2;3;None
+Arctic Cheetah;ACH-C;CT;12;0;0;0;0;0;0;0;None;2;2;0;0;0;None
+Arctic Cheetah;ACH-C;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Arctic Cheetah;ACH-C;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Arctic Cheetah;ACH-C;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Atlas;AS7-D;RA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Atlas;AS7-K;RA;12;0;1;0;1;0;4;4;Arms;0;0;0;0;0;None
+Atlas;AS7-RS;RA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Atlas;AS7-BH;RA;12;0;3;0;0;0;4;4;Arms;0;0;0;0;0;None
+Atlas;AS7-D;LA;12;0;1;0;1;0;4;4;Arms;0;0;0;0;0;None
+Atlas;AS7-RS;LA;12;0;2;0;1;0;4;4;Arms;0;0;0;0;0;None
+Atlas;AS7-BH;LA;12;0;3;0;1;0;4;4;Arms;0;0;0;0;0;None
+Atlas;AS7-D;RT;12;2;0;0;0;0;0;0;None;0;0;0;0;0;None
+Atlas;AS7-K;RT;12;1;0;0;0;0;0;0;None;0;0;0;0;0;None
+Atlas;AS7-D;LT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Atlas;AS7-D-DC;LT;12;0;0;3;0;1;0;0;None;0;0;0;0;0;None
+Atlas;AS7-K;LT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Atlas;AS7-S;LT;12;0;0;4;0;0;0;0;None;0;0;0;0;0;None
+Atlas;AS7-D;CT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Atlas;AS7-D-DC;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Atlas;AS7-D;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Atlas;AS7-D;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Atlas;AS7-D;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Awesome;AWS-8Q;RA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Awesome;AWS-8V;RA;12;0;1;0;0;0;3;3;Arms;0;0;0;0;0;None
+Awesome;AWS-8Q;LA;12;0;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Awesome;AWS-8T;LA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Awesome;AWS-9M;LA;12;0;0;1;0;0;4;4;Arms;0;0;0;0;0;None
+Awesome;AWS-PB;LA;12;0;0;2;0;0;4;4;Arms;0;0;0;0;0;None
+Awesome;AWS-8Q;RT;12;0;2;0;1;0;0;0;None;0;0;0;0;0;None
+Awesome;AWS-8R;RT;12;0;0;2;1;0;0;0;None;0;0;0;0;0;None
+Awesome;AWS-8T;RT;12;0;0;1;1;0;0;0;None;0;0;0;0;0;None
+Awesome;AWS-8V;RT;12;0;0;3;1;0;0;0;None;0;0;0;0;0;None
+Awesome;AWS-9M;RT;12;0;1;0;1;0;0;0;None;0;0;0;0;0;None
+Awesome;AWS-8Q;LT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Awesome;AWS-8R;LT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Awesome;AWS-8T;LT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Awesome;AWS-9M;LT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Awesome;AWS-8Q;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Awesome;AWS-9M;CT;12;0;2;2;0;0;0;0;None;0;0;0;0;0;None
+Awesome;AWS-8Q;HD;6;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Awesome;AWS-8Q;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Awesome;AWS-8Q;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Banshee;BNC-3E;RA;12;0;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Banshee;BNC-LM;RA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Banshee;BNC-3E;LA;12;0;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Banshee;BNC-3S;LA;12;0;1;0;0;0;3;3;Arms;0;0;0;0;0;None
+Banshee;BNC-LM;LA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Banshee;BNC-3E;RT;12;0;3;0;0;0;0;0;None;0;0;0;0;0;None
+Banshee;BNC-3M;RT;12;0;4;0;0;0;0;0;None;0;0;0;0;0;None
+Banshee;BNC-3S;RT;12;0;5;1;0;0;0;0;None;0;0;0;0;0;None
+Banshee;BNC-LM;RT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Banshee;BNC-3E;LT;12;4;0;0;0;0;0;0;None;0;0;0;0;0;None
+Banshee;BNC-3M;LT;12;0;3;0;0;0;0;0;None;0;0;0;0;0;None
+Banshee;BNC-3S;LT;12;1;0;0;0;0;0;0;None;0;0;0;0;0;None
+Banshee;BNC-LM;LT;12;1;1;0;0;0;0;0;None;0;0;0;0;0;None
+Banshee;BNC-3E;CT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Banshee;BNC-3S;CT;12;0;1;0;1;0;0;0;None;0;0;0;0;0;None
+Banshee;BNC-3E;HD;6;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Banshee;BNC-3E;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Banshee;BNC-3E;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Battlemaster;BLR-1D;RA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Battlemaster;BLR-1S;RA;12;0;0;1;0;0;4;4;Arms;0;0;0;0;0;None
+Battlemaster;BLR-3M;RA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Battlemaster;BLR-1D;LA;12;3;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Battlemaster;BLR-1G;LA;12;2;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Battlemaster;BLR-1S;LA;12;0;0;1;0;0;4;4;Arms;0;0;0;0;0;None
+Battlemaster;BLR-3M;LA;12;1;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Battlemaster;BLR-1GHE;LA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Battlemaster;BLR-2C;LA;12;0;0;0;1;0;4;4;Arms;0;0;0;0;0;None
+Battlemaster;BLR-3S;LA;12;0;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Battlemaster;BLR-1D;RT;12;0;2;0;1;0;0;0;None;0;0;0;0;0;None
+Battlemaster;BLR-1G;RT;12;0;3;0;1;0;0;0;None;0;0;0;0;0;None
+Battlemaster;BLR-1D;LT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Battlemaster;BLR-1G;LT;12;0;3;1;0;0;0;0;None;0;0;0;0;0;None
+Battlemaster;BLR-1S;LT;12;0;2;2;0;0;0;0;None;0;0;0;0;0;None
+Battlemaster;BLR-1GHE;LT;12;0;2;3;0;0;0;0;None;0;0;0;0;0;None
+Battlemaster;BLR-2C;LT;12;0;3;2;0;0;0;0;None;0;0;0;0;0;None
+Battlemaster;BLR-1D;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Battlemaster;BLR-1D;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Battlemaster;BLR-1D;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Battlemaster;BLR-1D;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Blackjack;BJ-1;RA;12;1;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Blackjack;BJ-1X;RA;12;0;3;0;0;0;2;2;Arms;0;0;0;0;0;None
+Blackjack;BJ-3;RA;12;0;2;0;0;0;2;2;Arms;0;0;0;0;0;None
+Blackjack;BJ-A;RA;12;3;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Blackjack;BJ-1;LA;12;1;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Blackjack;BJ-1X;LA;12;0;3;0;0;0;2;2;Arms;0;0;0;0;0;None
+Blackjack;BJ-3;LA;12;0;2;0;0;0;2;2;Arms;0;0;0;0;0;None
+Blackjack;BJ-A;LA;12;3;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Blackjack;BJ-1;RT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Blackjack;BJ-1DC;RT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Blackjack;BJ-1;LT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Blackjack;BJ-1DC;LT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Blackjack;BJ-1;CT;12;0;0;0;0;0;0;0;None;0;4;0;0;0;None
+Blackjack;BJ-1DC;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Blackjack;BJ-A;CT;12;0;1;0;0;0;0;0;None;0;4;0;0;0;None
+Blackjack;BJ-1;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Blackjack;BJ-1;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Blackjack;BJ-1;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Black Knight;BL-6-KNT;RA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Black Knight;BL-6-KNT;LA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Black Knight;BL-6B-KNT;LA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Black Knight;BL-6-KNT;RT;12;0;2;0;1;0;0;0;None;0;0;0;0;0;None
+Black Knight;BL-6B-KNT;RT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Black Knight;BL-7-KNT;RT;12;0;3;0;0;0;0;0;None;0;0;0;0;0;None
+Black Knight;BL-6-KNT;LT;12;0;2;0;1;0;0;0;None;0;0;0;0;0;None
+Black Knight;BL-6-KNT;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Black Knight;BL-6-KNT;HD;6;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Black Knight;BL-6-KNT;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Black Knight;BL-6-KNT;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Cataphract;CTF-1X;RA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Cataphract;CTF-2X;RA;12;0;1;0;0;0;3;3;Arms;0;0;0;0;0;None
+Cataphract;CTF-3D;RA;12;1;1;0;0;0;3;3;Arms;0;0;0;0;0;None
+Cataphract;CTF-4X;RA;12;2;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Cataphract;CTF-0XP;LA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Cataphract;CTF-1X;LA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Cataphract;CTF-2X;LA;12;0;0;2;0;0;4;4;Arms;0;0;0;0;0;None
+Cataphract;CTF-4X;LA;12;2;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Cataphract;CTF-IM;LA;12;1;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Cataphract;CTF-0XP;RT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Cataphract;CTF-1X;RT;12;1;1;0;0;0;0;0;None;0;0;0;0;0;None
+Cataphract;CTF-4X;RT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Cataphract;CTF-0XP;LT;12;0;0;0;0;1;0;0;None;0;0;0;0;0;None
+Cataphract;CTF-1X;LT;12;0;1;0;1;0;0;0;None;0;0;0;0;0;None
+Cataphract;CTF-4X;LT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Cataphract;CTF-1X;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Cataphract;CTF-3D;CT;12;0;0;0;0;0;0;0;None;0;4;0;0;0;None
+Cataphract;CTF-4X;CT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Cataphract;CTF-1X;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Cataphract;CTF-4X;HD;6;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Cataphract;CTF-1X;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Cataphract;CTF-1X;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Catapult;CPLT-A1;RA;12;0;0;3;0;0;2;2;Arms;0;0;0;0;0;None
+Catapult;CPLT-C1;RA;12;0;0;1;0;0;2;2;Arms;0;0;0;0;0;None
+Catapult;CPLT-C4;RA;12;0;0;2;0;0;2;2;Arms;0;0;0;0;0;None
+Catapult;CPLT-K2;RA;12;0;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Catapult;CPLT-A1;LA;12;0;0;3;0;0;2;2;Arms;0;0;0;0;0;None
+Catapult;CPLT-C1;LA;12;0;0;1;0;0;2;2;Arms;0;0;0;0;0;None
+Catapult;CPLT-C4;LA;12;0;0;2;0;0;2;2;Arms;0;0;0;0;0;None
+Catapult;CPLT-K2;LA;12;0;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Catapult;CPLT-A1;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Catapult;CPLT-C1;RT;12;0;1;0;1;0;0;0;None;0;0;0;0;0;None
+Catapult;CPLT-K2;RT;12;1;1;0;1;0;0;0;None;0;0;0;0;0;None
+Catapult;CPLT-A1;LT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Catapult;CPLT-C1;LT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Catapult;CPLT-K2;LT;12;1;1;0;0;0;0;0;None;0;0;0;0;0;None
+Catapult;CPLT-J;LT;12;0;1;0;1;0;0;0;None;0;0;0;0;0;None
+Catapult;CPLT-A1;CT;12;0;0;0;0;0;0;0;None;0;4;0;0;0;None
+Catapult;CPLT-C1;CT;12;0;2;0;0;0;0;0;None;0;4;0;0;0;None
+Catapult;CPLT-K2;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Catapult;CPLT-J;CT;12;0;2;0;0;0;0;0;None;0;2;0;0;0;None
+Catapult;CPLT-A1;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Catapult;CPLT-A1;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Catapult;CPLT-A1;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Centurion;CN9-A;RA;12;1;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Centurion;CN9-AH;RA;12;3;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Centurion;CN9-AL;RA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Centurion;CN9-D;RA;12;2;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Centurion;CN9-YLW;RA;12;2;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Centurion;CN9-A;LA;12;0;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Centurion;CN9-A;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Centurion;CN9-A;LT;12;0;0;3;0;0;0;0;None;0;0;0;0;0;None
+Centurion;CN9-AH;LT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Centurion;CN9-YLW;LT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Centurion;CN9-A;CT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Centurion;CN9-AH;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Centurion;CN9-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Centurion;CN9-A;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Centurion;CN9-A;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Cicada;CDA-2A;RA;12;0;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Cicada;CDA-2B;RA;12;0;2;0;0;0;2;2;Arms;0;0;0;0;0;None
+Cicada;CDA-X5;RA;12;0;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Cicada;CDA-2A;LA;12;0;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Cicada;CDA-2B;LA;12;0;2;0;0;0;2;2;Arms;0;0;0;0;0;None
+Cicada;CDA-X5;LA;12;0;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Cicada;CDA-2A;RT;12;0;2;0;1;0;0;0;None;0;0;0;0;0;None
+Cicada;CDA-2B;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Cicada;CDA-3C;RT;12;2;1;0;1;0;0;0;None;0;0;0;0;0;None
+Cicada;CDA-3M;RT;12;0;1;0;1;0;0;0;None;0;0;0;0;0;None
+Cicada;CDA-X5;RT;12;0;1;1;0;0;0;0;None;0;0;0;0;0;None
+Cicada;CDA-2A;LT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Cicada;CDA-2B;LT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Cicada;CDA-3C;LT;12;2;0;0;0;0;0;0;None;0;0;0;0;0;None
+Cicada;CDA-3M;LT;12;1;1;0;0;1;0;0;None;0;0;0;0;0;None
+Cicada;CDA-X5;LT;12;0;1;1;0;0;0;0;None;0;0;0;0;0;None
+Cicada;CDA-2A;CT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Cicada;CDA-2B;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Cicada;CDA-3C;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Cicada;CDA-3F;CT;12;0;0;0;0;0;0;0;None;0;8;0;0;0;None
+Cicada;CDA-2A;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Cicada;CDA-2A;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Cicada;CDA-2A;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Crab;CRB-20;RA;12;0;1;0;0;0;3;3;Arms;0;0;0;0;0;None
+Crab;CRB-27B;RA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Crab;CRB-20;LA;12;0;1;0;0;0;3;3;Arms;0;0;0;0;0;None
+Crab;CRB-27B;LA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Crab;CRB-20;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Crab;CRB-20;LT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Crab;CRB-27;LT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Crab;CRB-20;CT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Crab;CRB-27B;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Crab;CRB-27SL;CT;12;0;2;0;0;0;0;0;None;0;5;0;0;0;None
+Crab;CRB-20;HD;6;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Crab;CRB-20;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Crab;CRB-20;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Commando;COM-1B;RA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Commando;COM-2D;RA;12;0;0;2;0;0;4;4;Arms;0;0;0;0;0;None
+Commando;COM-3A;RA;12;0;1;1;0;0;4;4;Arms;0;0;0;0;0;None
+Commando;COM-1B;LA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Commando;COM-1D;LA;12;0;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Commando;COM-DK;LA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Commando;COM-1B;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Commando;COM-1B;LT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Commando;COM-2D;LT;12;0;0;0;0;1;0;0;None;0;0;0;0;0;None
+Commando;COM-1B;CT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Commando;COM-1D;CT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Commando;COM-DK;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Commando;COM-1B;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Commando;COM-1B;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Commando;COM-1B;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Dire Wolf;DWF-PRIME;RA;12;1;4;0;0;0;2;2;Arms;0;0;0;0;0;None
+Dire Wolf;DWF-PRIME;LA;12;1;4;0;0;0;2;2;Arms;0;0;0;0;0;None
+Dire Wolf;DWF-PRIME;RT;12;0;0;0;0;0;0;0;None;0;0;1;0;0;None
+Dire Wolf;DWF-PRIME;LT;12;0;0;1;0;0;0;0;None;0;0;1;0;0;None
+Dire Wolf;DWF-PRIME;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Dire Wolf;DWF-PRIME;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Dire Wolf;DWF-PRIME;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Dire Wolf;DWF-PRIME;LL;6;0;0;0;0;0;4;4;Legs;0;0;1;0;0;None
+Dire Wolf;DWF-A;RA;12;0;3;0;0;0;2;2;Arms;0;0;0;0;0;None
+Dire Wolf;DWF-A;LA;12;1;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Dire Wolf;DWF-A;RT;12;0;0;0;1;0;0;0;None;0;0;1;0;0;None
+Dire Wolf;DWF-A;LT;12;0;0;2;0;0;0;0;None;0;0;1;0;0;None
+Dire Wolf;DWF-A;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Dire Wolf;DWF-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Dire Wolf;DWF-A;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Dire Wolf;DWF-A;LL;6;0;0;0;0;0;4;4;Legs;0;0;1;0;0;None
+Dire Wolf;DWF-B;RA;12;1;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Dire Wolf;DWF-B;LA;12;0;4;0;0;0;2;2;Arms;0;0;0;0;0;None
+Dire Wolf;DWF-B;RT;12;2;0;0;0;0;0;0;None;0;0;1;0;0;None
+Dire Wolf;DWF-B;LT;12;2;0;0;0;0;0;0;None;0;0;1;0;0;None
+Dire Wolf;DWF-B;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Dire Wolf;DWF-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Dire Wolf;DWF-B;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Dire Wolf;DWF-B;LL;6;0;0;0;0;0;4;4;Legs;0;0;1;0;0;None
+Dire Wolf;DWF-S;RA;12;1;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Dire Wolf;DWF-S;LA;12;0;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Dire Wolf;DWF-S;RT;12;1;2;0;0;0;0;0;None;1;1;1;0;0;None
+Dire Wolf;DWF-S;LT;12;1;2;1;0;0;0;0;None;1;1;1;0;0;None
+Dire Wolf;DWF-S;CT;12;0;0;1;0;0;0;0;None;1;1;0;0;0;None
+Dire Wolf;DWF-S;HD;6;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Dire Wolf;DWF-S;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Dire Wolf;DWF-S;LL;6;0;0;0;0;0;4;4;Legs;0;0;1;0;0;None
+Dire Wolf;DWF-W;RA;12;0;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Dire Wolf;DWF-W;LA;12;1;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Dire Wolf;DWF-W;RT;12;1;0;0;0;0;0;0;None;0;0;1;0;0;None
+Dire Wolf;DWF-W;LT;12;0;0;1;0;0;0;0;None;0;0;1;0;0;None
+Dire Wolf;DWF-W;CT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Dire Wolf;DWF-W;HD;6;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Dire Wolf;DWF-W;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Dire Wolf;DWF-W;LL;6;0;0;0;0;0;4;4;Legs;0;0;1;0;0;None
+Dragon;DGN-1C;RA;12;1;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Dragon;DGN-1N;RA;12;2;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Dragon;DGN-5N;RA;12;3;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Dragon;DGN-FLAME;RA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Dragon;DGN-1C;LA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Dragon;DGN-1N;LA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Dragon;DGN-1C;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Dragon;DGN-1C;LT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Dragon;DGN-1N;LT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Dragon;DGN-5N;LT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Dragon;DGN-FLAME;LT;12;1;0;0;0;0;0;0;None;0;0;0;0;0;None
+Dragon;DGN-1C;CT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Dragon;DGN-1N;CT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Dragon;DGN-1C;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Dragon;DGN-1C;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Dragon;DGN-1C;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Ebon Jaguar;EBJ-PRIME;RA;12;1;0;0;0;0;2;2;Arms;0;0;0;2;0;None
+Ebon Jaguar;EBJ-PRIME;LA;12;1;0;0;0;0;2;2;Arms;0;0;0;2;0;None
+Ebon Jaguar;EBJ-PRIME;RT;12;0;0;1;0;0;0;0;None;0;0;0;1;1;None
+Ebon Jaguar;EBJ-PRIME;LT;12;0;1;1;0;0;0;0;None;0;0;0;0;1;None
+Ebon Jaguar;EBJ-PRIME;CT;12;0;0;0;0;0;0;0;None;0;0;0;1;1;None
+Ebon Jaguar;EBJ-PRIME;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Ebon Jaguar;EBJ-PRIME;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Ebon Jaguar;EBJ-PRIME;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Ebon Jaguar;EBJ-A;RA;12;1;2;0;0;0;2;2;Arms;0;0;0;2;0;None
+Ebon Jaguar;EBJ-A;LA;12;1;2;0;0;0;2;2;Arms;0;0;0;2;0;None
+Ebon Jaguar;EBJ-A;RT;12;1;0;0;0;0;0;0;None;0;0;0;1;1;None
+Ebon Jaguar;EBJ-A;LT;12;0;3;0;0;0;0;0;None;0;0;0;0;1;None
+Ebon Jaguar;EBJ-A;CT;12;0;0;0;0;0;0;0;None;0;0;0;1;1;None
+Ebon Jaguar;EBJ-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Ebon Jaguar;EBJ-A;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Ebon Jaguar;EBJ-A;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Ebon Jaguar;EBJ-B;RA;12;0;2;0;0;0;2;2;Arms;0;0;0;2;0;None
+Ebon Jaguar;EBJ-B;LA;12;0;2;0;0;0;2;2;Arms;0;0;0;2;0;None
+Ebon Jaguar;EBJ-B;RT;12;0;1;0;0;0;0;0;None;0;0;0;1;1;None
+Ebon Jaguar;EBJ-B;LT;12;0;2;0;0;0;0;0;None;0;0;0;0;1;None
+Ebon Jaguar;EBJ-B;CT;12;0;0;0;0;0;0;0;None;0;0;0;1;1;None
+Ebon Jaguar;EBJ-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Ebon Jaguar;EBJ-B;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Ebon Jaguar;EBJ-B;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Ebon Jaguar;EBJ-C;RA;12;1;0;1;0;0;2;2;Arms;0;0;0;2;0;None
+Ebon Jaguar;EBJ-C;LA;12;1;0;1;0;0;2;2;Arms;0;0;0;2;0;None
+Ebon Jaguar;EBJ-C;RT;12;0;0;1;0;0;0;0;None;0;0;0;1;1;None
+Ebon Jaguar;EBJ-C;LT;12;0;0;1;0;0;0;0;None;0;0;0;0;1;None
+Ebon Jaguar;EBJ-C;CT;12;0;0;0;0;0;0;0;None;0;0;0;1;1;None
+Ebon Jaguar;EBJ-C;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Ebon Jaguar;EBJ-C;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Ebon Jaguar;EBJ-C;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Enforcer;ENF-4P;RA;12;2;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Enforcer;ENF-4R;RA;12;1;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Enforcer;ENF-5D;RA;12;2;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Enforcer;ENF-4P;LA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Enforcer;ENF-4R;LA;12;0;3;0;0;0;3;3;Arms;0;0;0;0;0;None
+Enforcer;ENF-5D;LA;12;0;1;0;0;0;3;3;Arms;0;0;0;0;0;None
+Enforcer;ENF-5P;LA;12;2;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Enforcer;ENF-4P;RT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Enforcer;ENF-4P;LT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Enforcer;ENF-5P;LT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Enforcer;ENF-4P;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Enforcer;ENF-4R;CT;12;0;0;0;0;0;0;0;None;0;4;0;0;0;None
+Enforcer;ENF-5D;CT;12;0;0;0;0;0;0;0;None;0;5;0;0;0;None
+Enforcer;ENF-5P;CT;12;0;0;0;0;0;0;0;None;0;2;0;0;0;None
+Enforcer;ENF-4P;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Enforcer;ENF-4P;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Enforcer;ENF-4P;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Executioner;EXE-PRIME;RA;12;0;2;0;0;0;2;2;Arms;0;0;0;1;0;None
+Executioner;EXE-PRIME;LA;12;1;0;0;0;0;2;2;Arms;0;0;0;1;0;None
+Executioner;EXE-PRIME;RT;12;2;0;0;0;0;0;0;None;0;0;1;2;0;None
+Executioner;EXE-PRIME;LT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Executioner;EXE-PRIME;CT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Executioner;EXE-PRIME;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Executioner;EXE-PRIME;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Executioner;EXE-PRIME;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Executioner;EXE-A;RA;12;0;0;0;0;0;2;2;Arms;0;0;0;1;0;None
+Executioner;EXE-A;LA;12;0;0;0;0;0;2;2;Arms;0;0;0;1;0;None
+Executioner;EXE-A;RT;12;0;0;0;0;0;0;0;None;0;0;1;2;0;None
+Executioner;EXE-A;LT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Executioner;EXE-A;CT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Executioner;EXE-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Executioner;EXE-A;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Executioner;EXE-A;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Executioner;EXE-B;RA;12;0;0;0;0;0;2;2;Arms;0;0;0;1;0;None
+Executioner;EXE-B;LA;12;0;0;0;0;0;2;2;Arms;0;0;0;1;0;None
+Executioner;EXE-B;RT;12;0;0;0;0;0;0;0;None;0;0;1;2;0;None
+Executioner;EXE-B;LT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Executioner;EXE-B;CT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Executioner;EXE-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Executioner;EXE-B;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Executioner;EXE-B;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Executioner;EXE-C;RA;12;1;0;0;0;0;2;2;Arms;0;0;0;1;0;None
+Executioner;EXE-C;LA;12;0;0;1;0;0;2;2;Arms;0;0;0;1;0;None
+Executioner;EXE-C;RT;12;0;0;0;0;0;0;0;None;0;0;1;2;0;None
+Executioner;EXE-C;LT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Executioner;EXE-C;CT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Executioner;EXE-C;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Executioner;EXE-C;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Executioner;EXE-C;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Executioner;EXE-D;RA;12;0;7;0;0;0;2;2;Arms;0;0;0;1;0;None
+Executioner;EXE-D;LA;12;0;0;2;0;0;2;2;Arms;0;0;0;1;0;None
+Executioner;EXE-D;RT;12;0;2;0;0;0;0;0;None;0;0;1;2;0;None
+Executioner;EXE-D;LT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Executioner;EXE-D;CT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Executioner;EXE-D;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Executioner;EXE-D;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Executioner;EXE-D;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Firestarter;FS9-A;RA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Firestarter;FS9-K;RA;12;0;3;0;0;0;3;3;Arms;0;0;0;0;0;None
+Firestarter;FS9-A;LA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Firestarter;FS9-K;LA;12;0;3;0;0;0;3;3;Arms;0;0;0;0;0;None
+Firestarter;FS9-A;RT;12;0;1;0;1;0;0;0;None;0;0;0;0;0;None
+Firestarter;FS9-E;RT;12;2;0;0;1;0;0;0;None;0;0;0;0;0;None
+Firestarter;FS9-H;RT;12;1;0;0;1;0;0;0;None;0;0;0;0;0;None
+Firestarter;FS9-K;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Firestarter;FS9-A;LT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Firestarter;FS9-E;LT;12;2;0;0;0;0;0;0;None;0;0;0;0;0;None
+Firestarter;FS9-H;LT;12;1;0;0;0;0;0;0;None;0;0;0;0;0;None
+Firestarter;FS9-K;LT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Firestarter;FS9-S;LT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Firestarter;FS9-A;CT;12;0;2;0;0;0;0;0;None;0;6;0;0;0;None
+Firestarter;FS9-E;CT;12;0;0;0;0;0;0;0;None;0;6;0;0;0;None
+Firestarter;FS9-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Firestarter;FS9-A;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Firestarter;FS9-A;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Flea;FLE-4;RA;12;0;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Flea;FLE-15;RA;12;1;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Flea;FLE-4;LA;12;0;2;0;0;0;2;2;Arms;0;0;0;0;0;None
+Flea;FLE-15;LA;12;1;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Flea;FLE-17;LA;12;0;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Flea;FLE-4;RT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Flea;FLE-15;RT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Flea;FLE-4;LT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Flea;FLE-15;LT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Flea;FLE-4;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Flea;FLE-4;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Flea;FLE-4;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Flea;FLE-4;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Gargoyle;GAR-PRIME;RA;12;1;0;1;0;0;2;4;Arms;0;0;0;0;0;None
+Gargoyle;GAR-PRIME;LA;12;1;0;1;0;0;2;4;Arms;0;0;0;0;0;None
+Gargoyle;GAR-PRIME;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Gargoyle;GAR-PRIME;LT;12;0;0;0;1;0;0;0;None;0;0;0;2;0;None
+Gargoyle;GAR-PRIME;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Gargoyle;GAR-PRIME;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Gargoyle;GAR-PRIME;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;1;0;None
+Gargoyle;GAR-PRIME;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;1;0;None
+Gargoyle;GAR-A;RA;12;0;2;0;0;0;2;4;Arms;0;0;0;0;0;None
+Gargoyle;GAR-A;LA;12;0;4;0;0;0;2;4;Arms;0;0;0;0;0;None
+Gargoyle;GAR-A;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Gargoyle;GAR-A;LT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Gargoyle;GAR-A;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Gargoyle;GAR-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Gargoyle;GAR-A;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;1;0;None
+Gargoyle;GAR-A;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;1;0;None
+Gargoyle;GAR-B;RA;12;1;0;0;0;0;2;4;Arms;0;0;0;0;0;None
+Gargoyle;GAR-B;LA;12;0;0;2;0;0;2;4;Arms;0;0;0;0;0;None
+Gargoyle;GAR-B;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Gargoyle;GAR-B;LT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Gargoyle;GAR-B;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Gargoyle;GAR-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Gargoyle;GAR-B;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;1;0;None
+Gargoyle;GAR-B;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;1;0;None
+Gargoyle;GAR-C;RA;12;0;6;0;0;0;2;4;Arms;0;0;0;0;0;None
+Gargoyle;GAR-C;LA;12;1;0;0;0;0;2;4;Arms;0;0;0;0;0;None
+Gargoyle;GAR-C;LT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Gargoyle;GAR-C;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Gargoyle;GAR-C;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Gargoyle;GAR-C;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Gargoyle;GAR-C;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;1;0;None
+Gargoyle;GAR-C;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;1;0;None
+Gargoyle;GAR-D;RA;12;0;2;0;0;0;2;4;Arms;0;0;0;0;0;None
+Gargoyle;GAR-D;LA;12;0;2;0;0;0;2;4;Arms;0;0;0;0;0;None
+Gargoyle;GAR-D;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Gargoyle;GAR-D;LT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Gargoyle;GAR-D;CT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Gargoyle;GAR-D;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Gargoyle;GAR-D;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;1;0;None
+Gargoyle;GAR-D;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;1;0;None
+Griffin;GRF-1N;RA;12;0;3;0;0;0;4;4;Arms;0;0;0;0;0;None
+Griffin;GRF-1S;RA;12;0;4;0;0;0;4;4;Arms;0;0;0;0;0;None
+Griffin;GRF-3M;RA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Griffin;GRF-2N;RA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Griffin;GRF-1N;LA;12;0;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Griffin;GRF-1E;LA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Griffin;GRF-1N;RT;12;0;0;3;0;0;0;0;None;0;0;0;0;0;None
+Griffin;GRF-1S;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Griffin;GRF-3M;RT;12;0;0;4;0;0;0;0;None;0;0;0;0;0;None
+Griffin;GRF-2N;RT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Griffin;GRF-1E;RT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Griffin;GRF-1N;LT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Griffin;GRF-1S;LT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Griffin;GRF-2N;LT;12;0;0;2;0;1;0;0;None;0;0;0;0;0;None
+Griffin;GRF-3M;LT;12;0;1;0;1;0;0;0;None;0;0;0;0;0;None
+Griffin;GRF-1N;CT;12;0;0;0;0;0;0;0;None;0;7;0;0;0;None
+Griffin;GRF-1N;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Griffin;GRF-1N;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Griffin;GRF-1N;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Hellbringer;HBR-PRIME;RA;12;0;1;0;0;0;2;3;Arms;0;0;0;0;0;None
+Hellbringer;HBR-PRIME;LA;12;0;1;0;0;0;2;3;Arms;0;0;0;0;0;None
+Hellbringer;HBR-PRIME;RT;12;2;0;1;0;0;0;0;None;0;0;0;0;0;None
+Hellbringer;HBR-PRIME;LT;12;0;3;0;0;1;0;0;None;0;0;0;0;0;None
+Hellbringer;HBR-PRIME;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Hellbringer;HBR-PRIME;HD;6;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Hellbringer;HBR-PRIME;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Hellbringer;HBR-PRIME;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Hellbringer;HBR-A;RA;12;1;0;0;0;0;2;3;Arms;0;0;0;0;0;None
+Hellbringer;HBR-A;LA;12;0;2;0;0;0;2;3;Arms;0;0;0;0;0;None
+Hellbringer;HBR-A;RT;12;2;0;1;0;0;0;0;None;0;0;0;0;0;None
+Hellbringer;HBR-A;LT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Hellbringer;HBR-A;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Hellbringer;HBR-A;HD;6;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Hellbringer;HBR-A;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Hellbringer;HBR-A;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Hellbringer;HBR-B;RA;12;1;0;0;0;0;2;3;Arms;0;0;0;0;0;None
+Hellbringer;HBR-B;LA;12;1;0;0;0;0;2;3;Arms;0;0;0;0;0;None
+Hellbringer;HBR-B;RT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Hellbringer;HBR-B;LT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Hellbringer;HBR-B;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Hellbringer;HBR-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Hellbringer;HBR-B;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Hellbringer;HBR-B;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Highlander;HGN-732;RA;12;1;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Highlander;HGN-733C;RA;12;2;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Highlander;HGN-733P;RA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Highlander;HGN-732;LA;12;0;0;2;0;0;4;4;Arms;0;0;0;0;0;None
+Highlander;HGN-733C;LA;12;0;0;1;0;0;4;4;Arms;0;0;0;0;0;None
+Highlander;HGN-HM;LA;12;0;3;0;0;0;4;4;Arms;0;0;0;0;0;None
+Highlander;HGN-732;RT;12;0;3;0;0;0;0;0;None;0;0;0;0;0;None
+Highlander;HGN-733;RT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Highlander;HGN-HM;RT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Highlander;HGN-732;LT;12;0;0;1;1;0;0;0;None;0;0;0;0;0;None
+Highlander;HGN-733;LT;12;0;0;2;1;0;0;0;None;0;0;0;0;0;None
+Highlander;HGN-732;CT;12;0;0;0;0;0;0;0;None;0;3;0;0;0;None
+Highlander;HGN-733C;CT;12;0;0;0;0;0;0;0;None;0;4;0;0;0;None
+Highlander;HGN-HM;CT;12;0;0;0;0;0;0;0;None;0;5;0;0;0;None
+Highlander;HGN-732;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Highlander;HGN-732;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Highlander;HGN-732;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Highlander IIC;1;RA;12;1;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Highlander IIC;A;RA;12;0;2;0;0;0;2;2;Arms;0;0;0;0;0;None
+Highlander IIC;C;RA;12;2;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Highlander IIC;1;LA;12;0;0;2;0;0;4;4;Arms;0;0;0;0;0;None
+Highlander IIC;A;LA;12;0;0;1;0;0;4;4;Arms;0;0;0;0;0;None
+Highlander IIC;1;RT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Highlander IIC;A;RT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Highlander IIC;1;LT;12;0;3;0;1;0;0;0;None;0;0;0;0;0;None
+Highlander IIC;A;LT;12;0;2;0;1;0;0;0;None;0;0;0;0;0;None
+Highlander IIC;1;CT;12;0;0;0;0;0;0;0;None;0;3;0;0;0;None
+Highlander IIC;1;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Highlander IIC;1;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Highlander IIC;1;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Hunchback;HBK-4G;RA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Hunchback;HBK-4SP;RA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Hunchback;HBK-4G;LA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Hunchback;HBK-4SP;LA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Hunchback;HBK-4G;RT;12;3;0;0;0;0;0;0;None;0;0;0;0;0;None
+Hunchback;HBK-4H;RT;12;1;2;0;0;0;0;0;None;0;0;0;0;0;None
+Hunchback;HBK-4J;RT;12;0;3;2;0;0;0;0;None;0;0;0;0;0;None
+Hunchback;HBK-4P;RT;12;0;6;0;0;0;0;0;None;0;0;0;0;0;None
+Hunchback;HBK-4SP;RT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Hunchback;HBK-GI;RT;12;2;0;0;0;0;0;0;None;0;0;0;0;0;None
+Hunchback;HBK-4G;LT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Hunchback;HBK-4SP;LT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Hunchback;HBK-4G;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Hunchback;HBK-4G;HD;6;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Hunchback;HBK-4G;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Hunchback;HBK-4G;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+ Hunchback IIC;1;RA;12;0;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+ Hunchback IIC;C;RA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+ Hunchback IIC;1;LA;12;0;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+ Hunchback IIC;C;LA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+ Hunchback IIC;1;RT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+ Hunchback IIC;A;RT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+ Hunchback IIC;B;RT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+ Hunchback IIC;C;RT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+ Hunchback IIC;1;LT;12;2;0;0;1;0;0;0;None;0;0;0;0;0;None
+ Hunchback IIC;A;LT;12;0;3;0;1;0;0;0;None;0;0;0;0;0;None
+ Hunchback IIC;B;LT;12;0;0;2;1;0;0;0;None;0;0;0;0;0;None
+ Hunchback IIC;C;LT;12;1;0;0;1;0;0;0;None;0;0;0;0;0;None
+ Hunchback IIC;1;CT;12;0;2;0;0;0;0;0;None;0;4;0;0;0;None
+ Hunchback IIC;1;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+ Hunchback IIC;1;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+ Hunchback IIC;1;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Ice Ferret;IFR-PRIME;RA;12;0;0;1;0;0;2;4;Arms;0;0;0;1;0;None
+Ice Ferret;IFR-PRIME;LA;12;0;2;0;0;0;2;4;Arms;0;0;0;1;0;None
+Ice Ferret;IFR-PRIME;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;1;None
+Ice Ferret;IFR-PRIME;LT;12;0;0;0;0;0;0;0;None;0;0;0;2;1;None
+Ice Ferret;IFR-PRIME;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;1;None
+Ice Ferret;IFR-PRIME;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Ice Ferret;IFR-PRIME;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Ice Ferret;IFR-PRIME;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Ice Ferret;IFR-A;RA;12;0;1;0;1;0;2;4;Arms;0;0;0;1;0;None
+Ice Ferret;IFR-A;LA;12;1;0;0;0;0;2;4;Arms;0;0;0;1;0;None
+Ice Ferret;IFR-A;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;1;None
+Ice Ferret;IFR-A;LT;12;0;0;0;0;0;0;0;None;0;0;0;2;1;None
+Ice Ferret;IFR-A;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;1;None
+Ice Ferret;IFR-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Ice Ferret;IFR-A;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Ice Ferret;IFR-A;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Ice Ferret;IFR-B;RA;12;0;0;1;0;0;2;4;Arms;0;0;0;1;0;None
+Ice Ferret;IFR-B;LA;12;0;1;1;0;0;2;4;Arms;0;0;0;1;0;None
+Ice Ferret;IFR-B;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;1;None
+Ice Ferret;IFR-B;LT;12;0;0;0;0;0;0;0;None;0;0;0;2;1;None
+Ice Ferret;IFR-B;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;1;None
+Ice Ferret;IFR-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Ice Ferret;IFR-B;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Ice Ferret;IFR-B;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Ice Ferret;IFR-C;RA;12;0;0;1;0;0;2;4;Arms;0;0;0;1;0;None
+Ice Ferret;IFR-C;LA;12;0;0;1;0;0;2;4;Arms;0;0;0;1;0;None
+Ice Ferret;IFR-C;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;1;None
+Ice Ferret;IFR-C;LT;12;0;0;1;0;0;0;0;None;0;0;0;2;1;None
+Ice Ferret;IFR-C;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;1;None
+Ice Ferret;IFR-C;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Ice Ferret;IFR-C;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Ice Ferret;IFR-C;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Ice Ferret;IFR-D;RA;12;0;2;0;0;0;2;4;Arms;0;0;0;1;0;None
+Ice Ferret;IFR-D;LA;12;0;1;0;1;0;2;4;Arms;0;0;0;1;0;None
+Ice Ferret;IFR-D;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;1;None
+Ice Ferret;IFR-D;LT;12;0;0;0;0;0;0;0;None;0;0;0;2;1;None
+Ice Ferret;IFR-D;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;1;None
+Ice Ferret;IFR-D;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Ice Ferret;IFR-D;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Ice Ferret;IFR-D;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Jagermech;JM6-A;RA;12;1;0;2;0;0;2;2;Arms;0;0;0;0;0;None
+Jagermech;JM6-DD;RA;12;3;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Jagermech;JM6-S;RA;12;2;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Jagermech;JM6-FB;RA;12;1;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Jagermech;JM6-A;LA;12;1;0;2;0;0;2;2;Arms;0;0;0;0;0;None
+Jagermech;JM6-DD;LA;12;3;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Jagermech;JM6-S;LA;12;2;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Jagermech;JM6-FB;LA;12;1;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Jagermech;JM6-A;RT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Jagermech;JM6-S;RT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Jagermech;JM6-A;LT;12;0;1;0;1;0;0;0;None;0;0;0;0;0;None
+Jagermech;JM6-S;LT;12;0;2;0;1;0;0;0;None;0;0;0;0;0;None
+Jagermech;JM6-A;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Jagermech;JM6-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Jagermech;JM6-A;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Jagermech;JM6-A;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Jenner;JR7-D;RA;12;0;2;0;0;0;2;2;Arms;0;0;0;0;0;None
+Jenner;JR7-F;RA;12;0;3;0;0;0;2;2;Arms;0;0;0;0;0;None
+Jenner;JR7-O;RA;12;0;0;1;0;0;2;2;Arms;0;0;0;0;0;None
+Jenner;JR7-D;LA;12;0;2;0;0;0;2;2;Arms;0;0;0;0;0;None
+Jenner;JR7-F;LA;12;0;3;0;0;0;2;2;Arms;0;0;0;0;0;None
+Jenner;JR7-O;LA;12;0;0;1;0;0;2;2;Arms;0;0;0;0;0;None
+Jenner;JR7-D;RT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Jenner;JR7-D;LT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Jenner;JR7-D;CT;12;0;0;2;0;0;0;0;None;0;5;0;0;0;None
+Jenner;JR7-F;CT;12;0;0;0;0;0;0;0;None;0;5;0;0;0;None
+Jenner;JR7-K;CT;12;0;0;1;0;0;0;0;None;0;5;0;0;0;None
+Jenner;JR7-O;CT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Jenner;JR7-D;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Jenner;JR7-D;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Jenner;JR7-D;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Jenner IIC;1;RA;12;0;0;2;0;0;2;2;Arms;0;0;0;0;0;None
+Jenner IIC;2;RA;12;0;2;0;0;0;2;2;Arms;0;0;0;0;0;None
+Jenner IIC;A;RA;12;0;3;0;0;0;2;2;Arms;0;0;0;0;0;None
+Jenner IIC;1;LA;12;0;0;2;0;0;2;2;Arms;0;0;0;0;0;None
+Jenner IIC;2;LA;12;0;2;0;0;0;2;2;Arms;0;0;0;0;0;None
+Jenner IIC;A;LA;12;0;3;0;0;0;2;2;Arms;0;0;0;0;0;None
+Jenner IIC;1;RT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Jenner IIC;1;LT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Jenner IIC;1;CT;12;0;0;2;0;0;0;0;None;0;7;0;0;0;None
+Jenner IIC;2;CT;12;0;0;1;0;0;0;0;None;0;10;0;0;0;None
+Jenner IIC;A;CT;12;0;0;0;0;0;0;0;None;0;7;0;0;0;None
+Jenner IIC;1;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Jenner IIC;1;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Jenner IIC;1;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+King Crab;KGC-000;RA;12;3;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+King Crab;KGC-0000;RA;12;1;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+King Crab;KGC-000B;RA;12;2;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+King Crab;KGC-000;LA;12;3;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+King Crab;KGC-0000;LA;12;1;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+King Crab;KGC-000B;LA;12;2;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+King Crab;KGC-000;RT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+King Crab;KGC-0000;RT;12;0;4;0;0;0;0;0;None;0;0;0;0;0;None
+King Crab;KGC-000B;RT;12;0;3;0;0;0;0;0;None;0;0;0;0;0;None
+King Crab;KGC-000;LT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+King Crab;KGC-0000;LT;12;0;0;4;0;0;0;0;None;0;0;0;0;0;None
+King Crab;KGC-000B;LT;12;0;0;3;0;0;0;0;None;0;0;0;0;0;None
+King Crab;KGC-000;CT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+King Crab;KGC-000;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+King Crab;KGC-000;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+King Crab;KGC-000;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Kintaro;KTO-18;RA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Kintaro;KTO-19;RA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Kintaro;KTO-18;LA;12;0;1;2;0;0;4;4;Arms;0;0;0;0;0;None
+Kintaro;KTO-20;LA;12;0;0;1;0;0;4;4;Arms;0;0;0;0;0;None
+Kintaro;KTO-18;RT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Kintaro;KTO-19;RT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Kintaro;KTO-18;LT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Kintaro;KTO-18;CT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Kintaro;KTO-20;CT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Kintaro;KTO-GB;CT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Kintaro;KTO-18;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Kintaro;KTO-18;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Kintaro;KTO-18;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Kit Fox;KFX-PRIME;RA;12;1;0;1;0;0;2;4;Arms;0;0;0;1;1;None
+Kit Fox;KFX-PRIME;LA;12;0;2;0;0;0;2;4;Arms;0;0;0;1;1;None
+Kit Fox;KFX-PRIME;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;3;None
+Kit Fox;KFX-PRIME;LT;12;0;0;0;0;0;0;0;None;0;0;2;2;2;None
+Kit Fox;KFX-PRIME;CT;12;0;0;0;0;0;0;0;None;0;0;1;0;0;None
+Kit Fox;KFX-PRIME;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Kit Fox;KFX-PRIME;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Kit Fox;KFX-PRIME;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Kit Fox;KFX-A;RA;12;1;0;0;0;0;2;4;Arms;0;0;0;1;1;None
+Kit Fox;KFX-A;LA;12;0;2;0;0;0;2;4;Arms;0;0;0;1;1;None
+Kit Fox;KFX-A;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;3;None
+Kit Fox;KFX-A;LT;12;0;0;0;0;0;0;0;None;0;0;2;2;2;None
+Kit Fox;KFX-A;CT;12;0;0;0;0;0;0;0;None;0;0;1;0;0;None
+Kit Fox;KFX-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Kit Fox;KFX-A;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Kit Fox;KFX-A;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Kit Fox;KFX-B;RA;12;1;0;1;0;0;2;4;Arms;0;0;0;1;1;None
+Kit Fox;KFX-B;LA;12;0;2;0;0;0;2;4;Arms;0;0;0;1;1;None
+Kit Fox;KFX-B;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;3;None
+Kit Fox;KFX-B;LT;12;0;0;0;0;0;0;0;None;0;0;2;2;2;None
+Kit Fox;KFX-B;CT;12;0;0;0;0;0;0;0;None;0;0;1;0;0;None
+Kit Fox;KFX-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Kit Fox;KFX-B;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Kit Fox;KFX-B;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Kit Fox;KFX-C;RA;12;0;1;0;3;1;2;4;Arms;0;0;0;1;1;None
+Kit Fox;KFX-C;LA;12;2;2;0;0;0;2;4;Arms;0;0;0;1;1;None
+Kit Fox;KFX-C;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;3;None
+Kit Fox;KFX-C;LT;12;0;0;0;0;0;0;0;None;0;0;2;2;2;None
+Kit Fox;KFX-C;CT;12;0;0;0;0;0;0;0;None;0;0;1;0;0;None
+Kit Fox;KFX-C;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Kit Fox;KFX-C;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Kit Fox;KFX-C;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Kit Fox;KFX-D;RA;12;0;0;2;0;0;2;4;Arms;0;0;0;1;1;None
+Kit Fox;KFX-D;LA;12;0;0;2;0;0;2;4;Arms;0;0;0;1;1;None
+Kit Fox;KFX-D;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;3;None
+Kit Fox;KFX-D;LT;12;0;0;0;0;0;0;0;None;0;0;2;2;2;None
+Kit Fox;KFX-D;CT;12;0;0;0;0;0;0;0;None;0;0;1;0;0;None
+Kit Fox;KFX-D;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Kit Fox;KFX-D;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Kit Fox;KFX-D;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Kit Fox;KFX-S;RA;12;0;2;0;0;0;2;4;Arms;0;0;0;1;1;None
+Kit Fox;KFX-S;LA;12;0;1;1;0;0;2;4;Arms;0;0;0;1;1;None
+Kit Fox;KFX-S;RT;12;1;0;0;0;0;0;0;None;1;1;0;2;3;None
+Kit Fox;KFX-S;LT;12;1;0;0;0;0;0;0;None;1;1;2;2;2;None
+Kit Fox;KFX-S;CT;12;0;0;0;0;0;0;0;None;0;0;1;0;0;None
+Kit Fox;KFX-S;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Kit Fox;KFX-S;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Kit Fox;KFX-S;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Locust;LCT-1E;RA;12;0;3;0;0;0;2;2;Arms;0;0;0;0;0;None
+Locust;LCT-1M;RA;12;0;0;1;0;0;2;2;Arms;0;0;0;0;0;None
+Locust;LCT-1V;RA;12;2;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Locust;LCT-3M;RA;12;0;2;0;1;0;2;2;Arms;0;0;0;0;0;None
+Locust;LCT-3S;RA;12;0;0;2;0;0;2;2;Arms;0;0;0;0;0;None
+Locust;LCT-3V;RA;12;1;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Locust;LCT-PB;RA;12;0;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Locust;LCT-1E;LA;12;0;3;0;0;0;2;2;Arms;0;0;0;0;0;None
+Locust;LCT-1M;LA;12;0;0;1;0;0;2;2;Arms;0;0;0;0;0;None
+Locust;LCT-1V;LA;12;2;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Locust;LCT-3M;LA;12;0;2;0;0;0;2;2;Arms;0;0;0;0;0;None
+Locust;LCT-3S;LA;12;0;0;2;0;0;2;2;Arms;0;0;0;0;0;None
+Locust;LCT-3V;LA;12;1;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Locust;LCT-PB;LA;12;0;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Locust;LCT-1E;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Locust;LCT-PB;RT;12;0;2;0;1;0;0;0;None;0;0;0;0;0;None
+Locust;LCT-1E;LT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Locust;LCT-PB;LT;12;0;2;0;0;1;0;0;None;0;0;0;0;0;None
+Locust;LCT-1E;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Locust;LCT-1M;CT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Locust;LCT-1V;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Locust;LCT-PB;CT;12;2;0;0;0;0;0;0;None;0;0;0;0;0;None
+Locust;LCT-1E;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Locust;LCT-1E;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Locust;LCT-1E;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Mad Dog;MDD-PRIME;RA;12;0;2;0;0;0;2;3;Arms;0;0;0;1;0;None
+Mad Dog;MDD-PRIME;LA;12;0;2;0;0;0;2;3;Arms;0;0;0;1;0;None
+Mad Dog;MDD-PRIME;RT;12;0;0;1;0;0;0;0;None;0;0;0;2;0;None
+Mad Dog;MDD-PRIME;LT;12;0;0;1;0;0;0;0;None;0;0;0;2;0;None
+Mad Dog;MDD-PRIME;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Mad Dog;MDD-PRIME;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Mad Dog;MDD-PRIME;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Mad Dog;MDD-PRIME;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Mad Dog;MDD-A;RA;12;0;1;0;0;0;2;2;Arms;0;0;0;1;0;None
+Mad Dog;MDD-A;LA;12;1;0;0;0;0;2;2;Arms;0;0;0;1;0;None
+Mad Dog;MDD-A;RT;12;0;0;3;0;0;0;0;None;0;0;0;2;0;None
+Mad Dog;MDD-A;LT;12;0;0;3;0;0;0;0;None;0;0;0;2;0;None
+Mad Dog;MDD-A;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Mad Dog;MDD-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Mad Dog;MDD-A;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Mad Dog;MDD-A;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Mad Dog;MDD-B;RA;12;0;3;0;0;0;2;2;Arms;0;0;0;1;0;None
+Mad Dog;MDD-B;LA;12;0;2;0;0;0;2;2;Arms;0;0;0;1;0;None
+Mad Dog;MDD-B;RT;12;0;0;2;0;0;0;0;None;0;0;0;2;0;None
+Mad Dog;MDD-B;LT;12;0;0;1;0;0;0;0;None;0;0;0;2;0;None
+Mad Dog;MDD-B;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Mad Dog;MDD-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Mad Dog;MDD-B;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Mad Dog;MDD-B;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Mad Dog;MDD-C;RA;12;1;0;0;0;0;2;4;Arms;0;0;0;1;0;None
+Mad Dog;MDD-C;LA;12;1;0;0;0;0;2;2;Arms;0;0;0;1;0;None
+Mad Dog;MDD-C;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Mad Dog;MDD-C;LT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Mad Dog;MDD-C;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Mad Dog;MDD-C;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Mad Dog;MDD-C;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Mad Dog;MDD-C;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Marauder;MAD-3R;RA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Marauder;MAD-5M;RA;12;0;3;0;0;0;3;3;Arms;0;0;0;0;0;None
+Marauder;MAD-3R;LA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Marauder;MAD-BHII;LA;12;0;3;0;0;0;3;3;Arms;0;0;0;0;0;None
+Marauder;MAD-3R;RT;12;3;0;0;0;0;0;0;None;0;0;0;0;0;None
+Marauder;MAD-5D;RT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Marauder;MAD-5D;RT;12;2;0;0;0;0;0;0;None;0;0;0;0;0;None
+Marauder;MAD-BHII;RT;12;1;0;0;0;0;0;0;None;0;0;0;0;0;None
+Marauder;MAD-3R;LT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Marauder;MAD-5D;LT;12;0;0;2;1;0;0;0;None;0;0;0;0;0;None
+Marauder;MAD-3R;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Marauder;MAD-3R;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Marauder;MAD-BHII;HD;6;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Marauder;MAD-3R;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Marauder;MAD-3R;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Mauler;MAL-1P;RA;12;0;2;0;0;0;2;4;Arms;0;0;0;0;0;None
+Mauler;MAL-1R;RA;12;0;1;0;0;0;2;4;Arms;0;0;0;0;0;None
+Mauler;MAL-2P;RA;12;0;3;0;0;0;2;4;Arms;0;0;0;0;0;None
+Mauler;MAL-1P;LA;12;0;2;0;0;0;2;4;Arms;0;0;0;0;0;None
+Mauler;MAL-1R;LA;12;0;1;0;0;0;2;4;Arms;0;0;0;0;0;None
+Mauler;MAL-2P;LA;12;0;3;0;0;0;2;4;Arms;0;0;0;0;0;None
+Mauler;MAL-1P;RT;12;2;0;1;0;0;0;0;None;0;0;0;0;0;None
+Mauler;MAL-1R;RT;12;2;0;2;0;0;0;0;None;0;0;0;0;0;None
+Mauler;MAL-2P;RT;12;1;0;1;0;0;0;0;None;0;0;0;0;0;None
+Mauler;MAL-MX90;RT;12;3;0;1;0;0;0;0;None;0;0;0;0;0;None
+Mauler;MAL-1P;LT;12;2;0;1;0;0;0;0;None;0;0;0;0;0;None
+Mauler;MAL-1R;LT;12;2;0;2;0;0;0;0;None;0;0;0;0;0;None
+Mauler;MAL-2P;LT;12;1;0;1;0;0;0;0;None;0;0;0;0;0;None
+Mauler;MAL-MX90;LT;12;3;0;1;0;0;0;0;None;0;0;0;0;0;None
+Mauler;MAL-1P;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Mauler;MAL-1P;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Mauler;MAL-1P;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Mauler;MAL-1P;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Mist Lynx;MLX-PRIME;RA;12;0;0;1;0;0;2;4;Arms;0;0;0;1;1;None
+Mist Lynx;MLX-PRIME;LA;12;2;0;1;0;0;2;4;Arms;0;0;0;1;1;None
+Mist Lynx;MLX-PRIME;RT;12;0;0;0;0;0;0;0;None;3;3;1;2;1;None
+Mist Lynx;MLX-PRIME;LT;12;0;0;0;0;0;0;0;None;3;3;2;2;1;None
+Mist Lynx;MLX-PRIME;CT;12;0;0;0;0;0;0;0;None;0;0;0;1;1;None
+Mist Lynx;MLX-PRIME;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Mist Lynx;MLX-PRIME;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;1;None
+Mist Lynx;MLX-PRIME;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;1;None
+Mist Lynx;MLX-A;RA;12;2;1;0;0;0;2;4;Arms;0;0;0;1;1;None
+Mist Lynx;MLX-A;LA;12;0;1;0;2;0;2;4;Arms;0;0;0;1;1;None
+Mist Lynx;MLX-A;RT;12;0;0;0;0;0;0;0;None;3;3;1;2;1;None
+Mist Lynx;MLX-A;LT;12;0;0;0;0;0;0;0;None;3;3;2;2;1;None
+Mist Lynx;MLX-A;CT;12;0;0;0;0;0;0;0;None;0;0;0;1;1;None
+Mist Lynx;MLX-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Mist Lynx;MLX-A;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;1;None
+Mist Lynx;MLX-A;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;1;None
+Mist Lynx;MLX-B;RA;12;0;1;2;0;0;2;4;Arms;0;0;0;1;1;None
+Mist Lynx;MLX-B;LA;12;0;2;0;0;0;2;4;Arms;0;0;0;1;1;None
+Mist Lynx;MLX-B;RT;12;0;0;0;0;0;0;0;None;3;3;1;2;1;None
+Mist Lynx;MLX-B;LT;12;0;0;0;0;0;0;0;None;3;3;2;2;1;None
+Mist Lynx;MLX-B;CT;12;0;0;0;0;0;0;0;None;0;0;0;1;1;None
+Mist Lynx;MLX-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Mist Lynx;MLX-B;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;1;None
+Mist Lynx;MLX-B;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;1;None
+Mist Lynx;MLX-C;RA;12;0;2;0;0;0;2;4;Arms;0;0;0;1;1;None
+Mist Lynx;MLX-C;LA;12;0;0;0;1;1;2;4;Arms;0;0;0;1;1;None
+Mist Lynx;MLX-C;RT;12;0;0;0;0;0;0;0;None;3;3;1;2;1;None
+Mist Lynx;MLX-C;LT;12;0;0;0;0;0;0;0;None;3;3;2;2;1;None
+Mist Lynx;MLX-C;CT;12;0;0;0;0;0;0;0;None;0;0;0;1;1;None
+Mist Lynx;MLX-C;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Mist Lynx;MLX-C;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;1;None
+Mist Lynx;MLX-C;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;1;None
+Mist Lynx;MLX-D;RA;12;0;2;0;0;0;2;4;Arms;0;0;0;1;1;None
+Mist Lynx;MLX-D;LA;12;1;0;0;0;0;2;4;Arms;0;0;0;1;1;None
+Mist Lynx;MLX-D;RT;12;0;0;0;0;0;0;0;None;3;3;1;2;1;None
+Mist Lynx;MLX-D;LT;12;0;0;0;0;0;0;0;None;3;3;2;2;1;None
+Mist Lynx;MLX-D;CT;12;0;0;0;0;0;0;0;None;0;0;0;1;1;None
+Mist Lynx;MLX-D;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Mist Lynx;MLX-D;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;1;None
+Mist Lynx;MLX-D;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;1;None
+Nova;NVA-PRIME;RA;12;0;6;0;0;0;2;4;Arms;0;0;0;0;0;None
+Nova;NVA-PRIME;LA;12;0;6;0;0;0;2;4;Arms;0;0;0;0;0;None
+Nova;NVA-PRIME;RT;12;0;0;0;0;0;0;0;None;0;0;2;0;0;None
+Nova;NVA-PRIME;LT;12;0;0;0;0;0;0;0;None;0;0;2;0;0;None
+Nova;NVA-PRIME;CT;12;0;0;0;0;0;0;0;None;1;1;0;0;0;None
+Nova;NVA-PRIME;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Nova;NVA-PRIME;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Nova;NVA-PRIME;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Nova;NVA-A;RA;12;0;1;0;0;0;2;4;Arms;0;0;0;0;0;None
+Nova;NVA-A;LA;12;0;1;0;0;0;2;4;Arms;0;0;0;0;0;None
+Nova;NVA-A;RT;12;0;0;0;0;1;0;0;None;0;0;2;0;0;None
+Nova;NVA-A;LT;12;0;1;0;0;0;0;0;None;0;0;2;0;0;None
+Nova;NVA-A;CT;12;0;0;0;0;0;0;0;None;1;1;0;0;0;None
+Nova;NVA-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Nova;NVA-A;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Nova;NVA-A;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Nova;NVA-B;RA;12;1;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Nova;NVA-B;LA;12;0;1;0;0;0;2;4;Arms;0;0;0;0;0;None
+Nova;NVA-B;RT;12;0;1;0;0;0;0;0;None;0;0;2;0;0;None
+Nova;NVA-B;LT;12;2;0;0;0;0;0;0;None;0;0;2;0;0;None
+Nova;NVA-B;CT;12;0;0;0;0;0;0;0;None;1;1;0;0;0;None
+Nova;NVA-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Nova;NVA-B;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Nova;NVA-B;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Nova;NVA-C;RA;12;0;0;0;0;0;2;4;Arms;0;0;0;0;0;None
+Nova;NVA-C;LA;12;1;0;0;0;0;2;4;Arms;0;0;0;0;0;None
+Nova;NVA-C;RT;12;0;1;0;0;0;0;0;None;0;0;2;0;0;None
+Nova;NVA-C;LT;12;0;0;1;0;0;0;0;None;0;0;2;0;0;None
+Nova;NVA-C;CT;12;0;0;0;0;0;0;0;None;1;1;0;0;0;None
+Nova;NVA-C;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Nova;NVA-C;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Nova;NVA-C;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Nova;NVA-D;RA;12;0;0;1;0;0;2;4;Arms;0;0;0;0;0;None
+Nova;NVA-D;LA;12;1;0;0;0;0;2;4;Arms;0;0;0;0;0;None
+Nova;NVA-D;RT;12;0;0;0;0;0;0;0;None;0;0;2;0;0;None
+Nova;NVA-D;LT;12;0;0;0;0;0;0;0;None;0;0;2;0;0;None
+Nova;NVA-D;CT;12;0;0;0;0;0;0;0;None;1;1;0;0;0;None
+Nova;NVA-D;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Nova;NVA-D;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Nova;NVA-D;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Nova;NVA-S;RA;12;0;3;0;0;0;2;4;Arms;0;0;0;0;0;None
+Nova;NVA-S;LA;12;0;3;0;0;0;2;4;Arms;0;0;0;0;0;None
+Nova;NVA-S;RT;12;2;0;0;0;0;0;0;None;0;0;2;0;0;None
+Nova;NVA-S;LT;12;2;0;0;0;0;0;0;None;0;0;2;0;0;None
+Nova;NVA-S;CT;12;0;0;0;1;0;0;0;None;1;1;0;0;0;None
+Nova;NVA-S;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Nova;NVA-S;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Nova;NVA-S;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Orion;ON1-K;RA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Orion;ON1-V;RA;12;0;1;1;0;0;3;3;Arms;0;0;0;0;0;None
+Orion;ON1-VA;RA;12;0;1;2;0;0;3;3;Arms;0;0;0;0;0;None
+Orion;ON1-P;RA;12;0;1;0;0;0;3;3;Arms;0;0;0;0;0;None
+Orion;ON1-K;LA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Orion;ON1-M;LA;12;0;1;1;0;0;3;3;Arms;0;0;0;0;0;None
+Orion;ON1-VA;LA;12;0;1;2;0;0;3;3;Arms;0;0;0;0;0;None
+Orion;ON1-P;LA;12;0;1;0;0;0;3;3;Arms;0;0;0;0;0;None
+Orion;ON1-K;RT;12;1;0;0;0;0;0;0;None;0;0;0;0;0;None
+Orion;ON1-V;RT;12;2;0;0;0;0;0;0;None;0;0;0;0;0;None
+Orion;ON1-K;LT;12;0;0;2;1;0;0;0;None;0;0;0;0;0;None
+Orion;ON1-M;LT;12;0;0;1;1;0;0;0;None;0;0;0;0;0;None
+Orion;ON1-VA;LT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Orion;ON1-P;LT;12;0;1;2;1;0;0;0;None;0;0;0;0;0;None
+Orion;ON1-K;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Orion;ON1-M;CT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Orion;ON1-K;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Orion;ON1-K;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Orion;ON1-K;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Orion IIC;1;RA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Orion IIC;A;RA;12;0;1;0;0;0;3;3;Arms;0;0;0;0;0;None
+Orion IIC;1;LA;12;0;1;1;0;0;3;3;Arms;0;0;0;0;0;None
+Orion IIC;A;LA;12;0;1;2;0;0;3;3;Arms;0;0;0;0;0;None
+Orion IIC;B;LA;12;0;2;1;0;0;3;3;Arms;0;0;0;0;0;None
+Orion IIC;1;RT;12;1;0;0;0;0;0;0;None;0;0;0;0;0;None
+Orion IIC;C;RT;12;2;0;0;0;0;0;0;None;0;0;0;0;0;None
+Orion IIC;1;LT;12;0;0;2;1;0;0;0;None;0;0;0;0;0;None
+Orion IIC;B;LT;12;0;0;1;1;0;0;0;None;0;0;0;0;0;None
+Orion IIC;1;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Orion IIC;1;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Orion IIC;1;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Orion IIC;1;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Panther;PNT-8Z;RA;12;0;3;0;0;0;3;3;Arms;0;0;0;0;0;None
+Panther;PNT-9R;RA;12;0;4;0;0;0;3;3;Arms;0;0;0;0;0;None
+Panther;PNT-10K;RA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Panther;PNT-10P;RA;12;2;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Panther;PNT-8Z;LA;12;0;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Panther;PNT-8Z;RT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Panther;PNT-10K;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Panther;PNT-8Z;LT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Panther;PNT-8Z;CT;12;0;0;2;0;0;0;0;None;0;4;0;0;0;None
+Panther;PNT-9R;CT;12;0;0;1;0;0;0;0;None;0;4;0;0;0;None
+Panther;PNT-10K;CT;12;0;0;2;0;0;0;0;None;0;8;0;0;0;None
+Panther;PNT-8Z;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Panther;PNT-8Z;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Panther;PNT-8Z;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Quickdraw;QKD-4G;RA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Quickdraw;QKD-IV4;RA;12;1;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Quickdraw;QKD-4G;LA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Quickdraw;QKD-IV4;LA;12;1;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Quickdraw;QKD-4G;RT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Quickdraw;QKD-IV4;RT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Quickdraw;QKD-4G;LT;12;0;0;1;1;0;0;0;None;0;0;0;0;0;None
+Quickdraw;QKD-4H;LT;12;0;0;2;1;0;0;0;None;0;0;0;0;0;None
+Quickdraw;QKD-5K;LT;12;0;2;0;1;0;0;0;None;0;0;0;0;0;None
+Quickdraw;QKD-4G;CT;12;0;0;1;0;0;0;0;None;0;7;0;0;0;None
+Quickdraw;QKD-4H;CT;12;0;0;1;0;0;0;0;None;0;5;0;0;0;None
+Quickdraw;QKD-IV4;CT;12;0;2;0;0;0;0;0;None;0;4;0;0;0;None
+Quickdraw;QKD-4G;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Quickdraw;QKD-4G;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Quickdraw;QKD-4G;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Raven;RVN-2X;RA;12;0;2;0;0;0;2;2;Arms;0;0;0;0;0;None
+Raven;RVN-H;RA;12;2;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Raven;RVN-2X;LA;12;0;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Raven;RVN-3L;LA;12;0;0;1;0;0;2;2;Arms;0;0;0;0;0;None
+Raven;RVN-4X;LA;12;2;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Raven;RVN-2X;RT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Raven;RVN-3L;RT;12;0;1;1;0;0;0;0;None;0;0;0;0;0;None
+Raven;RVN-2X;LT;12;0;2;0;1;0;0;0;None;0;0;0;0;0;None
+Raven;RVN-3L;LT;12;0;0;0;1;1;0;0;None;0;0;0;0;0;None
+Raven;RVN-4X;LT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Raven;RVN-H;LT;12;0;0;1;1;0;0;0;None;0;0;0;0;0;None
+Raven;RVN-2X;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Raven;RVN-4X;CT;12;0;0;0;0;0;0;0;None;0;5;0;0;0;None
+Raven;RVN-H;CT;12;0;0;0;0;0;0;0;None;0;5;0;0;0;None
+Raven;RVN-2X;HD;6;0;0;0;0;0;0;0;None;0;2;0;0;0;None
+Raven;RVN-2X;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Raven;RVN-2X;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Rifleman;RFL-3C;RA;12;2;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Rifleman;RFL-3N;RA;12;1;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Rifleman;RFL-5D;RA;12;0;3;0;0;0;2;2;Arms;0;0;0;0;0;None
+Rifleman;RFL-LK;RA;12;2;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Rifleman;RFL-3C;LA;12;2;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Rifleman;RFL-3N;LA;12;1;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Rifleman;RFL-5D;LA;12;0;3;0;0;0;2;2;Arms;0;0;0;0;0;None
+Rifleman;RFL-LK;LA;12;2;1;0;0;0;2;2;Arms;0;0;0;0;0;None
+Rifleman;RFL-3C;RT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Rifleman;RFL-5D;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Rifleman;RFL-LK;RT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Rifleman;RFL-3C;LT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Rifleman;RFL-5D;LT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Rifleman;RFL-LK;LT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Rifleman;RFL-3C;CT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Rifleman;RFL-5D;CT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Rifleman;RFL-3C;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Rifleman;RFL-3C;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Rifleman;RFL-3C;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Shadow Cat;SHC-PRIME;RA;12;1;0;0;0;0;2;2;Arms;0;0;0;0;2;None
+Shadow Cat;SHC-PRIME;LA;12;0;1;0;0;0;2;2;Arms;0;0;0;0;2;None
+Shadow Cat;SHC-PRIME;RT;12;0;1;0;0;0;0;0;None;1;1;0;4;1;None
+Shadow Cat;SHC-PRIME;LT;12;0;0;0;0;0;0;0;None;1;1;0;3;1;None
+Shadow Cat;SHC-PRIME;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Shadow Cat;SHC-PRIME;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;1;None
+Shadow Cat;SHC-PRIME;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Shadow Cat;SHC-PRIME;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Shadow Cat;SHC-A;RA;12;0;1;0;0;0;2;2;Arms;0;0;0;0;2;None
+Shadow Cat;SHC-A;LA;12;0;1;0;0;0;2;2;Arms;0;0;0;0;2;None
+Shadow Cat;SHC-A;RT;12;0;0;1;0;0;0;0;None;1;1;0;4;1;None
+Shadow Cat;SHC-A;LT;12;0;0;0;0;0;0;0;None;1;1;0;3;1;None
+Shadow Cat;SHC-A;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Shadow Cat;SHC-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;1;None
+Shadow Cat;SHC-A;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Shadow Cat;SHC-A;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Shadow Cat;SHC-B;RA;12;0;1;1;0;0;2;2;Arms;0;0;0;0;2;None
+Shadow Cat;SHC-B;LA;12;0;1;1;0;0;2;2;Arms;0;0;0;0;2;None
+Shadow Cat;SHC-B;RT;12;0;0;0;0;0;0;0;None;1;1;0;4;1;None
+Shadow Cat;SHC-B;LT;12;0;0;0;0;1;0;0;None;1;1;0;3;1;None
+Shadow Cat;SHC-B;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Shadow Cat;SHC-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;1;None
+Shadow Cat;SHC-B;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Shadow Cat;SHC-B;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Shadow Cat;SHC-P;RA;12;1;0;0;0;0;2;2;Arms;0;0;0;0;2;None
+Shadow Cat;SHC-P;LA;12;3;0;0;0;0;2;2;Arms;0;0;0;0;2;None
+Shadow Cat;SHC-P;RT;12;0;0;0;0;0;0;0;None;1;1;0;4;1;None
+Shadow Cat;SHC-P;LT;12;3;0;0;0;0;0;0;None;1;1;0;3;1;None
+Shadow Cat;SHC-P;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Shadow Cat;SHC-P;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;1;None
+Shadow Cat;SHC-P;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Shadow Cat;SHC-P;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Shadow Hawk;SHD-2D;RA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Shadow Hawk;SHD-2K;RA;12;0;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Shadow Hawk;SHD-5M;RA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Shadow Hawk;SHD-2D;LA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Shadow Hawk;SHD-2D2;LA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Shadow Hawk;SHD-2H;LA;12;0;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Shadow Hawk;SHD-2D;RT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Shadow Hawk;SHD-2D2;RT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Shadow Hawk;SHD-2K;RT;12;0;0;3;0;0;0;0;None;0;0;0;0;0;None
+Shadow Hawk;SHD-2D;LT;12;1;0;0;1;0;0;0;None;0;0;0;0;0;None
+Shadow Hawk;SHD-2H;LT;12;3;0;0;1;0;0;0;None;0;0;0;0;0;None
+Shadow Hawk;SHD-2K;LT;12;0;3;0;1;0;0;0;None;0;0;0;0;0;None
+Shadow Hawk;SHD-5M;LT;12;2;0;0;1;0;0;0;None;0;0;0;0;0;None
+Shadow Hawk;SHD-2D;CT;12;0;0;1;0;0;0;0;None;0;3;0;0;0;None
+Shadow Hawk;SHD-2H;CT;12;0;0;0;0;0;0;0;None;0;3;0;0;0;None
+Shadow Hawk;SHD-2K;CT;12;0;0;0;0;0;0;0;None;0;5;0;0;0;None
+Shadow Hawk;SHD-GD;CT;12;0;0;0;0;0;0;0;None;0;4;0;0;0;None
+Shadow Hawk;SHD-2D;HD;6;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Shadow Hawk;SHD-2K;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Shadow Hawk;SHD-2D;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Shadow Hawk;SHD-2D;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Spider;SDR-5D;RA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Spider;SDR-5K;RA;12;2;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Spider;SDR-5V;RA;12;0;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Spider;SDR-A;RA;12;1;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Spider;SDR-5D;LA;12;0;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Spider;SDR-5K;LA;12;2;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Spider;SDR-A;LA;12;1;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Spider;SDR-5D;RT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Spider;SDR-A;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Spider;SDR-5D;LT;12;0;0;0;1;1;0;0;None;0;0;0;0;0;None
+Spider;SDR-5K;LT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Spider;SDR-5D;CT;12;0;1;0;0;0;0;0;None;0;8;0;0;0;None
+Spider;SDR-5K;CT;12;0;1;0;0;0;0;0;None;0;6;0;0;0;None
+Spider;SDR-5V;CT;12;0;2;0;0;0;0;0;None;0;12;0;0;0;None
+Spider;SDR-A;CT;12;0;0;1;0;0;0;0;None;0;6;0;0;0;None
+Spider;SDR-5D;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Spider;SDR-5D;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Spider;SDR-5D;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Stalker;STK-3F;RA;12;0;2;1;0;0;2;2;Arms;0;0;0;0;0;None
+Stalker;STK-M;RA;12;0;2;0;0;0;2;2;Arms;0;0;0;0;0;None
+Stalker;STK-3F;LA;12;0;2;1;0;0;2;2;Arms;0;0;0;0;0;None
+Stalker;STK-4N;LA;12;0;2;0;0;0;2;2;Arms;0;0;0;0;0;None
+Stalker;STK-3F;RT;12;0;1;1;1;0;0;0;None;0;0;0;0;0;None
+Stalker;STK-3H;RT;12;0;0;1;1;0;0;0;None;0;0;0;0;0;None
+Stalker;STK-3F;LT;12;0;1;1;0;0;0;0;None;0;0;0;0;0;None
+Stalker;STK-3H;LT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Stalker;STK-5M;LT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Stalker;STK-5S;LT;12;0;1;1;1;0;0;0;None;0;0;0;0;0;None
+Stalker;STK-M;LT;12;1;0;0;0;0;0;0;None;0;0;0;0;0;None
+Stalker;STK-3F;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Stalker;STK-5M;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Stalker;STK-3F;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Stalker;STK-3F;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Stalker;STK-3F;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Stormcrow;SCR-PRIME;RA;12;0;2;0;0;0;2;4;Arms;0;0;0;0;0;None
+Stormcrow;SCR-PRIME;LA;12;0;2;0;0;0;2;4;Arms;0;0;0;0;0;None
+Stormcrow;SCR-PRIME;RT;12;0;0;0;1;0;0;0;None;0;0;0;3;1;None
+Stormcrow;SCR-PRIME;LT;12;0;0;0;0;0;0;0;None;0;0;0;3;1;None
+Stormcrow;SCR-PRIME;CT;12;0;0;0;0;0;0;0;None;0;0;0;1;1;None
+Stormcrow;SCR-PRIME;HD;6;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Stormcrow;SCR-PRIME;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Stormcrow;SCR-PRIME;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Stormcrow;SCR-A;RA;12;0;0;1;0;0;2;4;Arms;0;0;0;0;0;None
+Stormcrow;SCR-A;LA;12;0;4;0;0;0;2;4;Arms;0;0;0;0;0;None
+Stormcrow;SCR-A;RT;12;0;0;1;0;0;0;0;None;0;0;0;3;1;None
+Stormcrow;SCR-A;LT;12;0;0;1;0;0;0;0;None;0;0;0;3;1;None
+Stormcrow;SCR-A;CT;12;0;0;0;0;0;0;0;None;0;0;0;1;1;None
+Stormcrow;SCR-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Stormcrow;SCR-A;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Stormcrow;SCR-A;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Stormcrow;SCR-B;RA;12;0;6;0;0;0;2;4;Arms;0;0;0;0;0;None
+Stormcrow;SCR-B;LA;12;1;0;0;0;0;2;4;Arms;0;0;0;0;0;None
+Stormcrow;SCR-B;RT;12;0;0;0;0;0;0;0;None;0;0;0;3;1;None
+Stormcrow;SCR-B;LT;12;0;0;0;0;0;0;0;None;0;0;0;3;1;None
+Stormcrow;SCR-B;CT;12;0;0;0;0;0;0;0;None;0;0;0;1;1;None
+Stormcrow;SCR-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Stormcrow;SCR-B;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Stormcrow;SCR-B;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Stormcrow;SCR-C;RA;12;0;1;0;0;0;2;4;Arms;0;0;0;0;0;None
+Stormcrow;SCR-C;LA;12;1;0;0;0;0;2;4;Arms;0;0;0;0;0;None
+Stormcrow;SCR-C;RT;12;0;1;0;0;0;0;0;None;0;0;0;3;1;None
+Stormcrow;SCR-C;LT;12;0;1;0;0;0;0;0;None;0;0;0;3;1;None
+Stormcrow;SCR-C;CT;12;0;0;0;0;0;0;0;None;0;0;0;1;1;None
+Stormcrow;SCR-C;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Stormcrow;SCR-C;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Stormcrow;SCR-C;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Stormcrow;SCR-D;RA;12;0;0;1;0;0;2;4;Arms;0;0;0;0;0;None
+Stormcrow;SCR-D;LA;12;0;0;1;0;0;2;4;Arms;0;0;0;0;0;None
+Stormcrow;SCR-D;RT;12;0;0;1;0;0;0;0;None;0;0;0;3;1;None
+Stormcrow;SCR-D;LT;12;0;0;2;0;0;0;0;None;0;0;0;3;1;None
+Stormcrow;SCR-D;CT;12;0;0;0;0;0;0;0;None;0;0;0;1;1;None
+Stormcrow;SCR-D;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Stormcrow;SCR-D;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Stormcrow;SCR-D;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Summoner;SMN-PRIME;RA;12;0;1;0;0;0;2;3;Arms;0;0;0;1;0;None
+Summoner;SMN-PRIME;LA;12;1;0;0;0;0;2;3;Arms;0;0;0;1;0;None
+Summoner;SMN-PRIME;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Summoner;SMN-PRIME;LT;12;0;0;1;0;0;0;0;None;0;0;0;2;0;None
+Summoner;SMN-PRIME;CT;12;0;0;0;0;0;0;0;None;1;1;0;0;0;None
+Summoner;SMN-PRIME;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Summoner;SMN-PRIME;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Summoner;SMN-PRIME;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Summoner;SMN-A;RA;12;0;1;0;0;0;2;3;Arms;0;0;0;1;0;None
+Summoner;SMN-A;LA;12;1;0;0;0;0;2;3;Arms;0;0;0;1;0;None
+Summoner;SMN-A;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Summoner;SMN-A;LT;12;0;0;1;0;0;0;0;None;0;0;0;2;0;None
+Summoner;SMN-A;CT;12;0;0;0;0;0;0;0;None;1;1;0;0;0;None
+Summoner;SMN-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Summoner;SMN-A;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Summoner;SMN-A;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Summoner;SMN-B;RA;12;0;0;2;0;0;2;3;Arms;0;0;0;1;0;None
+Summoner;SMN-B;LA;12;0;0;2;0;0;2;3;Arms;0;0;0;1;0;None
+Summoner;SMN-B;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Summoner;SMN-B;LT;12;0;0;1;1;0;0;0;None;0;0;0;2;0;None
+Summoner;SMN-B;CT;12;0;0;0;0;0;0;0;None;1;1;0;0;0;None
+Summoner;SMN-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Summoner;SMN-B;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Summoner;SMN-B;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Summoner;SMN-C;RA;12;0;0;2;0;0;2;3;Arms;0;0;0;1;0;None
+Summoner;SMN-C;LA;12;0;0;2;0;0;2;3;Arms;0;0;0;1;0;None
+Summoner;SMN-C;RT;12;0;0;0;0;0;0;0;None;0;0;0;2;0;None
+Summoner;SMN-C;LT;12;0;0;1;1;0;0;0;None;0;0;0;2;0;None
+Summoner;SMN-C;CT;12;0;0;0;0;0;0;0;None;1;1;0;0;0;None
+Summoner;SMN-C;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Summoner;SMN-C;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Summoner;SMN-C;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Summoner;SMN-D;RA;12;0;2;0;0;0;2;3;Arms;0;0;0;1;0;None
+Summoner;SMN-D;LA;12;0;2;0;0;0;2;3;Arms;0;0;0;1;0;None
+Summoner;SMN-D;RT;12;1;0;0;1;0;0;0;None;0;0;0;2;0;None
+Summoner;SMN-D;LT;12;1;0;0;1;0;0;0;None;0;0;0;2;0;None
+Summoner;SMN-D;CT;12;0;0;0;0;0;0;0;None;1;1;0;0;0;None
+Summoner;SMN-D;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Summoner;SMN-D;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Summoner;SMN-D;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Thunderbolt;TDR-5S;RA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Thunderbolt;TDR-5SS;RA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Thunderbolt;TDR-5S;LA;12;2;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Thunderbolt;TDR-5SS;LA;12;0;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Thunderbolt;TDR-5S;RT;12;0;0;2;1;0;0;0;None;0;0;0;0;0;None
+Thunderbolt;TDR-5SS;RT;12;0;2;0;1;0;0;0;None;0;0;0;0;0;None
+Thunderbolt;TDR-9SE;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Thunderbolt;TDR-TD;RT;12;0;4;0;1;0;0;0;None;0;0;0;0;0;None
+Thunderbolt;TDR-5S;LT;12;0;3;0;0;0;0;0;None;0;0;0;0;0;None
+Thunderbolt;TDR-5SS;LT;12;0;3;1;0;0;0;0;None;0;0;0;0;0;None
+Thunderbolt;TDR-9S;LT;12;0;3;1;1;0;0;0;None;0;0;0;0;0;None
+Thunderbolt;TDR-9SE;LT;12;0;3;2;0;0;0;0;None;0;0;0;0;0;None
+Thunderbolt;TDR-TD;LT;12;0;4;0;0;0;0;0;None;0;0;0;0;0;None
+Thunderbolt;TDR-5S;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Thunderbolt;TDR-9SE;CT;12;0;0;0;0;0;0;0;None;0;4;0;0;0;None
+Thunderbolt;TDR-5S;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Thunderbolt;TDR-5S;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Thunderbolt;TDR-5S;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Timber Wolf;TBR-PRIME;RA;12;0;2;0;0;0;2;3;Arms;0;0;0;1;0;None
+Timber Wolf;TBR-PRIME;LA;12;0;2;0;0;0;2;3;Arms;0;0;0;1;0;None
+Timber Wolf;TBR-PRIME;RT;12;1;0;1;0;0;0;0;None;0;0;0;2;1;None
+Timber Wolf;TBR-PRIME;LT;12;0;1;1;0;0;0;0;None;0;0;0;2;1;None
+Timber Wolf;TBR-PRIME;CT;12;1;0;0;0;0;0;0;None;0;0;0;0;1;None
+Timber Wolf;TBR-PRIME;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Timber Wolf;TBR-PRIME;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Timber Wolf;TBR-PRIME;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Timber Wolf;TBR-A;RA;12;0;1;0;0;0;2;3;Arms;0;0;0;1;0;None
+Timber Wolf;TBR-A;LA;12;0;1;0;0;0;2;3;Arms;0;0;0;1;0;None
+Timber Wolf;TBR-A;RT;12;0;0;1;0;0;0;0;None;0;0;0;2;1;None
+Timber Wolf;TBR-A;LT;12;0;3;0;0;0;0;0;None;0;0;0;2;1;None
+Timber Wolf;TBR-A;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;1;None
+Timber Wolf;TBR-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Timber Wolf;TBR-A;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Timber Wolf;TBR-A;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Timber Wolf;TBR-B;RA;12;1;0;0;0;0;2;3;Arms;0;0;0;1;0;None
+Timber Wolf;TBR-B;LA;12;0;2;0;0;0;2;3;Arms;0;0;0;1;0;None
+Timber Wolf;TBR-B;RT;12;0;0;1;0;0;0;0;None;0;0;0;2;1;None
+Timber Wolf;TBR-B;LT;12;0;0;1;1;0;0;0;None;0;0;0;2;1;None
+Timber Wolf;TBR-B;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;1;None
+Timber Wolf;TBR-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Timber Wolf;TBR-B;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Timber Wolf;TBR-B;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Timber Wolf;TBR-C;RA;12;1;0;0;0;0;2;3;Arms;0;0;0;1;0;None
+Timber Wolf;TBR-C;LA;12;0;2;0;0;0;2;3;Arms;0;0;0;1;0;None
+Timber Wolf;TBR-C;RT;12;0;0;1;0;0;0;0;None;0;0;0;2;1;None
+Timber Wolf;TBR-C;LT;12;0;0;1;1;0;0;0;None;0;0;0;2;1;None
+Timber Wolf;TBR-C;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;1;None
+Timber Wolf;TBR-C;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Timber Wolf;TBR-C;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Timber Wolf;TBR-C;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Timber Wolf;TBR-C;RA;12;0;2;0;0;0;2;3;Arms;0;0;0;1;0;None
+Timber Wolf;TBR-D;RA;12;0;1;0;0;0;2;3;Arms;0;0;0;1;0;None
+Timber Wolf;TBR-D;LA;12;0;1;0;0;0;2;3;Arms;0;0;0;1;0;None
+Timber Wolf;TBR-D;RT;12;0;0;2;0;0;0;0;None;0;0;0;2;1;None
+Timber Wolf;TBR-D;LT;12;0;0;2;0;0;0;0;None;0;0;0;2;1;None
+Timber Wolf;TBR-D;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;1;None
+Timber Wolf;TBR-D;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Timber Wolf;TBR-D;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Timber Wolf;TBR-D;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Timber Wolf;TBR-S;RA;12;0;2;0;0;0;2;3;Arms;0;0;0;1;0;None
+Timber Wolf;TBR-S;LA;12;0;1;0;0;0;2;3;Arms;0;0;0;1;0;None
+Timber Wolf;TBR-S;RT;12;1;1;2;0;0;0;0;None;2;2;0;2;1;None
+Timber Wolf;TBR-S;LT;12;1;0;2;0;0;0;0;None;2;2;0;2;1;None
+Timber Wolf;TBR-S;CT;12;0;0;0;0;0;0;0;None;1;1;0;0;1;None
+Timber Wolf;TBR-S;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Timber Wolf;TBR-S;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Timber Wolf;TBR-S;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;2;None
+Trebuchet;TBT-3C;RA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Trebuchet;TBT-5J;RA;12;0;3;0;0;0;3;3;Arms;0;0;0;0;0;None
+Trebuchet;TBT-7K;RA;12;0;0;2;0;0;3;3;Arms;0;0;0;0;0;None
+Trebuchet;TBT-LG;RA;12;0;1;1;0;0;3;3;Arms;0;0;0;0;0;None
+Trebuchet;TBT-3C;LA;12;0;1;1;0;0;4;4;Arms;0;0;0;0;0;None
+Trebuchet;TBT-5J;LA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Trebuchet;TBT-7K;LA;12;0;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Trebuchet;TBT-3C;RT;12;0;0;1;1;0;0;0;None;0;0;0;0;0;None
+Trebuchet;TBT-7K;RT;12;0;2;0;1;0;0;0;None;0;0;0;0;0;None
+Trebuchet;TBT-3C;LT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Trebuchet;TBT-7K;LT;12;2;0;0;0;0;0;0;None;0;0;0;0;0;None
+Trebuchet;TBT-7M;LT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Trebuchet;TBT-3C;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Trebuchet;TBT-5J;CT;12;0;0;0;0;0;0;0;None;0;5;0;0;0;None
+Trebuchet;TBT-5N;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Trebuchet;TBT-3C;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Trebuchet;TBT-3C;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Trebuchet;TBT-3C;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Victor;VTR-9B;RA;12;3;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Victor;VTR-9K;RA;12;1;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Victor;VTR-9S;RA;12;2;0;0;0;0;2;2;Arms;0;0;0;0;0;None
+Victor;VTR-9B;LA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Victor;VTR-9K;LA;12;0;3;0;0;0;4;4;Arms;0;0;0;0;0;None
+Victor;VTR-DS;LA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Victor;VTR-9B;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Victor;VTR-DS;RT;12;0;2;0;1;0;0;0;None;0;0;0;0;0;None
+Victor;VTR-9B;LT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Victor;VTR-9S;LT;12;0;0;3;0;0;0;0;None;0;0;0;0;0;None
+Victor;VTR-9B;CT;12;0;0;0;0;0;0;0;None;0;4;0;0;0;None
+Victor;VTR-9K;CT;12;0;0;0;0;0;0;0;None;0;6;0;0;0;None
+Victor;VTR-9B;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Victor;VTR-9B;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Victor;VTR-9B;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Vindicator;VND-1AA;RA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Vindicator;VND-1X;RA;12;0;1;0;0;0;3;3;Arms;0;0;0;0;0;None
+Vindicator;VND-1AA;LA;12;0;1;0;0;0;4;4;Arms;0;0;0;0;0;None
+Vindicator;VND-1R;LA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Vindicator;VND-1X;LA;12;3;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Vindicator;VND-1AA;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Vindicator;VND-1AA;LT;12;0;0;1;1;0;0;0;None;0;0;0;0;0;None
+Vindicator;VND-1R;LT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Vindicator;VND-1SIB;LT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Vindicator;VND-1AA;CT;12;0;0;0;0;0;0;0;None;0;6;0;0;0;None
+Vindicator;VND-1R;CT;12;0;0;0;0;0;0;0;None;0;4;0;0;0;None
+Vindicator;VND-1SIB;CT;12;0;0;0;0;0;0;0;None;0;5;0;0;0;None
+Vindicator;VND-1AA;HD;6;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Vindicator;VND-1AA;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Vindicator;VND-1AA;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Viper;VPR-PRIME;RA;12;0;2;0;0;0;2;4;Arms;0;0;0;2;0;None
+Viper;VPR-PRIME;LA;12;0;0;1;0;0;2;4;Arms;0;0;0;2;0;None
+Viper;VPR-PRIME;RT;12;2;0;0;0;0;0;0;None;2;2;0;1;3;None
+Viper;VPR-PRIME;LT;12;0;0;0;1;0;0;0;None;2;2;0;1;3;None
+Viper;VPR-PRIME;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;1;None
+Viper;VPR-PRIME;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Viper;VPR-PRIME;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Viper;VPR-PRIME;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Viper;VPR-A;RA;12;0;1;0;0;0;2;4;Arms;0;0;0;2;0;None
+Viper;VPR-A;LA;12;0;1;0;0;0;2;4;Arms;0;0;0;2;0;None
+Viper;VPR-A;RT;12;0;2;0;0;0;0;0;None;2;2;0;1;3;None
+Viper;VPR-A;LT;12;0;2;0;0;0;0;0;None;2;2;0;1;3;None
+Viper;VPR-A;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;1;None
+Viper;VPR-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Viper;VPR-A;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Viper;VPR-A;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Viper;VPR-B;RA;12;0;1;0;0;0;2;4;Arms;0;0;0;2;0;None
+Viper;VPR-B;LA;12;0;1;0;0;0;2;4;Arms;0;0;0;2;0;None
+Viper;VPR-B;RT;12;0;2;0;0;0;0;0;None;2;2;0;1;3;None
+Viper;VPR-B;LT;12;0;2;0;0;0;0;0;None;2;2;0;1;3;None
+Viper;VPR-B;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;1;None
+Viper;VPR-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Viper;VPR-B;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Viper;VPR-B;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Viper;VPR-C;RA;12;0;2;0;0;0;2;4;Arms;0;0;0;2;0;None
+Viper;VPR-C;LA;12;0;2;0;0;0;2;4;Arms;0;0;0;2;0;None
+Viper;VPR-C;RT;12;2;0;0;0;0;0;0;None;2;2;0;1;3;None
+Viper;VPR-C;LT;12;2;0;0;0;0;0;0;None;2;2;0;1;3;None
+Viper;VPR-C;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;1;None
+Viper;VPR-C;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Viper;VPR-C;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Viper;VPR-C;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Viper;VPR-D;RA;12;0;2;0;0;0;2;4;Arms;0;0;0;2;0;None
+Viper;VPR-D;LA;12;0;0;1;0;0;2;4;Arms;0;0;0;2;0;None
+Viper;VPR-D;RT;12;0;0;1;0;0;0;0;None;2;2;0;1;3;None
+Viper;VPR-D;LT;12;0;1;0;0;0;0;0;None;2;2;0;1;3;None
+Viper;VPR-D;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;1;None
+Viper;VPR-D;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Viper;VPR-D;RL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Viper;VPR-D;LL;6;0;0;0;0;0;4;4;Legs;2;2;0;0;0;None
+Warhammer;WHR-6D;RA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Warhammer;WHR-6R;RA;12;0;1;0;0;0;3;3;Arms;0;0;0;0;0;None
+Warhammer;WHR-6D;LA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Warhammer;WHR-6R;LA;12;0;1;0;0;0;3;3;Arms;0;0;0;0;0;None
+Warhammer;WHR-6D;RT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Warhammer;WHR-6R;RT;12;1;2;0;0;0;0;0;None;0;0;0;0;0;None
+Warhammer;WHR-7S;RT;12;0;2;1;0;0;0;0;None;0;0;0;0;0;None
+Warhammer;WHR-BW;RT;12;2;1;0;0;0;0;0;None;0;0;0;0;0;None
+Warhammer;WHR-6D;LT;12;0;3;0;0;0;0;0;None;0;0;0;0;0;None
+Warhammer;WHR-6R;LT;12;1;2;1;0;0;0;0;None;0;0;0;0;0;None
+Warhammer;WHR-7S;LT;12;0;2;2;0;0;0;0;None;0;0;0;0;0;None
+Warhammer;WHR-BW;LT;12;2;1;1;0;0;0;0;None;0;0;0;0;0;None
+Warhammer;WHR-6D;CT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Warhammer;WHR-6D;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Warhammer;WHR-6D;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Warhammer;WHR-6D;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Warhawk;WHK-PRIME;RA;12;0;2;0;0;0;2;2;Arms;0;0;0;1;0;None
+Warhawk;WHK-PRIME;LA;12;0;2;1;0;0;2;2;Arms;0;0;0;1;0;None
+Warhawk;WHK-PRIME;RT;12;0;0;0;0;0;0;0;None;0;0;1;2;0;None
+Warhawk;WHK-PRIME;LT;12;0;0;0;0;0;0;0;None;0;0;4;2;0;None
+Warhawk;WHK-PRIME;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Warhawk;WHK-PRIME;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Warhawk;WHK-PRIME;RL;6;0;0;0;0;0;4;4;Legs;0;0;1;0;0;None
+Warhawk;WHK-PRIME;LL;6;0;0;0;0;0;4;4;Legs;0;0;1;0;0;None
+Warhawk;WHK-A;RA;12;1;0;0;0;0;2;2;Arms;0;0;0;1;0;None
+Warhawk;WHK-A;LA;12;0;2;1;0;0;2;2;Arms;0;0;0;1;0;None
+Warhawk;WHK-A;RT;12;0;0;1;0;0;0;0;None;0;0;1;2;0;None
+Warhawk;WHK-A;LT;12;0;0;0;0;0;0;0;None;0;0;4;2;0;None
+Warhawk;WHK-A;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Warhawk;WHK-A;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Warhawk;WHK-A;RL;6;0;0;0;0;0;4;4;Legs;0;0;1;0;0;None
+Warhawk;WHK-A;LL;6;0;0;0;0;0;4;4;Legs;0;0;1;0;0;None
+Warhawk;WHK-B;RA;12;0;3;0;0;0;2;2;Arms;0;0;0;1;0;None
+Warhawk;WHK-B;LA;12;1;1;0;0;0;2;2;Arms;0;0;0;1;0;None
+Warhawk;WHK-B;RT;12;0;0;2;0;0;0;0;None;0;0;1;2;0;None
+Warhawk;WHK-B;LT;12;0;0;0;0;0;0;0;None;0;0;4;2;0;None
+Warhawk;WHK-B;CT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Warhawk;WHK-B;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Warhawk;WHK-B;RL;6;0;0;0;0;0;4;4;Legs;0;0;1;0;0;None
+Warhawk;WHK-B;LL;6;0;0;0;0;0;4;4;Legs;0;0;1;0;0;None
+Warhawk;WHK-C;RA;12;0;2;0;0;0;2;2;Arms;0;0;0;1;0;None
+Warhawk;WHK-C;LA;12;0;2;0;0;0;2;2;Arms;0;0;0;1;0;None
+Warhawk;WHK-C;RT;12;0;0;0;0;0;0;0;None;0;0;1;2;0;None
+Warhawk;WHK-C;LT;12;0;0;0;0;0;0;0;None;0;0;4;2;0;None
+Warhawk;WHK-C;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Warhawk;WHK-C;HD;6;0;0;0;0;0;0;0;None;0;0;0;1;0;None
+Warhawk;WHK-C;RL;6;0;0;0;0;0;4;4;Legs;0;0;1;0;0;None
+Warhawk;WHK-C;LL;6;0;0;0;0;0;4;4;Legs;0;0;1;0;0;None
+Wolfhound;WLF-1;RA;12;0;1;0;0;0;3;3;Arms;0;0;0;0;0;None
+Wolfhound;WLF-2;RA;12;0;2;0;0;0;3;3;Arms;0;0;0;0;0;None
+Wolfhound;WLF-1;LA;12;0;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Wolfhound;WLF-1;RT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Wolfhound;WLF-1A;RT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Wolfhound;WLF-1B;RT;12;0;1;0;1;0;0;0;None;0;0;0;0;0;None
+Wolfhound;WLF-1;LT;12;0;1;0;1;0;0;0;None;0;0;0;0;0;None
+Wolfhound;WLF-1A;LT;12;0;2;0;1;0;0;0;None;0;0;0;0;0;None
+Wolfhound;WLF-1;CT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Wolfhound;WLF-1A;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Wolfhound;WLF-1;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Wolfhound;WLF-1;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Wolfhound;WLF-1;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Wolverine;WVR-6K;RA;12;0;4;0;0;0;4;4;Arms;0;0;0;0;0;None
+Wolverine;WVR-6R;RA;12;2;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Wolverine;WVR-7K;RA;12;0;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Wolverine;WVR-Q;RA;12;1;2;0;0;0;4;4;Arms;0;0;0;0;0;None
+Wolverine;WVR-6K;LA;12;0;0;0;0;0;4;4;Arms;0;0;0;0;0;None
+Wolverine;WVR-6K;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Wolverine;WVR-7K;RT;12;0;0;1;1;0;0;0;None;0;0;0;0;0;None
+Wolverine;WVR-Q;RT;12;0;1;0;1;0;0;0;None;0;0;0;0;0;None
+Wolverine;WVR-6K;LT;12;0;0;1;0;0;0;0;None;0;0;0;0;0;None
+Wolverine;WVR-6R;LT;12;0;0;3;0;0;0;0;None;0;0;0;0;0;None
+Wolverine;WVR-7D;LT;12;0;0;2;0;0;0;0;None;0;0;0;0;0;None
+Wolverine;WVR-6K;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Wolverine;WVR-6R;CT;12;0;0;0;0;0;0;0;None;0;7;0;0;0;None
+Wolverine;WVR-7D;CT;12;0;0;0;0;0;0;0;None;0;5;0;0;0;None
+Wolverine;WVR-6K;HD;6;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Wolverine;WVR-6K;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Wolverine;WVR-6K;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Zeus;ZEU-5S;RA;12;0;0;3;0;0;3;3;Arms;0;0;0;0;0;None
+Zeus;ZEU-6S;RA;12;0;0;1;0;0;3;3;Arms;0;0;0;0;0;None
+Zeus;ZEU-5S;LA;12;1;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Zeus;ZEU-6S;LA;12;2;0;0;0;0;3;3;Arms;0;0;0;0;0;None
+Zeus;ZEU-6T;LA;12;0;1;0;0;0;3;3;Arms;0;0;0;0;0;None
+Zeus;ZEU-9S;LA;12;0;3;0;0;0;3;3;Arms;0;0;0;0;0;None
+Zeus;ZEU-5S;RT;12;0;0;0;1;0;0;0;None;0;0;0;0;0;None
+Zeus;ZEU-5S;LT;12;0;2;0;0;0;0;0;None;0;0;0;0;0;None
+Zeus;ZEU-6S;LT;12;0;3;0;0;0;0;0;None;0;0;0;0;0;None
+Zeus;ZEU-5S;CT;12;0;1;0;0;0;0;0;None;0;0;0;0;0;None
+Zeus;ZEU-9S2;CT;12;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Zeus;ZEU-5S;HD;6;0;0;0;0;0;0;0;None;0;0;0;0;0;None
+Zeus;ZEU-5S;RL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None
+Zeus;ZEU-5S;LL;6;0;0;0;0;0;4;4;Legs;0;0;0;0;0;None

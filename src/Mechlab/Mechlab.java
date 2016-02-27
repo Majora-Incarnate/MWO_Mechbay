@@ -1,6 +1,7 @@
 package Mechlab;
 
 import Utility.ChassisBlueprint;
+import Utility.Constants;
 import Utility.Crittable;
 import javax.swing.JComboBox;
 
@@ -38,10 +39,13 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
+import javax.swing.LayoutStyle;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /**
  *
@@ -71,7 +75,7 @@ public class Mechlab extends javax.swing.JFrame {
     public Mechlab() {
         masterDatabase = new Database();
         selectedDatabase = new Database(masterDatabase, TechBase.CLAN_TECH_BASE, User.mixtech_enabled, User.futuretech_enabled);
-        engineRatingSpinnerModel = new SpinnerNumberModel(0, 0, 0, 5);
+        engineRatingSpinnerModel = new SpinnerNumberModel(0, 0, 400, 5);
         rightArmSpinnerModel = new SpinnerNumberModel(0, 0, 0, 1);
         leftArmSpinnerModel = new SpinnerNumberModel(0, 0, 0, 1);
         rightTorsoSpinnerModel = new SpinnerNumberModel(0, 0, 0, 1);
@@ -85,7 +89,9 @@ public class Mechlab extends javax.swing.JFrame {
         leftLegSpinnerModel = new SpinnerNumberModel(0, 0, 0, 1);
         special1SpinnerModel = new SpinnerNumberModel(0, 0, 0, 1);
         special2SpinnerModel = new SpinnerNumberModel(0, 0, 0, 1);
+        
         initComponents();
+        
         this.rightArmCriticalList.setCellRenderer(new Mechlab.MechCriticalRenderer(0));
         this.leftArmCriticalList.setCellRenderer(new Mechlab.MechCriticalRenderer(1));
         this.rightLegCriticalList.setCellRenderer(new Mechlab.MechCriticalRenderer(6));
@@ -96,6 +102,7 @@ public class Mechlab extends javax.swing.JFrame {
         this.headCriticalList.setCellRenderer(new Mechlab.MechCriticalRenderer(5));
         //this.special1CriticalList.setCellRenderer(new Mechlab.MechCriticalRenderer(8));
         //this.special2CriticalList.setCellRenderer(new Mechlab.MechCriticalRenderer(9));
+        
         this.UpdateCriticalPanelVisibility();
         chassisComboBox.setSelectedIndex(0);
     }
@@ -117,7 +124,14 @@ public class Mechlab extends javax.swing.JFrame {
         setMinimumSize(new Dimension(1280, 720));
         getContentPane().setLayout(new GridBagLayout());
 
-        MechTabPane.setPreferredSize(new Dimension(256, 512));
+        MechTabPane.setMaximumSize(new Dimension(320, 512));
+        MechTabPane.setMinimumSize(new Dimension(320, 512));
+        MechTabPane.setPreferredSize(new Dimension(320, 512));
+        MechTabPane.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent evt) {
+                MechTabPaneStateChanged(evt);
+            }
+        });
 
         ChassisPanel.setLayout(new GridBagLayout());
 
@@ -295,14 +309,55 @@ public class Mechlab extends javax.swing.JFrame {
 
         UpgradesPanel.setLayout(new GridBagLayout());
 
-        GroupLayout SystemsPanelLayout = new GroupLayout(SystemsPanel);
-        SystemsPanel.setLayout(SystemsPanelLayout);
-        SystemsPanelLayout.setHorizontalGroup(SystemsPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        SystemsPanelLayout.setVerticalGroup(SystemsPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        SystemsPanel.setLayout(new GridBagLayout());
+
+        engineComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        SystemsPanel.add(engineComboBox, gridBagConstraints);
+
+        structureComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        SystemsPanel.add(structureComboBox, gridBagConstraints);
+
+        armorComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        SystemsPanel.add(armorComboBox, gridBagConstraints);
+
+        gyroComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        SystemsPanel.add(gyroComboBox, gridBagConstraints);
+
+        cockpitComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        SystemsPanel.add(cockpitComboBox, gridBagConstraints);
+
+        heatSinkComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        SystemsPanel.add(heatSinkComboBox, gridBagConstraints);
+
+        myomerComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        SystemsPanel.add(myomerComboBox, gridBagConstraints);
+
+        jumpJetComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        SystemsPanel.add(jumpJetComboBox, gridBagConstraints);
 
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -312,15 +367,7 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         UpgradesPanel.add(SystemsPanel, gridBagConstraints);
 
-        GroupLayout ModulesPanelLayout = new GroupLayout(ModulesPanel);
-        ModulesPanel.setLayout(ModulesPanelLayout);
-        ModulesPanelLayout.setHorizontalGroup(ModulesPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        ModulesPanelLayout.setVerticalGroup(ModulesPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
+        ModulesPanel.setLayout(new GridBagLayout());
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -329,15 +376,7 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         UpgradesPanel.add(ModulesPanel, gridBagConstraints);
 
-        GroupLayout EfficienciesPanelLayout = new GroupLayout(EfficienciesPanel);
-        EfficienciesPanel.setLayout(EfficienciesPanelLayout);
-        EfficienciesPanelLayout.setHorizontalGroup(EfficienciesPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        EfficienciesPanelLayout.setVerticalGroup(EfficienciesPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
+        EfficienciesPanel.setLayout(new GridBagLayout());
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -347,15 +386,13 @@ public class Mechlab extends javax.swing.JFrame {
         UpgradesPanel.add(EfficienciesPanel, gridBagConstraints);
 
         AdjustmentsPanel.setPreferredSize(new Dimension(0, 0));
+        AdjustmentsPanel.setLayout(new GridBagLayout());
 
-        GroupLayout AdjustmentsPanelLayout = new GroupLayout(AdjustmentsPanel);
-        AdjustmentsPanel.setLayout(AdjustmentsPanelLayout);
-        AdjustmentsPanelLayout.setHorizontalGroup(AdjustmentsPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGap(0, 248, Short.MAX_VALUE)
-        );
-        AdjustmentsPanelLayout.setVerticalGroup(AdjustmentsPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGap(0, 124, Short.MAX_VALUE)
-        );
+        engineRatingSpinner.setModel(engineRatingSpinnerModel);
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        AdjustmentsPanel.add(engineRatingSpinner, gridBagConstraints);
 
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -675,7 +712,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.fill = GridBagConstraints.BOTH;
         getContentPane().add(MechTabPane, gridBagConstraints);
 
-        statisticsPanel.setPreferredSize(new Dimension(256, 512));
+        statisticsPanel.setMaximumSize(new Dimension(192, 512));
+        statisticsPanel.setMinimumSize(new Dimension(192, 512));
+        statisticsPanel.setPreferredSize(new Dimension(192, 512));
         statisticsPanel.setLayout(new GridBagLayout());
 
         tonnageProgressBar.setAlignmentX(0.0F);
@@ -684,6 +723,7 @@ public class Mechlab extends javax.swing.JFrame {
         tonnageProgressBar.setMaximumSize(new Dimension(0, 0));
         tonnageProgressBar.setMinimumSize(new Dimension(0, 0));
         tonnageProgressBar.setPreferredSize(new Dimension(0, 0));
+        tonnageProgressBar.setStringPainted(true);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
@@ -696,6 +736,7 @@ public class Mechlab extends javax.swing.JFrame {
         speedProgressBar.setMaximumSize(new Dimension(0, 0));
         speedProgressBar.setMinimumSize(new Dimension(0, 0));
         speedProgressBar.setPreferredSize(new Dimension(0, 0));
+        speedProgressBar.setStringPainted(true);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
@@ -708,6 +749,7 @@ public class Mechlab extends javax.swing.JFrame {
         jumpDistanceProgressBar.setMaximumSize(new Dimension(0, 0));
         jumpDistanceProgressBar.setMinimumSize(new Dimension(0, 0));
         jumpDistanceProgressBar.setPreferredSize(new Dimension(0, 0));
+        jumpDistanceProgressBar.setStringPainted(true);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
@@ -720,6 +762,7 @@ public class Mechlab extends javax.swing.JFrame {
         jumpHeightProgressBar.setMaximumSize(new Dimension(0, 0));
         jumpHeightProgressBar.setMinimumSize(new Dimension(0, 0));
         jumpHeightProgressBar.setPreferredSize(new Dimension(0, 0));
+        jumpHeightProgressBar.setStringPainted(true);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
@@ -732,6 +775,7 @@ public class Mechlab extends javax.swing.JFrame {
         armorProgressBar.setMaximumSize(new Dimension(0, 0));
         armorProgressBar.setMinimumSize(new Dimension(0, 0));
         armorProgressBar.setPreferredSize(new Dimension(0, 0));
+        armorProgressBar.setStringPainted(true);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
@@ -744,6 +788,7 @@ public class Mechlab extends javax.swing.JFrame {
         alphaDamageProgressBar.setMaximumSize(new Dimension(0, 0));
         alphaDamageProgressBar.setMinimumSize(new Dimension(0, 0));
         alphaDamageProgressBar.setPreferredSize(new Dimension(0, 0));
+        alphaDamageProgressBar.setStringPainted(true);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
@@ -756,6 +801,7 @@ public class Mechlab extends javax.swing.JFrame {
         alphaHeatProgressBar.setMaximumSize(new Dimension(0, 0));
         alphaHeatProgressBar.setMinimumSize(new Dimension(0, 0));
         alphaHeatProgressBar.setPreferredSize(new Dimension(0, 0));
+        alphaHeatProgressBar.setStringPainted(true);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
@@ -768,6 +814,7 @@ public class Mechlab extends javax.swing.JFrame {
         firepowerProgressBar.setMaximumSize(new Dimension(0, 0));
         firepowerProgressBar.setMinimumSize(new Dimension(0, 0));
         firepowerProgressBar.setPreferredSize(new Dimension(0, 0));
+        firepowerProgressBar.setStringPainted(true);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
@@ -780,6 +827,7 @@ public class Mechlab extends javax.swing.JFrame {
         heatEfficiencyProgressBar.setMaximumSize(new Dimension(0, 0));
         heatEfficiencyProgressBar.setMinimumSize(new Dimension(0, 0));
         heatEfficiencyProgressBar.setPreferredSize(new Dimension(0, 0));
+        heatEfficiencyProgressBar.setStringPainted(true);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
@@ -792,6 +840,7 @@ public class Mechlab extends javax.swing.JFrame {
         rangeProgressBar.setMaximumSize(new Dimension(0, 0));
         rangeProgressBar.setMinimumSize(new Dimension(0, 0));
         rangeProgressBar.setPreferredSize(new Dimension(0, 0));
+        rangeProgressBar.setStringPainted(true);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
@@ -804,6 +853,7 @@ public class Mechlab extends javax.swing.JFrame {
         criticalsProgressBar.setMaximumSize(new Dimension(0, 0));
         criticalsProgressBar.setMinimumSize(new Dimension(0, 0));
         criticalsProgressBar.setPreferredSize(new Dimension(0, 0));
+        criticalsProgressBar.setStringPainted(true);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
@@ -818,10 +868,13 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.fill = GridBagConstraints.BOTH;
         getContentPane().add(statisticsPanel, gridBagConstraints);
 
+        mechPanel.setMaximumSize(new Dimension(512, 512));
         mechPanel.setMinimumSize(new Dimension(512, 512));
         mechPanel.setPreferredSize(new Dimension(512, 512));
         mechPanel.setLayout(new GridBagLayout());
 
+        headPanel.setMaximumSize(new Dimension(100, 128));
+        headPanel.setMinimumSize(new Dimension(100, 128));
         headPanel.setPreferredSize(new Dimension(100, 128));
         headPanel.setLayout(new GridBagLayout());
 
@@ -830,8 +883,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 3;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(68, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         headPanel.add(headOmnipodComboBox, gridBagConstraints);
 
         jLabel19.setText("jLabel1");
@@ -840,8 +894,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(74, 57, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         headPanel.add(jLabel19, gridBagConstraints);
 
         jLabel20.setText("jLabel1");
@@ -850,24 +905,25 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(74, 57, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         headPanel.add(jLabel20, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(74, 0, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         headPanel.add(headStructureProgressBar, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(74, 0, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         headPanel.add(headArmorProgressBar, gridBagConstraints);
 
         headCriticalList.setModel(new AbstractListModel<String>() {
@@ -883,28 +939,44 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.gridheight = 4;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 11;
-        gridBagConstraints.ipady = 117;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new Insets(12, 57, 0, 0);
         headPanel.add(jScrollPane9, gridBagConstraints);
 
         headAMSHardpointLabel.setText("jLabel21");
-        headPanel.add(headAMSHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        headPanel.add(headAMSHardpointLabel, gridBagConstraints);
 
         headECMHardpointLabel.setText("jLabel21");
-        headPanel.add(headECMHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        headPanel.add(headECMHardpointLabel, gridBagConstraints);
 
         headEnergyHardpointLabel.setText("jLabel21");
-        headPanel.add(headEnergyHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        headPanel.add(headEnergyHardpointLabel, gridBagConstraints);
 
         headBallisticHardpointLabel.setText("jLabel21");
-        headPanel.add(headBallisticHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        headPanel.add(headBallisticHardpointLabel, gridBagConstraints);
 
         headMissileHardpointLabel.setText("jLabel21");
-        headPanel.add(headMissileHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        headPanel.add(headMissileHardpointLabel, gridBagConstraints);
 
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -913,6 +985,8 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         mechPanel.add(headPanel, gridBagConstraints);
 
+        centerTorsoPanel.setMaximumSize(new Dimension(100, 256));
+        centerTorsoPanel.setMinimumSize(new Dimension(100, 256));
         centerTorsoPanel.setPreferredSize(new Dimension(100, 256));
         centerTorsoPanel.setLayout(new GridBagLayout());
 
@@ -920,8 +994,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(68, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoOmnipodComboBox, gridBagConstraints);
 
         jLabel5.setText("jLabel1");
@@ -929,8 +1004,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(28, 1, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(jLabel5, gridBagConstraints);
 
         jLabel6.setText("jLabel1");
@@ -938,32 +1014,33 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(28, 1, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(jLabel6, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(29, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoStructureProgressBar, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(29, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoFrontArmorProgressBar, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(29, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoRearArmorProgressBar, gridBagConstraints);
 
         centerTorsoCriticalList.setModel(new AbstractListModel<String>() {
@@ -978,28 +1055,44 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 11;
-        gridBagConstraints.ipady = 117;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new Insets(58, 1, 59, 0);
         centerTorsoPanel.add(jScrollPane4, gridBagConstraints);
 
         centerTorsoAMSHardpointLabel.setText("jLabel21");
-        centerTorsoPanel.add(centerTorsoAMSHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        centerTorsoPanel.add(centerTorsoAMSHardpointLabel, gridBagConstraints);
 
         centerTorsoECMHardpointLabel.setText("jLabel21");
-        centerTorsoPanel.add(centerTorsoECMHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        centerTorsoPanel.add(centerTorsoECMHardpointLabel, gridBagConstraints);
 
         centerTorsoEnergyHardpointLabel.setText("jLabel21");
-        centerTorsoPanel.add(centerTorsoEnergyHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        centerTorsoPanel.add(centerTorsoEnergyHardpointLabel, gridBagConstraints);
 
         centerTorsoBallisticHardpointLabel.setText("jLabel21");
-        centerTorsoPanel.add(centerTorsoBallisticHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        centerTorsoPanel.add(centerTorsoBallisticHardpointLabel, gridBagConstraints);
 
         centerTorsoMissileHardpointLabel.setText("jLabel21");
-        centerTorsoPanel.add(centerTorsoMissileHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        centerTorsoPanel.add(centerTorsoMissileHardpointLabel, gridBagConstraints);
 
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -1008,6 +1101,8 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         mechPanel.add(centerTorsoPanel, gridBagConstraints);
 
+        leftTorsoPanel.setMaximumSize(new Dimension(100, 256));
+        leftTorsoPanel.setMinimumSize(new Dimension(100, 256));
         leftTorsoPanel.setPreferredSize(new Dimension(100, 256));
         leftTorsoPanel.setLayout(new GridBagLayout());
 
@@ -1016,24 +1111,27 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(32, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoOmnipodComboBox, gridBagConstraints);
 
         jLabel4.setText("jLabel1");
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(28, 33, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(jLabel4, gridBagConstraints);
 
         jLabel3.setText("jLabel1");
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(28, 33, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(jLabel3, gridBagConstraints);
 
         leftTorsoCASEToggleButton.setText("jToggleButton1");
@@ -1042,34 +1140,35 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(23, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoCASEToggleButton, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(12, 24, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoStructureProgressBar, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(22, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoFrontArmorProgressBar, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(22, 14, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoRearArmorProgressBar, gridBagConstraints);
 
         leftTorsoCriticalList.setModel(new AbstractListModel<String>() {
@@ -1084,28 +1183,44 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridheight = 4;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 11;
-        gridBagConstraints.ipady = 117;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new Insets(22, 1, 59, 0);
         leftTorsoPanel.add(jScrollPane2, gridBagConstraints);
 
         leftTorsoBallisticHardpointLabel.setText("jLabel21");
-        leftTorsoPanel.add(leftTorsoBallisticHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        leftTorsoPanel.add(leftTorsoBallisticHardpointLabel, gridBagConstraints);
 
         leftTorsoEnergyHardpointLabel.setText("jLabel21");
-        leftTorsoPanel.add(leftTorsoEnergyHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        leftTorsoPanel.add(leftTorsoEnergyHardpointLabel, gridBagConstraints);
 
         leftTorsoAMSHardpointLabel.setText("jLabel21");
-        leftTorsoPanel.add(leftTorsoAMSHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        leftTorsoPanel.add(leftTorsoAMSHardpointLabel, gridBagConstraints);
 
         leftTorsoECMHardpointLabel.setText("jLabel21");
-        leftTorsoPanel.add(leftTorsoECMHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        leftTorsoPanel.add(leftTorsoECMHardpointLabel, gridBagConstraints);
 
         leftTorsoMissileHardpointLabel.setText("jLabel21");
-        leftTorsoPanel.add(leftTorsoMissileHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        leftTorsoPanel.add(leftTorsoMissileHardpointLabel, gridBagConstraints);
 
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -1115,6 +1230,8 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         mechPanel.add(leftTorsoPanel, gridBagConstraints);
 
+        rightTorsoPanel.setMaximumSize(new Dimension(100, 256));
+        rightTorsoPanel.setMinimumSize(new Dimension(100, 256));
         rightTorsoPanel.setPreferredSize(new Dimension(100, 256));
         rightTorsoPanel.setLayout(new GridBagLayout());
 
@@ -1122,8 +1239,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(68, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoOmnipodComboBox, gridBagConstraints);
 
         jLabel17.setText("jLabel1");
@@ -1131,8 +1249,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(28, 1, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(jLabel17, gridBagConstraints);
 
         jLabel18.setText("jLabel1");
@@ -1140,8 +1259,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(28, 1, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(jLabel18, gridBagConstraints);
 
         rightTorsoCASEToggleButton.setText("jToggleButton1");
@@ -1150,32 +1270,33 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(23, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoCASEToggleButton, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(29, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoStructureProgressBar, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(29, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoFrontArmorProgressBar, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(29, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoRearArmorProgressBar, gridBagConstraints);
 
         rightTorsoCriticalList.setModel(new AbstractListModel<String>() {
@@ -1190,28 +1311,44 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 4;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 11;
-        gridBagConstraints.ipady = 117;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new Insets(58, 1, 59, 0);
         rightTorsoPanel.add(jScrollPane6, gridBagConstraints);
 
         rightTorsoBallisticHardpointLabel.setText("jLabel21");
-        rightTorsoPanel.add(rightTorsoBallisticHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        rightTorsoPanel.add(rightTorsoBallisticHardpointLabel, gridBagConstraints);
 
         rightTorsoEnergyHardpointLabel.setText("jLabel21");
-        rightTorsoPanel.add(rightTorsoEnergyHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        rightTorsoPanel.add(rightTorsoEnergyHardpointLabel, gridBagConstraints);
 
         rightTorsoAMSHardpointLabel.setText("jLabel21");
-        rightTorsoPanel.add(rightTorsoAMSHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        rightTorsoPanel.add(rightTorsoAMSHardpointLabel, gridBagConstraints);
 
         rightTorsoECMHardpointLabel.setText("jLabel21");
-        rightTorsoPanel.add(rightTorsoECMHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        rightTorsoPanel.add(rightTorsoECMHardpointLabel, gridBagConstraints);
 
         rightTorsoMissileHardpointLabel.setText("jLabel21");
-        rightTorsoPanel.add(rightTorsoMissileHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        rightTorsoPanel.add(rightTorsoMissileHardpointLabel, gridBagConstraints);
 
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -1221,6 +1358,8 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         mechPanel.add(rightTorsoPanel, gridBagConstraints);
 
+        leftLegPanel.setMaximumSize(new Dimension(100, 128));
+        leftLegPanel.setMinimumSize(new Dimension(100, 128));
         leftLegPanel.setPreferredSize(new Dimension(100, 128));
         leftLegPanel.setLayout(new GridBagLayout());
 
@@ -1229,8 +1368,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 3;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(68, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftLegPanel.add(leftLegOmnipodComboBox, gridBagConstraints);
 
         jLabel9.setText("jLabel1");
@@ -1239,8 +1379,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(74, 57, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftLegPanel.add(jLabel9, gridBagConstraints);
 
         jLabel10.setText("jLabel1");
@@ -1249,24 +1390,25 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(74, 57, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftLegPanel.add(jLabel10, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(74, 0, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftLegPanel.add(leftLegStructureProgressBar, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(74, 0, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftLegPanel.add(leftLegArmorProgressBar, gridBagConstraints);
 
         leftLegCriticalList.setModel(new AbstractListModel<String>() {
@@ -1282,28 +1424,44 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.gridheight = 4;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 11;
-        gridBagConstraints.ipady = 117;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new Insets(12, 57, 0, 0);
         leftLegPanel.add(jScrollPane3, gridBagConstraints);
 
         leftLegBallisticHardpointLabel.setText("jLabel21");
-        leftLegPanel.add(leftLegBallisticHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        leftLegPanel.add(leftLegBallisticHardpointLabel, gridBagConstraints);
 
         leftLegEnergyHardpointLabel.setText("jLabel21");
-        leftLegPanel.add(leftLegEnergyHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        leftLegPanel.add(leftLegEnergyHardpointLabel, gridBagConstraints);
 
         leftLegAMSHardpointLabel.setText("jLabel21");
-        leftLegPanel.add(leftLegAMSHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        leftLegPanel.add(leftLegAMSHardpointLabel, gridBagConstraints);
 
         leftLegECMHardpointLabel.setText("jLabel21");
-        leftLegPanel.add(leftLegECMHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        leftLegPanel.add(leftLegECMHardpointLabel, gridBagConstraints);
 
         leftLegMissileHardpointLabel.setText("jLabel21");
-        leftLegPanel.add(leftLegMissileHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        leftLegPanel.add(leftLegMissileHardpointLabel, gridBagConstraints);
 
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -1312,6 +1470,8 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         mechPanel.add(leftLegPanel, gridBagConstraints);
 
+        rightLegPanel.setMaximumSize(new Dimension(100, 128));
+        rightLegPanel.setMinimumSize(new Dimension(100, 128));
         rightLegPanel.setPreferredSize(new Dimension(100, 128));
         rightLegPanel.setLayout(new GridBagLayout());
 
@@ -1320,8 +1480,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 3;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(68, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightLegPanel.add(rightLegOmnipodComboBox, gridBagConstraints);
 
         jLabel7.setText("jLabel1");
@@ -1330,8 +1491,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(74, 57, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightLegPanel.add(jLabel7, gridBagConstraints);
 
         jLabel8.setText("jLabel1");
@@ -1340,24 +1502,25 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(74, 57, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightLegPanel.add(jLabel8, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(74, 0, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightLegPanel.add(rightLegStructureProgressBar, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(74, 0, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightLegPanel.add(rightLegArmorProgressBar, gridBagConstraints);
 
         rightLegCriticalList.setModel(new AbstractListModel<String>() {
@@ -1373,28 +1536,44 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.gridheight = 4;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 11;
-        gridBagConstraints.ipady = 117;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new Insets(12, 57, 0, 0);
         rightLegPanel.add(jScrollPane5, gridBagConstraints);
 
         rightLegBallisticHardpointLabel.setText("jLabel21");
-        rightLegPanel.add(rightLegBallisticHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        rightLegPanel.add(rightLegBallisticHardpointLabel, gridBagConstraints);
 
         rightLegEnergyHardpointLabel.setText("jLabel21");
-        rightLegPanel.add(rightLegEnergyHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        rightLegPanel.add(rightLegEnergyHardpointLabel, gridBagConstraints);
 
         rightLegAMSHardpointLabel.setText("jLabel21");
-        rightLegPanel.add(rightLegAMSHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        rightLegPanel.add(rightLegAMSHardpointLabel, gridBagConstraints);
 
         rightLegECMHardpointLabel.setText("jLabel21");
-        rightLegPanel.add(rightLegECMHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        rightLegPanel.add(rightLegECMHardpointLabel, gridBagConstraints);
 
         rightLegMissileHardpointLabel.setText("jLabel21");
-        rightLegPanel.add(rightLegMissileHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        rightLegPanel.add(rightLegMissileHardpointLabel, gridBagConstraints);
 
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -1403,6 +1582,8 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         mechPanel.add(rightLegPanel, gridBagConstraints);
 
+        leftArmPanel.setMaximumSize(new Dimension(100, 256));
+        leftArmPanel.setMinimumSize(new Dimension(100, 256));
         leftArmPanel.setPreferredSize(new Dimension(100, 256));
         leftArmPanel.setLayout(new GridBagLayout());
 
@@ -1411,8 +1592,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(8, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftArmOmnipodComboBox, gridBagConstraints);
 
         jLabel1.setText("jLabel1");
@@ -1420,8 +1602,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(6, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(jLabel1, gridBagConstraints);
 
         jLabel2.setText("jLabel1");
@@ -1429,8 +1612,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(37, 22, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(jLabel2, gridBagConstraints);
 
         leftLowerArmToggleButton.setText("jToggleButton1");
@@ -1438,8 +1622,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(25, 32, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftLowerArmToggleButton, gridBagConstraints);
 
         leftHandToggleButton.setText("jToggleButton1");
@@ -1448,24 +1633,25 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(35, 2, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftHandToggleButton, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(36, 0, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftArmStructureProgressBar, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(36, 0, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftArmArmorProgressBar, gridBagConstraints);
 
         leftArmCriticalList.setModel(new AbstractListModel<String>() {
@@ -1480,28 +1666,44 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 11;
-        gridBagConstraints.ipady = 117;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new Insets(6, 12, 0, 0);
         leftArmPanel.add(jScrollPane1, gridBagConstraints);
 
         leftArmECMHardpointLabel.setText("jLabel21");
-        leftArmPanel.add(leftArmECMHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        leftArmPanel.add(leftArmECMHardpointLabel, gridBagConstraints);
 
         leftArmEnergyHardpointLabel.setText("jLabel21");
-        leftArmPanel.add(leftArmEnergyHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        leftArmPanel.add(leftArmEnergyHardpointLabel, gridBagConstraints);
 
         leftArmMissileHardpointLabel.setText("jLabel21");
-        leftArmPanel.add(leftArmMissileHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        leftArmPanel.add(leftArmMissileHardpointLabel, gridBagConstraints);
 
         leftArmAMSHardpointLabel.setText("jLabel21");
-        leftArmPanel.add(leftArmAMSHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        leftArmPanel.add(leftArmAMSHardpointLabel, gridBagConstraints);
 
         leftArmBallisticHardpointLabel.setText("jLabel21");
-        leftArmPanel.add(leftArmBallisticHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        leftArmPanel.add(leftArmBallisticHardpointLabel, gridBagConstraints);
 
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -1510,6 +1712,8 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         mechPanel.add(leftArmPanel, gridBagConstraints);
 
+        rightArmPanel.setMaximumSize(new Dimension(100, 256));
+        rightArmPanel.setMinimumSize(new Dimension(100, 256));
         rightArmPanel.setPreferredSize(new Dimension(100, 256));
         rightArmPanel.setLayout(new GridBagLayout());
 
@@ -1517,8 +1721,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(68, 12, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightArmOmnipodComboBox, gridBagConstraints);
 
         jLabel15.setText("jLabel1");
@@ -1526,8 +1731,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(28, 57, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(jLabel15, gridBagConstraints);
 
         jLabel16.setText("jLabel1");
@@ -1535,8 +1741,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(28, 57, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(jLabel16, gridBagConstraints);
 
         rightLowerArmToggleButton.setText("jToggleButton1");
@@ -1545,8 +1752,9 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(23, 21, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightLowerArmToggleButton, gridBagConstraints);
 
         rightHandToggleButton.setText("jToggleButton1");
@@ -1555,24 +1763,25 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(23, 21, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightHandToggleButton, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(29, 0, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightArmStructureProgressBar, gridBagConstraints);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 138;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new Insets(29, 0, 0, 0);
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightArmArmorProgressBar, gridBagConstraints);
 
         rightArmCriticalList.setModel(new AbstractListModel<String>() {
@@ -1588,28 +1797,44 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.gridheight = 4;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 11;
-        gridBagConstraints.ipady = 117;
-        gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new Insets(58, 57, 59, 0);
         rightArmPanel.add(jScrollPane7, gridBagConstraints);
 
         rightArmECMHardpointLabel.setText("jLabel21");
-        rightArmPanel.add(rightArmECMHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        rightArmPanel.add(rightArmECMHardpointLabel, gridBagConstraints);
 
         rightArmEnergyHardpointLabel.setText("jLabel21");
-        rightArmPanel.add(rightArmEnergyHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        rightArmPanel.add(rightArmEnergyHardpointLabel, gridBagConstraints);
 
         rightArmMissileHardpointLabel.setText("jLabel21");
-        rightArmPanel.add(rightArmMissileHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        rightArmPanel.add(rightArmMissileHardpointLabel, gridBagConstraints);
 
         rightArmAMSHardpointLabel.setText("jLabel21");
-        rightArmPanel.add(rightArmAMSHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        rightArmPanel.add(rightArmAMSHardpointLabel, gridBagConstraints);
 
         rightArmBallisticHardpointLabel.setText("jLabel21");
-        rightArmPanel.add(rightArmBallisticHardpointLabel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        rightArmPanel.add(rightArmBallisticHardpointLabel, gridBagConstraints);
 
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1806,8 +2031,12 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         getContentPane().add(mechPanel, gridBagConstraints);
 
+        secondaryTabbedPane.setMaximumSize(new Dimension(256, 512));
+        secondaryTabbedPane.setMinimumSize(new Dimension(256, 512));
         secondaryTabbedPane.setPreferredSize(new Dimension(256, 512));
 
         quirksPanel.setLayout(new GridBagLayout());
@@ -1849,6 +2078,8 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.fill = GridBagConstraints.BOTH;
         getContentPane().add(secondaryTabbedPane, gridBagConstraints);
 
+        InformationTabbedPane.setMaximumSize(new Dimension(1024, 256));
+        InformationTabbedPane.setMinimumSize(new Dimension(1024, 256));
         InformationTabbedPane.setPreferredSize(new Dimension(1024, 256));
 
         ModelOverviewPanel.setLayout(new GridBagLayout());
@@ -1922,6 +2153,7 @@ public class Mechlab extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         getContentPane().add(InformationTabbedPane, gridBagConstraints);
 
+        OptionsPanel.setMaximumSize(new Dimension(256, 256));
         OptionsPanel.setMinimumSize(new Dimension(256, 256));
         OptionsPanel.setPreferredSize(new Dimension(256, 256));
         OptionsPanel.setLayout(new GridBagLayout());
@@ -2106,6 +2338,47 @@ public class Mechlab extends javax.swing.JFrame {
         movementRangeComponentPanel.Set_Movement_Range(User.variant.chassis_type, User.variant.model_type);
         movementSpeedComponentPanel.Set_Movement_Speed(User.variant.chassis_type, User.variant.model_type);
         
+        selectedDatabase = null;
+        selectedDatabase = new Database(masterDatabase, User.variant.chassis_type.tech_base, User.mixtech_enabled, User.futuretech_enabled);
+        
+        engineComboBox.setModel(new DefaultComboBoxModel(selectedDatabase.ENGINE_BLUEPRINTS.toArray()));
+        armorComboBox.setModel(new DefaultComboBoxModel(selectedDatabase.ARMOR_BLUEPRINTS.toArray()));
+        structureComboBox.setModel(new DefaultComboBoxModel(selectedDatabase.ENGINE_BLUEPRINTS.toArray()));
+        //myomerComboBox.setModel(new DefaultComboBoxModel(selectedDatabase.MYOMER_BLUEPRINTS.toArray()));
+        heatSinkComboBox.setModel(new DefaultComboBoxModel(selectedDatabase.HEAT_SINK_BLUEPRINTS.toArray()));
+        jumpJetComboBox.setModel(new DefaultComboBoxModel(selectedDatabase.JUMP_JET_BLUEPRINTS.toArray()));
+        gyroComboBox.setModel(new DefaultComboBoxModel(selectedDatabase.GYRO_BLUEPRINTS.toArray()));
+        cockpitComboBox.setModel(new DefaultComboBoxModel(selectedDatabase.COCKPIT_BLUEPRINTS.toArray()));
+        
+        engineRatingSpinnerModel.setMinimum(User.variant.model_type.min_engine_rating);
+        engineRatingSpinnerModel.setMaximum(User.variant.model_type.max_engine_rating);
+        engineRatingSpinnerModel.setValue(User.variant.model_type.engine_rating);
+        
+        tonnageProgressBar.setMinimum(0);
+        tonnageProgressBar.setMaximum((int)User.variant.chassis_type.tonnage);
+        tonnageProgressBar.setValue((int)User.variant.current_tonnage);
+        tonnageProgressBar.setString(String.format("%.2f tons", User.variant.current_tonnage));
+        
+        speedProgressBar.setMinimum(0);
+        speedProgressBar.setMaximum(100);
+        speedProgressBar.setValue((int)(User.variant.current_engine_rating * 100.0 / User.variant.model_type.max_engine_rating));
+        speedProgressBar.setString(String.format("%.2f kph", 0.0));//User.variant.engine.Get_Speed(User.variant.chassis_type.tonnage, User.variant.current_engine_rating)));
+        
+        jumpDistanceProgressBar.setMinimum(0);
+        jumpDistanceProgressBar.setMaximum(User.variant.maximum_jump_jets);
+        jumpDistanceProgressBar.setValue(User.variant.current_jump_jets);
+        jumpDistanceProgressBar.setString(String.format("%.2fm", 0.0));
+        
+        jumpHeightProgressBar.setMinimum(0);
+        jumpHeightProgressBar.setMaximum(User.variant.maximum_jump_jets);
+        jumpHeightProgressBar.setValue(User.variant.current_jump_jets);
+        jumpHeightProgressBar.setString(String.format("%.2fm", 0.0));
+        
+        criticalsProgressBar.setMinimum(0);
+        criticalsProgressBar.setMaximum(78);
+        criticalsProgressBar.setValue(User.variant.current_criticals);
+        criticalsProgressBar.setString(String.format("%d/78", User.variant.current_criticals));
+        
         //engineComponentPanel.Set_Engine(User.variant.engine, User.variant.current_engine_rating);
         //gyroComponentPanel.Set_Gyro(User.variant.gyro, User.variant.current_engine_rating);
         //armorComponentPanel.Set_Armor(User.variant.armor, User.variant.GetCurrentArmorTotal());
@@ -2137,6 +2410,10 @@ public class Mechlab extends javax.swing.JFrame {
     private void WeaponStatsButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_WeaponStatsButtonActionPerformed
         //
     }//GEN-LAST:event_WeaponStatsButtonActionPerformed
+
+    private void MechTabPaneStateChanged(ChangeEvent evt) {//GEN-FIRST:event_MechTabPaneStateChanged
+        this.UpdateCriticalPanelVisibility();
+    }//GEN-LAST:event_MechTabPaneStateChanged
 
     private void UpdateCriticalPanelVisibility() {
         this.UpdateHardpointLabels(this.rightArmAMSHardpointLabel, this.rightArmECMHardpointLabel, this.rightArmBallisticHardpointLabel, this.rightArmEnergyHardpointLabel, this.rightArmMissileHardpointLabel, 0);
@@ -2303,24 +2580,22 @@ public class Mechlab extends javax.swing.JFrame {
         }
     }
 
-    private void UpdateArmorLabelVisibility(JProgressBar jProgressBar, JProgressBar jProgressBar2, JProgressBar jProgressBar3) {
-        boolean bl;
+    private void UpdateArmorLabelVisibility(JProgressBar frontArmorProgressBar, JProgressBar rearArmorProgressBar, JProgressBar structureProgressBar) {
+        boolean temp;
         switch (this.MechTabPane.getSelectedIndex()) {
-            case 3: {
-                bl = true;
+            case 3:
+                temp = true;
                 break;
-            }
-            default: {
-                bl = false;
-            }
+            default:
+                temp = false;
+                break;
         }
-        if (jProgressBar2 != null) {
-            jProgressBar.getParent().setVisible(bl);
-            jProgressBar2.getParent().setVisible(bl);
-        } else {
-            jProgressBar.setVisible(bl);
-        }
-        jProgressBar3.setVisible(bl);
+        
+        if (rearArmorProgressBar != null)
+            rearArmorProgressBar.setVisible(temp);
+        
+        frontArmorProgressBar.setVisible(temp);
+        structureProgressBar.setVisible(temp);
     }
 
     private void UpdateArmorLabels(JProgressBar jProgressBar, JProgressBar jProgressBar2, JProgressBar jProgressBar3, int n) {
@@ -2750,6 +3025,7 @@ public class Mechlab extends javax.swing.JFrame {
     final JPanel WeaponsPanel = new JPanel();
     final JProgressBar alphaDamageProgressBar = new JProgressBar();
     final JProgressBar alphaHeatProgressBar = new JProgressBar();
+    final JComboBox<String> armorComboBox = new JComboBox<>();
     final ComponentPanel armorComponentPanel = new ComponentPanel();
     final JProgressBar armorProgressBar = new JProgressBar();
     final JSpinner centerRearTorsoSpinner = new JSpinner();
@@ -2768,6 +3044,7 @@ public class Mechlab extends javax.swing.JFrame {
     final JProgressBar centerTorsoStructureProgressBar = new JProgressBar();
     JComboBox<String> chassisComboBox;
     final JButton clearArmorButton = new JButton();
+    final JComboBox<String> cockpitComboBox = new JComboBox<>();
     final ComponentPanel cockpitComponentPanel = new ComponentPanel();
     final ComponentPanel componentPanel5 = new ComponentPanel();
     final ComponentPanel componentPanel6 = new ComponentPanel();
@@ -2778,9 +3055,12 @@ public class Mechlab extends javax.swing.JFrame {
     final JTextArea descriptionTextArea = new JTextArea();
     final JLabel ecmCapableLabel = new JLabel();
     final JButton efficientArmorButton = new JButton();
+    final JComboBox<String> engineComboBox = new JComboBox<>();
     final ComponentPanel engineComponentPanel = new ComponentPanel();
+    final JSpinner engineRatingSpinner = new JSpinner();
     final JButton exportButton = new JButton();
     final JProgressBar firepowerProgressBar = new JProgressBar();
+    final JComboBox<String> gyroComboBox = new JComboBox<>();
     final ComponentPanel gyroComponentPanel = new ComponentPanel();
     final ComponentPanel hardpointComponentPanel = new ComponentPanel();
     final JLabel headAMSHardpointLabel = new JLabel();
@@ -2796,6 +3076,7 @@ public class Mechlab extends javax.swing.JFrame {
     final JSpinner headSpinner = new JSpinner();
     final JProgressBar headStructureProgressBar = new JProgressBar();
     final JProgressBar heatEfficiencyProgressBar = new JProgressBar();
+    final JComboBox<String> heatSinkComboBox = new JComboBox<>();
     final ComponentPanel heatSinksComponentPanel = new ComponentPanel();
     final JButton importButton = new JButton();
     final JLabel jLabel1 = new JLabel();
@@ -2845,6 +3126,7 @@ public class Mechlab extends javax.swing.JFrame {
     final JLabel jumpCapableLabel = new JLabel();
     final JProgressBar jumpDistanceProgressBar = new JProgressBar();
     final JProgressBar jumpHeightProgressBar = new JProgressBar();
+    final JComboBox<String> jumpJetComboBox = new JComboBox<>();
     final ComponentPanel jumpJetsComponentPanel = new ComponentPanel();
     final JLabel leftArmAMSHardpointLabel = new JLabel();
     final JLabel leftArmArmorAmountLabel = new JLabel();
@@ -2896,6 +3178,7 @@ public class Mechlab extends javax.swing.JFrame {
     final ComponentPanel moduleComponentPanel = new ComponentPanel();
     final ComponentPanel movementRangeComponentPanel = new ComponentPanel();
     final ComponentPanel movementSpeedComponentPanel = new ComponentPanel();
+    final JComboBox<String> myomerComboBox = new JComboBox<>();
     final ComponentPanel myomerComponentPanel = new ComponentPanel();
     final ComponentPanel overviewComponentPanel = new ComponentPanel();
     final JLabel pointsPerTonAmountLabel = new JLabel();
@@ -2972,6 +3255,7 @@ public class Mechlab extends javax.swing.JFrame {
     final ComponentPanel speedComponentPanel = new ComponentPanel();
     final JProgressBar speedProgressBar = new JProgressBar();
     final JPanel statisticsPanel = new JPanel();
+    final JComboBox<String> structureComboBox = new JComboBox<>();
     final ComponentPanel structureComponentPanel = new ComponentPanel();
     final JLabel techBaseLabel = new JLabel();
     final JButton tonnageArmorButton = new JButton();
