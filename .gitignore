@@ -167,3 +167,7 @@ pip-log.txt
 ## Distro
 ############
 ./MWO Mechbay/dist
+/editor/target/
+/mechlab/target/
+/parser/target/
+/utility/target/

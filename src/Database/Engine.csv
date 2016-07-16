@@ -1,5 +1,0 @@
-Name;ID;Tech Base;CT Criticals;ST Criticals;Tonnage Modifier;Cost Multiplier;Heat Sink Multiplier
-Standard Engine;3218;ALL;6;0;1;6133.333333;33.333333
-XL Engine (CL);3418;CLAN;6;2;0.5;16333.33333;250
-XL Engine (IS);3318;IS;6;3;0.5;16333.33333;250
-Light Engine (IS);-1;IS;6;2;0.75;0;0
