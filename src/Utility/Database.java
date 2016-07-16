@@ -22,6 +22,7 @@ public class Database {
     public final ArrayList<AmmoBlueprint> AMMO_BLUEPRINTS = new ArrayList(0);
     public final ArrayList<EquipmentBlueprint> EQUIPMENT_BLUEPRINTS = new ArrayList(0);
     public final ArrayList<ActuatorBlueprint> ACTUATOR_BLUEPRINTS = new ArrayList(0);
+    public final ArrayList<MyomerBlueprint> MYOMER_BLUEPRINTS = new ArrayList(0);
     public final ArrayList<ModuleBlueprint> MODULE_BLUEPRINTS = new ArrayList(0);
 
     private final String DATABASE_DIRECTORY = "\\Database\\";
@@ -36,6 +37,7 @@ public class Database {
             "Cockpit",
             "Engine",
             //"Equipment",
+            //"Myomer",
             "FireControl",
             "Gyro",
             "HeatSink",
@@ -67,69 +69,47 @@ public class Database {
             this.SECTION_BLUEPRINTS.add(blueprint);
         });
         database.COCKPIT_BLUEPRINTS.stream().forEach((blueprint) -> {
-            if (mixtech_enabled)
-                this.COCKPIT_BLUEPRINTS.add(blueprint);
-            else if (techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
+            if (mixtech_enabled || techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
                 this.COCKPIT_BLUEPRINTS.add(blueprint);
         });
         database.ENGINE_BLUEPRINTS.stream().forEach((blueprint) -> {
-            if (mixtech_enabled)
-                this.ENGINE_BLUEPRINTS.add(blueprint);
-            else if (techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
+            if (mixtech_enabled || techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
                 this.ENGINE_BLUEPRINTS.add(blueprint);
         });
         database.GYRO_BLUEPRINTS.stream().forEach((blueprint) -> {
-            if (mixtech_enabled)
-                this.GYRO_BLUEPRINTS.add(blueprint);
-            else if (techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
+            if (mixtech_enabled || techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
                 this.GYRO_BLUEPRINTS.add(blueprint);
         });
         database.ARMOR_BLUEPRINTS.stream().forEach((blueprint) -> {
-            if (mixtech_enabled)
-                this.ARMOR_BLUEPRINTS.add(blueprint);
-            else if (techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
+            if (mixtech_enabled || techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
                 this.ARMOR_BLUEPRINTS.add(blueprint);
         });
         database.STRUCTURE_BLUEPRINTS.stream().forEach((blueprint) -> {
-            if (mixtech_enabled)
-                this.STRUCTURE_BLUEPRINTS.add(blueprint);
-            else if (techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
+            if (mixtech_enabled || techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
                 this.STRUCTURE_BLUEPRINTS.add(blueprint);
         });
         database.HEAT_SINK_BLUEPRINTS.stream().forEach((blueprint) -> {
-            if (mixtech_enabled)
-                this.HEAT_SINK_BLUEPRINTS.add(blueprint);
-            else if (techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
+            if (mixtech_enabled || techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
                 this.HEAT_SINK_BLUEPRINTS.add(blueprint);
         });
         database.JUMP_JET_BLUEPRINTS.stream().forEach((blueprint) -> {
-            if (mixtech_enabled)
-                this.JUMP_JET_BLUEPRINTS.add(blueprint);
-            else if (techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
+            if (mixtech_enabled || techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
                 this.JUMP_JET_BLUEPRINTS.add(blueprint);
         });
         database.FIRE_CONTROL_BLUEPRINTS.stream().forEach((blueprint) -> {
-            if (mixtech_enabled)
-                this.FIRE_CONTROL_BLUEPRINTS.add(blueprint);
-            else if (techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
+            if (mixtech_enabled || techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
                 this.FIRE_CONTROL_BLUEPRINTS.add(blueprint);
         });
         database.WEAPON_BLUEPRINTS.stream().forEach((blueprint) -> {
-            if (mixtech_enabled)
-                this.WEAPON_BLUEPRINTS.add(blueprint);
-            else if (techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
+            if (mixtech_enabled || techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
                 this.WEAPON_BLUEPRINTS.add(blueprint);
         });
         database.AMMO_BLUEPRINTS.stream().forEach((blueprint) -> {
-            if (mixtech_enabled)
-                this.AMMO_BLUEPRINTS.add(blueprint);
-            else if (techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
+            if (mixtech_enabled || techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
                 this.AMMO_BLUEPRINTS.add(blueprint);
         });
         database.EQUIPMENT_BLUEPRINTS.stream().forEach((blueprint) -> {
-            if (mixtech_enabled)
-                this.EQUIPMENT_BLUEPRINTS.add(blueprint);
-            else if (techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
+            if (mixtech_enabled || techBase.equals(blueprint.tech_base) || techBase.equals(TechBase.UNIVERSAL_TECH_BASE))
                 this.EQUIPMENT_BLUEPRINTS.add(blueprint);
         });
         database.ACTUATOR_BLUEPRINTS.stream().forEach((blueprint) -> {
@@ -175,6 +155,9 @@ public class Database {
                 break;
             case "Equipment":
                 EQUIPMENT_BLUEPRINTS.add(new EquipmentBlueprint(line));
+                break;
+            case "Myomer":
+                MYOMER_BLUEPRINTS.add(new MyomerBlueprint(line));
                 break;
             case "Fire_Control":
                 FIRE_CONTROL_BLUEPRINTS.add(new FireControlBlueprint(line));
