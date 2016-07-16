@@ -171,3 +171,5 @@ pip-log.txt
 /mechlab/target/
 /parser/target/
 /utility/target/
+/nbproject/
+/nb-configuration.xml
