@@ -22,10 +22,10 @@
         </developer>
     </developers>
     <modules>
+        <module>entities</module>
+        <module>parser</module>
         <module>editor</module>
         <module>mechlab</module>
-        <module>parser</module>
-        <module>utility</module>
     </modules>
     <properties>
         <build.sourceEncoding>UTF-8</build.sourceEncoding>
@@ -35,11 +35,6 @@
     </properties>
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>com.cognitect</groupId>
-                <artifactId>transducers-java</artifactId>
-                <version>0.4.67</version>
-            </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>mechbay-utility</artifactId>

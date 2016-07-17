@@ -1,10 +1,18 @@
 package com.quicksilver.mwo.mechbay.mechlab;
 
-import com.quicksilver.mwo.mechbay.utility.User;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+import com.quicksilver.mwo.mechbay.utility.User;
 
 public class AboutDialogBox extends JDialog {
     private static final long serialVersionUID = -6163429021390520229L;
@@ -22,7 +30,7 @@ public class AboutDialogBox extends JDialog {
     private JLabel versionLabel;
     private JLabel versionTitle;
 
-    public AboutDialogBox(final Frame parent, final boolean isModal, final String mechbayVersion, final String mwoVersion) {
+    public AboutDialogBox(final JFrame parent, final boolean isModal, final String mechbayVersion, final String mwoVersion) {
         super(parent, isModal);
         initComponents();
         setTitle("About " + parent.getTitle());

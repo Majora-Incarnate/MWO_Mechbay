@@ -1,8 +1,12 @@
 package com.quicksilver.mwo.mechbay.mechlab;
 
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import com.quicksilver.mwo.mechbay.utility.ArmorBlueprint;

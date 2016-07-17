@@ -1,19 +1,5 @@
 package com.quicksilver.mwo.mechbay.mechlab;
 
-import com.quicksilver.mwo.mechbay.utility.ChassisBlueprint;
-import com.quicksilver.mwo.mechbay.utility.Crittable;
-import javax.swing.JComboBox;
-
-import com.quicksilver.mwo.mechbay.utility.Database;
-import com.quicksilver.mwo.mechbay.utility.HardpointType;
-import com.quicksilver.mwo.mechbay.utility.ModelBlueprint;
-import com.quicksilver.mwo.mechbay.utility.Section;
-import com.quicksilver.mwo.mechbay.utility.SectionBlueprint;
-import com.quicksilver.mwo.mechbay.utility.SectionType;
-import com.quicksilver.mwo.mechbay.utility.TechBase;
-import com.quicksilver.mwo.mechbay.utility.User;
-import com.quicksilver.mwo.mechbay.utility.Variant;
-import com.quicksilver.mwo.mechbay.utility.WeaponBlueprint;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -21,13 +7,14 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.AbstractListModel;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
-import javax.swing.GroupLayout;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -38,13 +25,25 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
-import javax.swing.LayoutStyle;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
+import com.quicksilver.mwo.mechbay.utility.ChassisBlueprint;
+import com.quicksilver.mwo.mechbay.utility.Crittable;
+import com.quicksilver.mwo.mechbay.utility.Database;
+import com.quicksilver.mwo.mechbay.utility.HardpointType;
+import com.quicksilver.mwo.mechbay.utility.ModelBlueprint;
+import com.quicksilver.mwo.mechbay.utility.Section;
+import com.quicksilver.mwo.mechbay.utility.SectionBlueprint;
+import com.quicksilver.mwo.mechbay.utility.SectionType;
+import com.quicksilver.mwo.mechbay.utility.TechBase;
+import com.quicksilver.mwo.mechbay.utility.User;
+import com.quicksilver.mwo.mechbay.utility.Variant;
+import com.quicksilver.mwo.mechbay.utility.WeaponBlueprint;
 
 /**
  *
