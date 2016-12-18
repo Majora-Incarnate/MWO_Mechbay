@@ -5,7 +5,7 @@ enum class SectionType::SectionEnum {
     LEFT_LEG, FRONT_RIGHT_LEG, FRONT_LEFT_LEG, REAR_RIGHT_LEG, REAR_LEFT_LEG, SPECIAL_1, SPECIAL_2
 };
 
-SectionType::SectionType(const SectionEnum sectionType, const std::string fullName, const std::string abbreviation)
+SectionType::SectionType(const SectionType::SectionEnum & sectionType, const std::string & fullName, const std::string & abbreviation)
     :longName(fullName), shortName(abbreviation), enumId(sectionType) {
 }
 

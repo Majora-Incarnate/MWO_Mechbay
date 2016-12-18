@@ -16,9 +16,9 @@ private:
     enum class MotiveEnum;
 
     const MotiveEnum motiveId;
-    const std::unique_ptr<SectionType> typeSections;
+    const std::vector<SectionType> typeSections;
 
-    MotiveType(const MotiveEnum motiveType, std::vector<SectionType> sections);
+    MotiveType(const MotiveEnum & motiveType, std::vector<SectionType> sections);
 };
 
 #endif // MOTIVETYPE_H

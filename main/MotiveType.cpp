@@ -4,8 +4,8 @@ enum class MotiveType::MotiveEnum {
     BIPED, QUAD
 };
 
-MotiveType::MotiveType(const MotiveEnum motiveType, std::vector<SectionType> sections)
-    : motiveId(motiveType), typeSections(sections.data()) {
+MotiveType::MotiveType(const MotiveType::MotiveEnum & motiveType, std::vector<SectionType> sections)
+    : motiveId(motiveType), typeSections(sections) {
 }
 
 const MotiveType MotiveType::BIPED(MotiveType::MotiveEnum::BIPED, {SectionType::HEAD, SectionType::CENTER_TORSO,

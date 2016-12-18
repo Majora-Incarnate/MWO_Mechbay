@@ -3,8 +3,7 @@
 
 #include "string"
 
-class SectionType
-{
+class SectionType {
 public:
     static const SectionType HEAD;
     static const SectionType CENTER_TORSO;
@@ -24,15 +23,14 @@ public:
     static const SectionType SPECIAL_1;
     static const SectionType SPECIAL_2;
 
-    const std::string longName;
-    const std::string shortName;
-
 private:
     enum class SectionEnum;
 
     const SectionEnum enumId;
+    const std::string longName;
+    const std::string shortName;
 
-    SectionType(const SectionEnum sectionType, const std::string fullName, const std::string abbreviation);
+    SectionType(const SectionEnum & sectionType, const std::string & fullName, const std::string & abbreviation);
 };
 
 #endif // SECTIONTYPE_H
