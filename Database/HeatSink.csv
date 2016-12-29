@@ -1,4 +1,0 @@
-Name;ID;Tech Base;Weight;Criticals;Engine Dissipation;Outside Dissipation;Threshold Bonus;Space Modifier;Item Cost;Upgrade Cost
-Single;3000;ALL;1;1;1;1;1;1;2000;750000
-Double (IS);3001;IS;1;3;2;1.4;2;1;12000;1500000
-Double (CL);3004;CLAN;1;2;2;1.4;2;1;12000;1500000

@@ -1,0 +1,32 @@
+[
+  {
+    "stCriticals": 0,
+    "tonnageModifier": 1,
+    "name": "Standard Engine",
+    "techBase": "Universal",
+    "ctCriticals": 6,
+    "heatSinkMultiplier": 33.333333,
+    "id": 3218,
+    "costMultiplier": 6133.333333
+  },
+  {
+    "stCriticals": 2,
+    "tonnageModifier": 0.5,
+    "name": "XL Engine (CL)",
+    "techBase": "Clan",
+    "ctCriticals": 6,
+    "heatSinkMultiplier": 250,
+    "id": 3418,
+    "costMultiplier": 16333.33333
+  },
+  {
+    "stCriticals": 3,
+    "tonnageModifier": 0.5,
+    "name": "XL Engine (IS)",
+    "techBase": "Inner Sphere",
+    "ctCriticals": 6,
+    "heatSinkMultiplier": 250,
+    "id": 3318,
+    "costMultiplier": 16333.33333
+  }
+]

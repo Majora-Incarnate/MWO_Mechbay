@@ -1,0 +1,32 @@
+[
+  {
+    "tonnage": -1,
+    "id": 0,
+    "criticals": -1,
+    "upgradeCost": 0,
+    "criticalMod": -1,
+    "name": "Standard",
+    "techBase": "Universal",
+    "tonnageMod": -1
+  },
+  {
+    "tonnage": -1,
+    "id": 0,
+    "criticals": -1,
+    "upgradeCost": 0,
+    "criticalMod": 0.25,
+    "name": "MASC (CL)",
+    "techBase": "Clan",
+    "tonnageMod": 0.25
+  },
+  {
+    "tonnage": -1,
+    "id": 0,
+    "criticals": -1,
+    "upgradeCost": 0,
+    "criticalMod": 0.2,
+    "name": "MASC (IS)",
+    "techBase": "Inner Sphere",
+    "tonnageMod": 0.2
+  }
+]

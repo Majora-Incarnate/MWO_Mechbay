@@ -1,0 +1,90 @@
+[
+  {
+    "criticals": "2",
+    "tonnage": "1.5",
+    "name": "Beagle Active Probe",
+    "tech base": "IS",
+    "hardpoint type": "None",
+    "id": "9002"
+  },
+  {
+    "criticals": "2",
+    "tonnage": "1.5",
+    "name": "Guardiam ECM",
+    "tech base": "IS",
+    "hardpoint type": "ECM",
+    "id": "9003"
+  },
+  {
+    "criticals": "1",
+    "tonnage": "1.0",
+    "name": "Active Probe",
+    "tech base": "CLAN",
+    "hardpoint type": "None",
+    "id": "9020"
+  },
+  {
+    "criticals": "1",
+    "tonnage": "1.0",
+    "name": "ECM Suite",
+    "tech base": "CLAN",
+    "hardpoint type": "ECM",
+    "id": "9021"
+  },
+  {
+    "criticals": "1",
+    "tonnage": "1.0",
+    "name": "Targeting Computer Mk I (CL)",
+    "tech base": "CLAN",
+    "hardpoint type": "None",
+    "id": "9013"
+  },
+  {
+    "criticals": "2",
+    "tonnage": "2.0",
+    "name": "Targeting Computer Mk II (CL)",
+    "tech base": "CLAN",
+    "hardpoint type": "None",
+    "id": "9014"
+  },
+  {
+    "criticals": "3",
+    "tonnage": "3.0",
+    "name": "Targeting Computer Mk III (CL)",
+    "tech base": "CLAN",
+    "hardpoint type": "None",
+    "id": "9015"
+  },
+  {
+    "criticals": "4",
+    "tonnage": "4.0",
+    "name": "Targeting Computer Mk IV (CL)",
+    "tech base": "CLAN",
+    "hardpoint type": "None",
+    "id": "9016"
+  },
+  {
+    "criticals": "5",
+    "tonnage": "5.0",
+    "name": "Targeting Computer Mk V (CL)",
+    "tech base": "CLAN",
+    "hardpoint type": "None",
+    "id": "9017"
+  },
+  {
+    "criticals": "6",
+    "tonnage": "6.0",
+    "name": "Targeting Computer Mk VI (CL)",
+    "tech base": "CLAN",
+    "hardpoint type": "None",
+    "id": "9018"
+  },
+  {
+    "criticals": "7",
+    "tonnage": "7.0",
+    "name": "Targeting Computer Mk VII (CL)",
+    "tech base": "CLAN",
+    "hardpoint type": "None",
+    "id": "9019"
+  }
+]

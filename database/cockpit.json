@@ -1,0 +1,11 @@
+[
+  {
+    "criticals": 5,
+    "tonnage": 3.0,
+    "name": "Standard Cockpit",
+    "techBase": "Universal",
+    "upgrade multiplier": 0,
+    "id": 1902,
+    "cost multiplier": 0
+  }
+]

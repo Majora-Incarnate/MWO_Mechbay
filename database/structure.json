@@ -1,0 +1,32 @@
+[
+  {
+    "tonnageModifier": 0.1,
+    "criticals": 0,
+    "name": "Standard",
+    "techBase": "Universal",
+    "healthModifier": 1.00,
+    "upgradeMultiplier": 5000,
+    "id": 3000,
+    "costMultiplier": 0
+  },
+  {
+    "tonnageModifier": 0.05,
+    "criticals": 7,
+    "name": "Endo Steel (CL)",
+    "techBase": "Clan",
+    "healthModifier": 1.00,
+    "upgradeMultiplier": 10000,
+    "id": 3002,
+    "costMultiplier": 0
+  },
+  {
+    "tonnageModifier": "0.05",
+    "criticals": 14,
+    "name": "Endo Steel (IS)",
+    "techBase": "Inner Sphere",
+    "healthModifier": 1.00,
+    "upgradeMultiplier": 10000,
+    "id": 3001,
+    "costMultiplier": 0
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "tonnageModifier": 1,
+    "criticals": 4,
+    "name": "Standard Gyro",
+    "techBase": "Universal",
+    "upgradeMultiplier": 0,
+    "id": 1903,
+    "costMultiplier": 0
+  }
+]

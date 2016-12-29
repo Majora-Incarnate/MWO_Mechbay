@@ -1,0 +1,32 @@
+[
+  {
+    "upgradeMultiplier": 2500,
+    "criticals": 0,
+    "pointsPerTon": 32.00,
+    "name": "Standard",
+    "techBase": "Universal",
+    "armorPerPoint": 1.0,
+    "id": 2800,
+    "costMultiplier": 0.0
+  },
+  {
+    "upgradeMultiplier": 5000,
+    "criticals": 7,
+    "pointsPerTon": 38.40,
+    "name": "Ferro Fibrous (CL)",
+    "techBase": "Clan",
+    "armorPerPoint": 1.0,
+    "id": 2801,
+    "costMultiplier": 0.0
+  },
+  {
+    "upgradeMultiplier": 5000,
+    "criticals": 14,
+    "pointsPerTon": 35.84,
+    "name": "Ferro Fibrous (IS)",
+    "techBase": "Inner Sphere",
+    "armorPerPoint": 1.0,
+    "id": 2805,
+    "costMultiplier": 0.0
+  }
+]

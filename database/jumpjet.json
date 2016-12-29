@@ -1,0 +1,13 @@
+[
+  {
+    "verticalMod": 1.0,
+    "id": 0,
+    "criticals": 1,
+    "upgradeCost": 0,
+    "horizontalMod": 4.1,
+    "name": "Standard Jump Jet",
+    "techBase": "Universal",
+    "tonnageMod": 1.0,
+    "costMultiplier": 1.0
+  }
+]

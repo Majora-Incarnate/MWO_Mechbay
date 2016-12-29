@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Shoulder",
+    "section": "Arm",
+    "id": 1908,
+    "index": 0,
+    "techBase": "Universal"
+  },
+  {
+    "name": "Upper Arm",
+    "section": "Arm",
+    "id": 1909,
+    "index": 1,
+    "techBase": "Universal"
+  },
+  {
+    "name": "Lower Arm",
+    "section": "Arm",
+    "id": 1910,
+    "index": 2,
+    "techBase": "Universal"
+  },
+  {
+    "name": "Hand",
+    "section": "Arm",
+    "id": 1911,
+    "index": 3,
+    "techBase": "Universal"
+  },
+  {
+    "name": "Hip",
+    "section": "Leg",
+    "id": 1904,
+    "index": 0,
+    "techBase": "Universal"
+  },
+  {
+    "name": "Upper Leg",
+    "section": "Leg",
+    "id": 1905,
+    "index": 1,
+    "techBase": "Universal"
+  },
+  {
+    "name": "Lower Leg",
+    "section": "Leg",
+    "id": 1906,
+    "index": 2,
+    "techBase": "Universal"
+  },
+  {
+    "name": "Foot",
+    "section": "Leg",
+    "id": 1907,
+    "index": 3,
+    "techBase": "Universal"
+  }
+]

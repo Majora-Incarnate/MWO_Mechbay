@@ -1,0 +1,22 @@
+[
+  {
+    "spreadMod": 1,
+    "id": 0,
+    "upgradeCost": 125000,
+    "criticalMod": 0,
+    "name": "Standard",
+    "techBase": "Universal",
+    "itemCostMod": 1.00,
+    "tonnageMod": 0
+  },
+  {
+    "spreadMod": 0.666666,
+    "id": 0,
+    "upgradeCost": 250000,
+    "criticalMod": 1,
+    "name": "Artemis IV",
+    "techBase": "Universal",
+    "itemCostMod": 2.00,
+    "tonnageMod": 1
+  }
+]

@@ -1,0 +1,26 @@
+package com.github.majora_incarnate.mwo_mechbay.entities;
+
+public class AmmoBlueprint extends Blueprint {
+    public int health;
+    public int criticals;
+    public String type;
+    public double damage;
+    public double tonnage;
+    public int ammo_count;
+    public boolean artemis_capable;
+    public boolean apollo_capable;
+
+    @Override
+    public Crittable Get_Crittable() {
+        Crittable localCrittable = new Crittable();
+        localCrittable.is_locked = false;
+        localCrittable.name = this.name;
+        localCrittable.item_type = "Ammo";
+        localCrittable.hardpoint_type = HardpointType.UNKNOWN_HARDPOINT_TYPE;
+        localCrittable.criticals = this.criticals;
+        localCrittable.tonnage = this.tonnage;
+        localCrittable.position = -1;
+        localCrittable.reference = this;
+        return localCrittable;
+    }
+}
