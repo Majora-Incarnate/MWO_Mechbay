@@ -17,19 +17,19 @@ public enum TechBase {
     @SerializedName("Clan")
     CLAN("CL", "Clan", 2);
 
-    public String short_name;
-    public String long_name;
+    public final String shortName;
+    public final String longName;
     public int value;
 
-    TechBase(final String short_name, final String long_name, final int value) {
-        this.short_name = short_name;
-        this.long_name = long_name;
+    TechBase(final String shortName, final String longName, final int value) {
+        this.shortName = shortName;
+        this.longName = longName;
         this.value = value;
     }
 
     @Override
     public String toString() {
-        return long_name;
+        return longName;
     }
 
     public static TechBase getEnum(String value) {
