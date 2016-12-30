@@ -4,32 +4,31 @@ package com.github.majora_incarnate.mwo_mechbay.entities;
  * @author Trevin
  */
 public enum SectionType {
-    UNKNOWN("NA", "Unknown", -1),
-    HEAD("HD", "Head", 0),
-    LEFT_ARM("LA", "Left Arm", 1),
-    RIGHT_ARM("RA", "Right Arm", 2),
-    LEFT_TORSO("LT", "Left Torso", 3),
-    RIGHT_TORSO("RT", "Right Torso", 4),
-    CENTER_TORSO("CT", "Center Torso", 5),
-    LEFT_LEG("LL", "Left Leg", 6),
-    RIGHT_LEG("RL", "Right Leg", 7),
-    SPECIAL_ONE("S1", "Special 1", 8),
-    SPECIAL_TWO("S2", "Special 2", 9),
-    LEFT_REAR_TORSO("RLT", "Rear Left Torso", 0),
-    RIGHT_REAR_TORSO("RRT", "Rear Right Torso", 1),
-    CENTER_REAR_TORSO("RCT", "Rear Center Torso", 2),
-    FRONT_LEFT_LEG("FLL", "Front Left Leg", 1),
-    FRONT_RIGHT_LEG("FRL", "Front Right Leg", 2),
-    REAR_LEFT_LEG("RLL", "Rear Left Leg", 6),
-    REAR_RIGHT_LEG("RRL", "Rear Right Leg", 7);
+    UNKNOWN("NA", "Unknown", false, -1),
+    HEAD("HD", "Head", false, 0),
+    LEFT_ARM("LA", "Left Arm", false, 1),
+    RIGHT_ARM("RA", "Right Arm", false, 2),
+    LEFT_TORSO("LT", "Left Torso", true, 3),
+    RIGHT_TORSO("RT", "Right Torso", true, 4),
+    CENTER_TORSO("CT", "Center Torso", true, 5),
+    LEFT_LEG("LL", "Left Leg", false, 6),
+    RIGHT_LEG("RL", "Right Leg", false, 7),
+    SPECIAL_ONE("S1", "Special 1, false", 8),
+    SPECIAL_TWO("S2", "Special 2, false", 9),
+    FRONT_LEFT_LEG("FLL", "Front Left Leg", false, 1),
+    FRONT_RIGHT_LEG("FRL", "Front Right Leg", false, 2),
+    REAR_LEFT_LEG("RLL", "Rear Left Leg", false, 6),
+    REAR_RIGHT_LEG("RRL", "Rear Right Leg", false, 7);
 
-    public final String short_name;
-    public final String long_name;
+    public final String shortName;
+    public final String longName;
+    public final boolean hasRear;
     public final int index;
 
-    SectionType(String short_name, String long_name, int index) {
-        this.short_name = short_name;
-        this.long_name = long_name;
+    SectionType(String shortName, String longName, boolean hasRear, int index) {
+        this.shortName = shortName;
+        this.longName = longName;
+        this.hasRear = hasRear;
         this.index = index;
     }
 
@@ -39,7 +38,7 @@ public enum SectionType {
 
     @Override
     public String toString() {
-        return long_name;
+        return longName;
     }
     
     public static int numberOfSectionTypes() {
@@ -64,12 +63,6 @@ public enum SectionType {
                 return LEFT_LEG;
             case "RL":
                 return RIGHT_LEG;
-            case "LRT":
-                return LEFT_REAR_TORSO;
-            case "RRT":
-                return RIGHT_REAR_TORSO;
-            case "CRT":
-                return CENTER_REAR_TORSO;
             case "FLL":
                 return FRONT_LEFT_LEG;
             case "FRL":
