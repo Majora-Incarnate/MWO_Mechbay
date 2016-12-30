@@ -120,11 +120,10 @@ public class WeaponBlueprint extends Blueprint {
     @Override
     public Crittable Get_Crittable() {
         Crittable localCrittable = new Crittable();
-        localCrittable.is_locked = false;
+        localCrittable.isLocked = false;
         localCrittable.name = this.name;
-        localCrittable.item_type = "Weapon";
-        localCrittable.hardpoint_type = HardpointType.UNKNOWN_HARDPOINT_TYPE;
-        localCrittable.hardpoint_type = this.hardpoint_type;
+        localCrittable.itemType = "Weapon";
+        localCrittable.hardpointType = this.hardpoint_type;
         localCrittable.criticals = this.criticals;
         localCrittable.tonnage = this.tonnage;
         localCrittable.position = -1;

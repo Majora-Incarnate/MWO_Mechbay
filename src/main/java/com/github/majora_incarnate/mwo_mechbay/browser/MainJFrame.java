@@ -28,6 +28,7 @@ import com.github.majora_incarnate.mwo_mechbay.encyclopedia.EncyclopediaJPanel;
  * @author Trevin
  */
 public class MainJFrame extends javax.swing.JFrame {
+
     private static final long serialVersionUID = -2306357614590126175L;
 
     /**
@@ -202,7 +203,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_closeTabJMenuItemActionPerformed
 
     private void closeOtherTabJMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_closeOtherTabJMenuItemActionPerformed
-        for (int i = browserJTabbedPane.getTabCount() - 1; i >= 0; i--) {
+        for (int i = browserJTabbedPane.getTabCount() - 1;i >= 0;i--) {
             if (i != browserJTabbedPane.getSelectedIndex()) {
                 browserJTabbedPane.removeTabAt(i);
             }
@@ -210,7 +211,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_closeOtherTabJMenuItemActionPerformed
 
     private void closeAllTabsJMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_closeAllTabsJMenuItemActionPerformed
-        for (int i = browserJTabbedPane.getTabCount() - 1; i >= 0; i--) {
+        for (int i = browserJTabbedPane.getTabCount() - 1;i >= 0;i--) {
             browserJTabbedPane.removeTabAt(i);
         }
     }//GEN-LAST:event_closeAllTabsJMenuItemActionPerformed

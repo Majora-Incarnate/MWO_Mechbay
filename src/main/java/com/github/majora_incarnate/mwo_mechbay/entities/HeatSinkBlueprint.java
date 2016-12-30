@@ -3,22 +3,22 @@ package com.github.majora_incarnate.mwo_mechbay.entities;
 public class HeatSinkBlueprint extends Blueprint {
     public double tonnage;
     public int criticals;
-    public double engine_dissipation;
-    public double normal_dissipation;
-    public double threshold_boost;
-    public int space_modifier;
-    public int item_cost;
-    public int upgrade_cost;
+    public double engineDissipation;
+    public double normalDissipation;
+    public double thresholdBoost;
+    public int spaceModifier;
+    public int itemCost;
+    public int upgradeCost;
 
     public int Get_Item_Cost(int heatSinkCount, int engineRating) {
         if (engineRating < 250) {
-            return this.item_cost * (heatSinkCount - (10 - engineRating / 250));
+            return this.itemCost * (heatSinkCount - (10 - engineRating / 250));
         }
-        return this.item_cost * (heatSinkCount - 10);
+        return this.itemCost * (heatSinkCount - 10);
     }
 
     public int Get_Upgrade_Cost() {
-        return this.upgrade_cost;
+        return this.upgradeCost;
     }
 
     public double Get_Tonnage(int heatSinkCount, int engineRating) {
@@ -32,11 +32,11 @@ public class HeatSinkBlueprint extends Blueprint {
         int engineHeatSinks = engineRating > 250 ? 10 : engineRating / 25;
         int externalHeatSinkCount = heatSinkCount - engineHeatSinks;
         
-        return this.engine_dissipation * engineHeatSinks + externalHeatSinkCount * this.normal_dissipation;
+        return this.engineDissipation * engineHeatSinks + externalHeatSinkCount * this.normalDissipation;
     }
 
     public double Get_Threshold(int heatSinkCount) {
-        return 30.0D + heatSinkCount * this.threshold_boost;
+        return 30.0D + heatSinkCount * this.thresholdBoost;
     }
 
     public void Print() {
@@ -45,10 +45,10 @@ public class HeatSinkBlueprint extends Blueprint {
     @Override
     public Crittable Get_Crittable() {
         Crittable localCrittable = new Crittable();
-        localCrittable.is_locked = false;
+        localCrittable.isLocked = false;
         localCrittable.name = this.name;
-        localCrittable.item_type = "Heat Sink";
-        localCrittable.hardpoint_type = HardpointType.UNKNOWN_HARDPOINT_TYPE;
+        localCrittable.itemType = "Heat Sink";
+        localCrittable.hardpointType = HardpointType.UNKNOWN_HARDPOINT_TYPE;
         localCrittable.criticals = this.criticals;
         localCrittable.tonnage = 0.0D;
         localCrittable.position = -1;

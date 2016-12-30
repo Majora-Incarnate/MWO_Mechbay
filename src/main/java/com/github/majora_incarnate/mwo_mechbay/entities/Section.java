@@ -41,8 +41,8 @@ public class Section {
     }
 
     public void Remove_Omni_Restrictions() {
-        this.components.stream().filter((localCrittable) -> ((localCrittable.is_locked) && ((localCrittable.item_type.equals("Armor")) || (localCrittable.item_type.equals("Structure")) || (localCrittable.item_type.equals("Heat Sink")) || (localCrittable.item_type.equals("Equipment")) || (localCrittable.item_type.equals("Jump Jet")) || (localCrittable.item_type.equals("Weapon"))))).forEach((localCrittable) -> {
-            localCrittable.is_locked = false;
+        this.components.stream().filter((localCrittable) -> ((localCrittable.isLocked) && ((localCrittable.itemType.equals("Armor")) || (localCrittable.itemType.equals("Structure")) || (localCrittable.itemType.equals("Heat Sink")) || (localCrittable.itemType.equals("Equipment")) || (localCrittable.itemType.equals("Jump Jet")) || (localCrittable.itemType.equals("Weapon"))))).forEach((localCrittable) -> {
+            localCrittable.isLocked = false;
         });
     }
 
@@ -52,7 +52,7 @@ public class Section {
         while (localIterator.hasNext()) {
             localObject = localIterator.next();
             ActuatorBlueprint localActuator_Blueprint = null;
-            if (((Crittable) localObject).item_type.equals("Actuator")) {
+            if (((Crittable) localObject).itemType.equals("Actuator")) {
                 localActuator_Blueprint = (ActuatorBlueprint) ((Crittable) localObject).reference;
             }
             if ((localActuator_Blueprint != null) && (localActuator_Blueprint.section.equals(SectionClass.ARM)) && (localActuator_Blueprint.index == sectionId)) {
@@ -89,9 +89,9 @@ public class Section {
         if (item == null) {
             return false;
         }
-        if (!item.hardpoint_type.toString().equals("None")) {
+        if (!item.hardpointType.toString().equals("None")) {
             for (int i = 0; (i < 5); i++) {
-                if (HardpointType.values()[i].equals(item.hardpoint_type) &&
+                if (HardpointType.values()[i].equals(item.hardpointType) &&
                         this.current_hardpoints[i] + 1 > this.maximum_hardpoints[i]) {
                     return false;
                 }
@@ -110,7 +110,7 @@ public class Section {
         if (item == null) {
             return false;
         }
-        if (!item.hardpoint_type.toString().equals("None")) {
+        if (!item.hardpointType.toString().equals("None")) {
             return false;
         }
         if (this.current_criticals + item.criticals > this.maximum_criticals) {
@@ -125,7 +125,7 @@ public class Section {
     public void Remove_Component_Type(String paramString) {
         for (int i = this.components.size() - 1; i >= 0; i--) {
             Crittable localCrittable = this.components.get(i);
-            if (localCrittable.item_type.equals(paramString)) {
+            if (localCrittable.itemType.equals(paramString)) {
                 this.components.remove(i);
             }
         }
@@ -142,7 +142,7 @@ public class Section {
             if (paramInt > i) {
                 i += localCrittable.criticals;
                 if (paramInt <= i) {
-                    if (localCrittable.is_locked) {
+                    if (localCrittable.isLocked) {
                         return null;
                     }
                     return localCrittable;
@@ -167,7 +167,7 @@ public class Section {
             if (paramInt > i) {
                 i += this.components.get(j).criticals;
                 if (paramInt <= i) {
-                    if (this.components.get(j).is_locked) {
+                    if (this.components.get(j).isLocked) {
                         return;
                     }
                     this.components.remove(j);
@@ -180,7 +180,7 @@ public class Section {
 
     public void Remove_All() {
         for (int i = this.components.size() - 1; i >= 0; i--) {
-            if (!this.components.get(i).is_locked) {
+            if (!this.components.get(i).isLocked) {
                 this.components.remove(i);
             }
         }
@@ -201,7 +201,7 @@ public class Section {
         }
         this.components.stream().forEach((localCrittable) -> {
             for (int j = 0; j < 5; j++) {
-                if (HardpointType.values()[j].equals(localCrittable.hardpoint_type)) {
+                if (HardpointType.values()[j].equals(localCrittable.hardpointType)) {
                     this.current_hardpoints[j] += 1;
                 }
             }

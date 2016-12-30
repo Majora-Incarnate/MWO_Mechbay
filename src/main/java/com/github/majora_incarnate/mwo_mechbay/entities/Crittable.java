@@ -1,11 +1,11 @@
 package com.github.majora_incarnate.mwo_mechbay.entities;
 
 public class Crittable {
-    public boolean is_locked;
+    public boolean isLocked;
     public int position;
     public String name;
-    public String item_type;
-    public HardpointType hardpoint_type;
+    public String itemType;
+    public HardpointType hardpointType;
     public int id;
     public int criticals;
     public double tonnage;

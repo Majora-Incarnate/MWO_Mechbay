@@ -15,8 +15,9 @@ import javax.swing.JLabel;
 import com.github.majora_incarnate.mwo_mechbay.entities.User;
 
 public class AboutDialogBox extends JDialog {
+
     private static final long serialVersionUID = -6163429021390520229L;
-    
+
     private JLabel MWOLabel;
     private JLabel MWOTitle;
     private JLabel authorLabel;

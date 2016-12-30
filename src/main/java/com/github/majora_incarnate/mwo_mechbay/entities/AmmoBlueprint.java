@@ -6,17 +6,17 @@ public class AmmoBlueprint extends Blueprint {
     public String type;
     public double damage;
     public double tonnage;
-    public int ammo_count;
-    public boolean artemis_capable;
-    public boolean apollo_capable;
+    public int ammoCount;
+    public boolean artemisCapable;
+    public boolean apolloCapable;
 
     @Override
     public Crittable Get_Crittable() {
         Crittable localCrittable = new Crittable();
-        localCrittable.is_locked = false;
+        localCrittable.isLocked = false;
         localCrittable.name = this.name;
-        localCrittable.item_type = "Ammo";
-        localCrittable.hardpoint_type = HardpointType.UNKNOWN_HARDPOINT_TYPE;
+        localCrittable.itemType = "Ammo";
+        localCrittable.hardpointType = HardpointType.UNKNOWN_HARDPOINT_TYPE;
         localCrittable.criticals = this.criticals;
         localCrittable.tonnage = this.tonnage;
         localCrittable.position = -1;

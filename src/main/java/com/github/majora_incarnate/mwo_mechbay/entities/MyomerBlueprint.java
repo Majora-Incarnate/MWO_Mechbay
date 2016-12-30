@@ -4,10 +4,10 @@ public class MyomerBlueprint extends Blueprint {
     @Override
     public Crittable Get_Crittable() {
         Crittable localCrittable = new Crittable();
-        localCrittable.is_locked = true;
+        localCrittable.isLocked = true;
         localCrittable.name = this.name;
-        localCrittable.item_type = "Actuator";
-        localCrittable.hardpoint_type = HardpointType.UNKNOWN_HARDPOINT_TYPE;
+        localCrittable.itemType = "Myomer";
+        localCrittable.hardpointType = HardpointType.UNKNOWN_HARDPOINT_TYPE;
         localCrittable.criticals = 1;
         localCrittable.tonnage = 0.0D;
         localCrittable.position = -1;

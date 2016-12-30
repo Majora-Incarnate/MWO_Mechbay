@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Users/Trevin/Documents/GitHub/MWO_Mechbay/src/main/java/com/github/majora_incarnate/mwo_mechbay/browser/MainJFrame.java</file>
+            <file>file:/E:/Users/Trevin/Documents/GitHub/MWO_Mechbay/src/main/java/com/github/majora_incarnate/mwo_mechbay/entities/HardpointType.java</file>
+            <file>file:/E:/Users/Trevin/Documents/GitHub/MWO_Mechbay/src/main/java/com/github/majora_incarnate/mwo_mechbay/entities/MyomerBlueprint.java</file>
+            <file>file:/E:/Users/Trevin/Documents/GitHub/MWO_Mechbay/src/main/java/com/github/majora_incarnate/mwo_mechbay/entities/HeatSinkBlueprint.java</file>
+            <file>file:/E:/Users/Trevin/Documents/GitHub/MWO_Mechbay/src/main/java/com/github/majora_incarnate/mwo_mechbay/entities/Variant.java</file>
+            <file>file:/E:/Users/Trevin/Documents/GitHub/MWO_Mechbay/src/main/java/com/github/majora_incarnate/mwo_mechbay/entities/Section.java</file>
+            <file>file:/E:/Users/Trevin/Documents/GitHub/MWO_Mechbay/src/main/java/com/github/majora_incarnate/mwo_mechbay/entities/WeaponBlueprint.java</file>
+            <file>file:/E:/Users/Trevin/Documents/GitHub/MWO_Mechbay/src/main/java/com/github/majora_incarnate/mwo_mechbay/entities/JumpJetBlueprint.java</file>
+            <file>file:/E:/Users/Trevin/Documents/GitHub/MWO_Mechbay/src/main/java/com/github/majora_incarnate/mwo_mechbay/entities/StructureBlueprint.java</file>
         </group>
     </open-files>
 </project-private>

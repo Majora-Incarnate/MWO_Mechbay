@@ -8,10 +8,10 @@ public class EquipmentBlueprint extends Blueprint {
     @Override
     public Crittable Get_Crittable() {
         Crittable localCrittable = new Crittable();
-        localCrittable.is_locked = false;
+        localCrittable.isLocked = false;
         localCrittable.name = this.name;
-        localCrittable.item_type = "Equipment";
-        localCrittable.hardpoint_type = HardpointType.UNKNOWN_HARDPOINT_TYPE;
+        localCrittable.itemType = "Equipment";
+        localCrittable.hardpointType = HardpointType.UNKNOWN_HARDPOINT_TYPE;
         localCrittable.criticals = this.criticals;
         localCrittable.tonnage = this.tonnage;
         localCrittable.position = -1;

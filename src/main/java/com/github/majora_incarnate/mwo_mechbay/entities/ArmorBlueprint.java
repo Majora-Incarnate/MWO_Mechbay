@@ -2,29 +2,30 @@ package com.github.majora_incarnate.mwo_mechbay.entities;
 
 public class ArmorBlueprint extends Blueprint {
     public int criticals;
-    public double points_per_ton;
-    public double cost_per_ton;
-    public double upgrade_modifier;
+    public double pointsPerTon;
+    public double costPerTon;
+    public double upgradeModifier;
 
     public int Get_Item_Cost(int paramInt) {
-        return (int) (this.cost_per_ton * Math.ceil(paramInt / this.points_per_ton));
+        return (int) (this.costPerTon * Math.ceil(
+                paramInt / this.pointsPerTon));
     }
 
     public int Get_Upgrade_Cost(double paramDouble) {
-        return (int) (this.upgrade_modifier * paramDouble);
+        return (int) (this.upgradeModifier * paramDouble);
     }
 
     public double Get_Tonnage(int paramInt) {
-        return paramInt / this.points_per_ton;
+        return paramInt / this.pointsPerTon;
     }
 
     @Override
     public Crittable Get_Crittable() {
         Crittable localCrittable = new Crittable();
-        localCrittable.is_locked = false;
+        localCrittable.isLocked = false;
         localCrittable.name = this.name;
-        localCrittable.item_type = "Armor";
-        localCrittable.hardpoint_type = HardpointType.UNKNOWN_HARDPOINT_TYPE;
+        localCrittable.itemType = "Armor";
+        localCrittable.hardpointType = HardpointType.UNKNOWN_HARDPOINT_TYPE;
         localCrittable.criticals = 1;
         localCrittable.tonnage = 0.0D;
         localCrittable.position = -1;

@@ -182,14 +182,14 @@ public class Variant implements Serializable {
     }
 
     public static int GetMinEngineRating(ChassisBlueprint chassis_Blueprint, ModelBlueprint model_Blueprint) {
-        if (!User.omni_restrictions_enabled && chassis_Blueprint.is_omnimech) {
+        if (!User.omni_restrictions_enabled && chassis_Blueprint.isOmnimech) {
             return User.variant.chassis_type.tonnage * 2.0 < 100.0 ? 100 : (int) User.variant.chassis_type.tonnage * 2;
         }
         return model_Blueprint.min_engine_rating;
     }
 
     public static int GetMaxEngineRating(ChassisBlueprint chassis_Blueprint, ModelBlueprint model_Blueprint) {
-        if (!User.omni_restrictions_enabled && chassis_Blueprint.is_omnimech) {
+        if (!User.omni_restrictions_enabled && chassis_Blueprint.isOmnimech) {
             double max_engine_multiplier = 1.4;
             double max_speed_multiplier = 8.5;
             

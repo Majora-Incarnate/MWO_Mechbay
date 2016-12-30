@@ -3,15 +3,15 @@ package com.github.majora_incarnate.mwo_mechbay.entities;
 public class CockpitBlueprint extends Blueprint {
     public double tonnage;
     public int criticals;
-    public int item_cost;
-    public int upgrade_cost;
+    public int itemCost;
+    public int upgradeCost;
 
     public int Get_Item_Cost() {
-        return this.item_cost;
+        return this.itemCost;
     }
 
     public int Get_Upgrade_Cost() {
-        return this.upgrade_cost;
+        return this.upgradeCost;
     }
 
     public void Print() {
@@ -20,10 +20,10 @@ public class CockpitBlueprint extends Blueprint {
     @Override
     public Crittable Get_Crittable() {
         Crittable localCrittable = new Crittable();
-        localCrittable.is_locked = true;
+        localCrittable.isLocked = true;
         localCrittable.name = this.name;
-        localCrittable.item_type = "Cockpit";
-        localCrittable.hardpoint_type = HardpointType.UNKNOWN_HARDPOINT_TYPE;
+        localCrittable.itemType = "Cockpit";
+        localCrittable.hardpointType = HardpointType.UNKNOWN_HARDPOINT_TYPE;
         localCrittable.criticals = this.criticals;
         localCrittable.tonnage = 0.0D;
         localCrittable.position = -1;
