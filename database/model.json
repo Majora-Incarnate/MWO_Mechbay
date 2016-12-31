@@ -4,7 +4,7 @@
     "id": 0,
     "techBase": "Clan",
     "modelName": "Medusa",
-    "chassisName": "Adder",
+    "chassisName": "Viper",
     "isUnconfirmed": false,
     "isUnreleased": false,
     "isChampionModel": false,
@@ -14,11 +14,11 @@
     "acceleration": 0.0,
     "deceleration": 0.0,
     "turnRate": 0.0,
-    "minEngineRating": 240,
-    "maxEngineRating": 240,
+    "minEngineRating": 320,
+    "maxEngineRating": 320,
     "mechModules": 1,
-    "weapoModules": 2,
-    "consumablModules": 2,
+    "weaponModules": 2,
+    "consumableModules": 2,
     "movementRanges": {
         "torso": {
             "yaw": 120.0,
@@ -40,17 +40,17 @@
         }
     },
     "sectionModels": {
-        "hd": "VPR-M",
-        "ct": "VPR-M",
-        "rt": "VPR-M",
-        "lt": "VPR-M",
-        "ra": "VPR-M",
-        "la": "VPR-M",
-        "rl": "VPR-M",
-        "ll": "VPR-M"
+        "Head": "VPR-M",
+        "Center Torso": "VPR-M",
+        "Right Torso": "VPR-M",
+        "Left Torso": "VPR-M",
+        "Right Arm": "VPR-M",
+        "Left Arm": "VPR-M",
+        "Right Leg": "VPR-M",
+        "Left Leg": "VPR-M"
     },
     "engineType": "XL Engine (CL)",
-    "engineRating": 240,
+    "engineRating": 320,
     "armorType": "Ferro Fibrous (CL)",
     "structureType": "Endo Steel (CL)",
     "gyroType": "Standard Gyro",
@@ -78,8 +78,8 @@
     "minEngineRating": 100,
     "maxEngineRating": 365,
     "mechModules": 1,
-    "weapoModules": 2,
-    "consumablModules": 2,
+    "weaponModules": 2,
+    "consumableModules": 2,
     "movementRanges": {
         "torso": {
             "yaw": 120.0,
@@ -101,14 +101,14 @@
         }
     },
     "sectionModels": {
-        "hd": "ASN-DD",
-        "ct": "ASN-DD",
-        "rt": "ASN-DD",
-        "lt": "ASN-DD",
-        "ra": "ASN-DD",
-        "la": "ASN-DD",
-        "rl": "ASN-DD",
-        "ll": "ASN-DD"
+        "Head": "ASN-DD",
+        "Center Torso": "ASN-DD",
+        "Right Torso": "ASN-DD",
+        "Left Torso": "ASN-DD",
+        "Right Arm": "ASN-DD",
+        "Left Arm": "ASN-DD",
+        "Right Leg": "ASN-DD",
+        "Left Leg": "ASN-DD"
     },
     "engineType": "XL Engine (IS)",
     "engineRating": 280,

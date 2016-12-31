@@ -22,6 +22,7 @@ import com.github.majora_incarnate.mwo_mechbay.creator.CreatorJPanel;
 import com.github.majora_incarnate.mwo_mechbay.entities.Constants;
 import com.github.majora_incarnate.mwo_mechbay.mechlab.MechlabJPanel;
 import com.github.majora_incarnate.mwo_mechbay.encyclopedia.EncyclopediaJPanel;
+import com.github.majora_incarnate.mwo_mechbay.entities.Database;
 
 /**
  *
@@ -30,11 +31,15 @@ import com.github.majora_incarnate.mwo_mechbay.encyclopedia.EncyclopediaJPanel;
 public class MainJFrame extends javax.swing.JFrame {
 
     private static final long serialVersionUID = -2306357614590126175L;
+    
+    private final Database MASTER_DATABASE;
 
     /**
      * Creates new form MainJFrame
      */
     public MainJFrame() {
+        MASTER_DATABASE = new Database();
+        
         initComponents();
     }
 
@@ -183,7 +188,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void newMechlabTabJMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_newMechlabTabJMenuItemActionPerformed
-        browserJTabbedPane.addTab("Mechlab", new MechlabJPanel(this));
+        browserJTabbedPane.addTab("Mechlab", new MechlabJPanel(MASTER_DATABASE));
     }//GEN-LAST:event_newMechlabTabJMenuItemActionPerformed
 
     private void newCreatorTabJMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_newCreatorTabJMenuItemActionPerformed

@@ -21,6 +21,7 @@ import com.github.majora_incarnate.mwo_mechbay.entities.ChassisBlueprint;
 import com.github.majora_incarnate.mwo_mechbay.entities.Crittable;
 import com.github.majora_incarnate.mwo_mechbay.entities.Database;
 import com.github.majora_incarnate.mwo_mechbay.entities.HardpointType;
+import com.github.majora_incarnate.mwo_mechbay.entities.MechType;
 import com.github.majora_incarnate.mwo_mechbay.entities.ModelBlueprint;
 import com.github.majora_incarnate.mwo_mechbay.entities.Section;
 import com.github.majora_incarnate.mwo_mechbay.entities.SectionBlueprint;
@@ -37,7 +38,6 @@ import com.github.majora_incarnate.mwo_mechbay.entities.WeaponBlueprint;
 public class MechlabJPanel extends javax.swing.JPanel {
     private static final long serialVersionUID = 5605339237691950478L;
     
-    private final JFrame parent;
     private final SpinnerNumberModel engineRatingSpinnerModel;
     private final SpinnerNumberModel rightArmSpinnerModel;
     private final SpinnerNumberModel leftArmSpinnerModel;
@@ -57,12 +57,10 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form MechlabJPanel
-     * @param parent
+     * @param parentDatabase
      */
-    public MechlabJPanel(final JFrame parent) {
-        this.parent = parent;
-        
-        masterDatabase = new Database();
+    public MechlabJPanel(final Database parentDatabase) {
+        masterDatabase = parentDatabase;
         selectedDatabase = new Database(masterDatabase, (blueprint) -> true);
         engineRatingSpinnerModel = new SpinnerNumberModel(0, 0, 400, 5);
         rightArmSpinnerModel = new SpinnerNumberModel(0, 0, 0, 1);
@@ -326,10 +324,12 @@ public class MechlabJPanel extends javax.swing.JPanel {
         FuturetechToggle = new javax.swing.JToggleButton();
         OmniRestrictionsToggle = new javax.swing.JToggleButton();
 
+        setMinimumSize(new java.awt.Dimension(1280, 700));
+        setPreferredSize(new java.awt.Dimension(1280, 700));
         setLayout(new java.awt.GridBagLayout());
 
-        MechTabPane.setMaximumSize(new java.awt.Dimension(320, 512));
-        MechTabPane.setMinimumSize(new java.awt.Dimension(320, 512));
+        MechTabPane.setMaximumSize(new java.awt.Dimension(320, 470));
+        MechTabPane.setMinimumSize(new java.awt.Dimension(320, 470));
         MechTabPane.setPreferredSize(new java.awt.Dimension(320, 512));
         MechTabPane.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -343,55 +343,70 @@ public class MechlabJPanel extends javax.swing.JPanel {
         loadButton.setAlignmentY(0.0F);
         loadButton.setEnabled(false);
         loadButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        loadButton.setMaximumSize(new java.awt.Dimension(39, 20));
+        loadButton.setMinimumSize(new java.awt.Dimension(39, 20));
+        loadButton.setPreferredSize(new java.awt.Dimension(39, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChassisPanel.add(loadButton, gridBagConstraints);
 
         saveButton.setText("Save");
         saveButton.setAlignmentY(0.0F);
         saveButton.setEnabled(false);
         saveButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        saveButton.setMaximumSize(new java.awt.Dimension(39, 20));
+        saveButton.setMinimumSize(new java.awt.Dimension(39, 20));
+        saveButton.setPreferredSize(new java.awt.Dimension(39, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChassisPanel.add(saveButton, gridBagConstraints);
 
         importButton.setText("Import");
         importButton.setAlignmentY(0.0F);
         importButton.setEnabled(false);
         importButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        importButton.setMaximumSize(new java.awt.Dimension(39, 20));
+        importButton.setMinimumSize(new java.awt.Dimension(39, 20));
+        importButton.setPreferredSize(new java.awt.Dimension(39, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChassisPanel.add(importButton, gridBagConstraints);
 
         exportButton.setText("Export");
         exportButton.setAlignmentY(0.0F);
         exportButton.setEnabled(false);
         exportButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportButton.setMaximumSize(new java.awt.Dimension(39, 20));
+        exportButton.setMinimumSize(new java.awt.Dimension(39, 20));
+        exportButton.setPreferredSize(new java.awt.Dimension(39, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChassisPanel.add(exportButton, gridBagConstraints);
 
         chassisComboBox.setModel(new DefaultComboBoxModel(masterDatabase.CHASSIS_BLUEPRINTS.toArray()));
+        chassisComboBox.setMaximumSize(new java.awt.Dimension(39, 20));
+        chassisComboBox.setMinimumSize(new java.awt.Dimension(39, 20));
+        chassisComboBox.setPreferredSize(new java.awt.Dimension(39, 20));
         chassisComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chassisComboBoxActionPerformed(evt);
@@ -404,9 +419,12 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChassisPanel.add(chassisComboBox, gridBagConstraints);
 
+        modelComboBox.setMaximumSize(new java.awt.Dimension(39, 20));
+        modelComboBox.setMinimumSize(new java.awt.Dimension(39, 20));
+        modelComboBox.setPreferredSize(new java.awt.Dimension(39, 20));
         modelComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modelComboBoxActionPerformed(evt);
@@ -419,8 +437,12 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChassisPanel.add(modelComboBox, gridBagConstraints);
+
+        variantNameField.setMaximumSize(new java.awt.Dimension(39, 20));
+        variantNameField.setMinimumSize(new java.awt.Dimension(39, 20));
+        variantNameField.setPreferredSize(new java.awt.Dimension(39, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -428,11 +450,14 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChassisPanel.add(variantNameField, gridBagConstraints);
 
         variantCostLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         variantCostLabel.setText("0 C-Bills");
+        variantCostLabel.setMaximumSize(new java.awt.Dimension(39, 20));
+        variantCostLabel.setMinimumSize(new java.awt.Dimension(39, 20));
+        variantCostLabel.setPreferredSize(new java.awt.Dimension(39, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -440,73 +465,93 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChassisPanel.add(variantCostLabel, gridBagConstraints);
 
         techBaseLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         techBaseLabel.setText("CLAN TECH");
+        techBaseLabel.setMaximumSize(new java.awt.Dimension(39, 20));
+        techBaseLabel.setMinimumSize(new java.awt.Dimension(39, 20));
+        techBaseLabel.setPreferredSize(new java.awt.Dimension(39, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChassisPanel.add(techBaseLabel, gridBagConstraints);
 
         mechTypeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mechTypeLabel.setText("OMNIMECH");
+        mechTypeLabel.setMaximumSize(new java.awt.Dimension(39, 20));
+        mechTypeLabel.setMinimumSize(new java.awt.Dimension(39, 20));
+        mechTypeLabel.setPreferredSize(new java.awt.Dimension(39, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChassisPanel.add(mechTypeLabel, gridBagConstraints);
 
         unreleasedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         unreleasedLabel.setText("UNRELEASED");
+        unreleasedLabel.setMaximumSize(new java.awt.Dimension(39, 20));
+        unreleasedLabel.setMinimumSize(new java.awt.Dimension(39, 20));
+        unreleasedLabel.setOpaque(true);
+        unreleasedLabel.setPreferredSize(new java.awt.Dimension(39, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChassisPanel.add(unreleasedLabel, gridBagConstraints);
 
         unconfirmedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         unconfirmedLabel.setText("UNCONFIRMED");
+        unconfirmedLabel.setMaximumSize(new java.awt.Dimension(39, 20));
+        unconfirmedLabel.setMinimumSize(new java.awt.Dimension(39, 20));
+        unconfirmedLabel.setOpaque(true);
+        unconfirmedLabel.setPreferredSize(new java.awt.Dimension(39, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChassisPanel.add(unconfirmedLabel, gridBagConstraints);
 
         ecmCapableLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ecmCapableLabel.setText("ECM CAPABLE");
+        ecmCapableLabel.setMaximumSize(new java.awt.Dimension(39, 20));
+        ecmCapableLabel.setMinimumSize(new java.awt.Dimension(39, 20));
+        ecmCapableLabel.setPreferredSize(new java.awt.Dimension(39, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChassisPanel.add(ecmCapableLabel, gridBagConstraints);
 
         jumpCapableLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jumpCapableLabel.setText("JUMP CAPABLE");
+        jumpCapableLabel.setMaximumSize(new java.awt.Dimension(39, 20));
+        jumpCapableLabel.setMinimumSize(new java.awt.Dimension(39, 20));
+        jumpCapableLabel.setPreferredSize(new java.awt.Dimension(39, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChassisPanel.add(jumpCapableLabel, gridBagConstraints);
 
         MechTabPane.addTab("Chassis", ChassisPanel);
@@ -699,7 +744,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         ArmorPanel.add(jLabel24, gridBagConstraints);
 
-        jLabel25.setText(SectionType.HEAD.short_name);
+        jLabel25.setText(SectionType.HEAD.shortName);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -711,7 +756,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         ArmorPanel.add(headArmorAmountLabel, gridBagConstraints);
 
-        jLabel29.setText(SectionType.CENTER_TORSO.short_name);
+        jLabel29.setText(SectionType.CENTER_TORSO.shortName);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -723,7 +768,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 3;
         ArmorPanel.add(centerTorsoArmorAmountLabel, gridBagConstraints);
 
-        jLabel33.setText(SectionType.RIGHT_TORSO.short_name);
+        jLabel33.setText(SectionType.RIGHT_TORSO.shortName);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -735,7 +780,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 4;
         ArmorPanel.add(rightTorsoArmorAmountLabel, gridBagConstraints);
 
-        jLabel37.setText(SectionType.LEFT_TORSO.short_name);
+        jLabel37.setText(SectionType.LEFT_TORSO.shortName);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -747,7 +792,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 5;
         ArmorPanel.add(leftTorsoArmorAmountLabel, gridBagConstraints);
 
-        jLabel41.setText(SectionType.RIGHT_ARM.short_name);
+        jLabel41.setText(SectionType.RIGHT_ARM.shortName);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -759,7 +804,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 6;
         ArmorPanel.add(rightArmArmorAmountLabel, gridBagConstraints);
 
-        jLabel45.setText(SectionType.LEFT_ARM.short_name);
+        jLabel45.setText(SectionType.LEFT_ARM.shortName);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -771,7 +816,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 7;
         ArmorPanel.add(leftArmArmorAmountLabel, gridBagConstraints);
 
-        jLabel49.setText(SectionType.RIGHT_LEG.short_name);
+        jLabel49.setText(SectionType.RIGHT_LEG.shortName);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
@@ -783,7 +828,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 8;
         ArmorPanel.add(rightLegArmorAmountLabel, gridBagConstraints);
 
-        jLabel50.setText(SectionType.LEFT_LEG.short_name);
+        jLabel50.setText(SectionType.LEFT_LEG.shortName);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
@@ -795,7 +840,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 9;
         ArmorPanel.add(leftLegArmorAmountLabel, gridBagConstraints);
 
-        jLabel51.setText(SectionType.SPECIAL_ONE.short_name);
+        jLabel51.setText(SectionType.SPECIAL_ONE.shortName);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
@@ -807,7 +852,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 10;
         ArmorPanel.add(special1ArmorAmountLabel, gridBagConstraints);
 
-        jLabel55.setText(SectionType.SPECIAL_TWO.short_name);
+        jLabel55.setText(SectionType.SPECIAL_TWO.shortName);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
@@ -923,8 +968,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(MechTabPane, gridBagConstraints);
 
-        statisticsPanel.setMaximumSize(new java.awt.Dimension(192, 512));
-        statisticsPanel.setMinimumSize(new java.awt.Dimension(192, 512));
+        statisticsPanel.setMaximumSize(new java.awt.Dimension(192, 470));
+        statisticsPanel.setMinimumSize(new java.awt.Dimension(192, 470));
         statisticsPanel.setPreferredSize(new java.awt.Dimension(192, 512));
         statisticsPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -940,7 +985,6 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         statisticsPanel.add(tonnageProgressBar, gridBagConstraints);
 
         speedProgressBar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Speed", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
@@ -953,7 +997,6 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         statisticsPanel.add(speedProgressBar, gridBagConstraints);
 
         jumpDistanceProgressBar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Jump Distance", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
@@ -966,7 +1009,6 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         statisticsPanel.add(jumpDistanceProgressBar, gridBagConstraints);
 
         jumpHeightProgressBar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Jump Height", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
@@ -979,7 +1021,6 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         statisticsPanel.add(jumpHeightProgressBar, gridBagConstraints);
 
         armorProgressBar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Armor", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
@@ -992,7 +1033,6 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         statisticsPanel.add(armorProgressBar, gridBagConstraints);
 
         alphaDamageProgressBar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Alpha Damage", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
@@ -1005,7 +1045,6 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         statisticsPanel.add(alphaDamageProgressBar, gridBagConstraints);
 
         alphaHeatProgressBar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Alpha Heat", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
@@ -1018,7 +1057,6 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         statisticsPanel.add(alphaHeatProgressBar, gridBagConstraints);
 
         firepowerProgressBar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Firepower", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
@@ -1031,7 +1069,6 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         statisticsPanel.add(firepowerProgressBar, gridBagConstraints);
 
         heatEfficiencyProgressBar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Heat Efficiency", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
@@ -1044,7 +1081,6 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         statisticsPanel.add(heatEfficiencyProgressBar, gridBagConstraints);
 
         rangeProgressBar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Range", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
@@ -1057,7 +1093,6 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         statisticsPanel.add(rangeProgressBar, gridBagConstraints);
 
         criticalsProgressBar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Criticals", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
@@ -1070,7 +1105,6 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         statisticsPanel.add(criticalsProgressBar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1079,8 +1113,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(statisticsPanel, gridBagConstraints);
 
-        mechPanel.setMaximumSize(new java.awt.Dimension(512, 512));
-        mechPanel.setMinimumSize(new java.awt.Dimension(512, 512));
+        mechPanel.setMaximumSize(new java.awt.Dimension(512, 470));
+        mechPanel.setMinimumSize(new java.awt.Dimension(512, 470));
         mechPanel.setPreferredSize(new java.awt.Dimension(512, 512));
         mechPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -1920,8 +1954,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(mechPanel, gridBagConstraints);
 
-        secondaryTabbedPane.setMaximumSize(new java.awt.Dimension(256, 512));
-        secondaryTabbedPane.setMinimumSize(new java.awt.Dimension(256, 512));
+        secondaryTabbedPane.setMaximumSize(new java.awt.Dimension(256, 470));
+        secondaryTabbedPane.setMinimumSize(new java.awt.Dimension(256, 470));
         secondaryTabbedPane.setPreferredSize(new java.awt.Dimension(256, 512));
 
         quirksPanel.setLayout(new java.awt.GridBagLayout());
@@ -1938,9 +1972,9 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(secondaryTabbedPane, gridBagConstraints);
 
-        InformationTabbedPane.setMaximumSize(new java.awt.Dimension(1024, 256));
-        InformationTabbedPane.setMinimumSize(new java.awt.Dimension(1024, 256));
-        InformationTabbedPane.setPreferredSize(new java.awt.Dimension(1024, 256));
+        InformationTabbedPane.setMaximumSize(new java.awt.Dimension(1024, 230));
+        InformationTabbedPane.setMinimumSize(new java.awt.Dimension(1024, 230));
+        InformationTabbedPane.setPreferredSize(new java.awt.Dimension(1024, 230));
 
         ModelOverviewPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -1977,7 +2011,9 @@ public class MechlabJPanel extends javax.swing.JPanel {
         OptionsPanel.setPreferredSize(new java.awt.Dimension(256, 256));
         OptionsPanel.setLayout(new java.awt.GridBagLayout());
 
-        FeaturesPanel.setPreferredSize(new java.awt.Dimension(0, 0));
+        FeaturesPanel.setMaximumSize(new java.awt.Dimension(256, 230));
+        FeaturesPanel.setMinimumSize(new java.awt.Dimension(256, 230));
+        FeaturesPanel.setPreferredSize(new java.awt.Dimension(256, 230));
         FeaturesPanel.setLayout(new java.awt.GridBagLayout());
 
         FrankenmechToggle.setText("Frankenmechs");
@@ -2052,9 +2088,11 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
         selectedDatabase.MODEL_BLUEPRINTS.clear();
 
-        for (ModelBlueprint model : masterDatabase.MODEL_BLUEPRINTS)
-        if (model.chassis_name.equals(chassis.name))
-        selectedDatabase.MODEL_BLUEPRINTS.add(model);
+        masterDatabase.MODEL_BLUEPRINTS.stream().
+                filter((model) -> (model.chassisName.equals(chassis.name))).
+                forEach((model) -> {
+                    selectedDatabase.MODEL_BLUEPRINTS.add(model);
+        });
 
         modelComboBox.setModel(new DefaultComboBoxModel(selectedDatabase.MODEL_BLUEPRINTS.toArray()));
         modelComboBox.setSelectedIndex(0);
@@ -2067,21 +2105,23 @@ public class MechlabJPanel extends javax.swing.JPanel {
         User.variant = new Variant();
         User.variant.SetMech(selectedDatabase, chassis, model);
 
-        techBaseLabel.setText(User.variant.chassis_type.techBase.equals(TechBase.INNER_SPHERE) ? "IS TECH" : "CLAN TECH");
-        mechTypeLabel.setText(User.variant.chassis_type.is_omnimech ? "OMNIMECH" : "BATTLEMECH");
-        unreleasedLabel.setText(User.variant.model_type.unreleased ? "UNRELEASED" : "RELEASED");
-        unconfirmedLabel.setText(User.variant.model_type.unconfirmed ? "UNCONFIRMED" : "CONFIRMED");
+        techBaseLabel.setText(User.variant.chassisType.techBase.toString());
+        mechTypeLabel.setText(User.variant.chassisType.mechType.toString());
+        unreleasedLabel.setText(User.variant.modelType.isUnreleased ? "UNRELEASED" : "RELEASED");
+        unconfirmedLabel.setText(User.variant.modelType.isUnconfirmed ? "UNCONFIRMED" : "CONFIRMED");
+        unreleasedLabel.setBackground(User.variant.modelType.isUnreleased ? Color.RED : Color.GREEN);
+        unconfirmedLabel.setBackground(User.variant.modelType.isUnconfirmed ? Color.RED : Color.GREEN);
 
-        //overviewComponentPanel.Set_Overview(User.variant.chassis_type, User.variant.model_type);
-        //moduleComponentPanel.Set_Modules(User.variant.chassis_type, User.variant.model_type, false);
+        //overviewComponentPanel.Set_Overview(User.variant.chassisType, User.variant.modelType);
+        //moduleComponentPanel.Set_Modules(User.variant.chassisType, User.variant.modelType, false);
         //hardpointComponentPanel.Set_Total_Hardpoints(0, 0, 0, 0);
-        //speedComponentPanel.Set_Speed_Limits(User.variant.chassis_type, User.variant.model_type, 16.2, 1.0);
-        //manueverabilityComponentPanel.Set_Manueverability(User.variant.chassis_type, User.variant.model_type, User.variant.current_jump_jets);
-        //movementRangeComponentPanel.Set_Movement_Range(User.variant.chassis_type, User.variant.model_type);
-        //movementSpeedComponentPanel.Set_Movement_Speed(User.variant.chassis_type, User.variant.model_type);
+        //speedComponentPanel.Set_Speed_Limits(User.variant.chassisType, User.variant.modelType, 16.2, 1.0);
+        //manueverabilityComponentPanel.Set_Manueverability(User.variant.chassisType, User.variant.modelType, User.variant.currentJumpJets);
+        //movementRangeComponentPanel.Set_Movement_Range(User.variant.chassisType, User.variant.modelType);
+        //movementSpeedComponentPanel.Set_Movement_Speed(User.variant.chassisType, User.variant.modelType);
 
         selectedDatabase = null;
-        selectedDatabase = new Database(masterDatabase, getDatabaseFilter(User.variant.chassis_type.techBase, User.mixtech_enabled, User.futuretech_enabled));
+        selectedDatabase = new Database(masterDatabase, getDatabaseFilter(User.variant.chassisType.techBase, User.mixtech_enabled, User.futuretech_enabled));
 
         SetSectionOmnipods(rightArmOmnipodComboBox, SectionType.RIGHT_ARM.index);
         SetSectionOmnipods(leftArmOmnipodComboBox, SectionType.LEFT_ARM.index);
@@ -2103,41 +2143,41 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
         updateCriticalPanelVisibility();
 
-        engineRatingSpinnerModel.setMinimum(User.variant.model_type.min_engine_rating);
-        engineRatingSpinnerModel.setMaximum(User.variant.model_type.max_engine_rating);
-        engineRatingSpinnerModel.setValue(User.variant.model_type.engine_rating);
+        engineRatingSpinnerModel.setMinimum(User.variant.modelType.minEngineRating);
+        engineRatingSpinnerModel.setMaximum(User.variant.modelType.maxEngineRating);
+        engineRatingSpinnerModel.setValue(User.variant.modelType.engineRating);
 
         tonnageProgressBar.setMinimum(0);
-        tonnageProgressBar.setMaximum((int)User.variant.chassis_type.tonnage);
-        tonnageProgressBar.setValue((int)User.variant.current_tonnage);
-        tonnageProgressBar.setString(String.format("%.2f tons", User.variant.current_tonnage));
+        tonnageProgressBar.setMaximum((int)User.variant.chassisType.tonnage);
+        tonnageProgressBar.setValue((int)User.variant.currentTonnage);
+        tonnageProgressBar.setString(String.format("%.2f tons", User.variant.currentTonnage));
 
         speedProgressBar.setMinimum(0);
         speedProgressBar.setMaximum(100);
-        speedProgressBar.setValue((int)(User.variant.current_engine_rating * 100.0 / User.variant.model_type.max_engine_rating));
-        speedProgressBar.setString(String.format("%.2f kph", 0.0));//User.variant.engine.Get_Speed(User.variant.chassis_type.tonnage, User.variant.current_engine_rating)));
+        speedProgressBar.setValue((int)(User.variant.currentEngineRating * 100.0 / User.variant.modelType.maxEngineRating));
+        speedProgressBar.setString(String.format("%.2f kph", 0.0));//User.variant.engine.Get_Speed(User.variant.chassisType.tonnage, User.variant.currentEngineRating)));
 
         jumpDistanceProgressBar.setMinimum(0);
-        jumpDistanceProgressBar.setMaximum(User.variant.maximum_jump_jets);
-        jumpDistanceProgressBar.setValue(User.variant.current_jump_jets);
+        jumpDistanceProgressBar.setMaximum(User.variant.maximumJumpJets);
+        jumpDistanceProgressBar.setValue(User.variant.currentJumpJets);
         jumpDistanceProgressBar.setString(String.format("%.2fm", 0.0));
 
         jumpHeightProgressBar.setMinimum(0);
-        jumpHeightProgressBar.setMaximum(User.variant.maximum_jump_jets);
-        jumpHeightProgressBar.setValue(User.variant.current_jump_jets);
+        jumpHeightProgressBar.setMaximum(User.variant.maximumJumpJets);
+        jumpHeightProgressBar.setValue(User.variant.currentJumpJets);
         jumpHeightProgressBar.setString(String.format("%.2fm", 0.0));
 
         criticalsProgressBar.setMinimum(0);
         criticalsProgressBar.setMaximum(78);
-        criticalsProgressBar.setValue(User.variant.current_criticals);
-        criticalsProgressBar.setString(String.format("%d/78", User.variant.current_criticals));
+        criticalsProgressBar.setValue(User.variant.currentCriticals);
+        criticalsProgressBar.setString(String.format("%d/78", User.variant.currentCriticals));
 
-        //engineComponentPanel.Set_Engine(User.variant.engine, User.variant.current_engine_rating);
-        //gyroComponentPanel.Set_Gyro(User.variant.gyro, User.variant.current_engine_rating);
+        //engineComponentPanel.Set_Engine(User.variant.engine, User.variant.currentEngineRating);
+        //gyroComponentPanel.Set_Gyro(User.variant.gyro, User.variant.currentEngineRating);
         //armorComponentPanel.Set_Armor(User.variant.armor, User.variant.GetCurrentArmorTotal());
-        //structureComponentPanel.Set_Structure(User.variant.structure, User.variant.current_tonnage);
-        //heatSinksComponentPanel.Set_Heatsinks(User.variant.heatsinks, User.variant.current_heat_sink_count, User.variant.current_engine_rating);
-        //jumpJetsComponentPanel.Set_Jumpjets(User.variant.jumpjets, User.variant.current_jump_jets, User.variant.current_tonnage);
+        //structureComponentPanel.Set_Structure(User.variant.structure, User.variant.currentTonnage);
+        //heatSinksComponentPanel.Set_Heatsinks(User.variant.heatsinks, User.variant.currentHeatSinkCount, User.variant.currentEngineRating);
+        //jumpJetsComponentPanel.Set_Jumpjets(User.variant.jumpjets, User.variant.currentJumpJets, User.variant.currentTonnage);
         //cockpitComponentPanel.Set_Cockpit(User.variant.cockpit);
         //myomerComponentPanel.Set_Myomer(User.variant.myomer);
     }//GEN-LAST:event_modelComboBoxActionPerformed
@@ -2197,16 +2237,19 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private void SetSectionOmnipods(JComboBox jComboBox, int sectionIndex) {
         jComboBox.removeAllItems();
         
-        for (SectionBlueprint section_Blueprint : selectedDatabase.SECTION_BLUEPRINTS) {
-            jComboBox.addItem(section_Blueprint);
-            if (!section_Blueprint.model.equals(User.variant.model_type.section_models[sectionIndex])) continue;
-            jComboBox.setSelectedItem(section_Blueprint);
+        for (SectionBlueprint sectionBlueprint : selectedDatabase.SECTION_BLUEPRINTS) {
+            jComboBox.addItem(sectionBlueprint);
+            
+            if (!sectionBlueprint.name.equals(User.variant.modelType.sectionModels.get(sectionBlueprint.section)))
+                continue;
+            
+            jComboBox.setSelectedItem(sectionBlueprint);
         }
         
         if (sectionIndex == SectionType.CENTER_TORSO.index)
             jComboBox.setEnabled(false);
         else
-            jComboBox.setEnabled(User.variant.chassis_type.is_omnimech || User.frankenmechs_enabled);
+            jComboBox.setEnabled(User.variant.chassisType.mechType.equals(MechType.OMNIMECH) || User.frankenmechs_enabled);
     }
 
     private void UpdateSectionOmnipodVisibility() {
@@ -2231,18 +2274,18 @@ public class MechlabJPanel extends javax.swing.JPanel {
     }
 
     private void SetCriticalItems(JList jList, JToggleButton jToggleButton, JToggleButton jToggleButton2, JToggleButton jToggleButton3, int n) {
-        jList.setVisibleRowCount(User.variant.sections[n].maximum_criticals);
-        jList.setMinimumSize(new Dimension(90, User.variant.sections[n].maximum_criticals * 12));
+        jList.setVisibleRowCount(User.variant.sections[n].maximumCriticals);
+        jList.setMinimumSize(new Dimension(90, User.variant.sections[n].maximumCriticals * 12));
         if (jToggleButton != null) {
-            jToggleButton.setEnabled(User.variant.chassis_type.is_omnimech && User.variant.section_types[n].maximum_actuator_count > 2);
+            jToggleButton.setEnabled(User.variant.chassisType.equals(MechType.OMNIMECH) && User.variant.sectionTypes[n].maximumActuatorCount > 2);
             jToggleButton.setSelected(false);
         }
         if (jToggleButton2 != null) {
-            jToggleButton2.setEnabled(User.variant.chassis_type.is_omnimech && User.variant.section_types[n].maximum_actuator_count > 3);
+            jToggleButton2.setEnabled(User.variant.chassisType.equals(MechType.OMNIMECH) && User.variant.sectionTypes[n].maximumActuatorCount > 3);
             jToggleButton2.setSelected(false);
         }
         if (jToggleButton3 != null) {
-            jToggleButton3.setEnabled(User.variant.chassis_type.techBase.equals("IS"));
+            jToggleButton3.setEnabled(User.variant.chassisType.techBase.equals("IS"));
             jToggleButton3.setSelected(false);
         }
     }
@@ -2351,50 +2394,50 @@ public class MechlabJPanel extends javax.swing.JPanel {
     }
 
     private void UpdateArmorLabels(JProgressBar jProgressBar, JProgressBar jProgressBar2, JProgressBar jProgressBar3, int n) {
-        jProgressBar.setMaximum(User.variant.sections[n].maximum_armor);
-        jProgressBar.setValue(User.variant.sections[n].front_armor);
-        jProgressBar.setString("" + User.variant.sections[n].front_armor);
+        jProgressBar.setMaximum(User.variant.sections[n].maximumArmor);
+        jProgressBar.setValue(User.variant.sections[n].frontArmor);
+        jProgressBar.setString("" + User.variant.sections[n].frontArmor);
         jProgressBar3.setMaximum(User.variant.sections[n].health);
         jProgressBar3.setValue(User.variant.sections[n].health);
         jProgressBar3.setString("" + User.variant.sections[n].health);
         if (jProgressBar2 != null) {
-            jProgressBar2.setMaximum(User.variant.sections[n].maximum_armor);
-            jProgressBar2.setValue(User.variant.sections[n].rear_armor);
-            jProgressBar2.setString("" + User.variant.sections[n].rear_armor);
+            jProgressBar2.setMaximum(User.variant.sections[n].maximumArmor);
+            jProgressBar2.setValue(User.variant.sections[n].rearArmor);
+            jProgressBar2.setString("" + User.variant.sections[n].rearArmor);
         }
     }
 
     private void UpdateHardpointLabels(JLabel jLabel, JLabel jLabel2, JLabel jLabel3, JLabel jLabel4, JLabel jLabel5, int n) {
-        boolean bl;
-        switch (this.MechTabPane.getSelectedIndex()) {
-            case 0: {
-                bl = true;
-                jLabel.setText(String.format("%d %s", User.variant.sections[n].maximum_hardpoints[3], HardpointType.values()[3]));
-                jLabel2.setText(String.format("%d %s", User.variant.sections[n].maximum_hardpoints[4], HardpointType.values()[4]));
-                jLabel3.setText(String.format("%d %s", User.variant.sections[n].maximum_hardpoints[0], HardpointType.values()[0]));
-                jLabel4.setText(String.format("%d %s", User.variant.sections[n].maximum_hardpoints[1], HardpointType.values()[1]));
-                jLabel5.setText(String.format("%d %s", User.variant.sections[n].maximum_hardpoints[2], HardpointType.values()[2]));
-                break;
-            }
-            case 1:
-            case 2: {
-                bl = true;
-                jLabel.setText(String.format("%d/%d %s", User.variant.sections[n].current_hardpoints[3], User.variant.sections[n].maximum_hardpoints[3], HardpointType.values()[3]));
-                jLabel2.setText(String.format("%d/%d %s", User.variant.sections[n].current_hardpoints[4], User.variant.sections[n].maximum_hardpoints[4], HardpointType.values()[4]));
-                jLabel3.setText(String.format("%d/%d %s", User.variant.sections[n].current_hardpoints[0], User.variant.sections[n].maximum_hardpoints[0], HardpointType.values()[0]));
-                jLabel4.setText(String.format("%d/%d %s", User.variant.sections[n].current_hardpoints[1], User.variant.sections[n].maximum_hardpoints[1], HardpointType.values()[1]));
-                jLabel5.setText(String.format("%d/%d %s", User.variant.sections[n].current_hardpoints[2], User.variant.sections[n].maximum_hardpoints[2], HardpointType.values()[2]));
-                break;
-            }
-            default: {
-                bl = false;
-            }
-        }
-        jLabel3.setVisible(bl && User.variant.sections[n].maximum_hardpoints[0] > 0);
-        jLabel4.setVisible(bl && User.variant.sections[n].maximum_hardpoints[1] > 0);
-        jLabel5.setVisible(bl && User.variant.sections[n].maximum_hardpoints[2] > 0);
-        jLabel.setVisible(bl && User.variant.sections[n].maximum_hardpoints[3] > 0);
-        jLabel2.setVisible(bl && User.variant.sections[n].maximum_hardpoints[4] > 0);
+//        boolean bl;
+//        switch (this.MechTabPane.getSelectedIndex()) {
+//            case 0: {
+//                bl = true;
+//                jLabel.setText(String.format("%d %s", User.variant.sections[n].maximum_hardpoints[3], HardpointType.values()[3]));
+//                jLabel2.setText(String.format("%d %s", User.variant.sections[n].maximum_hardpoints[4], HardpointType.values()[4]));
+//                jLabel3.setText(String.format("%d %s", User.variant.sections[n].maximum_hardpoints[0], HardpointType.values()[0]));
+//                jLabel4.setText(String.format("%d %s", User.variant.sections[n].maximum_hardpoints[1], HardpointType.values()[1]));
+//                jLabel5.setText(String.format("%d %s", User.variant.sections[n].maximum_hardpoints[2], HardpointType.values()[2]));
+//                break;
+//            }
+//            case 1:
+//            case 2: {
+//                bl = true;
+//                jLabel.setText(String.format("%d/%d %s", User.variant.sections[n].current_hardpoints[3], User.variant.sections[n].maximum_hardpoints[3], HardpointType.values()[3]));
+//                jLabel2.setText(String.format("%d/%d %s", User.variant.sections[n].current_hardpoints[4], User.variant.sections[n].maximum_hardpoints[4], HardpointType.values()[4]));
+//                jLabel3.setText(String.format("%d/%d %s", User.variant.sections[n].current_hardpoints[0], User.variant.sections[n].maximum_hardpoints[0], HardpointType.values()[0]));
+//                jLabel4.setText(String.format("%d/%d %s", User.variant.sections[n].current_hardpoints[1], User.variant.sections[n].maximum_hardpoints[1], HardpointType.values()[1]));
+//                jLabel5.setText(String.format("%d/%d %s", User.variant.sections[n].current_hardpoints[2], User.variant.sections[n].maximum_hardpoints[2], HardpointType.values()[2]));
+//                break;
+//            }
+//            default: {
+//                bl = false;
+//            }
+//        }
+//        jLabel3.setVisible(bl && User.variant.sections[n].maximum_hardpoints[0] > 0);
+//        jLabel4.setVisible(bl && User.variant.sections[n].maximum_hardpoints[1] > 0);
+//        jLabel5.setVisible(bl && User.variant.sections[n].maximum_hardpoints[2] > 0);
+//        jLabel.setVisible(bl && User.variant.sections[n].maximum_hardpoints[3] > 0);
+//        jLabel2.setVisible(bl && User.variant.sections[n].maximum_hardpoints[4] > 0);
     }
 
     private void UpdateHardpoints() {
@@ -2416,59 +2459,59 @@ public class MechlabJPanel extends javax.swing.JPanel {
         int n4 = 0;
         int n5 = 0;
         User.variant.UpdateMech();
-        for (SectionBlueprint section_Blueprint : User.variant.section_types) {
-            if (section_Blueprint == null) continue;
-            n += section_Blueprint.hardpoints[0];
-            n2 += section_Blueprint.hardpoints[1];
-            n3 += section_Blueprint.hardpoints[2];
-            n4 += section_Blueprint.hardpoints[3];
-            n5 += section_Blueprint.hardpoints[4];
-        }
+//        for (SectionBlueprint sectionBlueprint : User.variant.section_types) {
+//            if (sectionBlueprint == null) continue;
+//            n += sectionBlueprint.hardpoints[0];
+//            n2 += sectionBlueprint.hardpoints[1];
+//            n3 += sectionBlueprint.hardpoints[2];
+//            n4 += sectionBlueprint.hardpoints[3];
+//            n5 += sectionBlueprint.hardpoints[4];
+//        }
         //this.hardpointComponentPanel.Set_Total_Hardpoints(n, n2, n3, n4);
         this.ecmCapableLabel.setVisible(n5 > 0);
-        this.jumpCapableLabel.setVisible(User.variant.maximum_jump_jets > 0);
-        this.jumpDistanceProgressBar.setMaximum(User.variant.maximum_jump_jets);
-        this.jumpHeightProgressBar.setMaximum(User.variant.maximum_jump_jets);
+        this.jumpCapableLabel.setVisible(User.variant.maximumJumpJets > 0);
+        this.jumpDistanceProgressBar.setMaximum(User.variant.maximumJumpJets);
+        this.jumpHeightProgressBar.setMaximum(User.variant.maximumJumpJets);
     }
 
     private void UpdateEngine() {
         if (User.variant.engine == null) {
             return;
         }
-        //User.variant.current_engine_rating = (Integer) this.engineRatingSpinner.getValue();
-        this.speedProgressBar.setValue(User.variant.current_engine_rating);
-        this.speedProgressBar.setString(String.format("%.1f kph", User.variant.engine.Get_Speed(User.variant.chassis_type.tonnage, User.variant.current_engine_rating)));
-        //this.enginePanel.Set_Engine(User.variant.engine, User.variant.current_engine_rating);
+        //User.variant.currentEngineRating = (Integer) this.engineRatingSpinner.getValue();
+        this.speedProgressBar.setValue(User.variant.currentEngineRating);
+        this.speedProgressBar.setString(String.format("%.1f kph", User.variant.engine.Get_Speed(User.variant.chassisType.tonnage, User.variant.currentEngineRating)));
+        //this.enginePanel.Set_Engine(User.variant.engine, User.variant.currentEngineRating);
     }
 
     private void UpdateHeatsinks() {
-        int n = User.variant.engine.Get_Heat_Sink_Capacity(User.variant.current_engine_rating);
+        int n = User.variant.engine.Get_Heat_Sink_Capacity(User.variant.currentEngineRating);
         for (Section section : User.variant.sections) {
             for (int j = section.components.size() - 1; j >= 0; --j) {
-                if (!section.components.get(j).item_type.equals("Heat Sink")) continue;
-                if (n >= User.variant.current_heat_sink_count) {
+                if (!section.components.get(j).itemType.equals("Heat Sink")) continue;
+                if (n >= User.variant.currentHeatSinkCount) {
                     section.components.remove(j);
                     continue;
                 }
                 ++n;
             }
         }
-        n = User.variant.current_heat_sink_count - n;
-        //this.heatSinkComponentPanel.Set_Heatsinks(User.variant.heatsinks, User.variant.current_engine_rating, User.variant.current_heat_sink_count);
+        n = User.variant.currentHeatSinkCount - n;
+        //this.heatSinkComponentPanel.Set_Heatsinks(User.variant.heatsinks, User.variant.currentEngineRating, User.variant.currentHeatSinkCount);
     }
 
     private void UpdateJumpjets() {
-        /*this.JumpJetSpinner.setEnabled(User.variant.maximum_jump_jets > 0);
-        User.variant.current_jump_jets = (Integer) this.JumpJetSpinner.getValue();
-        if (User.variant.current_jump_jets > User.variant.maximum_jump_jets) {
-            User.variant.current_jump_jets = User.variant.maximum_jump_jets;
-            this.JumpJetSpinnerModel.setValue(User.variant.current_jump_jets);
+        /*this.JumpJetSpinner.setEnabled(User.variant.maximumJumpJets > 0);
+        User.variant.currentJumpJets = (Integer) this.JumpJetSpinner.getValue();
+        if (User.variant.currentJumpJets > User.variant.maximumJumpJets) {
+            User.variant.currentJumpJets = User.variant.maximumJumpJets;
+            this.JumpJetSpinnerModel.setValue(User.variant.currentJumpJets);
         }
-        this.JumpJetSpinnerModel.setMaximum(Integer.valueOf(User.variant.maximum_jump_jets));
+        this.JumpJetSpinnerModel.setMaximum(Integer.valueOf(User.variant.maximumJumpJets));
         int n = 0;
         for (int i = queued_items.size() - 1; i >= 0; --i) {
-            if (!((Crittable) queued_items.get((int) i)).item_type.equals("Jump Jet")) continue;
-            if (n >= User.variant.current_jump_jets) {
+            if (!((Crittable) queued_items.get((int) i)).itemType.equals("Jump Jet")) continue;
+            if (n >= User.variant.currentJumpJets) {
                 queued_items.remove(i);
                 continue;
             }
@@ -2476,18 +2519,18 @@ public class MechlabJPanel extends javax.swing.JPanel {
         }
         for (Section section : User.variant.sections) {
             for (int j = section.components.size() - 1; j >= 0; --j) {
-                if (!section.components.get(j).item_type.equals("Jump Jet")) continue;
-                if (n >= User.variant.current_jump_jets) {
+                if (!section.components.get(j).itemType.equals("Jump Jet")) continue;
+                if (n >= User.variant.currentJumpJets) {
                     section.components.remove(j);
                     continue;
                 }
                 ++n;
             }
         }*/
-        this.jumpDistanceProgressBar.setValue(User.variant.current_jump_jets);
-        this.jumpHeightProgressBar.setValue(User.variant.current_jump_jets);
-        //this.jumpjetComponentPanel.Set_Jumpjets(User.variant.jumpjets, User.variant.current_jump_jets, User.variant.chassis_type.tonnage);
-        //this.manueverabilityComponentPanel.Set_Manueverability(User.variant.chassis_type, User.variant.model_type, User.variant.maximum_jump_jets);
+        this.jumpDistanceProgressBar.setValue(User.variant.currentJumpJets);
+        this.jumpHeightProgressBar.setValue(User.variant.currentJumpJets);
+        //this.jumpjetComponentPanel.Set_Jumpjets(User.variant.jumpjets, User.variant.currentJumpJets, User.variant.chassisType.tonnage);
+        //this.manueverabilityComponentPanel.Set_Manueverability(User.variant.chassisType, User.variant.modelType, User.variant.maximumJumpJets);
     }
 
     private void UpdateArmor() {
@@ -2495,7 +2538,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
             return;
         }
         //this.ArmorPanel.Set_Armor(User.variant.armor, User.variant.GetCurrentArmorTotal());
-        this.pointsPerTonAmountLabel.setText(String.format("%.2f", User.variant.armor.points_per_ton));
+        this.pointsPerTonAmountLabel.setText(String.format("%.2f", User.variant.armor.pointsPerTon));
         this.armorProgressBar.setString("" + User.variant.GetCurrentArmorTotal());
         this.armorProgressBar.setValue(User.variant.GetCurrentArmorTotal());
         this.UpdateArmorLabels(this.rightArmArmorProgressBar, null, this.rightArmStructureProgressBar, 0);
@@ -2506,20 +2549,20 @@ public class MechlabJPanel extends javax.swing.JPanel {
         this.UpdateArmorLabels(this.leftTorsoFrontArmorProgressBar, this.leftTorsoRearArmorProgressBar, this.leftTorsoStructureProgressBar, 3);
         this.UpdateArmorLabels(this.centerTorsoFrontArmorProgressBar, this.centerTorsoRearArmorProgressBar, this.centerTorsoStructureProgressBar, 4);
         this.UpdateArmorLabels(this.headArmorProgressBar, null, this.headStructureProgressBar, 5);
-        this.rightArmArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[0].front_armor, User.variant.sections[0].maximum_armor));
-        this.leftArmArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[1].front_armor, User.variant.sections[1].maximum_armor));
-        this.rightTorsoArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[2].front_armor + User.variant.sections[2].rear_armor, User.variant.sections[2].maximum_armor));
-        this.leftTorsoArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[3].front_armor + User.variant.sections[3].rear_armor, User.variant.sections[3].maximum_armor));
-        this.centerTorsoArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[4].front_armor + User.variant.sections[4].rear_armor, User.variant.sections[4].maximum_armor));
-        this.headArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[5].front_armor, User.variant.sections[5].maximum_armor));
-        this.rightLegArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[6].front_armor, User.variant.sections[6].maximum_armor));
-        this.leftLegArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[7].front_armor, User.variant.sections[7].maximum_armor));
+        this.rightArmArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[0].frontArmor, User.variant.sections[0].maximumArmor));
+        this.leftArmArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[1].frontArmor, User.variant.sections[1].maximumArmor));
+        this.rightTorsoArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[2].frontArmor + User.variant.sections[2].rearArmor, User.variant.sections[2].maximumArmor));
+        this.leftTorsoArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[3].frontArmor + User.variant.sections[3].rearArmor, User.variant.sections[3].maximumArmor));
+        this.centerTorsoArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[4].frontArmor + User.variant.sections[4].rearArmor, User.variant.sections[4].maximumArmor));
+        this.headArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[5].frontArmor, User.variant.sections[5].maximumArmor));
+        this.rightLegArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[6].frontArmor, User.variant.sections[6].maximumArmor));
+        this.leftLegArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[7].frontArmor, User.variant.sections[7].maximumArmor));
         this.totalArmorAmountLabel.setText(String.format("%d/%d", User.variant.GetCurrentArmorTotal(), User.variant.GetMaximumArmorTotal()));
     }
 
     private void UpdateSpeed() {
-        this.speedProgressBar.setString(String.format("%.1f kph", User.variant.engine.Get_Speed(User.variant.chassis_type.tonnage, User.variant.current_engine_rating) * User.speed_tweak_modifier));
-        //this.speedComponentPanel.Set_Speed_Limits(User.variant.chassis_type, User.variant.model_type, 16.2, User.speed_tweak_modifier);
+        this.speedProgressBar.setString(String.format("%.1f kph", User.variant.engine.Get_Speed(User.variant.chassisType.tonnage, User.variant.currentEngineRating) * User.speed_tweak_modifier));
+        //this.speedComponentPanel.Set_Speed_Limits(User.variant.chassisType, User.variant.modelType, 16.2, User.speed_tweak_modifier);
     }
 
     private void UpdateWeapons() {
@@ -2529,14 +2572,14 @@ public class MechlabJPanel extends javax.swing.JPanel {
         double d2 = 0.0;
         double d3 = 0.0;
         double d4 = 0.0;
-        double d5 = User.variant.heatsinks.Get_Dissipation(User.variant.current_heat_sink_count, User.variant.current_engine_rating) * User.coolrun_modifier;
-        double d6 = User.variant.heatsinks.Get_Threshold(User.variant.current_heat_sink_count) * User.heat_containment_modifier;
+        double d5 = User.variant.heatsinks.Get_Dissipation(User.variant.currentHeatSinkCount, User.variant.currentEngineRating) * User.coolrun_modifier;
+        double d6 = User.variant.heatsinks.Get_Threshold(User.variant.currentHeatSinkCount) * User.heat_containment_modifier;
         int n = 1000;
         int n2 = 0;
         int n3 = 0;
         for (Section section2 : User.variant.sections) {
             for (Crittable crittable3 : section2.components) {
-                if (!crittable3.item_type.equals("Weapon")) continue;
+                if (!crittable3.itemType.equals("Weapon")) continue;
                 weapon_Blueprint = (WeaponBlueprint) crittable3.reference;
                 d += weapon_Blueprint.Get_Effective_Damage();
                 d2 += weapon_Blueprint.heat;
@@ -2549,7 +2592,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         for (int i = 0; i < crittable5; ++i) {
             Section section2 = arrsection[i];
             for (Crittable crittable3 : section2.components) {
-                if (!crittable3.item_type.equals("Weapon")) continue;
+                if (!crittable3.itemType.equals("Weapon")) continue;
                 weapon_Blueprint = (WeaponBlueprint) crittable3.reference;
                 n3 = (int) ((double) n3 + (double) weapon_Blueprint.effective_range * (weapon_Blueprint.Get_DPS(User.fast_fire_modifier) / d3));
             }
@@ -2559,7 +2602,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         for (int i = 0; i < crittable5; ++i) {
             Section section2 = arrsection[i];
             for (Crittable crittable3 : section2.components) {
-                if (!crittable3.item_type.equals("Weapon")) continue;
+                if (!crittable3.itemType.equals("Weapon")) continue;
                 weapon_Blueprint = (WeaponBlueprint) crittable3.reference;
                 int temp_int = Math.abs(weapon_Blueprint.effective_range - n3);
                 if (temp_int >= n) continue;
@@ -2593,8 +2636,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         /*for (Crittable crittable : queued_items) {
             temp_int += crittable.criticals;
         }*/
-        this.criticalsProgressBar.setValue(User.variant.current_criticals + temp_int);
-        this.criticalsProgressBar.setString(String.format("%d/%d", User.variant.current_criticals + temp_int, 78));
+        this.criticalsProgressBar.setValue(User.variant.currentCriticals + temp_int);
+        this.criticalsProgressBar.setString(String.format("%d/%d", User.variant.currentCriticals + temp_int, 78));
     }
 
     public void UpdateCriticals(JList jList, int n) {
@@ -2611,7 +2654,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
                 defaultListModel.addElement("----------");
             }
         }
-        int n2 = User.variant.sections[n].maximum_criticals - User.variant.sections[n].current_criticals;
+        int n2 = User.variant.sections[n].maximumCriticals - User.variant.sections[n].currentCriticals;
         for (int i = 0; i < n2; ++i) {
             defaultListModel.addElement("-Empty-");
         }
@@ -2624,8 +2667,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         /*for (Crittable crittable : queued_items) {
             temp_double += crittable.tonnage;
         }*/
-        this.tonnageProgressBar.setValue((int) Math.ceil(User.variant.current_tonnage + temp_double));
-        this.tonnageProgressBar.setString(String.format("%.2f Tons", User.variant.current_tonnage + temp_double));
+        this.tonnageProgressBar.setValue((int) Math.ceil(User.variant.currentTonnage + temp_double));
+        this.tonnageProgressBar.setString(String.format("%.2f Tons", User.variant.currentTonnage + temp_double));
     }
 
     private void UpdateArmorSpinners(int n) {
@@ -2633,47 +2676,47 @@ public class MechlabJPanel extends javax.swing.JPanel {
         
         switch (n) {
             case 5: {
-                User.variant.sections[5].front_armor = (Integer) this.headSpinner.getValue();
+                User.variant.sections[5].frontArmor = (Integer) this.headSpinner.getValue();
                 break;
             }
             case 2: {
-                User.variant.sections[2].front_armor = (Integer) this.rightTorsoSpinner.getValue();
-                User.variant.sections[2].rear_armor = (Integer) this.rightRearTorsoSpinner.getValue();
-                temp_int = User.variant.sections[2].maximum_armor - User.variant.sections[2].rear_armor - User.variant.sections[2].front_armor;
-                this.rightTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[2].front_armor + temp_int));
-                this.rightRearTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[2].rear_armor + temp_int));
+                User.variant.sections[2].frontArmor = (Integer) this.rightTorsoSpinner.getValue();
+                User.variant.sections[2].rearArmor = (Integer) this.rightRearTorsoSpinner.getValue();
+                temp_int = User.variant.sections[2].maximumArmor - User.variant.sections[2].rearArmor - User.variant.sections[2].frontArmor;
+                this.rightTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[2].frontArmor + temp_int));
+                this.rightRearTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[2].rearArmor + temp_int));
                 break;
             }
             case 3: {
-                User.variant.sections[3].front_armor = (Integer) this.leftTorsoSpinner.getValue();
-                User.variant.sections[3].rear_armor = (Integer) this.leftRearTorsoSpinner.getValue();
-                temp_int = User.variant.sections[3].maximum_armor - User.variant.sections[3].rear_armor - User.variant.sections[3].front_armor;
-                this.leftTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[3].front_armor + temp_int));
-                this.leftRearTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[3].rear_armor + temp_int));
+                User.variant.sections[3].frontArmor = (Integer) this.leftTorsoSpinner.getValue();
+                User.variant.sections[3].rearArmor = (Integer) this.leftRearTorsoSpinner.getValue();
+                temp_int = User.variant.sections[3].maximumArmor - User.variant.sections[3].rearArmor - User.variant.sections[3].frontArmor;
+                this.leftTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[3].frontArmor + temp_int));
+                this.leftRearTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[3].rearArmor + temp_int));
                 break;
             }
             case 4: {
-                User.variant.sections[4].front_armor = (Integer) this.centerTorsoSpinner.getValue();
-                User.variant.sections[4].rear_armor = (Integer) this.centerRearTorsoSpinner.getValue();
-                temp_int = User.variant.sections[4].maximum_armor - User.variant.sections[4].rear_armor - User.variant.sections[4].front_armor;
-                this.centerTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[4].front_armor + temp_int));
-                this.centerRearTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[4].rear_armor + temp_int));
+                User.variant.sections[4].frontArmor = (Integer) this.centerTorsoSpinner.getValue();
+                User.variant.sections[4].rearArmor = (Integer) this.centerRearTorsoSpinner.getValue();
+                temp_int = User.variant.sections[4].maximumArmor - User.variant.sections[4].rearArmor - User.variant.sections[4].frontArmor;
+                this.centerTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[4].frontArmor + temp_int));
+                this.centerRearTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[4].rearArmor + temp_int));
                 break;
             }
             case 0: {
-                User.variant.sections[0].front_armor = (Integer) this.rightArmSpinner.getValue();
+                User.variant.sections[0].frontArmor = (Integer) this.rightArmSpinner.getValue();
                 break;
             }
             case 1: {
-                User.variant.sections[1].front_armor = (Integer) this.leftArmSpinner.getValue();
+                User.variant.sections[1].frontArmor = (Integer) this.leftArmSpinner.getValue();
                 break;
             }
             case 6: {
-                User.variant.sections[6].front_armor = (Integer) this.rightLegSpinner.getValue();
+                User.variant.sections[6].frontArmor = (Integer) this.rightLegSpinner.getValue();
                 break;
             }
             case 7: {
-                User.variant.sections[7].front_armor = (Integer) this.leftLegSpinner.getValue();
+                User.variant.sections[7].frontArmor = (Integer) this.leftLegSpinner.getValue();
                 break;
             }
         }
@@ -2709,7 +2752,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
                 n2 = -1;
             }
             if (n2 < User.variant.sections[this.section_id].components.size() && n2 > -1) {
-                if (User.variant.sections[this.section_id].components.get(n2).is_locked) {
+                if (User.variant.sections[this.section_id].components.get(n2).isLocked) {
                     if (bl && jList.hasFocus()) {
                         jLabel.setBackground(User.preferences.LOCKED_CRITICAL_FG);
                         jLabel.setForeground(User.preferences.LOCKED_CRITICAL_BG);
@@ -2718,7 +2761,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
                         jLabel.setForeground(User.preferences.LOCKED_CRITICAL_FG);
                     }
                 } else {
-                    Color color = User.variant.sections[this.section_id].components.get(n2).hardpoint_type.equals(HardpointType.values()[0]) ? User.preferences.BALLISTIC_COLOR : (User.variant.sections[this.section_id].components.get(n2).hardpoint_type.equals(HardpointType.values()[1]) ? User.preferences.ENERGY_COLOR : (User.variant.sections[this.section_id].components.get(n2).hardpoint_type.equals(HardpointType.values()[2]) ? User.preferences.MISSILE_COLOR : (User.variant.sections[this.section_id].components.get(n2).hardpoint_type.equals(HardpointType.values()[3]) ? User.preferences.AMS_COLOR : (User.variant.sections[this.section_id].components.get(n2).hardpoint_type.equals(HardpointType.values()[4]) ? User.preferences.ECM_COLOR : User.preferences.NORMAL_CRITICAL_BG))));
+                    Color color = User.variant.sections[this.section_id].components.get(n2).hardpointType.equals(HardpointType.values()[0]) ? User.preferences.BALLISTIC_COLOR : (User.variant.sections[this.section_id].components.get(n2).hardpointType.equals(HardpointType.values()[1]) ? User.preferences.ENERGY_COLOR : (User.variant.sections[this.section_id].components.get(n2).hardpointType.equals(HardpointType.values()[2]) ? User.preferences.MISSILE_COLOR : (User.variant.sections[this.section_id].components.get(n2).hardpointType.equals(HardpointType.values()[3]) ? User.preferences.AMS_COLOR : (User.variant.sections[this.section_id].components.get(n2).hardpointType.equals(HardpointType.values()[4]) ? User.preferences.ECM_COLOR : User.preferences.NORMAL_CRITICAL_BG))));
                     if (bl && jList.hasFocus()) {
                         jLabel.setBackground(User.preferences.NORMAL_CRITICAL_FG);
                         jLabel.setForeground(color);

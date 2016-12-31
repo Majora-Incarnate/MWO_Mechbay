@@ -1,15 +1,30 @@
 package com.github.majora_incarnate.mwo_mechbay.entities;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * @author Trevin
  */
 public enum HardpointType {
-    UNKNOWN_HARDPOINT_TYPE("Unknown", -1),
-    BALLISTIC_HARDPOINT_TYPE("Ballistic", 0),
-    ENERGY_HARDPOINT_TYPE("Energy", 1),
-    MISSILE_HARDPOINT_TYPE("Missile", 2),
-    AMS_HARDPOINT_TYPE("AMS", 3),
-    ECM_HARDPOINT_TYPE("ECM", 4);
+    UNKNOWN("Unknown", -1),
+    
+    @SerializedName("Ballistic")
+    BALLISTIC("Ballistic", 0),
+    
+    @SerializedName("Energy")
+    ENERGY("Energy", 1),
+    
+    @SerializedName("Missile")
+    MISSILE("Missile", 2),
+    
+    @SerializedName("AMS")
+    AMS("AMS", 3),
+    
+    @SerializedName("ECM")
+    ECM("ECM", 4),
+    
+    @SerializedName("MASC")
+    MASC("MASC", 5);
 
     public final String name;
     public final int value;
@@ -27,17 +42,19 @@ public enum HardpointType {
     public static HardpointType getEnum(String value) {
         switch(value) {
             case "Ballistic":
-                return BALLISTIC_HARDPOINT_TYPE;
+                return BALLISTIC;
             case "Energy":
-                return ENERGY_HARDPOINT_TYPE;
+                return ENERGY;
             case "Missile":
-                return MISSILE_HARDPOINT_TYPE;
+                return MISSILE;
             case "AMS":
-                return AMS_HARDPOINT_TYPE;
+                return AMS;
             case "ECM":
-                return ECM_HARDPOINT_TYPE;
+                return ECM;
+            case "MASC":
+                return MASC;
             default:
-                return UNKNOWN_HARDPOINT_TYPE;
+                return UNKNOWN;
         }
     }
 }

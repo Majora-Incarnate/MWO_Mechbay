@@ -9,7 +9,7 @@
     "movementArchetype": "Small"
   },
   {
-    "chassis": "Assassin",
+    "name": "Assassin",
     "mechType": "Battlemech",
     "motiveType": "Biped",
     "tonnage": 40.0,

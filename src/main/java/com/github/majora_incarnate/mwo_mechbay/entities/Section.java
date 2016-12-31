@@ -1,37 +1,39 @@
 package com.github.majora_incarnate.mwo_mechbay.entities;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 public class Section {
-    public int maximum_criticals;
-    public int current_criticals;
-    public final int[] maximum_hardpoints = new int[5];
-    public final int[] current_hardpoints = new int[5];
+    public int maximumCriticals;
+    public int currentCriticals;
+    public final Map<HardpointType, Integer> maximumHardpoints = new HashMap<>();
+    public final Map<HardpointType, Integer> currentHardpoints = new HashMap<>();
     public int health;
-    public int minimum_armor;
-    public int rear_armor;
-    public int front_armor;
-    public int maximum_armor;
+    public int minimumArmor;
+    public int rearArmor;
+    public int frontArmor;
+    public int maximumArmor;
     public final ArrayList<Crittable> components = new ArrayList();
 
-    public void Set_Section(final SectionBlueprint paramSection_Blueprint, final int sectionId, final double tonnage) {
-        this.maximum_criticals = paramSection_Blueprint.criticals;
-        this.current_criticals = 0;
+    public void Set_Section(final SectionBlueprint sectionBlueprint, final int sectionId, final double tonnage) {
+        this.maximumCriticals = sectionBlueprint.criticals;
+        this.currentCriticals = 0;
         this.health = Constants.INTERNALS_PER_SECTION[((int) ((tonnage - 20.0D) / 5.0D))][sectionId];
-        this.rear_armor = 0;
-        this.minimum_armor = (this.front_armor = (0));
+        this.rearArmor = 0;
+        this.minimumArmor = (this.frontArmor = (0));
         if (sectionId == 5) {
-            this.maximum_armor = (18 + (0));
+            this.maximumArmor = (18 + (0));
         } else {
-            this.maximum_armor = (this.health * 2 + (0));
+            this.maximumArmor = (this.health * 2 + (0));
         }
         this.health += (0);
-        for (int i = 0; i < 5; i++) {
-            this.maximum_hardpoints[i] = paramSection_Blueprint.hardpoints[i];
-            this.current_hardpoints[i] = 0;
+        for (HardpointType hardpointType : HardpointType.values()) {
+            maximumHardpoints.put(hardpointType, sectionBlueprint.hardpoints.get(hardpointType));
+            currentHardpoints.put(hardpointType, 0);
         }
-        for (int i = 0; i < paramSection_Blueprint.minimum_actuator_count; i++) {
+        for (int i = 0; i < sectionBlueprint.minimumActuatorCount; i++) {
             /*for (ActuatorBlueprint localActuator_Blueprint : Database.MASTER_ACTUATOR_BLUEPRINTS) {
                 if ((localActuator_Blueprint.type.equals(paramSection_Blueprint.actuator_type)) && (localActuator_Blueprint.index == i)) {
                     Add_Component(localActuator_Blueprint.Get_Crittable());
@@ -80,7 +82,7 @@ public class Section {
             }*/
         }
 
-        System.arraycopy(paramSection_Blueprint.hardpoints, 0, this.maximum_hardpoints, 0, 5);
+        //System.arraycopy(paramSection_Blueprint.hardpoints, 0, this.maximum_hardpoints, 0, 5);
         Calculate_Criticals();
         Calculate_Hardpoints();
     }
@@ -90,14 +92,14 @@ public class Section {
             return false;
         }
         if (!item.hardpointType.toString().equals("None")) {
-            for (int i = 0; (i < 5); i++) {
-                if (HardpointType.values()[i].equals(item.hardpointType) &&
-                        this.current_hardpoints[i] + 1 > this.maximum_hardpoints[i]) {
+            for (HardpointType hardpointType : HardpointType.values()) {
+                if (hardpointType.equals(item.hardpointType) &&
+                        this.currentHardpoints.get(hardpointType) + 1 > this.maximumHardpoints.get(hardpointType)) {
                     return false;
                 }
             }
         }
-        if (this.current_criticals + item.criticals > this.maximum_criticals) {
+        if (this.currentCriticals + item.criticals > this.maximumCriticals) {
             return false;
         }
         this.components.add(item);
@@ -113,7 +115,7 @@ public class Section {
         if (!item.hardpointType.toString().equals("None")) {
             return false;
         }
-        if (this.current_criticals + item.criticals > this.maximum_criticals) {
+        if (this.currentCriticals + item.criticals > this.maximumCriticals) {
             return false;
         }
         this.components.add(paramInt, item);
@@ -134,7 +136,7 @@ public class Section {
     }
 
     public Crittable Get_Component(int paramInt) {
-        if ((paramInt < 0) || (paramInt > this.maximum_criticals)) {
+        if ((paramInt < 0) || (paramInt > this.maximumCriticals)) {
             return null;
         }
         int i = 0;
@@ -159,7 +161,7 @@ public class Section {
     }
 
     public void Remove_Component(int paramInt) {
-        if ((paramInt < 0) || (paramInt > this.maximum_criticals)) {
+        if ((paramInt < 0) || (paramInt > this.maximumCriticals)) {
             return;
         }
         int i = 0;
@@ -189,20 +191,21 @@ public class Section {
     }
 
     public void Calculate_Criticals() {
-        this.current_criticals = 0;
+        this.currentCriticals = 0;
         this.components.stream().forEach((localCrittable) -> {
-            this.current_criticals += localCrittable.criticals;
+            this.currentCriticals += localCrittable.criticals;
         });
     }
 
     public void Calculate_Hardpoints() {
-        for (int i = 0; i < 5; i++) {
-            this.current_hardpoints[i] = 0;
+        for (HardpointType hardpointType : HardpointType.values()) {
+            currentHardpoints.put(hardpointType, 0);
         }
+        
         this.components.stream().forEach((localCrittable) -> {
-            for (int j = 0; j < 5; j++) {
-                if (HardpointType.values()[j].equals(localCrittable.hardpointType)) {
-                    this.current_hardpoints[j] += 1;
+            for (HardpointType hardpointType : HardpointType.values()) {
+                if (hardpointType.equals(localCrittable.hardpointType)) {
+                    currentHardpoints.put(hardpointType, currentHardpoints.get(hardpointType) + 1);
                 }
             }
         });

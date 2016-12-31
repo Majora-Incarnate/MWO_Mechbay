@@ -7,7 +7,7 @@ public class Blueprint {
 
     public Blueprint() {
         name = "";
-        techBase = TechBase.UNIVERSAL
+        techBase = TechBase.UNIVERSAL;
         id = 0;
     }
 

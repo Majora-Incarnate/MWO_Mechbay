@@ -29,7 +29,7 @@ public class StructureBlueprint extends Blueprint {
         crittable.isLocked = false;
         crittable.name = this.name;
         crittable.itemType = "Structure";
-        crittable.hardpointType = HardpointType.UNKNOWN_HARDPOINT_TYPE;
+        crittable.hardpointType = HardpointType.UNKNOWN;
         crittable.criticals = 1;
         crittable.tonnage = 0.0D;
         crittable.position = -1;

@@ -7,22 +7,22 @@ import com.google.gson.annotations.SerializedName;
  */
 public enum MotiveType {
     @SerializedName("Biped")
-    BIPED("Biped", {
+    BIPED("Biped", new SectionType[] {
         SectionType.HEAD, SectionType.CENTER_TORSO, SectionType.RIGHT_TORSO, SectionType.LEFT_TORSO,
         SectionType.RIGHT_ARM, SectionType.LEFT_ARM, SectionType.RIGHT_LEG, SectionType.LEFT_LEG
     }, 0),
     
     @SerializedName("Quad")
-    QUAD("Quad", {
+    QUAD("Quad", new SectionType[] {
         SectionType.HEAD, SectionType.CENTER_TORSO, SectionType.RIGHT_TORSO, SectionType.LEFT_TORSO,
         SectionType.FRONT_RIGHT_LEG, SectionType.FRONT_LEFT_LEG, SectionType.REAR_RIGHT_LEG, SectionType.REAR_LEFT_LEG
-    }, 1),
+    }, 1);
 
     public final String name;
     public final SectionType[] sections;
     public final int index;
 
-    SectionType(String name, Section[] sections, int index) {
+    MotiveType(final String name, final SectionType[] sections, final int index) {
         this.name = name;
         this.sections = sections;
         this.index = index;
@@ -30,6 +30,6 @@ public enum MotiveType {
 
     @Override
     public String toString() {
-        return long_name;
+        return name;
     }
 }

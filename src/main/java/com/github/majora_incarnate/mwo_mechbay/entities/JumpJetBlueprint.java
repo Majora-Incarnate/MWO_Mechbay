@@ -53,7 +53,7 @@ public class JumpJetBlueprint extends Blueprint {
         localCrittable.isLocked = false;
         localCrittable.name = (this.name + Get_JJ_Class(paramDouble));
         localCrittable.itemType = "Jump Jet";
-        localCrittable.hardpointType = HardpointType.UNKNOWN_HARDPOINT_TYPE;
+        localCrittable.hardpointType = HardpointType.UNKNOWN;
         localCrittable.criticals = this.criticals;
         localCrittable.tonnage = (Get_Base_Tonnage(paramDouble) * this.tonnageModifier);
         localCrittable.position = -1;

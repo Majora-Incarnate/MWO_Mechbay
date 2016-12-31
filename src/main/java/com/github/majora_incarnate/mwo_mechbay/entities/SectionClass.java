@@ -31,29 +31,8 @@ public enum SectionClass {
         this.index = index;
     }
 
-    public int getNumberOfSectionClasses() {
-        return WeightClass.values().length;
-    }
-
     @Override
     public String toString() {
         return name;
-    }
-
-    public static SectionClass getEnum(String value) {
-        switch(value) {
-            case "Head":
-                return HEAD;
-            case "Arm":
-                return ARM;
-            case "Torso":
-                return TORSO;
-            case "Leg":
-                return LEG;
-            case "Special":
-                return SPECIAL;
-            default:
-                return UNKNOWN;
-        }
     }
 }

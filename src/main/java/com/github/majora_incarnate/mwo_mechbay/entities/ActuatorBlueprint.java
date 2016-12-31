@@ -10,7 +10,7 @@ public class ActuatorBlueprint extends Blueprint {
         localCrittable.isLocked = true;
         localCrittable.name = this.name;
         localCrittable.itemType = "Actuator";
-        localCrittable.hardpointType = HardpointType.UNKNOWN_HARDPOINT_TYPE;
+        localCrittable.hardpointType = HardpointType.UNKNOWN;
         localCrittable.criticals = 1;
         localCrittable.tonnage = 0.0D;
         localCrittable.position = -1;

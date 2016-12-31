@@ -1,41 +1,41 @@
 [
   {
-    "threshold bonus": 1,
-    "engine dissipation": 1,
-    "outside dissipation": 1,
+    "thresholdBoost": 1,
+    "internalDissipation": 1,
+    "externalDissipation": 1,
     "criticals": 1,
-    "upgrade cost": 750000,
+    "upgradeCost": 750000,
     "weight": 1,
     "name": "Single",
-    "tech base": "Universal",
-    "space modifier": 1,
+    "techBase": "Universal",
+    "spaceModifier": 1,
     "id": 3000,
-    "item cost": 2000
+    "itemCost": 2000
   },
   {
-    "threshold bonus": 2,
-    "engine dissipation": 2,
-    "outside dissipation": 1.4,
+    "thresholdBoost": 2,
+    "internalDissipation": 2,
+    "externalDissipation": 1.5,
     "criticals": 3,
-    "upgrade cost": 1500000,
+    "upgradeCost": 1500000,
     "weight": 1,
     "name": "Double (IS)",
-    "tech base": "Inner Sphere",
-    "space modifier": 1,
+    "techBase": "Inner Sphere",
+    "spaceModifier": 1,
     "id": 3001,
-    "item cost": 12000
+    "itemCost": 12000
   },
   {
-    "threshold bonus": 2,
-    "engine dissipation": 2,
-    "outside dissipation": 1.4,
+    "thresholdBoost": 2,
+    "internalDissipation": 2,
+    "externalDissipation": 1.5,
     "criticals": 2,
-    "upgrade cost": 1500000,
+    "upgradeCost": 1500000,
     "weight": 1,
     "name": "Double (CL)",
-    "tech base": "Clan",
-    "space modifier": 1,
+    "techBase": "Clan",
+    "spaceModifier": 1,
     "id": 3004,
-    "item cost": 12000
+    "itemCost": 12000
   }
 ]

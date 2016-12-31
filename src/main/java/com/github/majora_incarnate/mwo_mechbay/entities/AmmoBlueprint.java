@@ -16,7 +16,7 @@ public class AmmoBlueprint extends Blueprint {
         localCrittable.isLocked = false;
         localCrittable.name = this.name;
         localCrittable.itemType = "Ammo";
-        localCrittable.hardpointType = HardpointType.UNKNOWN_HARDPOINT_TYPE;
+        localCrittable.hardpointType = HardpointType.UNKNOWN;
         localCrittable.criticals = this.criticals;
         localCrittable.tonnage = this.tonnage;
         localCrittable.position = -1;

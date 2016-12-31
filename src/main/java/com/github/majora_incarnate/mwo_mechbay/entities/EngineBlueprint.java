@@ -46,7 +46,7 @@ public class EngineBlueprint extends Blueprint {
         localCrittable.isLocked = true;
         localCrittable.name = this.name;
         localCrittable.itemType = "Engine";
-        localCrittable.hardpointType = HardpointType.UNKNOWN_HARDPOINT_TYPE;
+        localCrittable.hardpointType = HardpointType.UNKNOWN;
         localCrittable.criticals = this.centerTorsoCriticals;
         localCrittable.tonnage = 0.0D;
         localCrittable.position = -1;
@@ -63,7 +63,7 @@ public class EngineBlueprint extends Blueprint {
         localCrittable.isLocked = true;
         localCrittable.name = this.name;
         localCrittable.itemType = "Engine";
-        localCrittable.hardpointType = HardpointType.UNKNOWN_HARDPOINT_TYPE;
+        localCrittable.hardpointType = HardpointType.UNKNOWN;
         localCrittable.criticals = this.sideTorsoCriticals;
         localCrittable.tonnage = 0.0D;
         localCrittable.position = -1;

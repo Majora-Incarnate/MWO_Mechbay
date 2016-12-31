@@ -25,7 +25,7 @@ public class ArmorBlueprint extends Blueprint {
         localCrittable.isLocked = false;
         localCrittable.name = this.name;
         localCrittable.itemType = "Armor";
-        localCrittable.hardpointType = HardpointType.UNKNOWN_HARDPOINT_TYPE;
+        localCrittable.hardpointType = HardpointType.UNKNOWN;
         localCrittable.criticals = 1;
         localCrittable.tonnage = 0.0D;
         localCrittable.position = -1;

@@ -1,5 +1,7 @@
 package com.github.majora_incarnate.mwo_mechbay.entities;
 
+import java.util.Map;
+
 public class ModelBlueprint extends Blueprint {
     public String modelName;
     public String chassisName;
@@ -12,14 +14,14 @@ public class ModelBlueprint extends Blueprint {
     public double acceleration;
     public double deceleration;
     public double turnRate;
-    public Map<String, Map<String, double>> movementRanges;
-    public Map<String, Map<String, double>> movementSpeeds;
+    public Map<String, Map<String, Double>> movementRanges;
+    public Map<String, Map<String, Double>> movementSpeeds;
     public int minEngineRating;
     public int maxEngineRating;
     public int mechModules;
-    public int weapoModules;
-    public int consumablModules;
-    public Map<String, String> sectionModels;
+    public int weaponModules;
+    public int consumableModules;
+    public Map<SectionType, String> sectionModels;
     public String engineType;
     public int engineRating;
     public String armorType;

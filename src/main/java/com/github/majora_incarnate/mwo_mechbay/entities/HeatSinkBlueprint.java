@@ -3,8 +3,8 @@ package com.github.majora_incarnate.mwo_mechbay.entities;
 public class HeatSinkBlueprint extends Blueprint {
     public double tonnage;
     public int criticals;
-    public double engineDissipation;
-    public double normalDissipation;
+    public double internalDissipation;
+    public double externalDissipation;
     public double thresholdBoost;
     public int spaceModifier;
     public int itemCost;
@@ -32,7 +32,7 @@ public class HeatSinkBlueprint extends Blueprint {
         int engineHeatSinks = engineRating > 250 ? 10 : engineRating / 25;
         int externalHeatSinkCount = heatSinkCount - engineHeatSinks;
         
-        return this.engineDissipation * engineHeatSinks + externalHeatSinkCount * this.normalDissipation;
+        return this.internalDissipation * engineHeatSinks + externalHeatSinkCount * this.externalDissipation;
     }
 
     public double Get_Threshold(int heatSinkCount) {
@@ -48,7 +48,7 @@ public class HeatSinkBlueprint extends Blueprint {
         localCrittable.isLocked = false;
         localCrittable.name = this.name;
         localCrittable.itemType = "Heat Sink";
-        localCrittable.hardpointType = HardpointType.UNKNOWN_HARDPOINT_TYPE;
+        localCrittable.hardpointType = HardpointType.UNKNOWN;
         localCrittable.criticals = this.criticals;
         localCrittable.tonnage = 0.0D;
         localCrittable.position = -1;

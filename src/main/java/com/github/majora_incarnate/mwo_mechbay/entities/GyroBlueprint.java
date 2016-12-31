@@ -24,7 +24,7 @@ public class GyroBlueprint extends Blueprint {
         localCrittable.isLocked = true;
         localCrittable.name = this.name;
         localCrittable.itemType = "Gyro";
-        localCrittable.hardpointType = HardpointType.UNKNOWN_HARDPOINT_TYPE;
+        localCrittable.hardpointType = HardpointType.UNKNOWN;
         localCrittable.criticals = this.criticals;
         localCrittable.tonnage = 0.0D;
         localCrittable.position = -1;
