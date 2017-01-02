@@ -30,6 +30,8 @@ import com.github.majora_incarnate.mwo_mechbay.entities.TechBase;
 import com.github.majora_incarnate.mwo_mechbay.entities.User;
 import com.github.majora_incarnate.mwo_mechbay.entities.Variant;
 import com.github.majora_incarnate.mwo_mechbay.entities.WeaponBlueprint;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -308,13 +310,21 @@ public class MechlabJPanel extends javax.swing.JPanel {
         section2CriticalList = new javax.swing.JList<>();
         secondaryTabbedPane = new javax.swing.JTabbedPane();
         quirksPanel = new javax.swing.JPanel();
+        quirksJScrollPane = new javax.swing.JScrollPane();
+        quirksJTextArea = new javax.swing.JTextArea();
         componentsScrollPane = new javax.swing.JScrollPane();
         componentsPanel = new javax.swing.JPanel();
         InformationTabbedPane = new javax.swing.JTabbedPane();
         ModelOverviewPanel = new javax.swing.JPanel();
         descriptionScrollPane = new javax.swing.JScrollPane();
         descriptionTextArea = new javax.swing.JTextArea();
+        overviewComponentPanel = new com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel();
+        hardpointComponentPanel = new com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel();
         ModelSpecificationsPanel = new javax.swing.JPanel();
+        speedComponentPanel = new com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel();
+        manueverabilityComponentPanel = new com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel();
+        movementRangeComponentPanel = new com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel();
+        movementSpeedComponentPanel = new com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel();
         InformationSpecificationsPanel = new javax.swing.JPanel();
         EquipmentSpecificationsPanel = new javax.swing.JPanel();
         OptionsPanel = new javax.swing.JPanel();
@@ -1959,6 +1969,20 @@ public class MechlabJPanel extends javax.swing.JPanel {
         secondaryTabbedPane.setPreferredSize(new java.awt.Dimension(256, 512));
 
         quirksPanel.setLayout(new java.awt.GridBagLayout());
+
+        quirksJTextArea.setEditable(false);
+        quirksJTextArea.setColumns(20);
+        quirksJTextArea.setRows(5);
+        quirksJScrollPane.setViewportView(quirksJTextArea);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        quirksPanel.add(quirksJScrollPane, gridBagConstraints);
+
         secondaryTabbedPane.addTab("Quirks", quirksPanel);
 
         componentsPanel.setLayout(new java.awt.GridBagLayout());
@@ -1987,10 +2011,17 @@ public class MechlabJPanel extends javax.swing.JPanel {
         descriptionScrollPane.setViewportView(descriptionTextArea);
 
         ModelOverviewPanel.add(descriptionScrollPane, new java.awt.GridBagConstraints());
+        ModelOverviewPanel.add(overviewComponentPanel, new java.awt.GridBagConstraints());
+        ModelOverviewPanel.add(hardpointComponentPanel, new java.awt.GridBagConstraints());
 
         InformationTabbedPane.addTab("Model Overview", ModelOverviewPanel);
 
         ModelSpecificationsPanel.setLayout(new java.awt.GridBagLayout());
+        ModelSpecificationsPanel.add(speedComponentPanel, new java.awt.GridBagConstraints());
+        ModelSpecificationsPanel.add(manueverabilityComponentPanel, new java.awt.GridBagConstraints());
+        ModelSpecificationsPanel.add(movementRangeComponentPanel, new java.awt.GridBagConstraints());
+        ModelSpecificationsPanel.add(movementSpeedComponentPanel, new java.awt.GridBagConstraints());
+
         InformationTabbedPane.addTab("Model Specifications", ModelSpecificationsPanel);
 
         InformationSpecificationsPanel.setLayout(new java.awt.GridBagLayout());
@@ -2112,13 +2143,12 @@ public class MechlabJPanel extends javax.swing.JPanel {
         unreleasedLabel.setBackground(User.variant.modelType.isUnreleased ? Color.RED : Color.GREEN);
         unconfirmedLabel.setBackground(User.variant.modelType.isUnconfirmed ? Color.RED : Color.GREEN);
 
-        //overviewComponentPanel.Set_Overview(User.variant.chassisType, User.variant.modelType);
-        //moduleComponentPanel.Set_Modules(User.variant.chassisType, User.variant.modelType, false);
-        //hardpointComponentPanel.Set_Total_Hardpoints(0, 0, 0, 0);
-        //speedComponentPanel.Set_Speed_Limits(User.variant.chassisType, User.variant.modelType, 16.2, 1.0);
-        //manueverabilityComponentPanel.Set_Manueverability(User.variant.chassisType, User.variant.modelType, User.variant.currentJumpJets);
-        //movementRangeComponentPanel.Set_Movement_Range(User.variant.chassisType, User.variant.modelType);
-        //movementSpeedComponentPanel.Set_Movement_Speed(User.variant.chassisType, User.variant.modelType);
+        overviewComponentPanel.Set_Overview(User.variant.chassisType, User.variant.modelType);
+        hardpointComponentPanel.Set_Total_Hardpoints(0, 0, 0, 0);
+        speedComponentPanel.Set_Speed_Limits(User.variant.chassisType, User.variant.modelType, 16.2, 1.0);
+        manueverabilityComponentPanel.Set_Manueverability(User.variant.chassisType, User.variant.modelType, User.variant.currentJumpJets);
+        movementRangeComponentPanel.Set_Movement_Range(User.variant.chassisType, User.variant.modelType);
+        movementSpeedComponentPanel.Set_Movement_Speed(User.variant.chassisType, User.variant.modelType);
 
         selectedDatabase = null;
         selectedDatabase = new Database(masterDatabase, getDatabaseFilter(User.variant.chassisType.techBase, User.mixtech_enabled, User.futuretech_enabled));
@@ -2131,6 +2161,24 @@ public class MechlabJPanel extends javax.swing.JPanel {
         SetSectionOmnipods(headOmnipodComboBox, SectionType.HEAD.index);
         SetSectionOmnipods(rightLegOmnipodComboBox, SectionType.RIGHT_LEG.index);
         SetSectionOmnipods(leftLegOmnipodComboBox, SectionType.LEFT_LEG.index);
+        
+        Map<String, Double> quirks = new HashMap<>();
+        
+        for (SectionBlueprint sectionBlueprint : User.variant.sectionTypes.values()) {
+            for (String key : sectionBlueprint.quirks.keySet()) {
+                if (quirks.containsKey(key)) {
+                    quirks.compute(key, (givenKey, value) -> value + sectionBlueprint.quirks.get(givenKey));
+                } else {
+                    quirks.put(key, sectionBlueprint.quirks.get(key));
+                }
+            }
+        }
+        
+        quirksJTextArea.setText("");
+        
+        for (Map.Entry<String, Double> quirk : quirks.entrySet()) {
+            quirksJTextArea.append(String.format("%s: %.2f\n", quirk.getKey(), quirk.getValue()));
+        }
 
         engineComboBox.setModel(new DefaultComboBoxModel(selectedDatabase.ENGINE_BLUEPRINTS.toArray()));
         armorComboBox.setModel(new DefaultComboBoxModel(selectedDatabase.ARMOR_BLUEPRINTS.toArray()));
@@ -2274,20 +2322,20 @@ public class MechlabJPanel extends javax.swing.JPanel {
     }
 
     private void SetCriticalItems(JList jList, JToggleButton jToggleButton, JToggleButton jToggleButton2, JToggleButton jToggleButton3, int n) {
-        jList.setVisibleRowCount(User.variant.sections[n].maximumCriticals);
-        jList.setMinimumSize(new Dimension(90, User.variant.sections[n].maximumCriticals * 12));
-        if (jToggleButton != null) {
-            jToggleButton.setEnabled(User.variant.chassisType.equals(MechType.OMNIMECH) && User.variant.sectionTypes[n].maximumActuatorCount > 2);
-            jToggleButton.setSelected(false);
-        }
-        if (jToggleButton2 != null) {
-            jToggleButton2.setEnabled(User.variant.chassisType.equals(MechType.OMNIMECH) && User.variant.sectionTypes[n].maximumActuatorCount > 3);
-            jToggleButton2.setSelected(false);
-        }
-        if (jToggleButton3 != null) {
-            jToggleButton3.setEnabled(User.variant.chassisType.techBase.equals("IS"));
-            jToggleButton3.setSelected(false);
-        }
+//        jList.setVisibleRowCount(User.variant.sections[n].maximumCriticals);
+//        jList.setMinimumSize(new Dimension(90, User.variant.sections[n].maximumCriticals * 12));
+//        if (jToggleButton != null) {
+//            jToggleButton.setEnabled(User.variant.chassisType.equals(MechType.OMNIMECH) && User.variant.sectionTypes[n].maximumActuatorCount > 2);
+//            jToggleButton.setSelected(false);
+//        }
+//        if (jToggleButton2 != null) {
+//            jToggleButton2.setEnabled(User.variant.chassisType.equals(MechType.OMNIMECH) && User.variant.sectionTypes[n].maximumActuatorCount > 3);
+//            jToggleButton2.setSelected(false);
+//        }
+//        if (jToggleButton3 != null) {
+//            jToggleButton3.setEnabled(User.variant.chassisType.techBase.equals("IS"));
+//            jToggleButton3.setSelected(false);
+//        }
     }
 
     private void UpdateCriticalItemVisibility(JList jList, JToggleButton jToggleButton, JToggleButton jToggleButton2, JToggleButton jToggleButton3, int n) {
@@ -2840,6 +2888,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private javax.swing.JButton exportButton;
     private javax.swing.JProgressBar firepowerProgressBar;
     private javax.swing.JComboBox<String> gyroComboBox;
+    private com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel hardpointComponentPanel;
     private javax.swing.JLabel headAMSHardpointLabel;
     private javax.swing.JLabel headArmorAmountLabel;
     private javax.swing.JProgressBar headArmorProgressBar;
@@ -2915,13 +2964,19 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private javax.swing.JSpinner leftTorsoSpinner;
     private javax.swing.JProgressBar leftTorsoStructureProgressBar;
     private javax.swing.JButton loadButton;
+    private com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel manueverabilityComponentPanel;
     private javax.swing.JButton maximumArmorButton;
     private javax.swing.JPanel mechPanel;
     private javax.swing.JLabel mechTypeLabel;
     javax.swing.JComboBox<String> modelComboBox;
+    private com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel movementRangeComponentPanel;
+    private com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel movementSpeedComponentPanel;
     private javax.swing.JComboBox<String> myomerComboBox;
+    private com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel overviewComponentPanel;
     private javax.swing.JLabel pointsPerTonAmountLabel;
     private javax.swing.JLabel pointsPerTonLabel;
+    private javax.swing.JScrollPane quirksJScrollPane;
+    private javax.swing.JTextArea quirksJTextArea;
     private javax.swing.JPanel quirksPanel;
     private javax.swing.JProgressBar rangeProgressBar;
     private javax.swing.JLabel rightArmAMSHardpointLabel;
@@ -2991,6 +3046,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel special2ArmorAmountLabel;
     private javax.swing.JPanel special2Panel;
     private javax.swing.JSpinner special2Spinner;
+    private com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel speedComponentPanel;
     private javax.swing.JProgressBar speedProgressBar;
     private javax.swing.JPanel statisticsPanel;
     private javax.swing.JComboBox<String> structureComboBox;

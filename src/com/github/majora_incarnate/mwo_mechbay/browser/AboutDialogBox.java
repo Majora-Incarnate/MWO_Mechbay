@@ -80,7 +80,7 @@ public class AboutDialogBox extends JDialog {
         getContentPane().add(this.closeButton, localGridBagConstraints);
         getRootPane().setDefaultButton(this.closeButton);
         this.insigniaLabel.setHorizontalAlignment(0);
-        this.insigniaLabel.setIcon(new ImageIcon(getClass().getResource("/resources/Steel Jaguar.gif")));
+        this.insigniaLabel.setIcon(new ImageIcon(getClass().getClassLoader().getResource("resources/Steel Jaguar.gif")));
         localGridBagConstraints = new GridBagConstraints();
         localGridBagConstraints.gridx = 0;
         localGridBagConstraints.gridy = 0;

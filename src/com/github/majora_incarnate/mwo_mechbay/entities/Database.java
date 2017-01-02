@@ -11,6 +11,8 @@ import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
 
 public class Database {
     public final List<ChassisBlueprint> CHASSIS_BLUEPRINTS;
@@ -30,8 +32,8 @@ public class Database {
     public final List<ActuatorBlueprint> ACTUATOR_BLUEPRINTS;
     public final List<MyomerBlueprint> MYOMER_BLUEPRINTS;
 
-    private final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-    private final String DATABASE_DIRECTORY = "\\database\\";
+    private final Gson GSON = new GsonBuilder().enableComplexMapKeySerialization().setPrettyPrinting().create();
+    private final String DATABASE_DIRECTORY = "//database//";
     private final String CUSTOM_PREFIX = "Custom_";
     private final String FILETYPE_POSTFIX = ".json";
     private final String USER_DIRECTORY = System.getProperty("user.dir");
@@ -109,54 +111,72 @@ public class Database {
     }
 
     private void addValue(final String blueprint_type, final BufferedReader br) {
+        Type type;
+        
         switch(blueprint_type) {
             case "actuator":
-                ACTUATOR_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, ActuatorBlueprint[].class)));
+                type = new TypeToken<ActuatorBlueprint[]>(){}.getType();
+                ACTUATOR_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, type)));
                 break;
             case "ammo":
-                AMMO_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, AmmoBlueprint[].class)));
+                type = new TypeToken<AmmoBlueprint[]>(){}.getType();
+                AMMO_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, type)));
                 break;
             case "armor":
-                ARMOR_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, ArmorBlueprint[].class)));
+                type = new TypeToken<ArmorBlueprint[]>(){}.getType();
+                ARMOR_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, type)));
                 break;
             case "chassis":
-                CHASSIS_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, ChassisBlueprint[].class)));
+                type = new TypeToken<ChassisBlueprint[]>(){}.getType();
+                CHASSIS_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, type)));
                 break;
             case "cockpit":
-                COCKPIT_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, CockpitBlueprint[].class)));
+                type = new TypeToken<CockpitBlueprint[]>(){}.getType();
+                COCKPIT_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, type)));
                 break;
             case "engine":
-                ENGINE_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, EngineBlueprint[].class)));
+                type = new TypeToken<EngineBlueprint[]>(){}.getType();
+                ENGINE_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, type)));
                 break;
             case "equipment":
-                EQUIPMENT_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, EquipmentBlueprint[].class)));
+                type = new TypeToken<EquipmentBlueprint[]>(){}.getType();
+                EQUIPMENT_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, type)));
                 break;
             case "myomer":
-                MYOMER_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, MyomerBlueprint[].class)));
+                type = new TypeToken<MyomerBlueprint[]>(){}.getType();
+                MYOMER_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, type)));
                 break;
             case "firecontrol":
-                FIRE_CONTROL_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, FireControlBlueprint[].class)));
+                type = new TypeToken<FireControlBlueprint[]>(){}.getType();
+                FIRE_CONTROL_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, type)));
                 break;
             case "gyro":
-                GYRO_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, GyroBlueprint[].class)));
+                type = new TypeToken<GyroBlueprint[]>(){}.getType();
+                GYRO_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, type)));
                 break;
             case "heatsink":
-                HEAT_SINK_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, HeatSinkBlueprint[].class)));
+                type = new TypeToken<HeatSinkBlueprint[]>(){}.getType();
+                HEAT_SINK_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, type)));
                 break;
             case "jumpjet":
-                JUMP_JET_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, JumpJetBlueprint[].class)));
+                type = new TypeToken<JumpJetBlueprint[]>(){}.getType();
+                JUMP_JET_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, type)));
                 break;
             case "model":
-                MODEL_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, ModelBlueprint[].class)));
+                type = new TypeToken<ModelBlueprint[]>(){}.getType();
+                MODEL_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, type)));
                 break;
             case "section":
-                SECTION_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, SectionBlueprint[].class)));
+                type = new TypeToken<SectionBlueprint[]>(){}.getType();
+                SECTION_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, type)));
                 break;
             case "structure":
-                STRUCTURE_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, StructureBlueprint[].class)));
+                type = new TypeToken<StructureBlueprint[]>(){}.getType();
+                STRUCTURE_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, type)));
                 break;
             case "weapon":
-                WEAPON_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, WeaponBlueprint[].class)));
+                type = new TypeToken<WeaponBlueprint[]>(){}.getType();
+                WEAPON_BLUEPRINTS.addAll(Arrays.asList(GSON.fromJson(br, type)));
                 break;
             case "misc":
             default:

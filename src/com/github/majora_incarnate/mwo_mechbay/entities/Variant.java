@@ -1,13 +1,15 @@
 package com.github.majora_incarnate.mwo_mechbay.entities;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Variant implements Serializable {
     private static final long serialVersionUID = 6391710359719258815L;
 
     public ChassisBlueprint chassisType = null;
     public ModelBlueprint modelType = null;
-    public SectionBlueprint[] sectionTypes;
+    public Map<SectionType, SectionBlueprint> sectionTypes;
     public String variantName;
     public double currentTonnage;
     public int currentCriticals;
@@ -28,7 +30,7 @@ public class Variant implements Serializable {
     public Section[] sections;
 
     public Variant() {
-        this.sectionTypes = new SectionBlueprint[8];
+        sectionTypes = new HashMap<>();
         this.sections = new Section[8];
         this.variantName = "";
         this.engine = null;
@@ -100,45 +102,44 @@ public class Variant implements Serializable {
         this.chassisType = chassisBlueprint;
         this.modelType = modelBlueprint;
         
-        /*database.ENGINE_BLUEPRINTS.stream().filter((engine_blueprint) -> (engine_blueprint.name.equals(modelBlueprint.engine_type))).forEach((engine_blueprint) -> {
+        for (Map.Entry<SectionType, String> modelSection : modelBlueprint.sectionModels.entrySet()) {
+            for (SectionBlueprint section : database.SECTION_BLUEPRINTS) {
+                if (section.section.equals(modelSection.getKey()) && section.name.equals(modelSection.getValue())) {
+                    sectionTypes.put(modelSection.getKey(), section);
+            
+                    this.minimumJumpJets += section.minimumJumpJetModifier;
+                    this.maximumJumpJets += section.maximumJumpJetModifier;
+                    break;
+                }
+            }
+        }
+        
+        database.ENGINE_BLUEPRINTS.stream().filter((engine_blueprint) -> (engine_blueprint.name.equals(modelBlueprint.engineType))).forEach((engine_blueprint) -> {
             this.engine = engine_blueprint;
         });
-        database.ARMOR_BLUEPRINTS.stream().filter((armor_blueprint) -> (armor_blueprint.name.equals(modelBlueprint.armor_type))).forEach((armor_blueprint) -> {
+        database.ARMOR_BLUEPRINTS.stream().filter((armor_blueprint) -> (armor_blueprint.name.equals(modelBlueprint.armorType))).forEach((armor_blueprint) -> {
             this.armor = armor_blueprint;
         });
-        database.HEAT_SINK_BLUEPRINTS.stream().filter((heatsink_blueprint) -> (heatsink_blueprint.name.equals(modelBlueprint.heatsink_type))).forEach((heatsink_blueprint) -> {
+        database.HEAT_SINK_BLUEPRINTS.stream().filter((heatsink_blueprint) -> (heatsink_blueprint.name.equals(modelBlueprint.heatsinkType))).forEach((heatsink_blueprint) -> {
             this.heatsinks = heatsink_blueprint;
         });
-        database.GYRO_BLUEPRINTS.stream().filter((gyro_blueprint) -> (gyro_blueprint.name.equals(modelBlueprint.gyro_type))).forEach((gyro_blueprint) -> {
+        database.GYRO_BLUEPRINTS.stream().filter((gyro_blueprint) -> (gyro_blueprint.name.equals(modelBlueprint.gyroType))).forEach((gyro_blueprint) -> {
             this.gyro = gyro_blueprint;
         });
-        database.STRUCTURE_BLUEPRINTS.stream().filter((structure_blueprint) -> (structure_blueprint.name.equals(modelBlueprint.structure_type))).forEach((structure_blueprint) -> {
+        database.STRUCTURE_BLUEPRINTS.stream().filter((structure_blueprint) -> (structure_blueprint.name.equals(modelBlueprint.structureType))).forEach((structure_blueprint) -> {
             this.structure = structure_blueprint;
         });
-        database.COCKPIT_BLUEPRINTS.stream().filter((cockpit_blueprint) -> (cockpit_blueprint.name.equals(modelBlueprint.cockpit_type))).forEach((cockpit_blueprint) -> {
+        database.COCKPIT_BLUEPRINTS.stream().filter((cockpit_blueprint) -> (cockpit_blueprint.name.equals(modelBlueprint.cockpitType))).forEach((cockpit_blueprint) -> {
             this.cockpit = cockpit_blueprint;
         });
-        database.JUMP_JET_BLUEPRINTS.stream().filter((jumpjet_blueprint) -> (jumpjet_blueprint.name.equals(modelBlueprint.jumpjet_type))).forEach((jumpjet_blueprint) -> {
+        database.JUMP_JET_BLUEPRINTS.stream().filter((jumpjet_blueprint) -> (jumpjet_blueprint.name.equals(modelBlueprint.jumpjetType))).forEach((jumpjet_blueprint) -> {
             this.jumpjets = jumpjet_blueprint;
         });
         
-        for (int n = 0; n < SectionType.numberOfSectionTypes(); ++n) {
-            for (SectionBlueprint section : database.SECTION_BLUEPRINTS) {
-                if (!section.model.equals(modelBlueprint.section_models[n]))
-                    continue;
-                
-                this.sectionTypes[section.section.index] = section;
-            }
-            
-            this.minimum_jump_jets += this.sectionTypes[n].minimumJumpJetModifier;
-            this.maximum_jump_jets += this.sectionTypes[n].maximum_jump_jet_modifier;
-            this.sections[n].Set_Section(this.sectionTypes[n], n, chassisBlueprint.tonnage);
-        }
-        
-        this.current_heat_sink_count = modelBlueprint.heatsink_count;
-        this.current_engine_rating = modelBlueprint.engine_rating;
-        this.current_jump_jets = this.minimum_jump_jets;
-        this.sections[SectionType.HEAD.index].Add_Component(this.cockpit.Get_Crittable());
+        this.currentHeatSinkCount = modelBlueprint.heatsinkCount;
+        this.currentEngineRating = modelBlueprint.engineRating;
+        this.currentJumpJets = this.minimumJumpJets;
+        /*this.sections[SectionType.HEAD.index].Add_Component(this.cockpit.Get_Crittable());
         this.sections[SectionType.LEFT_TORSO.index].Add_Component(this.engine.Get_Crittable(this.engine.Has_Side_Torso_Criticals()));
         this.sections[SectionType.RIGHT_TORSO.index].Add_Component(this.engine.Get_Crittable(this.engine.Has_Side_Torso_Criticals()));
         this.sections[SectionType.CENTER_TORSO.index].Add_Component(this.engine.Get_Crittable());
@@ -170,13 +171,13 @@ public class Variant implements Serializable {
         this.minimumJumpJets = 0;
         this.maximumJumpJets = 0;
         
-        for (int i = 0; i < 8; ++i) {
-            this.minimumJumpJets += this.sectionTypes[i].minimumJumpJetModifier;
-            this.maximumJumpJets += this.sectionTypes[i].maximumJumpJetModifier;
-            
-            for (int j = 0; j < this.sectionTypes[i].minimumJumpJetModifier; ++j)
-                this.sections[i].Add_Component(this.jumpjets.Get_Crittable(this.chassisType.tonnage));
-        }
+//        for (int i = 0; i < 8; ++i) {
+//            this.minimumJumpJets += this.sectionTypes[i].minimumJumpJetModifier;
+//            this.maximumJumpJets += this.sectionTypes[i].maximumJumpJetModifier;
+//            
+//            for (int j = 0; j < this.sectionTypes[i].minimumJumpJetModifier; ++j)
+//                this.sections[i].Add_Component(this.jumpjets.Get_Crittable(this.chassisType.tonnage));
+//        }
         
         this.currentJumpJets = this.minimumJumpJets;
     }

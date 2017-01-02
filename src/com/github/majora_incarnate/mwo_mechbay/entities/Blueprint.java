@@ -1,5 +1,7 @@
 package com.github.majora_incarnate.mwo_mechbay.entities;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 public class Blueprint {
     public String name;
     public TechBase techBase;
@@ -14,9 +16,13 @@ public class Blueprint {
     public Crittable Get_Crittable() {
         return null;
     }
+    
+    public String debugString() {
+        return ToStringBuilder.reflectionToString(this);
+    }
 
     @Override
     public String toString() {
-        return this.name;
+        return name;
     }
 }

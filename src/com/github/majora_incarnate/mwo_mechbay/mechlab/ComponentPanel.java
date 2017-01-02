@@ -296,19 +296,19 @@ public class ComponentPanel extends javax.swing.JPanel {
 
     public void Set_Movement_Range(ChassisBlueprint chassisBlueprint, ModelBlueprint modelBlueprint) {
         ((TitledBorder) getBorder()).setTitle("Movement Range");
-        Set_Label(this.Label1, "Torso Yaw", String.format("%.1f", modelBlueprint.movementRanges.get("Torso").get("Yaw") * User.twist_x_modifier));
-        Set_Label(this.Label2, "Torso Pitch", String.format("%.1f", modelBlueprint.movementRanges.get("Torso").get("Pitch")));
-        Set_Label(this.Label3, "Arm Yaw", String.format("%.1f", modelBlueprint.movementRanges.get("Arm").get("Yaw")));
-        Set_Label(this.Label4, "Arm Pitch", String.format("%.1f", modelBlueprint.movementRanges.get("Arm").get("Pitch")));
+        Set_Label(this.Label1, "Torso Yaw", String.format("%.1f", modelBlueprint.movementRanges.get("torso").get("yaw") * User.twist_x_modifier));
+        Set_Label(this.Label2, "Torso Pitch", String.format("%.1f", modelBlueprint.movementRanges.get("torso").get("pitch")));
+        Set_Label(this.Label3, "Arm Yaw", String.format("%.1f", modelBlueprint.movementRanges.get("arm").get("yaw")));
+        Set_Label(this.Label4, "Arm Pitch", String.format("%.1f", modelBlueprint.movementRanges.get("arm").get("pitch")));
         Set_Bottom_Row_Usage(false);
     }
 
     public void Set_Movement_Speed(ChassisBlueprint chassisBlueprint, ModelBlueprint modelBlueprint) {
         ((TitledBorder) getBorder()).setTitle("Movement Speed");
-        Set_Label(this.Label1, "Torso Yaw", String.format("%.1f", modelBlueprint.movementSpeeds.get("Torso").get("Yaw") * User.twist_speed_modifier));
-        Set_Label(this.Label2, "Torso Pitch", String.format("%.1f", modelBlueprint.movementSpeeds.get("Torso").get("Pitch") * User.twist_speed_modifier));
-        Set_Label(this.Label3, "Arm Yaw", String.format("%.1f", modelBlueprint.movementSpeeds.get("Arm").get("Yaw") * User.arm_reflex_modifier));
-        Set_Label(this.Label4, "Arm Pitch", String.format("%.1f", modelBlueprint.movementSpeeds.get("Arm").get("Pitch") * User.arm_reflex_modifier));
+        Set_Label(this.Label1, "Torso Yaw", String.format("%.1f", modelBlueprint.movementSpeeds.get("torso").get("yaw") * User.twist_speed_modifier));
+        Set_Label(this.Label2, "Torso Pitch", String.format("%.1f", modelBlueprint.movementSpeeds.get("torso").get("pitch") * User.twist_speed_modifier));
+        Set_Label(this.Label3, "Arm Yaw", String.format("%.1f", modelBlueprint.movementSpeeds.get("arm").get("yaw") * User.arm_reflex_modifier));
+        Set_Label(this.Label4, "Arm Pitch", String.format("%.1f", modelBlueprint.movementSpeeds.get("arm").get("pitch") * User.arm_reflex_modifier));
         Set_Bottom_Row_Usage(false);
     }
 

@@ -1,6 +1,8 @@
 package com.github.majora_incarnate.mwo_mechbay.entities;
 
+import java.util.HashMap;
 import java.util.Map;
+import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class ModelBlueprint extends Blueprint {
     public String modelName;
@@ -32,4 +34,10 @@ public class ModelBlueprint extends Blueprint {
     public String cockpitType;
     public String jumpjetType;
     public String myomerType;
+    
+    public ModelBlueprint() {
+        movementRanges = new HashMap<>();
+        movementSpeeds = new HashMap<>();
+        sectionModels = new HashMap<>();
+    }
 }
