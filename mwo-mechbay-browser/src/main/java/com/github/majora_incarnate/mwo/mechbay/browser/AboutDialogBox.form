@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.github.majora_incarnate.mwo.mechbay.browser.AboutDialogBox">
+  <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="10" left="10" bottom="10" right="10"/>
+    <constraints>
+      <xy x="48" y="54" width="569" height="453"/>
+    </constraints>
+    <properties>
+      <maximumSize width="384" height="288"/>
+      <minimumSize width="384" height="288"/>
+      <preferredSize width="384" height="288"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="94766" binding="aboutPanel" layout-manager="GridBagLayout">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <alignmentX value="0.0"/>
+          <alignmentY value="0.0"/>
+          <autoscrolls value="false"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="e7465" class="javax.swing.JButton" binding="closeButton">
+            <constraints>
+              <grid row="6" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0" ipadx="3" ipady="4"/>
+            </constraints>
+            <properties>
+              <alignmentY value="0.0"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <margin top="10" left="10" bottom="10" right="10"/>
+              <maximumSize width="192" height="32"/>
+              <minimumSize width="192" height="32"/>
+              <preferredSize width="192" height="32"/>
+              <text value="Close"/>
+            </properties>
+          </component>
+          <component id="4c7b7" class="javax.swing.JLabel" binding="insigniaLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="6" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <alignmentY value="0.0"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <icon value="Steel Jaguar.gif"/>
+              <maximumSize width="256" height="256"/>
+              <minimumSize width="256" height="256"/>
+              <preferredSize width="256" height="256"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="dc6c1" class="javax.swing.JLabel" binding="mechbayVersionLabel">
+            <constraints>
+              <grid row="0" column="5" row-span="3" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0" ipadx="5"/>
+            </constraints>
+            <properties>
+              <alignmentY value="0.0"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <maximumSize width="64" height="32"/>
+              <minimumSize width="64" height="32"/>
+              <preferredSize width="64" height="32"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="23700" class="javax.swing.JLabel" binding="emailLabel">
+            <constraints>
+              <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0" ipadx="5" ipady="3"/>
+            </constraints>
+            <properties>
+              <alignmentY value="0.0"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <maximumSize width="64" height="32"/>
+              <minimumSize width="64" height="32"/>
+              <name value=""/>
+              <preferredSize width="64" height="32"/>
+              <text value="cjf-qssb@hotmail.com"/>
+            </properties>
+          </component>
+          <component id="d7aca" class="javax.swing.JLabel" binding="authorLabel">
+            <constraints>
+              <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0" ipadx="5" ipady="2"/>
+            </constraints>
+            <properties>
+              <alignmentY value="0.0"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <maximumSize width="64" height="32"/>
+              <minimumSize width="64" height="32"/>
+              <name value=""/>
+              <preferredSize width="64" height="32"/>
+              <text value="Quicksilver Kalasa"/>
+            </properties>
+          </component>
+          <component id="3fc9c" class="javax.swing.JLabel" binding="mwoVersionLabel">
+            <constraints>
+              <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0" ipadx="5" ipady="1"/>
+            </constraints>
+            <properties>
+              <alignmentY value="0.0"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <maximumSize width="64" height="32"/>
+              <minimumSize width="64" height="32"/>
+              <preferredSize width="64" height="32"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="ca46e" class="javax.swing.JLabel" binding="emailTitle">
+            <constraints>
+              <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0" ipadx="4" ipady="3"/>
+            </constraints>
+            <properties>
+              <alignmentY value="0.0"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <maximumSize width="64" height="32"/>
+              <minimumSize width="64" height="32"/>
+              <name value=""/>
+              <preferredSize width="64" height="32"/>
+              <text value="Email:"/>
+            </properties>
+          </component>
+          <component id="8093a" class="javax.swing.JLabel" binding="authorTitle">
+            <constraints>
+              <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0" ipadx="4" ipady="2"/>
+            </constraints>
+            <properties>
+              <alignmentY value="0.0"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <maximumSize width="64" height="32"/>
+              <minimumSize width="64" height="32"/>
+              <name value=""/>
+              <preferredSize width="64" height="32"/>
+              <text value="Author:"/>
+            </properties>
+          </component>
+          <component id="52a23" class="javax.swing.JLabel" binding="mwoVersionTitle">
+            <constraints>
+              <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0" ipadx="4" ipady="10"/>
+            </constraints>
+            <properties>
+              <alignmentY value="0.0"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <maximumSize width="64" height="32"/>
+              <minimumSize width="64" height="32"/>
+              <preferredSize width="64" height="32"/>
+              <text value="MWO Version:"/>
+            </properties>
+          </component>
+          <component id="efcdf" class="javax.swing.JLabel" binding="mechbayVersionTitle">
+            <constraints>
+              <grid row="0" column="4" row-span="3" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0" ipadx="4"/>
+            </constraints>
+            <properties>
+              <alignmentY value="0.0"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <maximumSize width="64" height="32"/>
+              <minimumSize width="64" height="32"/>
+              <name value="asdfasdf"/>
+              <preferredSize width="64" height="32"/>
+              <text value="MWO Mechbay Version:"/>
+            </properties>
+          </component>
+          <component id="a90f5" class="javax.swing.JLabel" binding="disclaimerLabel">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0" ipady="4"/>
+            </constraints>
+            <properties>
+              <alignmentY value="0.0"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <maximumSize width="192" height="32"/>
+              <minimumSize width="192" height="32"/>
+              <preferredSize width="192" height="32"/>
+              <text value="Unofficial Program for MWO"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
