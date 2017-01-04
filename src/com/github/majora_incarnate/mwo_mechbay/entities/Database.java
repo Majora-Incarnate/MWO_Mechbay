@@ -1,5 +1,21 @@
 package com.github.majora_incarnate.mwo_mechbay.entities;
 
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.CockpitBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.MyomerBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.EquipmentBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.FireControlBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.AmmoBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.StructureBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.HeatSinkBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.JumpJetBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.ActuatorBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.WeaponBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.Blueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.GyroBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.EngineBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.ChassisBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.ArmorBlueprint;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,6 +28,7 @@ import java.util.stream.Collectors;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+
 import java.lang.reflect.Type;
 
 public class Database {

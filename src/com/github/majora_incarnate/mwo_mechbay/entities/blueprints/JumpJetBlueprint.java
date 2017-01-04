@@ -1,4 +1,7 @@
-package com.github.majora_incarnate.mwo_mechbay.entities;
+package com.github.majora_incarnate.mwo_mechbay.entities.blueprints;
+
+import com.github.majora_incarnate.mwo_mechbay.entities.Crittable;
+import com.github.majora_incarnate.mwo_mechbay.entities.HardpointType;
 
 public class JumpJetBlueprint extends Blueprint {
     private static final double BASE_COST = 44000.0D;

@@ -1,7 +1,10 @@
 package com.github.majora_incarnate.mwo_mechbay.entities;
 
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.Blueprint;
+
 import java.util.HashMap;
 import java.util.Map;
+
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class ModelBlueprint extends Blueprint {

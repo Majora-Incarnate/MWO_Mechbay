@@ -1,4 +1,4 @@
-package com.github.majora_incarnate.mwo_mechbay.entities;
+package com.github.majora_incarnate.mwo_mechbay.entities.blueprints;
 
 public class FireControlBlueprint extends Blueprint {
     public double spreadModifier;

@@ -16,8 +16,8 @@ import javax.swing.JProgressBar;
 import javax.swing.JToggleButton;
 import javax.swing.SpinnerNumberModel;
 
-import com.github.majora_incarnate.mwo_mechbay.entities.Blueprint;
-import com.github.majora_incarnate.mwo_mechbay.entities.ChassisBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.Blueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.ChassisBlueprint;
 import com.github.majora_incarnate.mwo_mechbay.entities.Crittable;
 import com.github.majora_incarnate.mwo_mechbay.entities.Database;
 import com.github.majora_incarnate.mwo_mechbay.entities.HardpointType;
@@ -29,7 +29,8 @@ import com.github.majora_incarnate.mwo_mechbay.entities.SectionType;
 import com.github.majora_incarnate.mwo_mechbay.entities.TechBase;
 import com.github.majora_incarnate.mwo_mechbay.entities.User;
 import com.github.majora_incarnate.mwo_mechbay.entities.Variant;
-import com.github.majora_incarnate.mwo_mechbay.entities.WeaponBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.WeaponBlueprint;
+
 import java.util.HashMap;
 import java.util.Map;
 

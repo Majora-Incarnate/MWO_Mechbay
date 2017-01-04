@@ -1,12 +1,19 @@
-package com.github.majora_incarnate.mwo_mechbay.entities;
+package com.github.majora_incarnate.mwo_mechbay.entities.blueprints;
 
-public class MyomerBlueprint extends Blueprint {
+import com.github.majora_incarnate.mwo_mechbay.entities.Crittable;
+import com.github.majora_incarnate.mwo_mechbay.entities.HardpointType;
+import com.github.majora_incarnate.mwo_mechbay.entities.SectionClass;
+
+public class ActuatorBlueprint extends Blueprint {
+    public SectionClass section;
+    public int index;
+
     @Override
     public Crittable Get_Crittable() {
         Crittable localCrittable = new Crittable();
         localCrittable.isLocked = true;
         localCrittable.name = this.name;
-        localCrittable.itemType = "Myomer";
+        localCrittable.itemType = "Actuator";
         localCrittable.hardpointType = HardpointType.UNKNOWN;
         localCrittable.criticals = 1;
         localCrittable.tonnage = 0.0D;

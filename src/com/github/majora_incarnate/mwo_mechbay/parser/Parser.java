@@ -1,6 +1,6 @@
 package com.github.majora_incarnate.mwo_mechbay.parser;
 
-import com.github.majora_incarnate.mwo_mechbay.entities.WeaponBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.WeaponBlueprint;
 
 import java.io.FileWriter;
 import java.io.IOException;

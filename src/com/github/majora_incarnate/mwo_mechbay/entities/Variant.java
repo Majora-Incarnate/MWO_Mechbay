@@ -1,5 +1,16 @@
 package com.github.majora_incarnate.mwo_mechbay.entities;
 
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.JumpJetBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.CockpitBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.MyomerBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.FireControlBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.GyroBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.EngineBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.StructureBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.ChassisBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.HeatSinkBlueprint;
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.ArmorBlueprint;
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;

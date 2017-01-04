@@ -1,4 +1,8 @@
-package com.github.majora_incarnate.mwo_mechbay.entities;
+package com.github.majora_incarnate.mwo_mechbay.entities.blueprints;
+
+import com.github.majora_incarnate.mwo_mechbay.entities.Constants;
+import com.github.majora_incarnate.mwo_mechbay.entities.Crittable;
+import com.github.majora_incarnate.mwo_mechbay.entities.HardpointType;
 
 public class StructureBlueprint extends Blueprint {
     public double tonnageModifier;

@@ -1,5 +1,7 @@
 package com.github.majora_incarnate.mwo_mechbay.entities;
 
+import com.github.majora_incarnate.mwo_mechbay.entities.blueprints.ActuatorBlueprint;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
