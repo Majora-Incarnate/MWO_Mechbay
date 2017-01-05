@@ -18,11 +18,11 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTabbedPane;
 import javax.swing.WindowConstants;
 
-import com.github.majora_incarnate.mwo_mechbay.creator.CreatorJPanel;
-import com.github.majora_incarnate.mwo_mechbay.entities.Constants;
-import com.github.majora_incarnate.mwo_mechbay.mechlab.MechlabJPanel;
-import com.github.majora_incarnate.mwo_mechbay.encyclopedia.EncyclopediaJPanel;
-import com.github.majora_incarnate.mwo_mechbay.entities.Database;
+import com.github.majora_incarnate.mwo.mechbay.creator.CreatorJPanel;
+import com.github.majora_incarnate.mwo.mechbay.entities.Constants;
+import com.github.majora_incarnate.mwo.mechbay.mechlab.MechlabJPanel;
+import com.github.majora_incarnate.mwo.mechbay.encyclopedia.EncyclopediaJPanel;
+import com.github.majora_incarnate.mwo.mechbay.entities.Database;
 
 /**
  *
@@ -222,7 +222,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_closeAllTabsJMenuItemActionPerformed
 
     private void aboutJMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_aboutJMenuItemActionPerformed
-        final AboutDialogBox aboutDialogBox = new AboutDialogBox(this, true, Constants.MECHBAY_VERSION, "1.3.3");
+        final AboutDialogBox aboutDialogBox = new AboutDialogBox(Constants.MECHBAY_VERSION, "1.3.3");
         aboutDialogBox.setLocationRelativeTo(this);
         aboutDialogBox.setVisible(true);
     }//GEN-LAST:event_aboutJMenuItemActionPerformed

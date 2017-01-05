@@ -4,20 +4,11 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.border.TitledBorder;
 
-import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.ArmorBlueprint;
-import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.ChassisBlueprint;
-import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.CockpitBlueprint;
-import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.EngineBlueprint;
-import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.GyroBlueprint;
-import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.HeatSinkBlueprint;
-import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.JumpJetBlueprint;
-import com.github.majora_incarnate.mwo_mechbay.entities.ModelBlueprint;
-import com.github.majora_incarnate.mwo_mechbay.entities.MovementArchetype;
-import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.MyomerBlueprint;
-import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.StructureBlueprint;
+import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.*;
 import com.github.majora_incarnate.mwo.mechbay.entities.User;
 import com.github.majora_incarnate.mwo.mechbay.entities.Variant;
-import com.github.majora_incarnate.mwo_mechbay.entities.WeightClass;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.MovementArchetype;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.WeightClass;
 
 /**
  *

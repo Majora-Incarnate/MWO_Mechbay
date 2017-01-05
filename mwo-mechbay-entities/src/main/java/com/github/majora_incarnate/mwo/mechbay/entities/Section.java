@@ -1,6 +1,9 @@
 package com.github.majora_incarnate.mwo.mechbay.entities;
 
 import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.ActuatorBlueprint;
+import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.SectionBlueprint;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.HardpointType;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.SectionClass;
 
 import java.util.ArrayList;
 import java.util.HashMap;

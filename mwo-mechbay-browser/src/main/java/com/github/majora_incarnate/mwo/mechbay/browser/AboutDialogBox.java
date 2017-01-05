@@ -22,18 +22,16 @@ public class AboutDialogBox extends JDialog {
     private JPanel aboutPanel;
     private JLabel titleLabel;
 
-    public AboutDialogBox() {
+    public AboutDialogBox(final String mechbayVersion, final String mwoVersion) {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(closeButton);
 
         setTitle("About MWO Mechbay");
+        mechbayVersionLabel.setText(mechbayVersion);
+        mwoVersionLabel.setText(mwoVersion);
 
-        closeButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onClose();
-            }
-        });
+        closeButton.addActionListener(e -> onClose());
     }
 
     private void onClose() {

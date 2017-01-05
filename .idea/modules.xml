@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/mwo-mechbay-browser/mwo-mechbay-browser.iml" filepath="$PROJECT_DIR$/mwo-mechbay-browser/mwo-mechbay-browser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mwo-mechbay-creator/mwo-mechbay-creator.iml" filepath="$PROJECT_DIR$/mwo-mechbay-creator/mwo-mechbay-creator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mwo-mechbay-encyclopedia/mwo-mechbay-encyclopedia.iml" filepath="$PROJECT_DIR$/mwo-mechbay-encyclopedia/mwo-mechbay-encyclopedia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mwo-mechbay-entities/mwo-mechbay-entities.iml" filepath="$PROJECT_DIR$/mwo-mechbay-entities/mwo-mechbay-entities.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mwo-mechbay-mechlab/mwo-mechbay-mechlab.iml" filepath="$PROJECT_DIR$/mwo-mechbay-mechlab/mwo-mechbay-mechlab.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mwo-mechbay-parent.iml" filepath="$PROJECT_DIR$/mwo-mechbay-parent.iml" />
+    </modules>
+  </component>
+</project>

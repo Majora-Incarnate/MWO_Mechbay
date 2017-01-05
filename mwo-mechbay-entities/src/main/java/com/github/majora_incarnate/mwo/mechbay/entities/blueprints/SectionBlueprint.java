@@ -3,6 +3,8 @@ package com.github.majora_incarnate.mwo.mechbay.entities.blueprints;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.HardpointType;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.SectionType;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class SectionBlueprint extends Blueprint {

@@ -6,11 +6,12 @@
 
     <parent>
         <artifactId>mwo-mechbay-parent</artifactId>
-        <groupId>com.github.majoraincarnate</groupId>
+        <groupId>com.github.majora_incarnate</groupId>
         <version>0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>mwo-mechbay-entities</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>

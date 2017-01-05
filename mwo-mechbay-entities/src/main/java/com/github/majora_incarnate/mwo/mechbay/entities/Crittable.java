@@ -1,5 +1,7 @@
 package com.github.majora_incarnate.mwo.mechbay.entities;
 
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.HardpointType;
+
 public class Crittable {
     public boolean isLocked;
     public int position;

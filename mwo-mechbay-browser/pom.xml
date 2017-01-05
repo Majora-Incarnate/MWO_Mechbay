@@ -11,6 +11,7 @@
     </parent>
 
     <artifactId>mwo-mechbay-browser</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -28,10 +29,29 @@
             <artifactId>mwo-mechbay-mechlab</artifactId>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>com.github.majoraincarnate</groupId>
-            <artifactId>mwo-mechbay-entities</artifactId>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>com.github.majora_incarnate.mwo.mechbay.browser.MainJFrame</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
