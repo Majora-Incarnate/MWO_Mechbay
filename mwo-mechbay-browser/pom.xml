@@ -13,6 +13,11 @@
     <artifactId>mwo-mechbay-browser</artifactId>
     <packaging>jar</packaging>
 
+    <properties>
+        <docker.workingDir>/opt/mechbay/</docker.workingDir>
+        <docker.name>trevinteacutter/mwo_mechbay</docker.name>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.github.majora_incarnate</groupId>
@@ -46,12 +51,75 @@
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>com.github.majora_incarnate.mwo.mechbay.browser.MainJFrame</mainClass>
+                                    <manifestEntries>
+                                        <SplashScreen-Image>src/main/resources/MWO Splash.gif</SplashScreen-Image>
+                                    </manifestEntries>
                                 </transformer>
                             </transformers>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+            <!--<plugin>-->
+                <!--<groupId>io.fabric8</groupId>-->
+                <!--<artifactId>docker-maven-plugin</artifactId>-->
+                <!--<extensions>true</extensions>-->
+                <!--<configuration>-->
+                    <!--<autoPull>once</autoPull>-->
+                    <!--<skip>true</skip>-->
+                    <!--<verbose>true</verbose>-->
+                    <!--<images>-->
+                        <!--<image>-->
+                            <!--<name>${docker.name}</name>-->
+                            <!--<build>-->
+                                <!--<optimise>true</optimise>-->
+                                <!--<cleanup>try</cleanup>-->
+                                <!--<tags>-->
+                                    <!--<tag>${project.version}</tag>-->
+                                <!--</tags>-->
+                                <!--<from>docker.io/anapsix/alpine-java:8_jdk</from>-->
+                                <!--<workdir>${docker.workingDir}</workdir>-->
+                                <!--<entryPoint>java $JAVA_OPTS -jar ${project.build.finalName}.${project.packaging}</entryPoint>-->
+                                <!--<env>-->
+                                    <!--<DISPLAY>:0.0</DISPLAY>-->
+                                <!--</env>-->
+                                <!--<assembly>-->
+                                    <!--<basedir>${docker.workingDir}</basedir>-->
+                                    <!--<inline xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2" xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">-->
+                                        <!--<id>alva-server</id>-->
+                                        <!--<includeBaseDirectory>false</includeBaseDirectory>-->
+                                        <!--<dependencySets>-->
+                                            <!--<dependencySet>-->
+                                                <!--<useProjectArtifact>true</useProjectArtifact>-->
+                                                <!--<includes>-->
+                                                    <!--<include>${project.groupId}:${project.artifactId}</include>-->
+                                                <!--</includes>-->
+                                                <!--<outputFileNameMapping>${project.build.finalName}.${project.packaging}</outputFileNameMapping>-->
+                                            <!--</dependencySet>-->
+                                        <!--</dependencySets>-->
+                                    <!--</inline>-->
+                                <!--</assembly>-->
+                            <!--</build>-->
+                        <!--</image>-->
+                    <!--</images>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>build-image</id>-->
+                        <!--<goals>-->
+                            <!--<goal>build</goal>-->
+                        <!--</goals>-->
+                        <!--<phase>install</phase>-->
+                    <!--</execution>-->
+                    <!--<execution>-->
+                        <!--<id>push-image</id>-->
+                        <!--<goals>-->
+                            <!--<goal>push</goal>-->
+                        <!--</goals>-->
+                        <!--<phase>deploy</phase>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 </project>

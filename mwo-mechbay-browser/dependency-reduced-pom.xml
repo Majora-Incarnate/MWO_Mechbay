@@ -21,6 +21,9 @@
               <transformers>
                 <transformer>
                   <mainClass>com.github.majora_incarnate.mwo.mechbay.browser.MainJFrame</mainClass>
+                  <manifestEntries>
+                    <SplashScreen-Image>src/main/resources/MWO Splash.gif</SplashScreen-Image>
+                  </manifestEntries>
                 </transformer>
               </transformers>
             </configuration>
@@ -29,5 +32,9 @@
       </plugin>
     </plugins>
   </build>
+  <properties>
+    <docker.name>trevinteacutter/mwo_mechbay</docker.name>
+    <docker.workingDir>/opt/mechbay/</docker.workingDir>
+  </properties>
 </project>
 

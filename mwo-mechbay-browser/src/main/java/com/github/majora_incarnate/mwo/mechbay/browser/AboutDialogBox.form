@@ -42,7 +42,7 @@
           <component id="4c7b7" class="javax.swing.JLabel" binding="insigniaLabel">
             <constraints>
               <grid row="0" column="0" row-span="6" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
+              <gridbag weightx="1.0" weighty="1.0" ipadx="1"/>
             </constraints>
             <properties>
               <alignmentY value="0.0"/>
@@ -58,7 +58,7 @@
           <component id="dc6c1" class="javax.swing.JLabel" binding="mechbayVersionLabel">
             <constraints>
               <grid row="0" column="5" row-span="3" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0" ipadx="5"/>
+              <gridbag weightx="1.0" weighty="1.0" ipadx="1"/>
             </constraints>
             <properties>
               <alignmentY value="0.0"/>
@@ -117,73 +117,10 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="ca46e" class="javax.swing.JLabel" binding="emailTitle">
-            <constraints>
-              <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0" ipadx="4" ipady="3"/>
-            </constraints>
-            <properties>
-              <alignmentY value="0.0"/>
-              <horizontalAlignment value="0"/>
-              <horizontalTextPosition value="0"/>
-              <maximumSize width="64" height="32"/>
-              <minimumSize width="64" height="32"/>
-              <name value=""/>
-              <preferredSize width="64" height="32"/>
-              <text value="Email:"/>
-            </properties>
-          </component>
-          <component id="8093a" class="javax.swing.JLabel" binding="authorTitle">
-            <constraints>
-              <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0" ipadx="4" ipady="2"/>
-            </constraints>
-            <properties>
-              <alignmentY value="0.0"/>
-              <horizontalAlignment value="0"/>
-              <horizontalTextPosition value="0"/>
-              <maximumSize width="64" height="32"/>
-              <minimumSize width="64" height="32"/>
-              <name value=""/>
-              <preferredSize width="64" height="32"/>
-              <text value="Author:"/>
-            </properties>
-          </component>
-          <component id="52a23" class="javax.swing.JLabel" binding="mwoVersionTitle">
-            <constraints>
-              <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0" ipadx="4" ipady="10"/>
-            </constraints>
-            <properties>
-              <alignmentY value="0.0"/>
-              <horizontalAlignment value="0"/>
-              <horizontalTextPosition value="0"/>
-              <maximumSize width="64" height="32"/>
-              <minimumSize width="64" height="32"/>
-              <preferredSize width="64" height="32"/>
-              <text value="MWO Version:"/>
-            </properties>
-          </component>
-          <component id="efcdf" class="javax.swing.JLabel" binding="mechbayVersionTitle">
-            <constraints>
-              <grid row="0" column="4" row-span="3" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0" ipadx="4"/>
-            </constraints>
-            <properties>
-              <alignmentY value="0.0"/>
-              <horizontalAlignment value="0"/>
-              <horizontalTextPosition value="0"/>
-              <maximumSize width="64" height="32"/>
-              <minimumSize width="64" height="32"/>
-              <name value="asdfasdf"/>
-              <preferredSize width="64" height="32"/>
-              <text value="MWO Mechbay Version:"/>
-            </properties>
-          </component>
           <component id="a90f5" class="javax.swing.JLabel" binding="disclaimerLabel">
             <constraints>
               <grid row="6" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0" ipady="4"/>
+              <gridbag weightx="1.0" weighty="1.0" ipadx="5" ipady="4"/>
             </constraints>
             <properties>
               <alignmentY value="0.0"/>

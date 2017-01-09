@@ -13,7 +13,7 @@
         <module name="mwo-mechbay-mechlab" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8">
+    <bytecodeTargetLevel>
       <module name="mwo-mechbay-browser" target="1.8" />
       <module name="mwo-mechbay-creator" target="1.8" />
       <module name="mwo-mechbay-encyclopedia" target="1.8" />
