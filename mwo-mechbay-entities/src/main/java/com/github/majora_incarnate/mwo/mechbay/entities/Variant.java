@@ -31,11 +31,11 @@ public class Variant implements Serializable {
     public int maximumJumpJets;
     public int currentHeatSinkCount;
     public int currentEngineRating;
-    public Section[] sections;
+    public Map<SectionType, Section> sections;
 
     public Variant() {
         sectionTypes = new HashMap<>();
-        this.sections = new Section[8];
+        this.sections = new HashMap<>();
         this.variantName = "";
         this.engine = null;
         this.armor = null;
@@ -52,43 +52,40 @@ public class Variant implements Serializable {
         this.maximumJumpJets = 0;
         this.currentHeatSinkCount = 10;
         this.currentEngineRating = 100;
-        
-        for (int i = 0; i < SectionType.numberOfSectionTypes(); ++i)
-            this.sections[i] = new Section();
     }
 
     public void CalculateCriticals() {
         this.currentCriticals = 0;
         
-        for (Section section : this.sections)
+        this.sections.values().forEach((section) -> {
             this.currentCriticals += section.currentCriticals;
+        });
     }
 
     public void CalculateTonnage() {
         this.currentTonnage = 0.0;
         int n = 0;
         
-        for (Section section : this.sections)
-            n += section.frontArmor + section.rearArmor - section.minimumArmor;
+        n = this.sections.values().stream().map((section) -> section.frontArmor + section.rearArmor - section.minimumArmor).reduce(n, Integer::sum);
             
-        this.currentTonnage += this.engine.Get_Tonnage(this.currentEngineRating);
-        this.currentTonnage += this.gyro.Get_Tonnage(this.currentEngineRating);
+        this.currentTonnage += this.engine.getTonnage(this.currentEngineRating);
+        this.currentTonnage += this.gyro.getTonnage(this.currentEngineRating);
         this.currentTonnage += this.cockpit.tonnage;
-        this.currentTonnage += this.armor.Get_Tonnage(n);
+        this.currentTonnage += this.armor.getTonnage(n);
         this.currentTonnage += this.structure.getTonnage(this.chassisType.tonnage);
-        this.currentTonnage += this.heatsinks.Get_Tonnage(this.currentHeatSinkCount, this.currentEngineRating);
+        this.currentTonnage += this.heatsinks.getTonnage(this.currentHeatSinkCount, this.currentEngineRating);
         
-        for (Section section : this.sections)
+        this.sections.values().forEach((section) -> {
             section.components.stream().forEach((crittable) -> {
                 this.currentTonnage += crittable.tonnage;
             });
+        });
     }
 
     public int GetMaximumArmorTotal() {
         int maxArmor = 0;
         
-        for (Section section : this.sections)
-            maxArmor += section.maximumArmor;
+        maxArmor = this.sections.values().stream().map((section) -> section.maximumArmor).reduce(maxArmor, Integer::sum);
             
         return maxArmor;
     }
@@ -96,8 +93,7 @@ public class Variant implements Serializable {
     public int GetCurrentArmorTotal() {
         int currentArmor = 0;
         
-        for (Section section : this.sections)
-            currentArmor += section.frontArmor + section.rearArmor;
+        currentArmor = this.sections.values().stream().map((section) -> section.frontArmor + section.rearArmor).reduce(currentArmor, Integer::sum);
             
         return currentArmor;
     }
@@ -186,27 +182,27 @@ public class Variant implements Serializable {
         this.currentJumpJets = this.minimumJumpJets;
     }
 
-    public static int GetMinEngineRating(ChassisBlueprint chassisBlueprint, ModelBlueprint modelBlueprint) {
-        if (!User.omni_restrictions_enabled && chassisBlueprint.mechType.equals(MechType.OMNIMECH)) {
-            return User.variant.chassisType.tonnage * 2.0 < 100.0 ? 100 : (int) User.variant.chassisType.tonnage * 2;
+    public static int GetMinEngineRating(final User user, final ChassisBlueprint chassisBlueprint, final ModelBlueprint modelBlueprint) {
+        if (!user.omniRestrictionsEnabled && chassisBlueprint.mechType.equals(MechType.OMNIMECH)) {
+            return user.variant.chassisType.tonnage * 2.0 < 100.0 ? 100 : (int) user.variant.chassisType.tonnage * 2;
         }
         return modelBlueprint.minEngineRating;
     }
 
-    public static int GetMaxEngineRating(ChassisBlueprint chassisBlueprint, ModelBlueprint modelBlueprint) {
-        if (!User.omni_restrictions_enabled && chassisBlueprint.mechType.equals(MechType.OMNIMECH)) {
-            double max_engine_multiplier = 1.4;
-            double max_speed_multiplier = 8.5;
+    public static int GetMaxEngineRating(final User user, final ChassisBlueprint chassisBlueprint, final ModelBlueprint modelBlueprint) {
+        if (!user.omniRestrictionsEnabled && chassisBlueprint.mechType.equals(MechType.OMNIMECH)) {
+            double maxEngineMultiplier = 1.4;
+            double maxSpeedMultiplier = 8.5;
             
             if (chassisBlueprint.tonnage > 35.0) {
-                max_engine_multiplier -= 0.1;
+                maxEngineMultiplier -= 0.1;
             }
             if (chassisBlueprint.tonnage > 55.0) {
-                max_engine_multiplier -= 0.1;
+                maxEngineMultiplier -= 0.1;
             }
             
-            int n = (int) (Math.ceil(modelBlueprint.maxEngineRating * max_engine_multiplier / 5.0) * 5.0);
-            int n2 = (int) Math.round(chassisBlueprint.tonnage * max_speed_multiplier / 5.0) * 5;
+            int n = (int) (Math.ceil(modelBlueprint.maxEngineRating * maxEngineMultiplier / 5.0) * 5.0);
+            int n2 = (int) Math.round(chassisBlueprint.tonnage * maxSpeedMultiplier / 5.0) * 5;
             
             return n > n2  ? n2 : n;
         }

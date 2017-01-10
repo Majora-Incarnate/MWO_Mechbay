@@ -16,7 +16,7 @@ public class Blueprint {
         id = 0;
     }
 
-    public Crittable Get_Crittable() {
+    public Crittable getCrittable() {
         return null;
     }
     

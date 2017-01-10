@@ -2,6 +2,7 @@ package com.github.majora_incarnate.mwo.mechbay.entities.blueprints;
 
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.HardpointType;
 import com.github.majora_incarnate.mwo.mechbay.entities.Crittable;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.CriticalType;
 
 public class WeaponBlueprint extends Blueprint {
     public double health;
@@ -108,24 +109,24 @@ public class WeaponBlueprint extends Blueprint {
 //        //this.explosion_damage = Double.parseDouble(statNodeMap.getNamedItem("InternalExplosionDmg").getNodeValue());
 //    }
 
-    public double Get_Effective_Damage() {
+    public double getEffectiveDamage() {
         return this.damage;
     }
 
-    public double Get_DPS(double paramDouble) {
-        return Get_Effective_Damage() / (this.cooldown * paramDouble + this.duration);
+    public double getDPS(double rateOfFireQuirk) {
+        return getEffectiveDamage() / (this.cooldown * rateOfFireQuirk + this.duration);
     }
 
-    public double Get_HPS(double paramDouble) {
-        return this.heat / (this.cooldown * paramDouble + this.duration);
+    public double getHPS(double rateOfFireQuirk) {
+        return this.heat / (this.cooldown * rateOfFireQuirk + this.duration);
     }
 
     @Override
-    public Crittable Get_Crittable() {
+    public Crittable getCrittable() {
         Crittable localCrittable = new Crittable();
         localCrittable.isLocked = false;
         localCrittable.name = this.name;
-        localCrittable.itemType = "Weapon";
+        localCrittable.itemType = CriticalType.WEAPON;
         localCrittable.hardpointType = this.hardpoint_type;
         localCrittable.criticals = this.criticals;
         localCrittable.tonnage = this.tonnage;

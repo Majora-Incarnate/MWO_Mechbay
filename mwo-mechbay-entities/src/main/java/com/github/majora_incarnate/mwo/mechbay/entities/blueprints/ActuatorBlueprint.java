@@ -2,6 +2,7 @@ package com.github.majora_incarnate.mwo.mechbay.entities.blueprints;
 
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.HardpointType;
 import com.github.majora_incarnate.mwo.mechbay.entities.Crittable;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.CriticalType;
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.SectionClass;
 
 public class ActuatorBlueprint extends Blueprint {
@@ -9,16 +10,16 @@ public class ActuatorBlueprint extends Blueprint {
     public int index;
 
     @Override
-    public Crittable Get_Crittable() {
-        Crittable localCrittable = new Crittable();
-        localCrittable.isLocked = true;
-        localCrittable.name = this.name;
-        localCrittable.itemType = "Actuator";
-        localCrittable.hardpointType = HardpointType.UNKNOWN;
-        localCrittable.criticals = 1;
-        localCrittable.tonnage = 0.0D;
-        localCrittable.position = -1;
-        localCrittable.reference = this;
-        return localCrittable;
+    public Crittable getCrittable() {
+        Crittable crittable = new Crittable();
+        crittable.isLocked = true;
+        crittable.name = this.name;
+        crittable.itemType = CriticalType.ACTUATOR;
+        crittable.hardpointType = HardpointType.UNKNOWN;
+        crittable.criticals = 1;
+        crittable.tonnage = 0.0D;
+        crittable.position = -1;
+        crittable.reference = this;
+        return crittable;
     }
 }

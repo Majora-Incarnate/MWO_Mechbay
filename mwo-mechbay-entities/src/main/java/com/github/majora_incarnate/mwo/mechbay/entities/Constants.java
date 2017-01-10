@@ -20,7 +20,7 @@ public class Constants {
     public static final int AMMO_INDEX = 1;
     public static final int EQUIPMENT_INDEX = 2;
     public static final int EQUIPMENT_VECTOR_SIZE = 2;
-    public static final String[] equipmentCategories = {"All Equipment", "Ammo",
+    public static final String[] EQUIPMENT_CATEGORIES = {"All Equipment", "Ammo",
         "Equipment", "Jump Jets"};
 
     public static final int BALLISTIC_TAB_INDEX = 0;

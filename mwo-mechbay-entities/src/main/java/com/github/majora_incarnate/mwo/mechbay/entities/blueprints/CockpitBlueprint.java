@@ -1,6 +1,7 @@
 package com.github.majora_incarnate.mwo.mechbay.entities.blueprints;
 
 import com.github.majora_incarnate.mwo.mechbay.entities.Crittable;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.CriticalType;
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.HardpointType;
 
 public class CockpitBlueprint extends Blueprint {
@@ -9,28 +10,25 @@ public class CockpitBlueprint extends Blueprint {
     public int itemCost;
     public int upgradeCost;
 
-    public int Get_Item_Cost() {
+    public int getItemCost() {
         return this.itemCost;
     }
 
-    public int Get_Upgrade_Cost() {
+    public int getUpgradeCost() {
         return this.upgradeCost;
     }
 
-    public void Print() {
-    }
-
     @Override
-    public Crittable Get_Crittable() {
-        Crittable localCrittable = new Crittable();
-        localCrittable.isLocked = true;
-        localCrittable.name = this.name;
-        localCrittable.itemType = "Cockpit";
-        localCrittable.hardpointType = HardpointType.UNKNOWN;
-        localCrittable.criticals = this.criticals;
-        localCrittable.tonnage = 0.0D;
-        localCrittable.position = -1;
-        localCrittable.reference = this;
-        return localCrittable;
+    public Crittable getCrittable() {
+        Crittable crittable = new Crittable();
+        crittable.isLocked = true;
+        crittable.name = this.name;
+        crittable.itemType = CriticalType.COCKPIT;
+        crittable.hardpointType = HardpointType.UNKNOWN;
+        crittable.criticals = this.criticals;
+        crittable.tonnage = 0.0D;
+        crittable.position = -1;
+        crittable.reference = this;
+        return crittable;
     }
 }

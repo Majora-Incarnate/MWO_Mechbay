@@ -1,6 +1,7 @@
 package com.github.majora_incarnate.mwo.mechbay.entities.blueprints;
 
 import com.github.majora_incarnate.mwo.mechbay.entities.Crittable;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.CriticalType;
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.HardpointType;
 
 public class JumpJetBlueprint extends Blueprint {
@@ -17,48 +18,48 @@ public class JumpJetBlueprint extends Blueprint {
     public double costModifier;
     public int upgradeCost;
 
-    public int Get_Item_Cost(double paramDouble) {
+    public int getItemCost(double tonnage) {
         return (int) (this.costModifier * BASE_COST);
     }
 
-    public int Get_Upgrade_Cost(double paramDouble) {
+    public int getUpgradeCost(double tonnage) {
         return this.upgradeCost;
     }
 
-    public String Get_JJ_Class(double paramDouble) {
-        if (paramDouble > CLASS_II_MAX_TONNAGE) {
+    public String getJJClass(double tonnage) {
+        if (tonnage > CLASS_II_MAX_TONNAGE) {
             return " Class I";
         }
-        if (paramDouble > CLASS_III_MAX_TONNAGE) {
+        if (tonnage > CLASS_III_MAX_TONNAGE) {
             return " Class II";
         }
-        if (paramDouble > CLASS_IV_MAX_TONNAGE) {
+        if (tonnage > CLASS_IV_MAX_TONNAGE) {
             return " Class III";
         }
-        if (paramDouble > CLASS_V_MAX_TONNAGE) {
+        if (tonnage > CLASS_V_MAX_TONNAGE) {
             return " Class IV";
         }
         return " Class V";
     }
 
-    public double Get_Base_Tonnage(double paramDouble) {
-        if (paramDouble > CLASS_II_MAX_TONNAGE) {
+    public double getBaseTonnage(double tonnage) {
+        if (tonnage > CLASS_II_MAX_TONNAGE) {
             return 2.0D;
         }
-        if (paramDouble > CLASS_IV_MAX_TONNAGE) {
+        if (tonnage > CLASS_IV_MAX_TONNAGE) {
             return 1.0D;
         }
         return 0.5D;
     }
 
-    public Crittable Get_Crittable(double paramDouble) {
+    public Crittable getCrittable(double tonnage) {
         Crittable localCrittable = new Crittable();
         localCrittable.isLocked = false;
-        localCrittable.name = (this.name + Get_JJ_Class(paramDouble));
-        localCrittable.itemType = "Jump Jet";
+        localCrittable.name = (this.name + getJJClass(tonnage));
+        localCrittable.itemType = CriticalType.JUMP_JET;
         localCrittable.hardpointType = HardpointType.UNKNOWN;
         localCrittable.criticals = this.criticals;
-        localCrittable.tonnage = (Get_Base_Tonnage(paramDouble) * this.tonnageModifier);
+        localCrittable.tonnage = (getBaseTonnage(tonnage) * this.tonnageModifier);
         localCrittable.position = -1;
         localCrittable.reference = this;
         return localCrittable;

@@ -2,6 +2,7 @@ package com.github.majora_incarnate.mwo.mechbay.entities.blueprints;
 
 import com.github.majora_incarnate.mwo.mechbay.entities.Constants;
 import com.github.majora_incarnate.mwo.mechbay.entities.Crittable;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.CriticalType;
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.HardpointType;
 
 public class StructureBlueprint extends Blueprint {
@@ -11,8 +12,8 @@ public class StructureBlueprint extends Blueprint {
     public double costModifier;
     public double upgradeModifier;
 
-    public int getLocationHealth(double tonnage, int section_index, int quirk_modifier) {
-        return (int) (this.healthModifier * Constants.INTERNALS_PER_SECTION[(int)(tonnage / 5.0)][section_index]) + quirk_modifier;
+    public int getLocationHealth(double tonnage, int sectionIndex, int quirkModifier) {
+        return (int) (this.healthModifier * Constants.INTERNALS_PER_SECTION[(int)(tonnage / 5.0)][sectionIndex]) + quirkModifier;
     }
 
     public int getItemCost(double tonnage) {
@@ -28,11 +29,11 @@ public class StructureBlueprint extends Blueprint {
     }
 
     @Override
-    public Crittable Get_Crittable() {
+    public Crittable getCrittable() {
         Crittable crittable = new Crittable();
         crittable.isLocked = false;
         crittable.name = this.name;
-        crittable.itemType = "Structure";
+        crittable.itemType = CriticalType.STRUCTURE;
         crittable.hardpointType = HardpointType.UNKNOWN;
         crittable.criticals = 1;
         crittable.tonnage = 0.0D;
