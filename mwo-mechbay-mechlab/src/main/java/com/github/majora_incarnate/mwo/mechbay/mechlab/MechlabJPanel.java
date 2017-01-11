@@ -26,6 +26,11 @@ import com.github.majora_incarnate.mwo.mechbay.entities.enums.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+import com.github.majora_incarnate.mwo.mechbay.entities.Preferences;
+
 /**
  *
  * @author Trevin
@@ -33,6 +38,7 @@ import java.util.Map;
 public class MechlabJPanel extends javax.swing.JPanel {
     private static final long serialVersionUID = 5605339237691950478L;
     
+    private final Preferences preferences;
     private final SpinnerNumberModel engineRatingSpinnerModel;
     private final SpinnerNumberModel rightArmSpinnerModel;
     private final SpinnerNumberModel leftArmSpinnerModel;
@@ -49,13 +55,15 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private final SpinnerNumberModel special2SpinnerModel;
     private final Database masterDatabase;
     private Database selectedDatabase;
+    private User user;
 
     /**
      * Creates new form MechlabJPanel
      * @param parentDatabase
      */
-    public MechlabJPanel(final Database parentDatabase) {
-        masterDatabase = parentDatabase;
+    public MechlabJPanel(final Preferences preferences, final Database masterDatabase) {
+        this.preferences = preferences;
+        this.masterDatabase = masterDatabase;
         selectedDatabase = new Database(masterDatabase, (blueprint) -> true);
         engineRatingSpinnerModel = new SpinnerNumberModel(0, 0, 400, 5);
         rightArmSpinnerModel = new SpinnerNumberModel(0, 0, 0, 1);
@@ -71,6 +79,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         leftLegSpinnerModel = new SpinnerNumberModel(0, 0, 0, 1);
         special1SpinnerModel = new SpinnerNumberModel(0, 0, 0, 1);
         special2SpinnerModel = new SpinnerNumberModel(0, 0, 0, 1);
+        
+        user = new User();
         
         initComponents();
         
@@ -311,13 +321,13 @@ public class MechlabJPanel extends javax.swing.JPanel {
         ModelOverviewPanel = new javax.swing.JPanel();
         descriptionScrollPane = new javax.swing.JScrollPane();
         descriptionTextArea = new javax.swing.JTextArea();
-        overviewComponentPanel = new com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel();
-        hardpointComponentPanel = new com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel();
+        overviewComponentPanel = new ComponentPanel(preferences);
+        hardpointComponentPanel = new ComponentPanel(preferences);
         ModelSpecificationsPanel = new javax.swing.JPanel();
-        speedComponentPanel = new com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel();
-        manueverabilityComponentPanel = new com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel();
-        movementRangeComponentPanel = new com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel();
-        movementSpeedComponentPanel = new com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel();
+        speedComponentPanel = new ComponentPanel(preferences);
+        manueverabilityComponentPanel = new ComponentPanel(preferences);
+        movementRangeComponentPanel = new ComponentPanel(preferences);
+        movementSpeedComponentPanel = new ComponentPanel(preferences);
         InformationSpecificationsPanel = new javax.swing.JPanel();
         EquipmentSpecificationsPanel = new javax.swing.JPanel();
         OptionsPanel = new javax.swing.JPanel();
@@ -334,8 +344,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         MechTabPane.setMaximumSize(new Dimension(320, 470));
         MechTabPane.setMinimumSize(new Dimension(320, 470));
         MechTabPane.setPreferredSize(new Dimension(320, 512));
-        MechTabPane.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        MechTabPane.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent evt) {
                 MechTabPaneStateChanged(evt);
             }
         });
@@ -978,7 +988,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
         tonnageProgressBar.setAlignmentX(0.0F);
         tonnageProgressBar.setAlignmentY(0.0F);
-        tonnageProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Tonnage", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        tonnageProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Tonnage", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         tonnageProgressBar.setMaximumSize(new Dimension(0, 0));
         tonnageProgressBar.setMinimumSize(new Dimension(0, 0));
         tonnageProgressBar.setPreferredSize(new Dimension(0, 0));
@@ -990,7 +1000,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(tonnageProgressBar, gridBagConstraints);
 
-        speedProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Speed", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        speedProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Speed", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         speedProgressBar.setMaximumSize(new Dimension(0, 0));
         speedProgressBar.setMinimumSize(new Dimension(0, 0));
         speedProgressBar.setPreferredSize(new Dimension(0, 0));
@@ -1002,7 +1012,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(speedProgressBar, gridBagConstraints);
 
-        jumpDistanceProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Jump Distance", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        jumpDistanceProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Jump Distance", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         jumpDistanceProgressBar.setMaximumSize(new Dimension(0, 0));
         jumpDistanceProgressBar.setMinimumSize(new Dimension(0, 0));
         jumpDistanceProgressBar.setPreferredSize(new Dimension(0, 0));
@@ -1014,7 +1024,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(jumpDistanceProgressBar, gridBagConstraints);
 
-        jumpHeightProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Jump Height", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        jumpHeightProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Jump Height", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         jumpHeightProgressBar.setMaximumSize(new Dimension(0, 0));
         jumpHeightProgressBar.setMinimumSize(new Dimension(0, 0));
         jumpHeightProgressBar.setPreferredSize(new Dimension(0, 0));
@@ -1026,7 +1036,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(jumpHeightProgressBar, gridBagConstraints);
 
-        armorProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Armor", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        armorProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Armor", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         armorProgressBar.setMaximumSize(new Dimension(0, 0));
         armorProgressBar.setMinimumSize(new Dimension(0, 0));
         armorProgressBar.setPreferredSize(new Dimension(0, 0));
@@ -1038,7 +1048,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(armorProgressBar, gridBagConstraints);
 
-        alphaDamageProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Alpha Damage", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        alphaDamageProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Alpha Damage", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         alphaDamageProgressBar.setMaximumSize(new Dimension(0, 0));
         alphaDamageProgressBar.setMinimumSize(new Dimension(0, 0));
         alphaDamageProgressBar.setPreferredSize(new Dimension(0, 0));
@@ -1050,7 +1060,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(alphaDamageProgressBar, gridBagConstraints);
 
-        alphaHeatProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Alpha Heat", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        alphaHeatProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Alpha Heat", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         alphaHeatProgressBar.setMaximumSize(new Dimension(0, 0));
         alphaHeatProgressBar.setMinimumSize(new Dimension(0, 0));
         alphaHeatProgressBar.setPreferredSize(new Dimension(0, 0));
@@ -1062,7 +1072,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(alphaHeatProgressBar, gridBagConstraints);
 
-        firepowerProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Firepower", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        firepowerProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Firepower", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         firepowerProgressBar.setMaximumSize(new Dimension(0, 0));
         firepowerProgressBar.setMinimumSize(new Dimension(0, 0));
         firepowerProgressBar.setPreferredSize(new Dimension(0, 0));
@@ -1074,7 +1084,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(firepowerProgressBar, gridBagConstraints);
 
-        heatEfficiencyProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Heat Efficiency", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        heatEfficiencyProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Heat Efficiency", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         heatEfficiencyProgressBar.setMaximumSize(new Dimension(0, 0));
         heatEfficiencyProgressBar.setMinimumSize(new Dimension(0, 0));
         heatEfficiencyProgressBar.setPreferredSize(new Dimension(0, 0));
@@ -1086,7 +1096,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(heatEfficiencyProgressBar, gridBagConstraints);
 
-        rangeProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Range", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        rangeProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Range", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         rangeProgressBar.setMaximumSize(new Dimension(0, 0));
         rangeProgressBar.setMinimumSize(new Dimension(0, 0));
         rangeProgressBar.setPreferredSize(new Dimension(0, 0));
@@ -1098,7 +1108,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(rangeProgressBar, gridBagConstraints);
 
-        criticalsProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Criticals", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, User.preferences.DEFAULT_FONT_SIZE_12));
+        criticalsProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Criticals", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         criticalsProgressBar.setMaximumSize(new Dimension(0, 0));
         criticalsProgressBar.setMinimumSize(new Dimension(0, 0));
         criticalsProgressBar.setPreferredSize(new Dimension(0, 0));
@@ -2126,25 +2136,24 @@ public class MechlabJPanel extends javax.swing.JPanel {
         ChassisBlueprint chassis = (ChassisBlueprint)chassisComboBox.getSelectedItem();
         ModelBlueprint model = (ModelBlueprint)modelComboBox.getSelectedItem();
 
-        User.variant = new Variant();
-        User.variant.SetMech(selectedDatabase, chassis, model);
+        user.variant = new Variant(selectedDatabase, chassis, model);
 
-        techBaseLabel.setText(User.variant.chassisType.techBase.toString());
-        mechTypeLabel.setText(User.variant.chassisType.mechType.toString());
-        unreleasedLabel.setText(User.variant.modelType.isUnreleased ? "UNRELEASED" : "RELEASED");
-        unconfirmedLabel.setText(User.variant.modelType.isUnconfirmed ? "UNCONFIRMED" : "CONFIRMED");
-        unreleasedLabel.setBackground(User.variant.modelType.isUnreleased ? Color.RED : Color.GREEN);
-        unconfirmedLabel.setBackground(User.variant.modelType.isUnconfirmed ? Color.RED : Color.GREEN);
+        techBaseLabel.setText(user.variant.chassisType.techBase.toString());
+        mechTypeLabel.setText(user.variant.chassisType.mechType.toString());
+        unreleasedLabel.setText(user.variant.modelType.isUnreleased ? "UNRELEASED" : "RELEASED");
+        unconfirmedLabel.setText(user.variant.modelType.isUnconfirmed ? "UNCONFIRMED" : "CONFIRMED");
+        unreleasedLabel.setBackground(user.variant.modelType.isUnreleased ? Color.RED : Color.GREEN);
+        unconfirmedLabel.setBackground(user.variant.modelType.isUnconfirmed ? Color.RED : Color.GREEN);
 
-        overviewComponentPanel.Set_Overview(User.variant.chassisType, User.variant.modelType);
-        hardpointComponentPanel.Set_Total_Hardpoints(0, 0, 0, 0);
-        speedComponentPanel.Set_Speed_Limits(User.variant.chassisType, User.variant.modelType, 16.2, 1.0);
-        manueverabilityComponentPanel.Set_Manueverability(User.variant.chassisType, User.variant.modelType, User.variant.currentJumpJets);
-        movementRangeComponentPanel.Set_Movement_Range(User.variant.chassisType, User.variant.modelType);
-        movementSpeedComponentPanel.Set_Movement_Speed(User.variant.chassisType, User.variant.modelType);
+        overviewComponentPanel.setOverview(user.variant);
+        //hardpointComponentPanel.setTotalHardpoints(0, 0, 0, 0);
+        speedComponentPanel.setSpeedLimits(user, 16.2, 1.0);
+        manueverabilityComponentPanel.setManueverability(user.variant);
+        movementRangeComponentPanel.setMovementRange(user.variant);
+        movementSpeedComponentPanel.setMovementSpeed(user.variant);
 
         selectedDatabase = null;
-        selectedDatabase = new Database(masterDatabase, getDatabaseFilter(User.variant.chassisType.techBase, User.mixtech_enabled, User.futuretech_enabled));
+        selectedDatabase = new Database(masterDatabase, getDatabaseFilter(user.variant.chassisType.techBase, user.mixtechEnabled, user.futuretechEnabled));
 
         SetSectionOmnipods(rightArmOmnipodComboBox, SectionType.RIGHT_ARM.index);
         SetSectionOmnipods(leftArmOmnipodComboBox, SectionType.LEFT_ARM.index);
@@ -2157,7 +2166,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         
         Map<String, Double> quirks = new HashMap<>();
         
-        for (SectionBlueprint sectionBlueprint : User.variant.sectionTypes.values()) {
+        for (SectionBlueprint sectionBlueprint : user.variant.sectionTypes.values()) {
             for (String key : sectionBlueprint.quirks.keySet()) {
                 if (quirks.containsKey(key)) {
                     quirks.compute(key, (givenKey, value) -> value + sectionBlueprint.quirks.get(givenKey));
@@ -2184,43 +2193,43 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
         updateCriticalPanelVisibility();
 
-        engineRatingSpinnerModel.setMinimum(User.variant.modelType.minEngineRating);
-        engineRatingSpinnerModel.setMaximum(User.variant.modelType.maxEngineRating);
-        engineRatingSpinnerModel.setValue(User.variant.modelType.engineRating);
+        engineRatingSpinnerModel.setMinimum(user.variant.modelType.minEngineRating);
+        engineRatingSpinnerModel.setMaximum(user.variant.modelType.maxEngineRating);
+        engineRatingSpinnerModel.setValue(user.variant.modelType.engineRating);
 
         tonnageProgressBar.setMinimum(0);
-        tonnageProgressBar.setMaximum((int)User.variant.chassisType.tonnage);
-        tonnageProgressBar.setValue((int)User.variant.currentTonnage);
-        tonnageProgressBar.setString(String.format("%.2f tons", User.variant.currentTonnage));
+        tonnageProgressBar.setMaximum((int)user.variant.chassisType.tonnage);
+        tonnageProgressBar.setValue((int)user.variant.currentTonnage);
+        tonnageProgressBar.setString(String.format("%.2f tons", user.variant.currentTonnage));
 
         speedProgressBar.setMinimum(0);
         speedProgressBar.setMaximum(100);
-        speedProgressBar.setValue((int)(User.variant.currentEngineRating * 100.0 / User.variant.modelType.maxEngineRating));
-        speedProgressBar.setString(String.format("%.2f kph", 0.0));//User.variant.engine.Get_Speed(User.variant.chassisType.tonnage, User.variant.currentEngineRating)));
+        speedProgressBar.setValue((int)(user.variant.currentEngineRating * 100.0 / user.variant.modelType.maxEngineRating));
+        speedProgressBar.setString(String.format("%.2f kph", 0.0));//user.variant.engine.Get_Speed(user.variant.chassisType.tonnage, user.variant.currentEngineRating)));
 
         jumpDistanceProgressBar.setMinimum(0);
-        jumpDistanceProgressBar.setMaximum(User.variant.maximumJumpJets);
-        jumpDistanceProgressBar.setValue(User.variant.currentJumpJets);
+        jumpDistanceProgressBar.setMaximum(user.variant.maximumJumpJets);
+        jumpDistanceProgressBar.setValue(user.variant.currentJumpJets);
         jumpDistanceProgressBar.setString(String.format("%.2fm", 0.0));
 
         jumpHeightProgressBar.setMinimum(0);
-        jumpHeightProgressBar.setMaximum(User.variant.maximumJumpJets);
-        jumpHeightProgressBar.setValue(User.variant.currentJumpJets);
+        jumpHeightProgressBar.setMaximum(user.variant.maximumJumpJets);
+        jumpHeightProgressBar.setValue(user.variant.currentJumpJets);
         jumpHeightProgressBar.setString(String.format("%.2fm", 0.0));
 
         criticalsProgressBar.setMinimum(0);
         criticalsProgressBar.setMaximum(78);
-        criticalsProgressBar.setValue(User.variant.currentCriticals);
-        criticalsProgressBar.setString(String.format("%d/78", User.variant.currentCriticals));
+        criticalsProgressBar.setValue(user.variant.currentCriticals);
+        criticalsProgressBar.setString(String.format("%d/78", user.variant.currentCriticals));
 
-        //engineComponentPanel.Set_Engine(User.variant.engine, User.variant.currentEngineRating);
-        //gyroComponentPanel.Set_Gyro(User.variant.gyro, User.variant.currentEngineRating);
-        //armorComponentPanel.Set_Armor(User.variant.armor, User.variant.GetCurrentArmorTotal());
-        //structureComponentPanel.Set_Structure(User.variant.structure, User.variant.currentTonnage);
-        //heatSinksComponentPanel.Set_Heatsinks(User.variant.heatsinks, User.variant.currentHeatSinkCount, User.variant.currentEngineRating);
-        //jumpJetsComponentPanel.Set_Jumpjets(User.variant.jumpjets, User.variant.currentJumpJets, User.variant.currentTonnage);
-        //cockpitComponentPanel.Set_Cockpit(User.variant.cockpit);
-        //myomerComponentPanel.Set_Myomer(User.variant.myomer);
+        //engineComponentPanel.Set_Engine(user.variant.engine, user.variant.currentEngineRating);
+        //gyroComponentPanel.Set_Gyro(user.variant.gyro, user.variant.currentEngineRating);
+        //armorComponentPanel.Set_Armor(user.variant.armor, user.variant.GetCurrentArmorTotal());
+        //structureComponentPanel.Set_Structure(user.variant.structure, user.variant.currentTonnage);
+        //heatSinksComponentPanel.Set_Heatsinks(user.variant.heatsinks, user.variant.currentHeatSinkCount, user.variant.currentEngineRating);
+        //jumpJetsComponentPanel.Set_Jumpjets(user.variant.jumpjets, user.variant.currentJumpJets, user.variant.currentTonnage);
+        //cockpitComponentPanel.Set_Cockpit(user.variant.cockpit);
+        //myomerComponentPanel.Set_Myomer(user.variant.myomer);
     }//GEN-LAST:event_modelComboBoxActionPerformed
 
     private void MechTabPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MechTabPaneStateChanged
@@ -2281,7 +2290,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         for (SectionBlueprint sectionBlueprint : selectedDatabase.SECTION_BLUEPRINTS) {
             jComboBox.addItem(sectionBlueprint);
             
-            if (!sectionBlueprint.name.equals(User.variant.modelType.sectionModels.get(sectionBlueprint.section)))
+            if (!sectionBlueprint.name.equals(user.variant.modelType.sectionModels.get(sectionBlueprint.section)))
                 continue;
             
             jComboBox.setSelectedItem(sectionBlueprint);
@@ -2290,7 +2299,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         if (sectionIndex == SectionType.CENTER_TORSO.index)
             jComboBox.setEnabled(false);
         else
-            jComboBox.setEnabled(User.variant.chassisType.mechType.equals(MechType.OMNIMECH) || User.frankenmechs_enabled);
+            jComboBox.setEnabled(user.variant.chassisType.mechType.equals(MechType.OMNIMECH) || user.frankenmechsEnabled);
     }
 
     private void UpdateSectionOmnipodVisibility() {
@@ -2315,18 +2324,18 @@ public class MechlabJPanel extends javax.swing.JPanel {
     }
 
     private void SetCriticalItems(JList jList, JToggleButton jToggleButton, JToggleButton jToggleButton2, JToggleButton jToggleButton3, int n) {
-//        jList.setVisibleRowCount(User.variant.sections[n].maximumCriticals);
-//        jList.setMinimumSize(new Dimension(90, User.variant.sections[n].maximumCriticals * 12));
+//        jList.setVisibleRowCount(user.variant.sections[n].maximumCriticals);
+//        jList.setMinimumSize(new Dimension(90, user.variant.sections[n].maximumCriticals * 12));
 //        if (jToggleButton != null) {
-//            jToggleButton.setEnabled(User.variant.chassisType.equals(MechType.OMNIMECH) && User.variant.sectionTypes[n].maximumActuatorCount > 2);
+//            jToggleButton.setEnabled(user.variant.chassisType.equals(MechType.OMNIMECH) && user.variant.sectionTypes[n].maximumActuatorCount > 2);
 //            jToggleButton.setSelected(false);
 //        }
 //        if (jToggleButton2 != null) {
-//            jToggleButton2.setEnabled(User.variant.chassisType.equals(MechType.OMNIMECH) && User.variant.sectionTypes[n].maximumActuatorCount > 3);
+//            jToggleButton2.setEnabled(user.variant.chassisType.equals(MechType.OMNIMECH) && user.variant.sectionTypes[n].maximumActuatorCount > 3);
 //            jToggleButton2.setSelected(false);
 //        }
 //        if (jToggleButton3 != null) {
-//            jToggleButton3.setEnabled(User.variant.chassisType.techBase.equals("IS"));
+//            jToggleButton3.setEnabled(user.variant.chassisType.techBase.equals("IS"));
 //            jToggleButton3.setSelected(false);
 //        }
     }
@@ -2356,15 +2365,15 @@ public class MechlabJPanel extends javax.swing.JPanel {
     }
 
     private void SetSelectedSection(int n) {
-        User.selected_section = n;
-        this.rightArmPanel.setBackground(User.preferences.DEFAULT_CRITICAL_PANEL_COLOR);
-        this.leftArmPanel.setBackground(User.preferences.DEFAULT_CRITICAL_PANEL_COLOR);
-        this.rightLegPanel.setBackground(User.preferences.DEFAULT_CRITICAL_PANEL_COLOR);
-        this.leftLegPanel.setBackground(User.preferences.DEFAULT_CRITICAL_PANEL_COLOR);
-        this.rightTorsoPanel.setBackground(User.preferences.DEFAULT_CRITICAL_PANEL_COLOR);
-        this.leftTorsoPanel.setBackground(User.preferences.DEFAULT_CRITICAL_PANEL_COLOR);
-        this.centerTorsoPanel.setBackground(User.preferences.DEFAULT_CRITICAL_PANEL_COLOR);
-        this.headPanel.setBackground(User.preferences.DEFAULT_CRITICAL_PANEL_COLOR);
+        user.selectedSection = n;
+        this.rightArmPanel.setBackground(preferences.DEFAULT_CRITICAL_PANEL_COLOR);
+        this.leftArmPanel.setBackground(preferences.DEFAULT_CRITICAL_PANEL_COLOR);
+        this.rightLegPanel.setBackground(preferences.DEFAULT_CRITICAL_PANEL_COLOR);
+        this.leftLegPanel.setBackground(preferences.DEFAULT_CRITICAL_PANEL_COLOR);
+        this.rightTorsoPanel.setBackground(preferences.DEFAULT_CRITICAL_PANEL_COLOR);
+        this.leftTorsoPanel.setBackground(preferences.DEFAULT_CRITICAL_PANEL_COLOR);
+        this.centerTorsoPanel.setBackground(preferences.DEFAULT_CRITICAL_PANEL_COLOR);
+        this.headPanel.setBackground(preferences.DEFAULT_CRITICAL_PANEL_COLOR);
         this.rightArmPanel.setOpaque(false);
         this.leftArmPanel.setOpaque(false);
         this.rightLegPanel.setOpaque(false);
@@ -2375,42 +2384,42 @@ public class MechlabJPanel extends javax.swing.JPanel {
         this.headPanel.setOpaque(false);
         switch (n) {
             case 0: {
-                this.rightArmPanel.setBackground(User.preferences.SELECTED_CRITICAL_PANEL_COLOR);
+                this.rightArmPanel.setBackground(preferences.SELECTED_CRITICAL_PANEL_COLOR);
                 this.rightArmPanel.setOpaque(true);
                 break;
             }
             case 1: {
-                this.leftArmPanel.setBackground(User.preferences.SELECTED_CRITICAL_PANEL_COLOR);
+                this.leftArmPanel.setBackground(preferences.SELECTED_CRITICAL_PANEL_COLOR);
                 this.leftArmPanel.setOpaque(true);
                 break;
             }
             case 6: {
-                this.rightLegPanel.setBackground(User.preferences.SELECTED_CRITICAL_PANEL_COLOR);
+                this.rightLegPanel.setBackground(preferences.SELECTED_CRITICAL_PANEL_COLOR);
                 this.rightLegPanel.setOpaque(true);
                 break;
             }
             case 7: {
-                this.leftLegPanel.setBackground(User.preferences.SELECTED_CRITICAL_PANEL_COLOR);
+                this.leftLegPanel.setBackground(preferences.SELECTED_CRITICAL_PANEL_COLOR);
                 this.leftLegPanel.setOpaque(true);
                 break;
             }
             case 2: {
-                this.rightTorsoPanel.setBackground(User.preferences.SELECTED_CRITICAL_PANEL_COLOR);
+                this.rightTorsoPanel.setBackground(preferences.SELECTED_CRITICAL_PANEL_COLOR);
                 this.rightTorsoPanel.setOpaque(true);
                 break;
             }
             case 3: {
-                this.leftTorsoPanel.setBackground(User.preferences.SELECTED_CRITICAL_PANEL_COLOR);
+                this.leftTorsoPanel.setBackground(preferences.SELECTED_CRITICAL_PANEL_COLOR);
                 this.leftTorsoPanel.setOpaque(true);
                 break;
             }
             case 4: {
-                this.centerTorsoPanel.setBackground(User.preferences.SELECTED_CRITICAL_PANEL_COLOR);
+                this.centerTorsoPanel.setBackground(preferences.SELECTED_CRITICAL_PANEL_COLOR);
                 this.centerTorsoPanel.setOpaque(true);
                 break;
             }
             case 5: {
-                this.headPanel.setBackground(User.preferences.SELECTED_CRITICAL_PANEL_COLOR);
+                this.headPanel.setBackground(preferences.SELECTED_CRITICAL_PANEL_COLOR);
                 this.headPanel.setOpaque(true);
             }
         }
@@ -2434,17 +2443,17 @@ public class MechlabJPanel extends javax.swing.JPanel {
         structureProgressBar.setVisible(temp);
     }
 
-    private void UpdateArmorLabels(JProgressBar jProgressBar, JProgressBar jProgressBar2, JProgressBar jProgressBar3, int n) {
-        jProgressBar.setMaximum(User.variant.sections[n].maximumArmor);
-        jProgressBar.setValue(User.variant.sections[n].frontArmor);
-        jProgressBar.setString("" + User.variant.sections[n].frontArmor);
-        jProgressBar3.setMaximum(User.variant.sections[n].health);
-        jProgressBar3.setValue(User.variant.sections[n].health);
-        jProgressBar3.setString("" + User.variant.sections[n].health);
+    private void UpdateArmorLabels(JProgressBar jProgressBar, JProgressBar jProgressBar2, JProgressBar jProgressBar3, SectionType sectionIndex) {
+        jProgressBar.setMaximum(user.variant.sections.get(sectionIndex).maximumArmor);
+        jProgressBar.setValue(user.variant.sections.get(sectionIndex).frontArmor);
+        jProgressBar.setString("" + user.variant.sections.get(sectionIndex).frontArmor);
+        jProgressBar3.setMaximum(user.variant.sections.get(sectionIndex).health);
+        jProgressBar3.setValue(user.variant.sections.get(sectionIndex).health);
+        jProgressBar3.setString("" + user.variant.sections.get(sectionIndex).health);
         if (jProgressBar2 != null) {
-            jProgressBar2.setMaximum(User.variant.sections[n].maximumArmor);
-            jProgressBar2.setValue(User.variant.sections[n].rearArmor);
-            jProgressBar2.setString("" + User.variant.sections[n].rearArmor);
+            jProgressBar2.setMaximum(user.variant.sections.get(sectionIndex).maximumArmor);
+            jProgressBar2.setValue(user.variant.sections.get(sectionIndex).rearArmor);
+            jProgressBar2.setString("" + user.variant.sections.get(sectionIndex).rearArmor);
         }
     }
 
@@ -2453,32 +2462,32 @@ public class MechlabJPanel extends javax.swing.JPanel {
 //        switch (this.MechTabPane.getSelectedIndex()) {
 //            case 0: {
 //                bl = true;
-//                jLabel.setText(String.format("%d %s", User.variant.sections[n].maximum_hardpoints[3], HardpointType.values()[3]));
-//                jLabel2.setText(String.format("%d %s", User.variant.sections[n].maximum_hardpoints[4], HardpointType.values()[4]));
-//                jLabel3.setText(String.format("%d %s", User.variant.sections[n].maximum_hardpoints[0], HardpointType.values()[0]));
-//                jLabel4.setText(String.format("%d %s", User.variant.sections[n].maximum_hardpoints[1], HardpointType.values()[1]));
-//                jLabel5.setText(String.format("%d %s", User.variant.sections[n].maximum_hardpoints[2], HardpointType.values()[2]));
+//                jLabel.setText(String.format("%d %s", user.variant.sections[n].maximum_hardpoints[3], HardpointType.values()[3]));
+//                jLabel2.setText(String.format("%d %s", user.variant.sections[n].maximum_hardpoints[4], HardpointType.values()[4]));
+//                jLabel3.setText(String.format("%d %s", user.variant.sections[n].maximum_hardpoints[0], HardpointType.values()[0]));
+//                jLabel4.setText(String.format("%d %s", user.variant.sections[n].maximum_hardpoints[1], HardpointType.values()[1]));
+//                jLabel5.setText(String.format("%d %s", user.variant.sections[n].maximum_hardpoints[2], HardpointType.values()[2]));
 //                break;
 //            }
 //            case 1:
 //            case 2: {
 //                bl = true;
-//                jLabel.setText(String.format("%d/%d %s", User.variant.sections[n].current_hardpoints[3], User.variant.sections[n].maximum_hardpoints[3], HardpointType.values()[3]));
-//                jLabel2.setText(String.format("%d/%d %s", User.variant.sections[n].current_hardpoints[4], User.variant.sections[n].maximum_hardpoints[4], HardpointType.values()[4]));
-//                jLabel3.setText(String.format("%d/%d %s", User.variant.sections[n].current_hardpoints[0], User.variant.sections[n].maximum_hardpoints[0], HardpointType.values()[0]));
-//                jLabel4.setText(String.format("%d/%d %s", User.variant.sections[n].current_hardpoints[1], User.variant.sections[n].maximum_hardpoints[1], HardpointType.values()[1]));
-//                jLabel5.setText(String.format("%d/%d %s", User.variant.sections[n].current_hardpoints[2], User.variant.sections[n].maximum_hardpoints[2], HardpointType.values()[2]));
+//                jLabel.setText(String.format("%d/%d %s", user.variant.sections[n].current_hardpoints[3], user.variant.sections[n].maximum_hardpoints[3], HardpointType.values()[3]));
+//                jLabel2.setText(String.format("%d/%d %s", user.variant.sections[n].current_hardpoints[4], user.variant.sections[n].maximum_hardpoints[4], HardpointType.values()[4]));
+//                jLabel3.setText(String.format("%d/%d %s", user.variant.sections[n].current_hardpoints[0], user.variant.sections[n].maximum_hardpoints[0], HardpointType.values()[0]));
+//                jLabel4.setText(String.format("%d/%d %s", user.variant.sections[n].current_hardpoints[1], user.variant.sections[n].maximum_hardpoints[1], HardpointType.values()[1]));
+//                jLabel5.setText(String.format("%d/%d %s", user.variant.sections[n].current_hardpoints[2], user.variant.sections[n].maximum_hardpoints[2], HardpointType.values()[2]));
 //                break;
 //            }
 //            default: {
 //                bl = false;
 //            }
 //        }
-//        jLabel3.setVisible(bl && User.variant.sections[n].maximum_hardpoints[0] > 0);
-//        jLabel4.setVisible(bl && User.variant.sections[n].maximum_hardpoints[1] > 0);
-//        jLabel5.setVisible(bl && User.variant.sections[n].maximum_hardpoints[2] > 0);
-//        jLabel.setVisible(bl && User.variant.sections[n].maximum_hardpoints[3] > 0);
-//        jLabel2.setVisible(bl && User.variant.sections[n].maximum_hardpoints[4] > 0);
+//        jLabel3.setVisible(bl && user.variant.sections[n].maximum_hardpoints[0] > 0);
+//        jLabel4.setVisible(bl && user.variant.sections[n].maximum_hardpoints[1] > 0);
+//        jLabel5.setVisible(bl && user.variant.sections[n].maximum_hardpoints[2] > 0);
+//        jLabel.setVisible(bl && user.variant.sections[n].maximum_hardpoints[3] > 0);
+//        jLabel2.setVisible(bl && user.variant.sections[n].maximum_hardpoints[4] > 0);
     }
 
     private void UpdateHardpoints() {
@@ -2499,8 +2508,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         int n3 = 0;
         int n4 = 0;
         int n5 = 0;
-        User.variant.UpdateMech();
-//        for (SectionBlueprint sectionBlueprint : User.variant.section_types) {
+        user.variant.updateMech();
+//        for (SectionBlueprint sectionBlueprint : user.variant.section_types) {
 //            if (sectionBlueprint == null) continue;
 //            n += sectionBlueprint.hardpoints[0];
 //            n2 += sectionBlueprint.hardpoints[1];
@@ -2510,100 +2519,100 @@ public class MechlabJPanel extends javax.swing.JPanel {
 //        }
         //this.hardpointComponentPanel.Set_Total_Hardpoints(n, n2, n3, n4);
         this.ecmCapableLabel.setVisible(n5 > 0);
-        this.jumpCapableLabel.setVisible(User.variant.maximumJumpJets > 0);
-        this.jumpDistanceProgressBar.setMaximum(User.variant.maximumJumpJets);
-        this.jumpHeightProgressBar.setMaximum(User.variant.maximumJumpJets);
+        this.jumpCapableLabel.setVisible(user.variant.maximumJumpJets > 0);
+        this.jumpDistanceProgressBar.setMaximum(user.variant.maximumJumpJets);
+        this.jumpHeightProgressBar.setMaximum(user.variant.maximumJumpJets);
     }
 
     private void UpdateEngine() {
-        if (User.variant.engine == null) {
+        if (user.variant.engine == null) {
             return;
         }
-        //User.variant.currentEngineRating = (Integer) this.engineRatingSpinner.getValue();
-        this.speedProgressBar.setValue(User.variant.currentEngineRating);
-        this.speedProgressBar.setString(String.format("%.1f kph", User.variant.engine.Get_Speed(User.variant.chassisType.tonnage, User.variant.currentEngineRating)));
-        //this.enginePanel.Set_Engine(User.variant.engine, User.variant.currentEngineRating);
+        //user.variant.currentEngineRating = (Integer) this.engineRatingSpinner.getValue();
+        this.speedProgressBar.setValue(user.variant.currentEngineRating);
+        this.speedProgressBar.setString(String.format("%.1f kph", user.variant.engine.getSpeed(user.variant.chassisType.tonnage, user.variant.currentEngineRating)));
+        //this.enginePanel.Set_Engine(user.variant.engine, user.variant.currentEngineRating);
     }
 
     private void UpdateHeatsinks() {
-        int n = User.variant.engine.Get_Heat_Sink_Capacity(User.variant.currentEngineRating);
-        for (Section section : User.variant.sections) {
+        int n = user.variant.engine.getHeatSinkCapacity(user.variant.currentEngineRating);
+        for (Section section : user.variant.sections.values()) {
             for (int j = section.components.size() - 1; j >= 0; --j) {
                 if (!section.components.get(j).itemType.equals("Heat Sink")) continue;
-                if (n >= User.variant.currentHeatSinkCount) {
+                if (n >= user.variant.currentHeatSinkCount) {
                     section.components.remove(j);
                     continue;
                 }
                 ++n;
             }
         }
-        n = User.variant.currentHeatSinkCount - n;
-        //this.heatSinkComponentPanel.Set_Heatsinks(User.variant.heatsinks, User.variant.currentEngineRating, User.variant.currentHeatSinkCount);
+        n = user.variant.currentHeatSinkCount - n;
+        //this.heatSinkComponentPanel.Set_Heatsinks(user.variant.heatsinks, user.variant.currentEngineRating, user.variant.currentHeatSinkCount);
     }
 
     private void UpdateJumpjets() {
-        /*this.JumpJetSpinner.setEnabled(User.variant.maximumJumpJets > 0);
-        User.variant.currentJumpJets = (Integer) this.JumpJetSpinner.getValue();
-        if (User.variant.currentJumpJets > User.variant.maximumJumpJets) {
-            User.variant.currentJumpJets = User.variant.maximumJumpJets;
-            this.JumpJetSpinnerModel.setValue(User.variant.currentJumpJets);
+        /*this.JumpJetSpinner.setEnabled(user.variant.maximumJumpJets > 0);
+        user.variant.currentJumpJets = (Integer) this.JumpJetSpinner.getValue();
+        if (user.variant.currentJumpJets > user.variant.maximumJumpJets) {
+            user.variant.currentJumpJets = user.variant.maximumJumpJets;
+            this.JumpJetSpinnerModel.setValue(user.variant.currentJumpJets);
         }
-        this.JumpJetSpinnerModel.setMaximum(Integer.valueOf(User.variant.maximumJumpJets));
+        this.JumpJetSpinnerModel.setMaximum(Integer.valueOf(user.variant.maximumJumpJets));
         int n = 0;
         for (int i = queued_items.size() - 1; i >= 0; --i) {
             if (!((Crittable) queued_items.get((int) i)).itemType.equals("Jump Jet")) continue;
-            if (n >= User.variant.currentJumpJets) {
+            if (n >= user.variant.currentJumpJets) {
                 queued_items.remove(i);
                 continue;
             }
             ++n;
         }
-        for (Section section : User.variant.sections) {
+        for (Section section : user.variant.sections) {
             for (int j = section.components.size() - 1; j >= 0; --j) {
                 if (!section.components.get(j).itemType.equals("Jump Jet")) continue;
-                if (n >= User.variant.currentJumpJets) {
+                if (n >= user.variant.currentJumpJets) {
                     section.components.remove(j);
                     continue;
                 }
                 ++n;
             }
         }*/
-        this.jumpDistanceProgressBar.setValue(User.variant.currentJumpJets);
-        this.jumpHeightProgressBar.setValue(User.variant.currentJumpJets);
-        //this.jumpjetComponentPanel.Set_Jumpjets(User.variant.jumpjets, User.variant.currentJumpJets, User.variant.chassisType.tonnage);
-        //this.manueverabilityComponentPanel.Set_Manueverability(User.variant.chassisType, User.variant.modelType, User.variant.maximumJumpJets);
+        this.jumpDistanceProgressBar.setValue(user.variant.currentJumpJets);
+        this.jumpHeightProgressBar.setValue(user.variant.currentJumpJets);
+        //this.jumpjetComponentPanel.Set_Jumpjets(user.variant.jumpjets, user.variant.currentJumpJets, user.variant.chassisType.tonnage);
+        //this.manueverabilityComponentPanel.Set_Manueverability(user.variant.chassisType, user.variant.modelType, user.variant.maximumJumpJets);
     }
 
     private void UpdateArmor() {
-        if (User.variant.armor == null) {
+        if (user.variant.armor == null) {
             return;
         }
-        //this.ArmorPanel.Set_Armor(User.variant.armor, User.variant.GetCurrentArmorTotal());
-        this.pointsPerTonAmountLabel.setText(String.format("%.2f", User.variant.armor.pointsPerTon));
-        this.armorProgressBar.setString("" + User.variant.GetCurrentArmorTotal());
-        this.armorProgressBar.setValue(User.variant.GetCurrentArmorTotal());
-        this.UpdateArmorLabels(this.rightArmArmorProgressBar, null, this.rightArmStructureProgressBar, 0);
-        this.UpdateArmorLabels(this.leftArmArmorProgressBar, null, this.leftArmStructureProgressBar, 1);
-        this.UpdateArmorLabels(this.rightLegArmorProgressBar, null, this.rightLegStructureProgressBar, 6);
-        this.UpdateArmorLabels(this.leftLegArmorProgressBar, null, this.leftLegStructureProgressBar, 7);
-        this.UpdateArmorLabels(this.rightTorsoFrontArmorProgressBar, this.rightTorsoRearArmorProgressBar, this.rightTorsoStructureProgressBar, 2);
-        this.UpdateArmorLabels(this.leftTorsoFrontArmorProgressBar, this.leftTorsoRearArmorProgressBar, this.leftTorsoStructureProgressBar, 3);
-        this.UpdateArmorLabels(this.centerTorsoFrontArmorProgressBar, this.centerTorsoRearArmorProgressBar, this.centerTorsoStructureProgressBar, 4);
-        this.UpdateArmorLabels(this.headArmorProgressBar, null, this.headStructureProgressBar, 5);
-        this.rightArmArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[0].frontArmor, User.variant.sections[0].maximumArmor));
-        this.leftArmArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[1].frontArmor, User.variant.sections[1].maximumArmor));
-        this.rightTorsoArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[2].frontArmor + User.variant.sections[2].rearArmor, User.variant.sections[2].maximumArmor));
-        this.leftTorsoArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[3].frontArmor + User.variant.sections[3].rearArmor, User.variant.sections[3].maximumArmor));
-        this.centerTorsoArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[4].frontArmor + User.variant.sections[4].rearArmor, User.variant.sections[4].maximumArmor));
-        this.headArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[5].frontArmor, User.variant.sections[5].maximumArmor));
-        this.rightLegArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[6].frontArmor, User.variant.sections[6].maximumArmor));
-        this.leftLegArmorAmountLabel.setText(String.format("%d/%d", User.variant.sections[7].frontArmor, User.variant.sections[7].maximumArmor));
-        this.totalArmorAmountLabel.setText(String.format("%d/%d", User.variant.GetCurrentArmorTotal(), User.variant.GetMaximumArmorTotal()));
+        //this.ArmorPanel.Set_Armor(user.variant.armor, user.variant.GetCurrentArmorTotal());
+        this.pointsPerTonAmountLabel.setText(String.format("%.2f", user.variant.armor.pointsPerTon));
+        this.armorProgressBar.setString("" + user.variant.getCurrentArmorTotal());
+        this.armorProgressBar.setValue(user.variant.getCurrentArmorTotal());
+        this.UpdateArmorLabels(this.rightArmArmorProgressBar, null, this.rightArmStructureProgressBar, SectionType.RIGHT_ARM);
+        this.UpdateArmorLabels(this.leftArmArmorProgressBar, null, this.leftArmStructureProgressBar, SectionType.LEFT_ARM);
+        this.UpdateArmorLabels(this.rightLegArmorProgressBar, null, this.rightLegStructureProgressBar, SectionType.RIGHT_LEG);
+        this.UpdateArmorLabels(this.leftLegArmorProgressBar, null, this.leftLegStructureProgressBar, SectionType.LEFT_LEG);
+        this.UpdateArmorLabels(this.rightTorsoFrontArmorProgressBar, this.rightTorsoRearArmorProgressBar, this.rightTorsoStructureProgressBar, SectionType.RIGHT_TORSO);
+        this.UpdateArmorLabels(this.leftTorsoFrontArmorProgressBar, this.leftTorsoRearArmorProgressBar, this.leftTorsoStructureProgressBar, SectionType.LEFT_TORSO);
+        this.UpdateArmorLabels(this.centerTorsoFrontArmorProgressBar, this.centerTorsoRearArmorProgressBar, this.centerTorsoStructureProgressBar, SectionType.CENTER_TORSO);
+        this.UpdateArmorLabels(this.headArmorProgressBar, null, this.headStructureProgressBar, SectionType.HEAD);
+        this.rightArmArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections[0].frontArmor, user.variant.sections[0].maximumArmor));
+        this.leftArmArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections[1].frontArmor, user.variant.sections[1].maximumArmor));
+        this.rightTorsoArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections[2].frontArmor + user.variant.sections[2].rearArmor, user.variant.sections[2].maximumArmor));
+        this.leftTorsoArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections[3].frontArmor + user.variant.sections[3].rearArmor, user.variant.sections[3].maximumArmor));
+        this.centerTorsoArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections[4].frontArmor + user.variant.sections[4].rearArmor, user.variant.sections[4].maximumArmor));
+        this.headArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections[5].frontArmor, user.variant.sections[5].maximumArmor));
+        this.rightLegArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections[6].frontArmor, user.variant.sections[6].maximumArmor));
+        this.leftLegArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections[7].frontArmor, user.variant.sections[7].maximumArmor));
+        this.totalArmorAmountLabel.setText(String.format("%d/%d", user.variant.getCurrentArmorTotal(), user.variant.getMaximumArmorTotal()));
     }
 
     private void UpdateSpeed() {
-        this.speedProgressBar.setString(String.format("%.1f kph", User.variant.engine.Get_Speed(User.variant.chassisType.tonnage, User.variant.currentEngineRating) * User.speed_tweak_modifier));
-        //this.speedComponentPanel.Set_Speed_Limits(User.variant.chassisType, User.variant.modelType, 16.2, User.speed_tweak_modifier);
+        this.speedProgressBar.setString(String.format("%.1f kph", user.variant.engine.getSpeed(user.variant.chassisType.tonnage, user.variant.currentEngineRating)));
+        //this.speedComponentPanel.Set_Speed_Limits(user.variant.chassisType, user.variant.modelType, 16.2, user.speed_tweak_modifier);
     }
 
     private void UpdateWeapons() {
@@ -2613,32 +2622,32 @@ public class MechlabJPanel extends javax.swing.JPanel {
         double d2 = 0.0;
         double d3 = 0.0;
         double d4 = 0.0;
-        double d5 = User.variant.heatsinks.Get_Dissipation(User.variant.currentHeatSinkCount, User.variant.currentEngineRating) * User.coolrun_modifier;
-        double d6 = User.variant.heatsinks.Get_Threshold(User.variant.currentHeatSinkCount) * User.heat_containment_modifier;
+        double d5 = user.variant.heatsinks.getDissipation(user.variant.currentHeatSinkCount, user.variant.currentEngineRating);
+        double d6 = user.variant.heatsinks.getThreshold(user.variant.currentHeatSinkCount);
         int n = 1000;
         int n2 = 0;
         int n3 = 0;
-        for (Section section2 : User.variant.sections) {
+        for (Section section2 : user.variant.sections.values()) {
             for (Crittable crittable3 : section2.components) {
                 if (!crittable3.itemType.equals("Weapon")) continue;
                 weapon_Blueprint = (WeaponBlueprint) crittable3.reference;
-                d += weapon_Blueprint.Get_Effective_Damage();
+                d += weapon_Blueprint.getEffectiveDamage();
                 d2 += weapon_Blueprint.heat;
-                d3 += weapon_Blueprint.Get_DPS(User.fast_fire_modifier);
-                d4 += weapon_Blueprint.Get_HPS(User.fast_fire_modifier);
+                d3 += weapon_Blueprint.getDPS(0.0);
+                d4 += weapon_Blueprint.getHPS(0.0);
             }
         }
-        Section[] arrsection = User.variant.sections;
+        Section[] arrsection = user.variant.sections;
         int crittable5 = arrsection.length;
         for (int i = 0; i < crittable5; ++i) {
             Section section2 = arrsection[i];
             for (Crittable crittable3 : section2.components) {
                 if (!crittable3.itemType.equals("Weapon")) continue;
                 weapon_Blueprint = (WeaponBlueprint) crittable3.reference;
-                n3 = (int) ((double) n3 + (double) weapon_Blueprint.effective_range * (weapon_Blueprint.Get_DPS(User.fast_fire_modifier) / d3));
+                n3 = (int) ((double) n3 + (double) weapon_Blueprint.effective_range * (weaponBlueprint.getDPS(0.0) / d3));
             }
         }
-        arrsection = User.variant.sections;
+        arrsection = user.variant.sections;
         int n4 = arrsection.length;
         for (int i = 0; i < crittable5; ++i) {
             Section section2 = arrsection[i];
@@ -2672,21 +2681,21 @@ public class MechlabJPanel extends javax.swing.JPanel {
         this.UpdateCriticals(this.leftTorsoCriticalList, 3);
         this.UpdateCriticals(this.centerTorsoCriticalList, 4);
         this.UpdateCriticals(this.headCriticalList, 5);
-        User.variant.CalculateCriticals();
+        user.variant.CalculateCriticals();
         int temp_int = 0;
         /*for (Crittable crittable : queued_items) {
             temp_int += crittable.criticals;
         }*/
-        this.criticalsProgressBar.setValue(User.variant.currentCriticals + temp_int);
-        this.criticalsProgressBar.setString(String.format("%d/%d", User.variant.currentCriticals + temp_int, 78));
+        this.criticalsProgressBar.setValue(user.variant.currentCriticals + temp_int);
+        this.criticalsProgressBar.setString(String.format("%d/%d", user.variant.currentCriticals + temp_int, 78));
     }
 
     public void UpdateCriticals(JList jList, int n) {
-        if (User.variant == null || User.variant.sections[n] == null) {
+        if (user.variant == null || user.variant.sections[n] == null) {
             return;
         }
         DefaultListModel<String> defaultListModel = new DefaultListModel<String>();
-        for (Crittable crittable : User.variant.sections[n].components) {
+        for (Crittable crittable : user.variant.sections[n].components) {
             for (int i = 0; i < crittable.criticals; ++i) {
                 if (i == 0) {
                     defaultListModel.addElement(crittable.toString());
@@ -2695,7 +2704,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
                 defaultListModel.addElement("----------");
             }
         }
-        int n2 = User.variant.sections[n].maximumCriticals - User.variant.sections[n].currentCriticals;
+        int n2 = user.variant.sections[n].maximumCriticals - user.variant.sections[n].currentCriticals;
         for (int i = 0; i < n2; ++i) {
             defaultListModel.addElement("-Empty-");
         }
@@ -2703,13 +2712,13 @@ public class MechlabJPanel extends javax.swing.JPanel {
     }
 
     private void UpdateTonnage() {
-        User.variant.CalculateTonnage();
+        user.variant.calculateTonnage();
         double temp_double = 0.0;
         /*for (Crittable crittable : queued_items) {
             temp_double += crittable.tonnage;
         }*/
-        this.tonnageProgressBar.setValue((int) Math.ceil(User.variant.currentTonnage + temp_double));
-        this.tonnageProgressBar.setString(String.format("%.2f Tons", User.variant.currentTonnage + temp_double));
+        this.tonnageProgressBar.setValue((int) Math.ceil(user.variant.currentTonnage + temp_double));
+        this.tonnageProgressBar.setString(String.format("%.2f Tons", user.variant.currentTonnage + temp_double));
     }
 
     private void UpdateArmorSpinners(int n) {
@@ -2717,47 +2726,47 @@ public class MechlabJPanel extends javax.swing.JPanel {
         
         switch (n) {
             case 5: {
-                User.variant.sections[5].frontArmor = (Integer) this.headSpinner.getValue();
+                user.variant.sections[5].frontArmor = (Integer) this.headSpinner.getValue();
                 break;
             }
             case 2: {
-                User.variant.sections[2].frontArmor = (Integer) this.rightTorsoSpinner.getValue();
-                User.variant.sections[2].rearArmor = (Integer) this.rightRearTorsoSpinner.getValue();
-                temp_int = User.variant.sections[2].maximumArmor - User.variant.sections[2].rearArmor - User.variant.sections[2].frontArmor;
-                this.rightTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[2].frontArmor + temp_int));
-                this.rightRearTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[2].rearArmor + temp_int));
+                user.variant.sections[2].frontArmor = (Integer) this.rightTorsoSpinner.getValue();
+                user.variant.sections[2].rearArmor = (Integer) this.rightRearTorsoSpinner.getValue();
+                temp_int = user.variant.sections[2].maximumArmor - user.variant.sections[2].rearArmor - user.variant.sections[2].frontArmor;
+                this.rightTorsoSpinnerModel.setMaximum(Integer.valueOf(user.variant.sections[2].frontArmor + temp_int));
+                this.rightRearTorsoSpinnerModel.setMaximum(Integer.valueOf(user.variant.sections[2].rearArmor + temp_int));
                 break;
             }
             case 3: {
-                User.variant.sections[3].frontArmor = (Integer) this.leftTorsoSpinner.getValue();
-                User.variant.sections[3].rearArmor = (Integer) this.leftRearTorsoSpinner.getValue();
-                temp_int = User.variant.sections[3].maximumArmor - User.variant.sections[3].rearArmor - User.variant.sections[3].frontArmor;
-                this.leftTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[3].frontArmor + temp_int));
-                this.leftRearTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[3].rearArmor + temp_int));
+                user.variant.sections[3].frontArmor = (Integer) this.leftTorsoSpinner.getValue();
+                user.variant.sections[3].rearArmor = (Integer) this.leftRearTorsoSpinner.getValue();
+                temp_int = user.variant.sections[3].maximumArmor - user.variant.sections[3].rearArmor - user.variant.sections[3].frontArmor;
+                this.leftTorsoSpinnerModel.setMaximum(Integer.valueOf(user.variant.sections[3].frontArmor + temp_int));
+                this.leftRearTorsoSpinnerModel.setMaximum(Integer.valueOf(user.variant.sections[3].rearArmor + temp_int));
                 break;
             }
             case 4: {
-                User.variant.sections[4].frontArmor = (Integer) this.centerTorsoSpinner.getValue();
-                User.variant.sections[4].rearArmor = (Integer) this.centerRearTorsoSpinner.getValue();
-                temp_int = User.variant.sections[4].maximumArmor - User.variant.sections[4].rearArmor - User.variant.sections[4].frontArmor;
-                this.centerTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[4].frontArmor + temp_int));
-                this.centerRearTorsoSpinnerModel.setMaximum(Integer.valueOf(User.variant.sections[4].rearArmor + temp_int));
+                user.variant.sections[4].frontArmor = (Integer) this.centerTorsoSpinner.getValue();
+                user.variant.sections[4].rearArmor = (Integer) this.centerRearTorsoSpinner.getValue();
+                temp_int = user.variant.sections[4].maximumArmor - user.variant.sections[4].rearArmor - user.variant.sections[4].frontArmor;
+                this.centerTorsoSpinnerModel.setMaximum(Integer.valueOf(user.variant.sections[4].frontArmor + temp_int));
+                this.centerRearTorsoSpinnerModel.setMaximum(Integer.valueOf(user.variant.sections[4].rearArmor + temp_int));
                 break;
             }
             case 0: {
-                User.variant.sections[0].frontArmor = (Integer) this.rightArmSpinner.getValue();
+                user.variant.sections[0].frontArmor = (Integer) this.rightArmSpinner.getValue();
                 break;
             }
             case 1: {
-                User.variant.sections[1].frontArmor = (Integer) this.leftArmSpinner.getValue();
+                user.variant.sections[1].frontArmor = (Integer) this.leftArmSpinner.getValue();
                 break;
             }
             case 6: {
-                User.variant.sections[6].frontArmor = (Integer) this.rightLegSpinner.getValue();
+                user.variant.sections[6].frontArmor = (Integer) this.rightLegSpinner.getValue();
                 break;
             }
             case 7: {
-                User.variant.sections[7].frontArmor = (Integer) this.leftLegSpinner.getValue();
+                user.variant.sections[7].frontArmor = (Integer) this.leftLegSpinner.getValue();
                 break;
             }
         }
@@ -2777,14 +2786,14 @@ public class MechlabJPanel extends javax.swing.JPanel {
             JLabel jLabel = (JLabel) super.getListCellRendererComponent(jList, object, n, bl, bl2);
             int n2 = -1;
             int n3 = -1;
-            jLabel.setBackground(User.preferences.EMPTY_CRITICAL_BG);
-            jLabel.setForeground(User.preferences.EMPTY_CRITICAL_FG);
+            jLabel.setBackground(preferences.EMPTY_CRITICAL_BG);
+            jLabel.setForeground(preferences.EMPTY_CRITICAL_FG);
             jLabel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK));
-            for (int i = 0; i < User.variant.sections[this.section_id].components.size(); ++i) {
-                for (int j = 0; j < User.variant.sections[this.section_id].components.get(i).criticals; ++j) {
+            for (int i = 0; i < user.variant.sections[this.section_id].components.size(); ++i) {
+                for (int j = 0; j < user.variant.sections[this.section_id].components.get(i).criticals; ++j) {
                     if (n == ++n2) break;
                 }
-                n3 += User.variant.sections[this.section_id].components.get(i).criticals;
+                n3 += user.variant.sections[this.section_id].components.get(i).criticals;
                 if (n != n2) continue;
                 n2 = i;
                 break;
@@ -2792,27 +2801,27 @@ public class MechlabJPanel extends javax.swing.JPanel {
             if (n3 < n) {
                 n2 = -1;
             }
-            if (n2 < User.variant.sections[this.section_id].components.size() && n2 > -1) {
-                if (User.variant.sections[this.section_id].components.get(n2).isLocked) {
+            if (n2 < user.variant.sections[this.section_id].components.size() && n2 > -1) {
+                if (user.variant.sections[this.section_id].components.get(n2).isLocked) {
                     if (bl && jList.hasFocus()) {
-                        jLabel.setBackground(User.preferences.LOCKED_CRITICAL_FG);
-                        jLabel.setForeground(User.preferences.LOCKED_CRITICAL_BG);
+                        jLabel.setBackground(preferences.LOCKED_CRITICAL_FG);
+                        jLabel.setForeground(preferences.LOCKED_CRITICAL_BG);
                     } else {
-                        jLabel.setBackground(User.preferences.LOCKED_CRITICAL_BG);
-                        jLabel.setForeground(User.preferences.LOCKED_CRITICAL_FG);
+                        jLabel.setBackground(preferences.LOCKED_CRITICAL_BG);
+                        jLabel.setForeground(preferences.LOCKED_CRITICAL_FG);
                     }
                 } else {
-                    Color color = User.variant.sections[this.section_id].components.get(n2).hardpointType.equals(HardpointType.values()[0]) ? User.preferences.BALLISTIC_COLOR : (User.variant.sections[this.section_id].components.get(n2).hardpointType.equals(HardpointType.values()[1]) ? User.preferences.ENERGY_COLOR : (User.variant.sections[this.section_id].components.get(n2).hardpointType.equals(HardpointType.values()[2]) ? User.preferences.MISSILE_COLOR : (User.variant.sections[this.section_id].components.get(n2).hardpointType.equals(HardpointType.values()[3]) ? User.preferences.AMS_COLOR : (User.variant.sections[this.section_id].components.get(n2).hardpointType.equals(HardpointType.values()[4]) ? User.preferences.ECM_COLOR : User.preferences.NORMAL_CRITICAL_BG))));
+                    Color color = user.variant.sections[this.section_id].components.get(n2).hardpointType.equals(HardpointType.values()[0]) ? preferences.BALLISTIC_COLOR : (user.variant.sections[this.section_id].components.get(n2).hardpointType.equals(HardpointType.values()[1]) ? preferences.ENERGY_COLOR : (user.variant.sections[this.section_id].components.get(n2).hardpointType.equals(HardpointType.values()[2]) ? preferences.MISSILE_COLOR : (user.variant.sections[this.section_id].components.get(n2).hardpointType.equals(HardpointType.values()[3]) ? preferences.AMS_COLOR : (user.variant.sections[this.section_id].components.get(n2).hardpointType.equals(HardpointType.values()[4]) ? preferences.ECM_COLOR : preferences.NORMAL_CRITICAL_BG))));
                     if (bl && jList.hasFocus()) {
-                        jLabel.setBackground(User.preferences.NORMAL_CRITICAL_FG);
+                        jLabel.setBackground(preferences.NORMAL_CRITICAL_FG);
                         jLabel.setForeground(color);
                     } else {
                         jLabel.setBackground(color);
-                        jLabel.setForeground(User.preferences.NORMAL_CRITICAL_FG);
+                        jLabel.setForeground(preferences.NORMAL_CRITICAL_FG);
                     }
-                    if (User.variant.sections[this.section_id].components.get(n2).criticals > 1 && n3 != n) {
+                    if (user.variant.sections[this.section_id].components.get(n2).criticals > 1 && n3 != n) {
                         jLabel.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, Color.BLACK));
-                    } else if (User.variant.sections[this.section_id].components.get(n2).criticals > 1 && n3 == n) {
+                    } else if (user.variant.sections[this.section_id].components.get(n2).criticals > 1 && n3 == n) {
                         jLabel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK));
                     } else {
                         jLabel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK));

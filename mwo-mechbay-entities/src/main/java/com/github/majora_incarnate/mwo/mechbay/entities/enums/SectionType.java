@@ -39,10 +39,10 @@ public enum SectionType {
     SPECIAL_TWO("S2", "Special 2", false, SectionClass.SPECIAL, 9),
     
     @SerializedName("Front Left Leg")
-    FRONT_LEFT_LEG("FLL", "Front Left Leg", false, SectionClass.LEG, 2),
+    FRONT_LEFT_LEG("FLL", "Front Left Leg", false, SectionClass.LEG, 1),
     
     @SerializedName("Front Right Leg")
-    FRONT_RIGHT_LEG("FRL", "Front Right Leg", false, SectionClass.LEG, 3),
+    FRONT_RIGHT_LEG("FRL", "Front Right Leg", false, SectionClass.LEG, 2),
     
     @SerializedName("Rear Left Leg")
     REAR_LEFT_LEG("RLL", "Rear Left Leg", false, SectionClass.LEG, 6),
@@ -55,6 +55,7 @@ public enum SectionType {
     public final boolean hasRear;
     public final SectionClass sectionClass;
     public final int index;
+    public final int criticalCount;
 
     SectionType(String shortName, String longName, boolean hasRear, SectionClass sectionClass, int index) {
         this.shortName = shortName;
@@ -62,6 +63,20 @@ public enum SectionType {
         this.hasRear = hasRear;
         this.sectionClass = sectionClass;
         this.index = index;
+        
+        switch(this.sectionClass) {
+            case LEG:
+            case HEAD:
+                criticalCount = 6;
+                break;
+            case ARM:
+            case TORSO:
+                criticalCount = 12;
+                break;
+            default:
+                criticalCount = 0;
+                break;
+        }
     }
 
     public int count() {

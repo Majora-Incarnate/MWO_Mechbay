@@ -46,12 +46,6 @@ public class Constants {
     public static final int INTERNALS_TOTAL = 8;
     public static final int ARMOR_TOTAL = 8;
 
-    public static final int NUMBER_OF_MAIN_SECTION = 6;
-    public static final int NUMBER_OF_LESSER_SECTION = 3;
-    public static final int NUMBER_OF_MAIN_SECTION_CRITICALS = 12;
-    public static final int NUMBER_OF_LESSER_SECTION_CRITICALS = 6;
-    public static final int MAX_CRITICALS = 78;
-
     public static final int SHOULDER = 0;
     public static final int UPPER_ARM = 1;
     public static final int LOWER_ARM = 2;

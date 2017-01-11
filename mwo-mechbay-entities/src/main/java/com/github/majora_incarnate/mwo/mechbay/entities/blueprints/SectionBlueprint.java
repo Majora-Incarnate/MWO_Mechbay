@@ -5,11 +5,9 @@ import java.util.Map;
 
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.HardpointType;
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.SectionType;
-import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class SectionBlueprint extends Blueprint {
     public SectionType section;
-    public int criticals;
     public Map<HardpointType, Integer> hardpoints;
     public int minimumActuatorCount;
     public int maximumActuatorCount;

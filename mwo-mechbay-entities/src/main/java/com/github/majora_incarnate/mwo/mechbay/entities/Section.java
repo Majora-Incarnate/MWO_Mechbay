@@ -1,5 +1,12 @@
 package com.github.majora_incarnate.mwo.mechbay.entities;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.ActuatorBlueprint;
 import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.SectionBlueprint;
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.CriticalType;
@@ -8,12 +15,7 @@ import com.github.majora_incarnate.mwo.mechbay.entities.enums.SectionClass;
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.SectionType;
 import com.google.common.collect.Lists;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-public class Section {
+public final class Section {
     public final boolean hasRearArmor;
     public final int maximumCriticals;
     public int currentCriticals;
@@ -25,30 +27,32 @@ public class Section {
     public final Map<HardpointType, Integer> maximumHardpoints = new HashMap<>();
     public final Map<HardpointType, Integer> currentHardpoints = new HashMap<>();
     public final ArrayList<Crittable> components = new ArrayList();
-    
-    public Section(final SectionBlueprint sectionBlueprint, final double tonnage) {
+
+    public Section(final Database database, final SectionBlueprint sectionBlueprint, final double tonnage) {
         this.hasRearArmor = sectionBlueprint.section.hasRear;
-        this.maximumCriticals = sectionBlueprint.criticals;
+        this.maximumCriticals = sectionBlueprint.section.criticalCount;
         this.currentCriticals = 0;
         this.health = Constants.INTERNALS_PER_SECTION[((int) ((tonnage - 20.0D) / 5.0D))][sectionBlueprint.section.index];
         this.rearArmor = 0;
         this.minimumArmor = this.frontArmor = 0;
+
         if (sectionBlueprint.section.equals(SectionType.HEAD)) {
             this.maximumArmor = 18;
         } else {
             this.maximumArmor = this.health * 2;
         }
-        this.health += (0);
+
         for (HardpointType hardpointType : HardpointType.values()) {
             maximumHardpoints.put(hardpointType, sectionBlueprint.hardpoints.get(hardpointType));
             currentHardpoints.put(hardpointType, 0);
         }
+
         for (int i = 0; i < sectionBlueprint.minimumActuatorCount; i++) {
-            /*for (ActuatorBlueprint localActuator_Blueprint : Database.MASTER_ACTUATOR_BLUEPRINTS) {
-                if ((localActuator_Blueprint.type.equals(paramSection_Blueprint.actuator_type)) && (localActuator_Blueprint.index == i)) {
-                    addComponent(localActuator_Blueprint.Get_Crittable());
-                }
-            }*/
+            final int actuatorIndex = i;
+
+            database.ACTUATOR_BLUEPRINTS.stream().filter((actuatorBlueprint) -> ((actuatorBlueprint.section.equals(sectionBlueprint.section.sectionClass)) && (actuatorBlueprint.index == actuatorIndex))).forEachOrdered((actuatorBlueprint) -> {
+                addComponent(actuatorBlueprint.getCrittable());
+            });
         }
     }
 
@@ -58,31 +62,24 @@ public class Section {
         });
     }
 
-    public boolean toggleArmActuator(int actuatorIndex) {
-        Iterator<Crittable> componentIterator = this.components.iterator();
-        Crittable crittable;
+    public boolean toggleArmActuator(final ActuatorBlueprint actuatorToToggle) {
         boolean flag = true;
-        
-        while (componentIterator.hasNext()) {
-            crittable = componentIterator.next();
-            ActuatorBlueprint actuatorBlueprint = null;
-            
+
+        for (Crittable crittable : components) {
             if ((CriticalType.ACTUATOR.equals(crittable.itemType))) {
-                actuatorBlueprint = (ActuatorBlueprint) crittable.reference;
-            }
-            
-            if ((actuatorBlueprint != null) && (actuatorBlueprint.section.equals(SectionClass.ARM)) && (actuatorBlueprint.index == actuatorIndex)) {
-                this.components.remove(crittable);
-                flag = false;
+                final ActuatorBlueprint actuatorBlueprint = (ActuatorBlueprint) crittable.reference;
+                if ((actuatorBlueprint != null) && (actuatorBlueprint.section.equals(SectionClass.ARM)) && (actuatorBlueprint.index == actuatorToToggle.index)) {
+                    this.components.remove(crittable);
+                    flag = false;
+                    break;
+                }
             }
         }
-        /*localIterator = Database.MASTER_ACTUATOR_BLUEPRINTS.iterator();
-        while (localIterator.hasNext()) {
-            localObject = (ActuatorBlueprint) localIterator.next();
-            if ((((ActuatorBlueprint) localObject).type.equals("Arms")) && (((ActuatorBlueprint) localObject).index == paramInt)) {
-                this.components.add(paramInt, ((ActuatorBlueprint) localObject).Get_Crittable());
-            }
-        }*/
+
+        if (flag) {
+            components.add(actuatorToToggle.index, actuatorToToggle.getCrittable());
+        }
+
         calculateCriticals();
         return flag;
     }
@@ -95,7 +92,7 @@ public class Section {
         sectionBlueprint.hardpoints.keySet().forEach((hardpointType) -> {
             maximumHardpoints.put(hardpointType, sectionBlueprint.hardpoints.get(hardpointType));
         });
-        
+
         calculateCriticals();
         calculateHardpoints();
     }
@@ -104,20 +101,20 @@ public class Section {
         if (item == null) {
             return false;
         }
-        
+
         if (!item.hardpointType.toString().equals("None")) {
             for (HardpointType hardpointType : HardpointType.values()) {
-                if (hardpointType.equals(item.hardpointType) &&
-                        this.currentHardpoints.get(hardpointType) + 1 > this.maximumHardpoints.get(hardpointType)) {
+                if (hardpointType.equals(item.hardpointType)
+                    && this.currentHardpoints.get(hardpointType) + 1 > this.maximumHardpoints.get(hardpointType)) {
                     return false;
                 }
             }
         }
-        
+
         if (this.currentCriticals + item.criticals > this.maximumCriticals) {
             return false;
         }
-        
+
         this.components.add(item);
         calculateCriticals();
         calculateHardpoints();
@@ -151,34 +148,38 @@ public class Section {
         calculateHardpoints();
     }
 
-    public Crittable getComponent(int paramInt) {
-        if ((paramInt < 0) || (paramInt > this.maximumCriticals)) {
+    public Optional<Crittable> getComponent(int criticalIndex) {
+        if ((criticalIndex < 0) || (criticalIndex > this.maximumCriticals)) {
             return null;
         }
+        
         int i = 0;
-        for (Crittable localCrittable : this.components) {
-            if (paramInt > i) {
-                i += localCrittable.criticals;
-                if (paramInt <= i) {
-                    if (localCrittable.isLocked) {
-                        return null;
+        for (Crittable crittable : this.components) {
+            if (criticalIndex > i) {
+                i += crittable.criticals;
+                if (criticalIndex <= i) {
+                    if (crittable.isLocked) {
+                        return Optional.empty();
                     }
-                    return localCrittable;
+                    
+                    return Optional.of(crittable);
                 }
             }
         }
-        return null;
+        
+        return Optional.empty();
     }
 
     public void removeComponent(Crittable item) {
         this.components.remove(item);
+        
         calculateCriticals();
         calculateHardpoints();
     }
 
-    public void removeComponent(int paramInt) {
+    public boolean removeComponent(int paramInt) {
         if ((paramInt < 0) || (paramInt > this.maximumCriticals)) {
-            return;
+            return false;
         }
         int i = 0;
         for (int j = this.components.size() - 1; j >= 0; j--) {
@@ -186,30 +187,33 @@ public class Section {
                 i += this.components.get(j).criticals;
                 if (paramInt <= i) {
                     if (this.components.get(j).isLocked) {
-                        return;
+                        return false;
                     }
+                    
                     this.components.remove(j);
                 }
             }
         }
+        
         calculateCriticals();
         calculateHardpoints();
+        return true;
     }
 
     public void removeAll() {
-        for (int i = this.components.size() - 1; i >= 0; i--) {
-            if (!this.components.get(i).isLocked) {
-                this.components.remove(i);
-            }
-        }
+        final List<Crittable> filterComponents = components.stream().filter((crittable) -> crittable.isLocked).collect(Collectors.toList());
         
+        components.clear();
+        
+        filterComponents.forEach((crittable) -> components.add(crittable));
+
         calculateCriticals();
         calculateHardpoints();
     }
 
     public void calculateCriticals() {
         this.currentCriticals = 0;
-        
+
         this.components.stream().forEach((crittable) -> {
             this.currentCriticals += crittable.criticals;
         });
@@ -219,7 +223,7 @@ public class Section {
         for (HardpointType hardpointType : HardpointType.values()) {
             currentHardpoints.put(hardpointType, 0);
         }
-        
+
         this.components.stream().forEach((crittable) -> {
             for (HardpointType hardpointType : HardpointType.values()) {
                 if (hardpointType.equals(crittable.hardpointType)) {

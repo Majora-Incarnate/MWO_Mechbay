@@ -4,7 +4,7 @@ public class User {
     public static final Preferences PREFERENCES = new Preferences();
     public static final String MWO_STAGE = "";
     
-    public Variant variant = new Variant();
+    public Variant variant = null;
     public int selectedSection = -1;
     public boolean frankenmechsEnabled = false;
     public boolean mixtechEnabled = false;

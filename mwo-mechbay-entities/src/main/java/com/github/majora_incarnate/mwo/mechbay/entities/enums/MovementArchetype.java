@@ -13,14 +13,14 @@ public enum MovementArchetype {
 
     public final String name;
     public final int value;
-    public final double min_climb_angle;
-    public final double max_climb_angle;
+    public final double minClimbAngle;
+    public final double maxClimbAngle;
 
-    MovementArchetype(final String name, final int value, final double climb_angle) {
+    MovementArchetype(final String name, final int value, final double climbAngle) {
         this.name = name;
         this.value = value;
-        this.min_climb_angle = climb_angle;
-        this.max_climb_angle = 40.0d;
+        this.minClimbAngle = climbAngle;
+        this.maxClimbAngle = 40.0d;
     }
 
     @Override
