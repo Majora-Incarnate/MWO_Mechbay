@@ -23,6 +23,7 @@ import com.github.majora_incarnate.mwo.mechbay.entities.Constants;
 import com.github.majora_incarnate.mwo.mechbay.mechlab.MechlabJPanel;
 import com.github.majora_incarnate.mwo.mechbay.encyclopedia.EncyclopediaJPanel;
 import com.github.majora_incarnate.mwo.mechbay.entities.Database;
+import com.github.majora_incarnate.mwo.mechbay.entities.Preferences;
 
 /**
  *
@@ -32,6 +33,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private static final long serialVersionUID = -2306357614590126175L;
     
+    private final Preferences PREFERENCES;
     private final Database MASTER_DATABASE;
 
     /**
@@ -39,6 +41,7 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() {
         MASTER_DATABASE = new Database();
+        PREFERENCES = new Preferences();
         
         initComponents();
     }
@@ -188,15 +191,15 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void newMechlabTabJMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_newMechlabTabJMenuItemActionPerformed
-        browserJTabbedPane.addTab("Mechlab", new MechlabJPanel(MASTER_DATABASE));
+        browserJTabbedPane.addTab("Mechlab", new MechlabJPanel(PREFERENCES, MASTER_DATABASE));
     }//GEN-LAST:event_newMechlabTabJMenuItemActionPerformed
 
     private void newCreatorTabJMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_newCreatorTabJMenuItemActionPerformed
-        browserJTabbedPane.addTab("Creator", new CreatorJPanel());
+        browserJTabbedPane.addTab("Creator", new CreatorJPanel(PREFERENCES, MASTER_DATABASE));
     }//GEN-LAST:event_newCreatorTabJMenuItemActionPerformed
 
     private void newEncyclopediaTabJMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_newEncyclopediaTabJMenuItemActionPerformed
-        browserJTabbedPane.addTab("Encyclopedia", new EncyclopediaJPanel());
+        browserJTabbedPane.addTab("Encyclopedia", new EncyclopediaJPanel(PREFERENCES, MASTER_DATABASE));
     }//GEN-LAST:event_newEncyclopediaTabJMenuItemActionPerformed
 
     private void exitJMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_exitJMenuItemActionPerformed

@@ -5,17 +5,28 @@
  */
 package com.github.majora_incarnate.mwo.mechbay.encyclopedia;
 
+import com.github.majora_incarnate.mwo.mechbay.entities.Database;
+import com.github.majora_incarnate.mwo.mechbay.entities.Preferences;
+
 /**
  *
  * @author Trevin
  */
 public class EncyclopediaJPanel extends javax.swing.JPanel {
     private static final long serialVersionUID = -2065762782793787780L;
+    
+    private final Preferences PREFERENCES;
+    private final Database MASTER_DATABASE;
 
     /**
      * Creates new form EncyclopediaJPanel
+     * @param preferences
+     * @param masterDatabase
      */
-    public EncyclopediaJPanel() {
+    public EncyclopediaJPanel(final Preferences preferences, final Database masterDatabase) {
+        this.PREFERENCES = preferences;
+        this.MASTER_DATABASE = masterDatabase;
+        
         initComponents();
     }
 

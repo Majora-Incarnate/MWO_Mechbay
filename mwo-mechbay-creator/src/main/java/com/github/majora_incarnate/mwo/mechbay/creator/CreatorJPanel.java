@@ -5,17 +5,28 @@
  */
 package com.github.majora_incarnate.mwo.mechbay.creator;
 
+import com.github.majora_incarnate.mwo.mechbay.entities.Database;
+import com.github.majora_incarnate.mwo.mechbay.entities.Preferences;
+
 /**
  *
  * @author Trevin
  */
 public class CreatorJPanel extends javax.swing.JPanel {
     private static final long serialVersionUID = 3157269468031972945L;
+    
+    private final Preferences PREFERENCES;
+    private final Database MASTER_DATABASE;
 
     /**
      * Creates new form CreatorJPanel
+     * @param preferences
+     * @param masterDatabase
      */
-    public CreatorJPanel() {
+    public CreatorJPanel(final Preferences preferences, final Database masterDatabase) {
+        this.PREFERENCES = preferences;
+        this.MASTER_DATABASE = masterDatabase;
+        
         initComponents();
     }
 

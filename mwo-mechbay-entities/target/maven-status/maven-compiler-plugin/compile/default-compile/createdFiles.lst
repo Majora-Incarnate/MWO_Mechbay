@@ -9,6 +9,7 @@ com/github/majora_incarnate/mwo/mechbay/entities/blueprints/GyroBlueprint.class
 com/github/majora_incarnate/mwo/mechbay/entities/blueprints/EquipmentBlueprint.class
 com/github/majora_incarnate/mwo/mechbay/entities/Database$14.class
 com/github/majora_incarnate/mwo/mechbay/entities/enums/TechBase.class
+com/github/majora_incarnate/mwo/mechbay/entities/enums/SectionType$1.class
 com/github/majora_incarnate/mwo/mechbay/entities/Database$3.class
 com/github/majora_incarnate/mwo/mechbay/entities/blueprints/HeatSinkBlueprint.class
 com/github/majora_incarnate/mwo/mechbay/entities/Database$10.class
@@ -36,7 +37,6 @@ com/github/majora_incarnate/mwo/mechbay/entities/enums/SectionType.class
 com/github/majora_incarnate/mwo/mechbay/entities/blueprints/JumpJetBlueprint.class
 com/github/majora_incarnate/mwo/mechbay/entities/blueprints/ArmorBlueprint.class
 com/github/majora_incarnate/mwo/mechbay/entities/Database$4.class
-com/github/majora_incarnate/mwo/mechbay/entities/Component.class
 com/github/majora_incarnate/mwo/mechbay/entities/blueprints/EngineBlueprint.class
 com/github/majora_incarnate/mwo/mechbay/entities/enums/MotiveType.class
 com/github/majora_incarnate/mwo/mechbay/entities/enums/WeightClass.class
