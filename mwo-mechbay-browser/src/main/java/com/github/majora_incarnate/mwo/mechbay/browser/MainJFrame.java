@@ -225,7 +225,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_closeAllTabsJMenuItemActionPerformed
 
     private void aboutJMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_aboutJMenuItemActionPerformed
-        final AboutDialogBox aboutDialogBox = new AboutDialogBox(Constants.MECHBAY_VERSION, "1.3.3");
+        final AboutDialogBox aboutDialogBox = new AboutDialogBox(this, PREFERENCES, MASTER_DATABASE);
         aboutDialogBox.setLocationRelativeTo(this);
         aboutDialogBox.setVisible(true);
     }//GEN-LAST:event_aboutJMenuItemActionPerformed

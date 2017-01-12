@@ -1,139 +1,121 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.github.majora_incarnate.mwo.mechbay.browser.AboutDialogBox">
-  <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-    <margin top="10" left="10" bottom="10" right="10"/>
-    <constraints>
-      <xy x="48" y="54" width="569" height="453"/>
-    </constraints>
-    <properties>
-      <maximumSize width="384" height="288"/>
-      <minimumSize width="384" height="288"/>
-      <preferredSize width="384" height="288"/>
-    </properties>
-    <border type="none"/>
-    <children>
-      <grid id="94766" binding="aboutPanel" layout-manager="GridBagLayout">
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <alignmentX value="0.0"/>
-          <alignmentY value="0.0"/>
-          <autoscrolls value="false"/>
-        </properties>
-        <border type="none"/>
-        <children>
-          <component id="e7465" class="javax.swing.JButton" binding="closeButton">
-            <constraints>
-              <grid row="6" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0" ipadx="3" ipady="4"/>
-            </constraints>
-            <properties>
-              <alignmentY value="0.0"/>
-              <horizontalAlignment value="0"/>
-              <horizontalTextPosition value="0"/>
-              <margin top="10" left="10" bottom="10" right="10"/>
-              <maximumSize width="192" height="32"/>
-              <minimumSize width="192" height="32"/>
-              <preferredSize width="192" height="32"/>
-              <text value="Close"/>
-            </properties>
-          </component>
-          <component id="4c7b7" class="javax.swing.JLabel" binding="insigniaLabel">
-            <constraints>
-              <grid row="0" column="0" row-span="6" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0" ipadx="1"/>
-            </constraints>
-            <properties>
-              <alignmentY value="0.0"/>
-              <horizontalAlignment value="0"/>
-              <horizontalTextPosition value="0"/>
-              <icon value="Steel Jaguar.gif"/>
-              <maximumSize width="256" height="256"/>
-              <minimumSize width="256" height="256"/>
-              <preferredSize width="256" height="256"/>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="dc6c1" class="javax.swing.JLabel" binding="mechbayVersionLabel">
-            <constraints>
-              <grid row="0" column="5" row-span="3" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0" ipadx="1"/>
-            </constraints>
-            <properties>
-              <alignmentY value="0.0"/>
-              <horizontalAlignment value="0"/>
-              <horizontalTextPosition value="0"/>
-              <maximumSize width="64" height="32"/>
-              <minimumSize width="64" height="32"/>
-              <preferredSize width="64" height="32"/>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="23700" class="javax.swing.JLabel" binding="emailLabel">
-            <constraints>
-              <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0" ipadx="5" ipady="3"/>
-            </constraints>
-            <properties>
-              <alignmentY value="0.0"/>
-              <horizontalAlignment value="0"/>
-              <horizontalTextPosition value="0"/>
-              <maximumSize width="64" height="32"/>
-              <minimumSize width="64" height="32"/>
-              <name value=""/>
-              <preferredSize width="64" height="32"/>
-              <text value="cjf-qssb@hotmail.com"/>
-            </properties>
-          </component>
-          <component id="d7aca" class="javax.swing.JLabel" binding="authorLabel">
-            <constraints>
-              <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0" ipadx="5" ipady="2"/>
-            </constraints>
-            <properties>
-              <alignmentY value="0.0"/>
-              <horizontalAlignment value="0"/>
-              <horizontalTextPosition value="0"/>
-              <maximumSize width="64" height="32"/>
-              <minimumSize width="64" height="32"/>
-              <name value=""/>
-              <preferredSize width="64" height="32"/>
-              <text value="Quicksilver Kalasa"/>
-            </properties>
-          </component>
-          <component id="3fc9c" class="javax.swing.JLabel" binding="mwoVersionLabel">
-            <constraints>
-              <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0" ipadx="5" ipady="1"/>
-            </constraints>
-            <properties>
-              <alignmentY value="0.0"/>
-              <horizontalAlignment value="0"/>
-              <horizontalTextPosition value="0"/>
-              <maximumSize width="64" height="32"/>
-              <minimumSize width="64" height="32"/>
-              <preferredSize width="64" height="32"/>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="a90f5" class="javax.swing.JLabel" binding="disclaimerLabel">
-            <constraints>
-              <grid row="6" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0" ipadx="5" ipady="4"/>
-            </constraints>
-            <properties>
-              <alignmentY value="0.0"/>
-              <horizontalAlignment value="0"/>
-              <horizontalTextPosition value="0"/>
-              <maximumSize width="192" height="32"/>
-              <minimumSize width="192" height="32"/>
-              <preferredSize width="192" height="32"/>
-              <text value="Unofficial Program for MWO"/>
-            </properties>
-          </component>
-        </children>
-      </grid>
-    </children>
-  </grid>
-</form>
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <Properties>
+    <Property name="title" type="java.lang.String" value="About MWO Mechbay"/>
+    <Property name="name" type="java.lang.String" value="Form" noResource="true"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,104,0,0,2,10"/>
+  </AuxValues>
+
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="imageLabel">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Steel Jaguar.gif"/>
+        </Property>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
+        <Property name="name" type="java.lang.String" value="imageLabel" noResource="true"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="0" gridY="0" gridWidth="2" gridHeight="4" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="mechbayVersionLabel">
+      <Properties>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
+        <Property name="name" type="java.lang.String" value="mechbayVersionLabel" noResource="true"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="2" gridY="0" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="mwoVersionLabel">
+      <Properties>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
+        <Property name="name" type="java.lang.String" value="mwoVersionLabel" noResource="true"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="mwoVersionLabel.setText(MASTER_DATABASE.MISCELLANEOUS.getOrDefault(&quot;mwoVersion&quot;, &quot;Unknown&quot;));"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="2" gridY="1" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="authorLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Quicksilver Kalasa"/>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
+        <Property name="name" type="java.lang.String" value="authorLabel" noResource="true"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="authorLabel.setText(MASTER_DATABASE.MISCELLANEOUS.getOrDefault(&quot;author&quot;, &quot;Unknown&quot;));"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="2" gridY="2" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="emailLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="tjteacutter1@cougars.ccis.edu"/>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
+        <Property name="name" type="java.lang.String" value="emailLabel" noResource="true"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="emailLabel.setText(MASTER_DATABASE.MISCELLANEOUS.getOrDefault(&quot;email&quot;, &quot;Unknown&quot;));"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="2" gridY="3" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="disclaimerLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="This is not an official MWO tool."/>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
+        <Property name="name" type="java.lang.String" value="disclaimerLabel" noResource="true"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="0" gridY="4" gridWidth="3" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="closeButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Close"/>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
+        <Property name="name" type="java.lang.String" value="closeButton" noResource="true"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="3" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+  </SubComponents>
+</Form>

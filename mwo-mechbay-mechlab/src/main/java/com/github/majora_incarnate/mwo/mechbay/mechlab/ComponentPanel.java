@@ -9,7 +9,6 @@ import com.github.majora_incarnate.mwo.mechbay.entities.Preferences;
 import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.*;
 import com.github.majora_incarnate.mwo.mechbay.entities.User;
 import com.github.majora_incarnate.mwo.mechbay.entities.Variant;
-import com.github.majora_incarnate.mwo.mechbay.entities.enums.MovementArchetype;
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.WeightClass;
 
 /**

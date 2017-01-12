@@ -16,6 +16,8 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Database {
     public final List<ChassisBlueprint> CHASSIS_BLUEPRINTS;
@@ -34,6 +36,7 @@ public class Database {
     public final List<EquipmentBlueprint> EQUIPMENT_BLUEPRINTS;
     public final List<ActuatorBlueprint> ACTUATOR_BLUEPRINTS;
     public final List<MyomerBlueprint> MYOMER_BLUEPRINTS;
+    public final Map<String, String> MISCELLANEOUS;
 
     private final Gson GSON = new GsonBuilder().enableComplexMapKeySerialization().setPrettyPrinting().create();
     private final String DATABASE_DIRECTORY = "//database//";
@@ -77,6 +80,10 @@ public class Database {
         EQUIPMENT_BLUEPRINTS = new ArrayList<>();
         ACTUATOR_BLUEPRINTS = new ArrayList<>();
         MYOMER_BLUEPRINTS = new ArrayList<>();
+        MISCELLANEOUS = new HashMap<>();
+        
+        MISCELLANEOUS.put("author", "Quicksilver Kalasa");
+        MISCELLANEOUS.put("email", "tjteacutter1@cougars.ccis.edu");
         
         for (String modelName : MODEL_NAMES) {
             readFile(modelName, false);
@@ -101,6 +108,7 @@ public class Database {
         this.EQUIPMENT_BLUEPRINTS = database.EQUIPMENT_BLUEPRINTS.stream().filter(predicate).collect(Collectors.toList());
         this.MYOMER_BLUEPRINTS = database.MYOMER_BLUEPRINTS.stream().filter(predicate).collect(Collectors.toList());
         this.ACTUATOR_BLUEPRINTS = database.ACTUATOR_BLUEPRINTS.stream().filter(predicate).collect(Collectors.toList());
+        this.MISCELLANEOUS = database.MISCELLANEOUS;
     }
     
     private void readFile(final String blueprint_type, final boolean isCustom) {
