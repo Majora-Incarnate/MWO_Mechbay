@@ -30,6 +30,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import com.github.majora_incarnate.mwo.mechbay.entities.Preferences;
+import com.google.common.collect.ImmutableMap;
 
 /**
  *
@@ -2116,9 +2117,9 @@ public class MechlabJPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(OptionsPanel, gridBagConstraints);
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>
 
-    private void chassisComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chassisComboBoxActionPerformed
+    private void chassisComboBoxActionPerformed(java.awt.event.ActionEvent evt) {
         ChassisBlueprint chassis = (ChassisBlueprint)chassisComboBox.getSelectedItem();
 
         selectedDatabase.MODEL_BLUEPRINTS.clear();
@@ -2131,9 +2132,9 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
         modelComboBox.setModel(new DefaultComboBoxModel(selectedDatabase.MODEL_BLUEPRINTS.toArray()));
         modelComboBox.setSelectedIndex(0);
-    }//GEN-LAST:event_chassisComboBoxActionPerformed
+    }
 
-    private void modelComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modelComboBoxActionPerformed
+    private void modelComboBoxActionPerformed(java.awt.event.ActionEvent evt) {
         ChassisBlueprint chassis = (ChassisBlueprint)chassisComboBox.getSelectedItem();
         ModelBlueprint model = (ModelBlueprint)modelComboBox.getSelectedItem();
 
@@ -2206,7 +2207,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         speedProgressBar.setMinimum(0);
         speedProgressBar.setMaximum(100);
         speedProgressBar.setValue((int)(user.variant.currentEngineRating * 100.0 / user.variant.modelType.maxEngineRating));
-        speedProgressBar.setString(String.format("%.2f kph", 0.0));//user.variant.engine.Get_Speed(user.variant.chassisType.tonnage, user.variant.currentEngineRating)));
+        speedProgressBar.setString(String.format("%.2f kph", user.variant.engine.getSpeed(user.variant.chassisType.tonnage, user.variant.currentEngineRating)));
 
         jumpDistanceProgressBar.setMinimum(0);
         jumpDistanceProgressBar.setMaximum(user.variant.maximumJumpJets);
@@ -2258,14 +2259,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_rightHandToggleButtonActionPerformed
 
     private void updateCriticalPanelVisibility() {
-        this.updateHardpointLabels(this.rightArmAMSHardpointLabel, this.rightArmECMHardpointLabel, this.rightArmBallisticHardpointLabel, this.rightArmEnergyHardpointLabel, this.rightArmMissileHardpointLabel, 0);
-        this.updateHardpointLabels(this.leftArmAMSHardpointLabel, this.leftArmECMHardpointLabel, this.leftArmBallisticHardpointLabel, this.leftArmEnergyHardpointLabel, this.leftArmMissileHardpointLabel, 1);
-        this.updateHardpointLabels(this.rightLegAMSHardpointLabel, this.rightLegECMHardpointLabel, this.rightLegBallisticHardpointLabel, this.rightLegEnergyHardpointLabel, this.rightLegMissileHardpointLabel, 6);
-        this.updateHardpointLabels(this.leftLegAMSHardpointLabel, this.leftLegECMHardpointLabel, this.leftLegBallisticHardpointLabel, this.leftLegEnergyHardpointLabel, this.leftLegMissileHardpointLabel, 7);
-        this.updateHardpointLabels(this.rightTorsoAMSHardpointLabel, this.rightTorsoECMHardpointLabel, this.rightTorsoBallisticHardpointLabel, this.rightTorsoEnergyHardpointLabel, this.rightTorsoMissileHardpointLabel, 2);
-        this.updateHardpointLabels(this.leftTorsoAMSHardpointLabel, this.leftTorsoECMHardpointLabel, this.leftTorsoBallisticHardpointLabel, this.leftTorsoEnergyHardpointLabel, this.leftTorsoMissileHardpointLabel, 3);
-        this.updateHardpointLabels(this.centerTorsoAMSHardpointLabel, this.centerTorsoECMHardpointLabel, this.centerTorsoBallisticHardpointLabel, this.centerTorsoEnergyHardpointLabel, this.centerTorsoMissileHardpointLabel, 4);
-        this.updateHardpointLabels(this.headAMSHardpointLabel, this.headECMHardpointLabel, this.headBallisticHardpointLabel, this.headEnergyHardpointLabel, this.headMissileHardpointLabel, 5);
+        updateHardpoints();
         this.updateArmorLabelVisibility(this.rightArmArmorProgressBar, null, this.rightArmStructureProgressBar);
         this.updateArmorLabelVisibility(this.leftArmArmorProgressBar, null, this.leftArmStructureProgressBar);
         this.updateArmorLabelVisibility(this.rightLegArmorProgressBar, null, this.rightLegStructureProgressBar);
@@ -2274,93 +2268,109 @@ public class MechlabJPanel extends javax.swing.JPanel {
         this.updateArmorLabelVisibility(this.leftTorsoFrontArmorProgressBar, this.leftTorsoRearArmorProgressBar, this.leftTorsoStructureProgressBar);
         this.updateArmorLabelVisibility(this.centerTorsoFrontArmorProgressBar, this.centerTorsoRearArmorProgressBar, this.centerTorsoStructureProgressBar);
         this.updateArmorLabelVisibility(this.headArmorProgressBar, null, this.headStructureProgressBar);
-        this.updateCriticalItemVisibility(this.rightArmCriticalList, this.rightLowerArmToggleButton, this.rightHandToggleButton, null, 0);
-        this.updateCriticalItemVisibility(this.leftArmCriticalList, this.leftLowerArmToggleButton, this.leftHandToggleButton, null, 1);
-        this.updateCriticalItemVisibility(this.rightLegCriticalList, null, null, null, 6);
-        this.updateCriticalItemVisibility(this.leftLegCriticalList, null, null, null, 7);
-        this.updateCriticalItemVisibility(this.rightTorsoCriticalList, null, null, this.rightTorsoCASEToggleButton, 2);
-        this.updateCriticalItemVisibility(this.leftTorsoCriticalList, null, null, this.leftTorsoCASEToggleButton, 3);
-        this.updateCriticalItemVisibility(this.centerTorsoCriticalList, null, null, null, 4);
-        this.updateCriticalItemVisibility(this.headCriticalList, null, null, null, 5);
+        this.updateCriticalItemVisibility(this.rightArmCriticalList, this.rightLowerArmToggleButton, this.rightHandToggleButton, null);
+        this.updateCriticalItemVisibility(this.leftArmCriticalList, this.leftLowerArmToggleButton, this.leftHandToggleButton, null);
+        this.updateCriticalItemVisibility(this.rightLegCriticalList, null, null, null);
+        this.updateCriticalItemVisibility(this.leftLegCriticalList, null, null, null);
+        this.updateCriticalItemVisibility(this.rightTorsoCriticalList, null, null, this.rightTorsoCASEToggleButton);
+        this.updateCriticalItemVisibility(this.leftTorsoCriticalList, null, null, this.leftTorsoCASEToggleButton);
+        this.updateCriticalItemVisibility(this.centerTorsoCriticalList, null, null, null);
+        this.updateCriticalItemVisibility(this.headCriticalList, null, null, null);
         this.updateSectionOmnipodVisibility();
     }
 
-    private void SetSectionOmnipods(JComboBox jComboBox, int sectionIndex) {
-        jComboBox.removeAllItems();
+    private void SetSectionOmnipods(JComboBox omnipodComboBox, int sectionIndex) {
+        omnipodComboBox.removeAllItems();
         
         selectedDatabase.SECTION_BLUEPRINTS.stream().map((sectionBlueprint) -> {
-            jComboBox.addItem(sectionBlueprint);
+            omnipodComboBox.addItem(sectionBlueprint);
             return sectionBlueprint;
         }).filter((sectionBlueprint) -> !(!sectionBlueprint.name.equals(user.variant.modelType.sectionModels.get(sectionBlueprint.section)))).forEachOrdered((sectionBlueprint) -> {
-            jComboBox.setSelectedItem(sectionBlueprint);
+            omnipodComboBox.setSelectedItem(sectionBlueprint);
         });
         
         if (sectionIndex == SectionType.CENTER_TORSO.index)
-            jComboBox.setEnabled(false);
+            omnipodComboBox.setEnabled(false);
         else
-            jComboBox.setEnabled(user.variant.chassisType.mechType.equals(MechType.OMNIMECH) || user.frankenmechsEnabled);
+            omnipodComboBox.setEnabled(user.variant.chassisType.mechType.equals(MechType.OMNIMECH) || user.frankenmechsEnabled);
     }
 
     private void updateSectionOmnipodVisibility() {
-        boolean bl;
+        boolean visibilityFlag;
         switch (this.MechTabPane.getSelectedIndex()) {
             case 0: {
-                bl = true;
+                visibilityFlag = true;
                 break;
             }
             default: {
-                bl = false;
+                visibilityFlag = false;
             }
         }
-        this.rightArmOmnipodComboBox.setVisible(bl);
-        this.leftArmOmnipodComboBox.setVisible(bl);
-        this.rightTorsoOmnipodComboBox.setVisible(bl);
-        this.leftTorsoOmnipodComboBox.setVisible(bl);
-        this.centerTorsoOmnipodComboBox.setVisible(bl);
-        this.headOmnipodComboBox.setVisible(bl);
-        this.rightLegOmnipodComboBox.setVisible(bl);
-        this.leftLegOmnipodComboBox.setVisible(bl);
+        this.rightArmOmnipodComboBox.setVisible(visibilityFlag);
+        this.leftArmOmnipodComboBox.setVisible(visibilityFlag);
+        this.rightTorsoOmnipodComboBox.setVisible(visibilityFlag);
+        this.leftTorsoOmnipodComboBox.setVisible(visibilityFlag);
+        this.centerTorsoOmnipodComboBox.setVisible(visibilityFlag);
+        this.headOmnipodComboBox.setVisible(visibilityFlag);
+        this.rightLegOmnipodComboBox.setVisible(visibilityFlag);
+        this.leftLegOmnipodComboBox.setVisible(visibilityFlag);
     }
 
-    private void setCriticalItems(JList jList, JToggleButton jToggleButton, JToggleButton jToggleButton2, JToggleButton jToggleButton3, int n) {
-//        jList.setVisibleRowCount(user.variant.sections[n].maximumCriticals);
-//        jList.setMinimumSize(new Dimension(90, user.variant.sections[n].maximumCriticals * 12));
-//        if (jToggleButton != null) {
-//            jToggleButton.setEnabled(user.variant.chassisType.equals(MechType.OMNIMECH) && user.variant.sectionTypes[n].maximumActuatorCount > 2);
-//            jToggleButton.setSelected(false);
-//        }
-//        if (jToggleButton2 != null) {
-//            jToggleButton2.setEnabled(user.variant.chassisType.equals(MechType.OMNIMECH) && user.variant.sectionTypes[n].maximumActuatorCount > 3);
-//            jToggleButton2.setSelected(false);
-//        }
-//        if (jToggleButton3 != null) {
-//            jToggleButton3.setEnabled(user.variant.chassisType.techBase.equals("IS"));
-//            jToggleButton3.setSelected(false);
-//        }
+    private void setCriticalItems(final JList criticalList, final JToggleButton lowerArmToggleButton, final JToggleButton handToggleButton, final JToggleButton caseToggleButton, final SectionType sectionIndex) {
+        final Section section = user.variant == null ? null : user.variant.sections.get(sectionIndex);
+        
+        if (section == null) {
+            return;
+        }
+        
+        criticalList.setVisibleRowCount(section.maximumCriticals);
+        criticalList.setMinimumSize(new Dimension(90, section.maximumCriticals * 12));
+        
+        final ChassisBlueprint chassisType = user.variant.chassisType;
+        
+        if (chassisType == null) {
+            return;
+        }
+
+        if (lowerArmToggleButton != null) {
+            lowerArmToggleButton.setEnabled(MechType.OMNIMECH.equals(chassisType.mechType) && user.variant.sectionTypes.get(sectionIndex).maximumActuatorCount > 2);
+            lowerArmToggleButton.setSelected(false);
+        }
+        if (handToggleButton != null) {
+            handToggleButton.setEnabled(MechType.OMNIMECH.equals(chassisType.mechType) && user.variant.sectionTypes.get(sectionIndex).maximumActuatorCount > 3);
+            handToggleButton.setSelected(false);
+        }
+        if (caseToggleButton != null) {
+            caseToggleButton.setEnabled(TechBase.INNER_SPHERE.equals(chassisType.techBase));
+            caseToggleButton.setSelected(false);
+        }
+    }
+    
+    private void updateToggleButtonVisibility(final JToggleButton toggleButton, final boolean visibilityFlag) {
+        if (toggleButton != null) {
+            toggleButton.setVisible(visibilityFlag);
+        }
     }
 
-    private void updateCriticalItemVisibility(JList jList, JToggleButton jToggleButton, JToggleButton jToggleButton2, JToggleButton jToggleButton3, int n) {
-        boolean bl;
+    private void updateCriticalItemVisibility(final JList criticalList, final JToggleButton lowerArmToggleButton, final JToggleButton handToggleButton, final JToggleButton caseToggleButton) {
+        boolean visibilityFlag;
+        
         switch (this.MechTabPane.getSelectedIndex()) {
             case 1:
             case 2: {
-                bl = true;
+                visibilityFlag = true;
                 break;
             }
             default: {
-                bl = false;
+                visibilityFlag = false;
             }
         }
-        jList.setVisible(bl);
-        if (jToggleButton != null) {
-            jToggleButton.setVisible(bl);
-        }
-        if (jToggleButton2 != null) {
-            jToggleButton2.setVisible(bl);
-        }
-        if (jToggleButton3 != null) {
-            jToggleButton3.setVisible(bl);
-        }
+        
+        criticalList.setVisible(visibilityFlag);
+        
+        updateToggleButtonVisibility(lowerArmToggleButton, visibilityFlag);
+        updateToggleButtonVisibility(handToggleButton, visibilityFlag);
+        updateToggleButtonVisibility(caseToggleButton, visibilityFlag);
     }
 
     private void setSelectedSection(int n) {
@@ -2442,95 +2452,119 @@ public class MechlabJPanel extends javax.swing.JPanel {
         structureProgressBar.setVisible(temp);
     }
 
-    private void updateArmorLabels(final JProgressBar jProgressBar, final JProgressBar jProgressBar2, final JProgressBar jProgressBar3, final SectionType sectionIndex) {
-        jProgressBar.setMaximum(user.variant.sections.get(sectionIndex).maximumArmor);
-        jProgressBar.setValue(user.variant.sections.get(sectionIndex).frontArmor);
-        jProgressBar.setString("" + user.variant.sections.get(sectionIndex).frontArmor);
-        jProgressBar3.setMaximum(user.variant.sections.get(sectionIndex).health);
-        jProgressBar3.setValue(user.variant.sections.get(sectionIndex).health);
-        jProgressBar3.setString("" + user.variant.sections.get(sectionIndex).health);
-        if (sectionIndex.hasRear && jProgressBar2 != null) {
-            jProgressBar2.setMaximum(user.variant.sections.get(sectionIndex).maximumArmor);
-            jProgressBar2.setValue(user.variant.sections.get(sectionIndex).rearArmor);
-            jProgressBar2.setString("" + user.variant.sections.get(sectionIndex).rearArmor);
+    private void updateArmorLabels(final JProgressBar frontArmorProgressBar, final JProgressBar structureProgressBar, final JProgressBar rearArmorProgressBar, final SectionType sectionIndex) {
+        if (user.variant == null) {
+            return;
+        }
+        
+        frontArmorProgressBar.setMaximum(user.variant.sections.get(sectionIndex).maximumArmor);
+        frontArmorProgressBar.setValue(user.variant.sections.get(sectionIndex).frontArmor);
+        frontArmorProgressBar.setString("" + user.variant.sections.get(sectionIndex).frontArmor);
+        structureProgressBar.setMaximum(user.variant.sections.get(sectionIndex).health);
+        structureProgressBar.setValue(user.variant.sections.get(sectionIndex).health);
+        structureProgressBar.setString("" + user.variant.sections.get(sectionIndex).health);
+        if (sectionIndex.hasRear && rearArmorProgressBar != null) {
+            rearArmorProgressBar.setMaximum(user.variant.sections.get(sectionIndex).maximumArmor);
+            rearArmorProgressBar.setValue(user.variant.sections.get(sectionIndex).rearArmor);
+            rearArmorProgressBar.setString("" + user.variant.sections.get(sectionIndex).rearArmor);
         }
     }
-
-    private void updateHardpointLabels(JLabel jLabel, JLabel jLabel2, JLabel jLabel3, JLabel jLabel4, JLabel jLabel5, int n) {
-//        boolean bl;
-//        switch (this.MechTabPane.getSelectedIndex()) {
-//            case 0: {
-//                bl = true;
-//                jLabel.setText(String.format("%d %s", user.variant.sections[n].maximum_hardpoints[3], HardpointType.values()[3]));
-//                jLabel2.setText(String.format("%d %s", user.variant.sections[n].maximum_hardpoints[4], HardpointType.values()[4]));
-//                jLabel3.setText(String.format("%d %s", user.variant.sections[n].maximum_hardpoints[0], HardpointType.values()[0]));
-//                jLabel4.setText(String.format("%d %s", user.variant.sections[n].maximum_hardpoints[1], HardpointType.values()[1]));
-//                jLabel5.setText(String.format("%d %s", user.variant.sections[n].maximum_hardpoints[2], HardpointType.values()[2]));
-//                break;
-//            }
-//            case 1:
-//            case 2: {
-//                bl = true;
-//                jLabel.setText(String.format("%d/%d %s", user.variant.sections[n].current_hardpoints[3], user.variant.sections[n].maximum_hardpoints[3], HardpointType.values()[3]));
-//                jLabel2.setText(String.format("%d/%d %s", user.variant.sections[n].current_hardpoints[4], user.variant.sections[n].maximum_hardpoints[4], HardpointType.values()[4]));
-//                jLabel3.setText(String.format("%d/%d %s", user.variant.sections[n].current_hardpoints[0], user.variant.sections[n].maximum_hardpoints[0], HardpointType.values()[0]));
-//                jLabel4.setText(String.format("%d/%d %s", user.variant.sections[n].current_hardpoints[1], user.variant.sections[n].maximum_hardpoints[1], HardpointType.values()[1]));
-//                jLabel5.setText(String.format("%d/%d %s", user.variant.sections[n].current_hardpoints[2], user.variant.sections[n].maximum_hardpoints[2], HardpointType.values()[2]));
-//                break;
-//            }
-//            default: {
-//                bl = false;
-//            }
-//        }
-//        jLabel3.setVisible(bl && user.variant.sections[n].maximum_hardpoints[0] > 0);
-//        jLabel4.setVisible(bl && user.variant.sections[n].maximum_hardpoints[1] > 0);
-//        jLabel5.setVisible(bl && user.variant.sections[n].maximum_hardpoints[2] > 0);
-//        jLabel.setVisible(bl && user.variant.sections[n].maximum_hardpoints[3] > 0);
-//        jLabel2.setVisible(bl && user.variant.sections[n].maximum_hardpoints[4] > 0);
+    
+    private void updateHardpointMaximumOnlyLabel(final JLabel label, final HardpointType hardpointType, final Section section) {
+        label.setText(String.format("%d %s", section.maximumHardpoints.get(hardpointType), hardpointType));
+    }
+    
+    private void updateHardpointCountLabel(final JLabel label, final HardpointType hardpointType, final Section section) {
+        label.setText(String.format("%d/%d %s", section.currentHardpoints.get(hardpointType), section.maximumHardpoints.get(hardpointType), hardpointType));
     }
 
-    private void updateHardpoints() {
-        this.updateHardpointLabels(this.rightArmAMSHardpointLabel, this.rightArmECMHardpointLabel, this.rightArmBallisticHardpointLabel, this.rightArmEnergyHardpointLabel, this.rightArmMissileHardpointLabel, 0);
-        this.updateHardpointLabels(this.leftArmAMSHardpointLabel, this.leftArmECMHardpointLabel, this.leftArmBallisticHardpointLabel, this.leftArmEnergyHardpointLabel, this.leftArmMissileHardpointLabel, 1);
-        this.updateHardpointLabels(this.rightLegAMSHardpointLabel, this.rightLegECMHardpointLabel, this.rightLegBallisticHardpointLabel, this.rightLegEnergyHardpointLabel, this.rightLegMissileHardpointLabel, 6);
-        this.updateHardpointLabels(this.leftLegAMSHardpointLabel, this.leftLegECMHardpointLabel, this.leftLegBallisticHardpointLabel, this.leftLegEnergyHardpointLabel, this.leftLegMissileHardpointLabel, 7);
-        this.updateHardpointLabels(this.rightTorsoAMSHardpointLabel, this.rightTorsoECMHardpointLabel, this.rightTorsoBallisticHardpointLabel, this.rightTorsoEnergyHardpointLabel, this.rightTorsoMissileHardpointLabel, 2);
-        this.updateHardpointLabels(this.leftTorsoAMSHardpointLabel, this.leftTorsoECMHardpointLabel, this.leftTorsoBallisticHardpointLabel, this.leftTorsoEnergyHardpointLabel, this.leftTorsoMissileHardpointLabel, 3);
-        this.updateHardpointLabels(this.centerTorsoAMSHardpointLabel, this.centerTorsoECMHardpointLabel, this.centerTorsoBallisticHardpointLabel, this.centerTorsoEnergyHardpointLabel, this.centerTorsoMissileHardpointLabel, 4);
-        this.updateHardpointLabels(this.headAMSHardpointLabel, this.headECMHardpointLabel, this.headBallisticHardpointLabel, this.headEnergyHardpointLabel, this.headMissileHardpointLabel, 5);
-        this.updateTotalHardpoints();
+    private void updateHardpointLabels(final Map<HardpointType, JLabel> labels, final SectionType sectionIndex) {
+        boolean visibilityFlag;
+        final Section section = user.variant != null ? user.variant.sections.get(sectionIndex) : null;
+        
+        if (section == null) {
+            return;
+        }
+        
+        switch (this.MechTabPane.getSelectedIndex()) {
+            case 0: {
+                visibilityFlag = true;
+                
+                labels.entrySet().forEach((labelEntry) -> {
+                    updateHardpointMaximumOnlyLabel(labelEntry.getValue(), labelEntry.getKey(), section);
+                });
+                break;
+            }
+            case 1:
+            case 2: {
+                visibilityFlag = true;
+                
+                labels.entrySet().forEach((labelEntry) -> {
+                    updateHardpointCountLabel(labelEntry.getValue(), labelEntry.getKey(), section);
+                });
+                
+                break;
+            }
+            default: {
+                visibilityFlag = false;
+            }
+        }
+                
+        labels.entrySet().forEach((labelEntry) -> {
+            labelEntry.getValue().setVisible(visibilityFlag && section.maximumHardpoints.get(labelEntry.getKey()) > 0);
+        });
     }
 
     private void updateTotalHardpoints() {
-        int n = 0;
-        int n2 = 0;
-        int n3 = 0;
-        int n4 = 0;
-        int n5 = 0;
+        if (user.variant == null) {
+            return;
+        }
+        
+        final Map<HardpointType, Integer> hardpointTotals = new HashMap<>();
+        
+        for (final HardpointType hardpointType : HardpointType.values()) {
+            hardpointTotals.put(hardpointType, 0);
+        }
+        
         user.variant.updateMech();
-//        for (SectionBlueprint sectionBlueprint : user.variant.section_types) {
-//            if (sectionBlueprint == null) continue;
-//            n += sectionBlueprint.hardpoints[0];
-//            n2 += sectionBlueprint.hardpoints[1];
-//            n3 += sectionBlueprint.hardpoints[2];
-//            n4 += sectionBlueprint.hardpoints[3];
-//            n5 += sectionBlueprint.hardpoints[4];
-//        }
+        
+        user.variant.sectionTypes.values().stream().filter((sectionBlueprint) -> !(sectionBlueprint == null)).forEachOrdered((sectionBlueprint) -> {
+            for (final HardpointType hardpointType : HardpointType.values()) {
+                Integer hardpointCount = sectionBlueprint.hardpoints.get(hardpointType);
+                hardpointTotals.put(hardpointType, hardpointTotals.get(hardpointType) + (hardpointCount == null ? 0 : hardpointCount));
+            }
+        });
+
         //this.hardpointComponentPanel.Set_Total_Hardpoints(n, n2, n3, n4);
-        this.ecmCapableLabel.setVisible(n5 > 0);
+        
+        this.ecmCapableLabel.setVisible(hardpointTotals.get(HardpointType.ECM) > 0);
         this.jumpCapableLabel.setVisible(user.variant.maximumJumpJets > 0);
         this.jumpDistanceProgressBar.setMaximum(user.variant.maximumJumpJets);
         this.jumpHeightProgressBar.setMaximum(user.variant.maximumJumpJets);
     }
 
+    private void updateHardpoints() {
+        this.updateHardpointLabels(ImmutableMap.<HardpointType, JLabel>builder().put(HardpointType.AMS, this.rightArmAMSHardpointLabel).put(HardpointType.ECM, this.rightArmECMHardpointLabel).put(HardpointType.BALLISTIC, this.rightArmBallisticHardpointLabel).put(HardpointType.ENERGY, this.rightArmEnergyHardpointLabel).put(HardpointType.MISSILE, this.rightArmMissileHardpointLabel).build(), SectionType.RIGHT_ARM);
+        this.updateHardpointLabels(ImmutableMap.<HardpointType, JLabel>builder().put(HardpointType.AMS, this.leftArmAMSHardpointLabel).put(HardpointType.ECM, this.leftArmECMHardpointLabel).put(HardpointType.BALLISTIC, this.leftArmBallisticHardpointLabel).put(HardpointType.ENERGY, this.leftArmEnergyHardpointLabel).put(HardpointType.MISSILE, this.leftArmMissileHardpointLabel).build(), SectionType.LEFT_ARM);
+        this.updateHardpointLabels(ImmutableMap.<HardpointType, JLabel>builder().put(HardpointType.AMS, this.rightLegAMSHardpointLabel).put(HardpointType.ECM, this.rightLegECMHardpointLabel).put(HardpointType.BALLISTIC, this.rightLegBallisticHardpointLabel).put(HardpointType.ENERGY, this.rightLegEnergyHardpointLabel).put(HardpointType.MISSILE, this.rightLegMissileHardpointLabel).build(), SectionType.RIGHT_LEG);
+        this.updateHardpointLabels(ImmutableMap.<HardpointType, JLabel>builder().put(HardpointType.AMS, this.leftLegAMSHardpointLabel).put(HardpointType.ECM, this.leftLegECMHardpointLabel).put(HardpointType.BALLISTIC, this.leftLegBallisticHardpointLabel).put(HardpointType.ENERGY, this.leftLegEnergyHardpointLabel).put(HardpointType.MISSILE, this.leftLegMissileHardpointLabel).build(), SectionType.LEFT_LEG);
+        this.updateHardpointLabels(ImmutableMap.<HardpointType, JLabel>builder().put(HardpointType.AMS, this.rightTorsoAMSHardpointLabel).put(HardpointType.ECM, this.rightTorsoECMHardpointLabel).put(HardpointType.BALLISTIC, this.rightTorsoBallisticHardpointLabel).put(HardpointType.ENERGY, this.rightTorsoEnergyHardpointLabel).put(HardpointType.MISSILE, this.rightTorsoMissileHardpointLabel).build(), SectionType.RIGHT_TORSO);
+        this.updateHardpointLabels(ImmutableMap.<HardpointType, JLabel>builder().put(HardpointType.AMS, this.leftTorsoAMSHardpointLabel).put(HardpointType.ECM, this.leftTorsoECMHardpointLabel).put(HardpointType.BALLISTIC, this.leftTorsoBallisticHardpointLabel).put(HardpointType.ENERGY, this.leftTorsoEnergyHardpointLabel).put(HardpointType.MISSILE, this.leftTorsoMissileHardpointLabel).build(), SectionType.LEFT_TORSO);
+        this.updateHardpointLabels(ImmutableMap.<HardpointType, JLabel>builder().put(HardpointType.AMS, this.centerTorsoAMSHardpointLabel).put(HardpointType.ECM, this.centerTorsoECMHardpointLabel).put(HardpointType.BALLISTIC, this.centerTorsoBallisticHardpointLabel).put(HardpointType.ENERGY, this.centerTorsoEnergyHardpointLabel).put(HardpointType.MISSILE, this.centerTorsoMissileHardpointLabel).build(), SectionType.CENTER_TORSO);
+        this.updateHardpointLabels(ImmutableMap.<HardpointType, JLabel>builder().put(HardpointType.AMS, this.headAMSHardpointLabel).put(HardpointType.ECM, this.headECMHardpointLabel).put(HardpointType.BALLISTIC, this.headBallisticHardpointLabel).put(HardpointType.ENERGY, this.headEnergyHardpointLabel).put(HardpointType.MISSILE, this.headMissileHardpointLabel).build(), SectionType.HEAD);
+        this.updateTotalHardpoints();
+    }
+
     private void updateEngine() {
-        if (user.variant.engine == null) {
+        if (user.variant == null || user.variant.engine == null) {
             return;
         }
-        //user.variant.currentEngineRating = (Integer) this.engineRatingSpinner.getValue();
+        
+        user.variant.currentEngineRating = (Integer) this.engineRatingSpinner.getValue();
+        
         this.speedProgressBar.setValue(user.variant.currentEngineRating);
         this.speedProgressBar.setString(String.format("%.1f kph", user.variant.engine.getSpeed(user.variant.chassisType.tonnage, user.variant.currentEngineRating)));
-        //this.enginePanel.Set_Engine(user.variant.engine, user.variant.currentEngineRating);
+        //this.enginePanelsSetEngine(user.variant.engine, user.variant.currentEngineRating);
     }
 
     private void updateHeatsinks() {
@@ -2578,15 +2612,15 @@ public class MechlabJPanel extends javax.swing.JPanel {
         }*/
         this.jumpDistanceProgressBar.setValue(user.variant.currentJumpJets);
         this.jumpHeightProgressBar.setValue(user.variant.currentJumpJets);
-        //this.jumpjetComponentPanel.Set_Jumpjets(user.variant.jumpjets, user.variant.currentJumpJets, user.variant.chassisType.tonnage);
-        //this.manueverabilityComponentPanel.Set_Manueverability(user.variant.chassisType, user.variant.modelType, user.variant.maximumJumpJets);
+        //this.jumpjetComponentPanel.setJumpjets(user.variant.jumpjets, user.variant.currentJumpJets, user.variant.chassisType.tonnage);
+        this.manueverabilityComponentPanel.setManueverability(user.variant);
     }
 
     private void updateArmor() {
         if (user.variant.armor == null) {
             return;
         }
-        //this.ArmorPanel.Set_Armor(user.variant.armor, user.variant.GetCurrentArmorTotal());
+        //this.ArmorPanel.setArmor(user.variant.armor, user.variant.GetCurrentArmorTotal());
         this.pointsPerTonAmountLabel.setText(String.format("%.2f", user.variant.armor.pointsPerTon));
         this.armorProgressBar.setString("" + user.variant.getCurrentArmorTotal());
         this.armorProgressBar.setValue(user.variant.getCurrentArmorTotal());
@@ -2611,20 +2645,23 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
     private void updateSpeed() {
         this.speedProgressBar.setString(String.format("%.1f kph", user.variant.engine.getSpeed(user.variant.chassisType.tonnage, user.variant.currentEngineRating)));
-        //this.speedComponentPanel.Set_Speed_Limits(user.variant.chassisType, user.variant.modelType, 16.2, user.speed_tweak_modifier);
+        this.speedComponentPanel.setSpeedLimits(user, 16.2, 0.0);
     }
 
     private void updateWeapons() {
         WeaponBlueprint weaponBlueprint;
+        
         double d = 0.0;
         double d2 = 0.0;
         double d3 = 0.0;
         double d4 = 0.0;
         double d5 = user.variant.heatsinks.getDissipation(user.variant.currentHeatSinkCount, user.variant.currentEngineRating);
         double d6 = user.variant.heatsinks.getThreshold(user.variant.currentHeatSinkCount);
+        
         int n = 1000;
         int n2 = 0;
         int n3 = 0;
+        
         for (Section section2 : user.variant.sections.values()) {
             for (Crittable crittable3 : section2.components) {
                 if (!crittable3.itemType.equals("Weapon")) continue;
@@ -2677,10 +2714,9 @@ public class MechlabJPanel extends javax.swing.JPanel {
         this.updateCriticals(this.centerTorsoCriticalList, SectionType.CENTER_TORSO);
         this.updateCriticals(this.headCriticalList, SectionType.HEAD);
         user.variant.calculateCriticals();
+        
         int temp_int = 0;
-        /*for (Crittable crittable : queued_items) {
-            temp_int += crittable.criticals;
-        }*/
+        
         this.criticalsProgressBar.setValue(user.variant.currentCriticals + temp_int);
         this.criticalsProgressBar.setString(String.format("%d/%d", user.variant.currentCriticals + temp_int, 78));
     }
@@ -2710,9 +2746,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private void updateTonnage() {
         user.variant.calculateTonnage();
         double temp_double = 0.0;
-        /*for (Crittable crittable : queued_items) {
-            temp_double += crittable.tonnage;
-        }*/
+        
         this.tonnageProgressBar.setValue((int) Math.ceil(user.variant.currentTonnage + temp_double));
         this.tonnageProgressBar.setString(String.format("%.2f Tons", user.variant.currentTonnage + temp_double));
     }
@@ -2770,35 +2804,55 @@ public class MechlabJPanel extends javax.swing.JPanel {
         this.updateTonnage();
     }
 
-    private class MechCriticalRenderer
-            extends DefaultListCellRenderer {
+    private class MechCriticalRenderer extends DefaultListCellRenderer {
         private final SectionType sectionIndex;
 
         MechCriticalRenderer(SectionType sectionIndex) {
             this.sectionIndex = sectionIndex;
         }
 
+        @Override
         public JLabel getListCellRendererComponent(JList jList, Object object, int n, boolean bl, boolean bl2) {
-            JLabel jLabel = (JLabel) super.getListCellRendererComponent(jList, object, n, bl, bl2);
+            final JLabel jLabel = (JLabel) super.getListCellRendererComponent(jList, object, n, bl, bl2);
+            
             int n2 = -1;
             int n3 = -1;
+            
             jLabel.setBackground(preferences.EMPTY_CRITICAL_BG);
             jLabel.setForeground(preferences.EMPTY_CRITICAL_FG);
             jLabel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK));
-            for (int i = 0; i < user.variant.sections.get(sectionIndex).components.size(); ++i) {
-                for (int j = 0; j < user.variant.sections.get(sectionIndex).components.get(i).criticals; ++j) {
-                    if (n == ++n2) break;
-                }
-                n3 += user.variant.sections.get(sectionIndex).components.get(i).criticals;
-                if (n != n2) continue;
-                n2 = i;
-                break;
+            
+            final Section section = user.variant != null ? user.variant.sections.get(sectionIndex) : null;
+            
+            if (section == null) {
+                return jLabel;
             }
+                 
+            int i = 0;
+            
+            for (Crittable crittable : section.components) {
+                for (int j = 0; j < crittable.criticals; ++j) {
+                    if (n == ++n2) {
+                        break;
+                    }
+                }
+                
+                n3 += crittable.criticals;
+                
+                if (n != n2) {
+                    i++;
+                } else {
+                    n2 = i;
+                    break;
+                }
+            }
+            
             if (n3 < n) {
                 n2 = -1;
             }
-            if (n2 < user.variant.sections.get(sectionIndex).components.size() && n2 > -1) {
-                if (user.variant.sections.get(sectionIndex).components.get(n2).isLocked) {
+            
+            if (n2 < section.components.size() && n2 > -1) {
+                if (section.components.get(n2).isLocked) {
                     if (bl && jList.hasFocus()) {
                         jLabel.setBackground(preferences.LOCKED_CRITICAL_FG);
                         jLabel.setForeground(preferences.LOCKED_CRITICAL_BG);
@@ -2807,7 +2861,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
                         jLabel.setForeground(preferences.LOCKED_CRITICAL_FG);
                     }
                 } else {
-                    Color color = user.variant.sections.get(sectionIndex).components.get(n2).hardpointType.equals(HardpointType.values()[0]) ? preferences.BALLISTIC_COLOR : (user.variant.sections.get(sectionIndex).components.get(n2).hardpointType.equals(HardpointType.values()[1]) ? preferences.ENERGY_COLOR : (user.variant.sections.get(sectionIndex).components.get(n2).hardpointType.equals(HardpointType.values()[2]) ? preferences.MISSILE_COLOR : (user.variant.sections.get(sectionIndex).components.get(n2).hardpointType.equals(HardpointType.values()[3]) ? preferences.AMS_COLOR : (user.variant.sections.get(sectionIndex).components.get(n2).hardpointType.equals(HardpointType.values()[4]) ? preferences.ECM_COLOR : preferences.NORMAL_CRITICAL_BG))));
+                    Color color = section.components.get(n2).hardpointType.equals(HardpointType.values()[0]) ? preferences.BALLISTIC_COLOR : (section.components.get(n2).hardpointType.equals(HardpointType.values()[1]) ? preferences.ENERGY_COLOR : (section.components.get(n2).hardpointType.equals(HardpointType.values()[2]) ? preferences.MISSILE_COLOR : (section.components.get(n2).hardpointType.equals(HardpointType.values()[3]) ? preferences.AMS_COLOR : (section.components.get(n2).hardpointType.equals(HardpointType.values()[4]) ? preferences.ECM_COLOR : preferences.NORMAL_CRITICAL_BG))));
                     if (bl && jList.hasFocus()) {
                         jLabel.setBackground(preferences.NORMAL_CRITICAL_FG);
                         jLabel.setForeground(color);
@@ -2815,7 +2869,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
                         jLabel.setBackground(color);
                         jLabel.setForeground(preferences.NORMAL_CRITICAL_FG);
                     }
-                    if (user.variant.sections.get(sectionIndex).components.get(n2).criticals > 1 && n3 != n) {
+                    if (section.components.get(n2).criticals > 1 && n3 != n) {
                         jLabel.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, Color.BLACK));
                     } else if (user.variant.sections.get(sectionIndex).components.get(n2).criticals > 1 && n3 == n) {
                         jLabel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK));
@@ -2824,6 +2878,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
                     }
                 }
             }
+            
             return jLabel;
         }
     }
@@ -2871,7 +2926,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private JProgressBar centerTorsoRearArmorProgressBar;
     private javax.swing.JSpinner centerTorsoSpinner;
     private JProgressBar centerTorsoStructureProgressBar;
-    JComboBox<String> chassisComboBox;
+    private JComboBox<String> chassisComboBox;
     private javax.swing.JButton clearArmorButton;
     private JComboBox<String> cockpitComboBox;
     private javax.swing.JPanel componentsPanel;
@@ -2966,7 +3021,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private javax.swing.JButton maximumArmorButton;
     private javax.swing.JPanel mechPanel;
     private JLabel mechTypeLabel;
-    JComboBox<String> modelComboBox;
+    private JComboBox<String> modelComboBox;
     private com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel movementRangeComponentPanel;
     private com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel movementSpeedComponentPanel;
     private JComboBox<String> myomerComboBox;
@@ -3057,5 +3112,5 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private JLabel unreleasedLabel;
     private JLabel variantCostLabel;
     private javax.swing.JTextField variantNameField;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration
 }

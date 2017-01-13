@@ -144,12 +144,16 @@ public class ComponentPanel extends javax.swing.JPanel {
         this.Label6.setVisible(paramBoolean);
     }
 
-    public void setLabel(JLabel label, String title, String text) {
+    private void setLabel(JLabel label, String title, String text) {
         label.setText(text);
         ((TitledBorder) label.getBorder()).setTitle(title);
     }
 
     public void setArmor(final Variant variant) {
+        if (variant == null) {
+            return;
+        }
+        
         ((TitledBorder) getBorder()).setTitle("Armor");
         setLabel(this.Label1, "Type", variant.armor.name);
         setLabel(this.Label2, "Cost", String.format("%,d C-Bills", variant.armor.getItemCost(variant.getCurrentArmorTotal())));
@@ -159,6 +163,10 @@ public class ComponentPanel extends javax.swing.JPanel {
     }
 
     public void setHeatsinks(final Variant variant) {
+        if (variant == null) {
+            return;
+        }
+        
         ((TitledBorder) getBorder()).setTitle("Heat Sinks");
         setLabel(this.Label1, "Type", variant.heatsinks.name);
         setLabel(this.Label2, "Cost", String.format("%,d C-Bills", variant.heatsinks.getItemCost(variant.currentHeatSinkCount, variant.currentEngineRating)));
@@ -170,6 +178,10 @@ public class ComponentPanel extends javax.swing.JPanel {
     }
 
     public void setStructure(final Variant variant) {
+        if (variant == null) {
+            return;
+        }
+        
         ((TitledBorder) getBorder()).setTitle("Structure");
         setLabel(this.Label1, "Type", variant.structure.name);
         setLabel(this.Label2, "Cost", String.format("%,d C-Bills", variant.structure.getItemCost(variant.chassisType.tonnage)));
@@ -179,6 +191,10 @@ public class ComponentPanel extends javax.swing.JPanel {
     }
 
     public void setJumpjets(final Variant variant) {
+        if (variant == null) {
+            return;
+        }
+        
         ((TitledBorder) getBorder()).setTitle("Jump Jets");
         setLabel(this.Label1, "Type", variant.jumpjets.name);
         setLabel(this.Label2, "Cost", String.format("%,d C-Bills", variant.currentJumpJets * variant.jumpjets.getItemCost(variant.chassisType.tonnage)));
@@ -187,12 +203,20 @@ public class ComponentPanel extends javax.swing.JPanel {
         setBottomRowUsage(false);
     }
 
-    public void setMyomer(MyomerBlueprint blueprint) {
+    public void setMyomer(final Variant variant) {
+        if (variant == null) {
+            return;
+        }
+        
         ((TitledBorder) getBorder()).setTitle("Myomer");
         setBottomRowUsage(false);
     }
 
     public void setEngine(final Variant variant) {
+        if (variant == null) {
+            return;
+        }
+        
         ((TitledBorder) getBorder()).setTitle("Engine");
         setLabel(this.Label1, "Type", variant.engine.name);
         setLabel(this.Label2, "Cost", String.format("%,d C-Bills", variant.engine.getCost(variant.currentEngineRating)));
@@ -204,6 +228,10 @@ public class ComponentPanel extends javax.swing.JPanel {
     }
 
     public void setCockpit(final Variant variant) {
+        if (variant == null) {
+            return;
+        }
+        
         ((TitledBorder) getBorder()).setTitle("Cockpit");
         setLabel(this.Label1, "Type", variant.cockpit.name);
         setLabel(this.Label2, "Cost", String.format("%,d C-Bills", variant.cockpit.itemCost));
@@ -213,6 +241,10 @@ public class ComponentPanel extends javax.swing.JPanel {
     }
 
     public void setGyro(final Variant variant) {
+        if (variant == null) {
+            return;
+        }
+        
         ((TitledBorder) getBorder()).setTitle("Gyro");
         setLabel(this.Label1, "Type", variant.gyro.name);
         setLabel(this.Label2, "Cost", String.format("%,d C-Bills", variant.gyro.getItemCost(variant.currentEngineRating)));
@@ -222,6 +254,10 @@ public class ComponentPanel extends javax.swing.JPanel {
     }
 
     public void setSpeedLimits(final User user, double speedModifier, double mascModifier) {
+        if (user == null) {
+            return;
+        }
+        
         ((TitledBorder) getBorder()).setTitle("Speed Limits");
         setLabel(this.Label1, "Min Rating", "" + Variant.getMinEngineRating(user, user.variant.chassisType, user.variant.modelType));
         setLabel(this.Label2, "Max Rating", "" + Variant.getMaxEngineRating(user, user.variant.chassisType, user.variant.modelType));
@@ -231,6 +267,10 @@ public class ComponentPanel extends javax.swing.JPanel {
     }
 
     public void setOverview(final Variant variant) {
+        if (variant == null) {
+            return;
+        }
+        
         ((TitledBorder) getBorder()).setTitle("Overview");
         setLabel(this.Label1, "Weight", String.format("%.2f kph", variant.chassisType.tonnage));
         setLabel(this.Label2, "Cost (C-Bills)", String.format("%,d C-Bills", variant.modelType.cbillCost));
@@ -251,6 +291,10 @@ public class ComponentPanel extends javax.swing.JPanel {
     }
 
     public void setMovementArchetype(final Variant variant) {
+        if (variant == null) {
+            return;
+        }
+        
         ((TitledBorder) getBorder()).setTitle("Movement Archetype");
         setLabel(this.Label1, "Type", variant.chassisType.movementArchetype.name);
         setLabel(this.Label2, "", "");
@@ -260,6 +304,10 @@ public class ComponentPanel extends javax.swing.JPanel {
     }
 
     public void setManueverability(final Variant variant) {
+        if (variant == null) {
+            return;
+        }
+        
         ((TitledBorder) getBorder()).setTitle("Manueverability");
         setLabel(this.Label1, "Acceleration", String.format("%.1f", variant.modelType.acceleration));
         setLabel(this.Label2, "Deceleration", String.format("%.1f", variant.modelType.deceleration));
@@ -269,6 +317,10 @@ public class ComponentPanel extends javax.swing.JPanel {
     }
 
     public void setMovementRange(final Variant variant) {
+        if (variant == null) {
+            return;
+        }
+        
         ((TitledBorder) getBorder()).setTitle("Movement Range");
         setLabel(this.Label1, "Torso Yaw", String.format("%.1f", variant.modelType.movementRanges.get("torso").get("yaw")));
         setLabel(this.Label2, "Torso Pitch", String.format("%.1f", variant.modelType.movementRanges.get("torso").get("pitch")));
@@ -278,6 +330,10 @@ public class ComponentPanel extends javax.swing.JPanel {
     }
 
     public void setMovementSpeed(final Variant variant) {
+        if (variant == null) {
+            return;
+        }
+        
         ((TitledBorder) getBorder()).setTitle("Movement Speed");
         setLabel(this.Label1, "Torso Yaw", String.format("%.1f", variant.modelType.movementSpeeds.get("torso").get("yaw")));
         setLabel(this.Label2, "Torso Pitch", String.format("%.1f", variant.modelType.movementSpeeds.get("torso").get("pitch")));
@@ -295,12 +351,16 @@ public class ComponentPanel extends javax.swing.JPanel {
         setBottomRowUsage(false);
     }
 
-    public void setTotalHardpoints(int ballistic_count, int energy_count, int missile_count, int ams_count) {
+    public void setTotalHardpoints(final Variant variant) {
+        if (variant == null) {
+            return;
+        }
+        
         ((TitledBorder) getBorder()).setTitle("Total Hardpoints");
-        setLabel(this.Label1, "Ballistic", "" + ballistic_count);
-        setLabel(this.Label2, "Energy", "" + energy_count);
-        setLabel(this.Label3, "Missile", "" + missile_count);
-        setLabel(this.Label4, "AMS", "" + ams_count);
+//        setLabel(this.Label1, "Ballistic", "" + ballistic_count);
+//        setLabel(this.Label2, "Energy", "" + energy_count);
+//        setLabel(this.Label3, "Missile", "" + missile_count);
+//        setLabel(this.Label4, "AMS", "" + ams_count);
         setBottomRowUsage(false);
     }
 
