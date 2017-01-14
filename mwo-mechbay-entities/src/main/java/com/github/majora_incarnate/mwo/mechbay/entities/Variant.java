@@ -41,7 +41,7 @@ public class Variant implements Serializable {
         this.chassisType = chassisBlueprint;
         this.modelType = modelBlueprint;
         
-        for (Map.Entry<SectionType, String> modelSection : modelBlueprint.sectionModels.entrySet()) {
+        for (final Map.Entry<SectionType, String> modelSection : modelBlueprint.sectionModels.entrySet()) {
             for (SectionBlueprint section : database.SECTION_BLUEPRINTS) {
                 if (section.section.equals(modelSection.getKey()) && section.name.equals(modelSection.getValue())) {
                     sectionTypes.put(modelSection.getKey(), section);
@@ -52,6 +52,10 @@ public class Variant implements Serializable {
                 }
             }
         }
+        
+        sectionTypes.entrySet().forEach((sectionType) -> {
+            sections.put(sectionType.getKey(), new Section(database, sectionType.getValue(), this.chassisType.tonnage));
+        });
         
         database.ENGINE_BLUEPRINTS.stream().filter((engine_blueprint) -> (engine_blueprint.name.equals(modelBlueprint.engineType))).forEach((engine_blueprint) -> {
             this.engine = engine_blueprint;
@@ -78,32 +82,41 @@ public class Variant implements Serializable {
         this.currentHeatSinkCount = modelBlueprint.heatsinkCount;
         this.currentEngineRating = modelBlueprint.engineRating;
         this.currentJumpJets = this.minimumJumpJets;
-        /*this.sections[SectionType.HEAD.index].Add_Component(this.cockpit.Get_Crittable());
-        this.sections[SectionType.LEFT_TORSO.index].Add_Component(this.engine.Get_Crittable(this.engine.Has_Side_Torso_Criticals()));
-        this.sections[SectionType.RIGHT_TORSO.index].Add_Component(this.engine.Get_Crittable(this.engine.Has_Side_Torso_Criticals()));
-        this.sections[SectionType.CENTER_TORSO.index].Add_Component(this.engine.Get_Crittable());
-        this.sections[SectionType.CENTER_TORSO.index].Add_Component(this.gyro.Get_Crittable());
         
-        if (this.minimum_jump_jets > 0)
-            for (int n = 0; n < SectionType.numberOfSectionTypes(); ++n)
-                for (int i = 0; i < this.sectionTypes[n].minimumJumpJetModifier; ++i)
-                    this.sections[n].Add_Component(this.jumpjets.Get_Crittable(this.chassisType.tonnage));
+        this.sections.get(SectionType.HEAD).addComponent(this.cockpit.getCrittable());
+        this.sections.get(SectionType.LEFT_TORSO).addComponent(this.engine.getCrittable(this.engine.hasSideTorsoCriticals()));
+        this.sections.get(SectionType.RIGHT_TORSO).addComponent(this.engine.getCrittable(this.engine.hasSideTorsoCriticals()));
+        this.sections.get(SectionType.CENTER_TORSO).addComponent(this.engine.getCrittable());
+        this.sections.get(SectionType.CENTER_TORSO).addComponent(this.gyro.getCrittable());
                     
-        for (int n = 0; n < SectionType.numberOfSectionTypes(); ++n) {
-            int n2;
+        this.sectionTypes.entrySet().stream().map((sectionEntry) -> {
+            if (this.minimumJumpJets > 0) {
+                for (int i = 0; i < sectionEntry.getValue().minimumJumpJetModifier; ++i) {
+                    sections.get(sectionEntry.getKey()).addComponent(this.jumpjets.getCrittable(this.chassisType.tonnage));
+                }
+            }
+            return sectionEntry;            
+        }).map((sectionEntry) -> {
+            for (int i = 0; i < sectionEntry.getValue().hardwiredHeatsinks; i++) {
+                this.sections.get(sectionEntry.getKey()).addComponent(this.heatsinks.getCrittable());
+            }
+            return sectionEntry;            
+        }).map((sectionEntry) -> {
+            for (int i = 0; i < sectionEntry.getValue().hardwiredArmor; i++) {
+                this.sections.get(sectionEntry.getKey()).addComponent(this.armor.getCrittable());
+            }
+            return sectionEntry;            
+        }).forEachOrdered((sectionEntry) -> {
+            for (int i = 0; i < sectionEntry.getValue().hardwiredStructure; i++) {
+                this.sections.get(sectionEntry.getKey()).addComponent(this.structure.getCrittable());
+            }
+        });
             
-            for (n2 = 0; n2 < this.sectionTypes[n].hardwired_heatsinks; ++n2)
-                this.sections[n].Add_Component(this.heatsinks.Get_Crittable());
-            
-            for (n2 = 0; n2 < this.sectionTypes[n].hardwired_armor; ++n2)
-                this.sections[n].Add_Component(this.armor.Get_Crittable());
-            
-            for (n2 = 0; n2 < this.sectionTypes[n].hardwired_structure; ++n2)
-                this.sections[n].Add_Component(this.structure.Get_Crittable());
-            
-            for (Crittable crittable : this.sections[n].components)
-                crittable.is_locked = true;
-        }*/
+        this.sections.values().forEach((section) -> {
+            section.components.forEach((crittable) -> {
+                crittable.isLocked = true;
+            });
+        });
     }
 
     public void calculateCriticals() {
@@ -154,13 +167,14 @@ public class Variant implements Serializable {
         this.minimumJumpJets = 0;
         this.maximumJumpJets = 0;
         
-//        for (int i = 0; i < 8; ++i) {
-//            this.minimumJumpJets += this.sectionTypes[i].minimumJumpJetModifier;
-//            this.maximumJumpJets += this.sectionTypes[i].maximumJumpJetModifier;
-//            
-//            for (int j = 0; j < this.sectionTypes[i].minimumJumpJetModifier; ++j)
-//                this.sections[i].Add_Component(this.jumpjets.Get_Crittable(this.chassisType.tonnage));
-//        }
+        this.sectionTypes.entrySet().stream().forEachOrdered((sectionEntry) -> {
+            this.minimumJumpJets += sectionEntry.getValue().minimumJumpJetModifier;
+            this.maximumJumpJets += sectionEntry.getValue().maximumJumpJetModifier;
+            
+            for (int i = 0; i < sectionEntry.getValue().minimumJumpJetModifier; ++i) {
+                sections.get(sectionEntry.getKey()).addComponent(this.jumpjets.getCrittable(this.chassisType.tonnage));
+            }          
+        });
         
         this.currentJumpJets = this.minimumJumpJets;
     }

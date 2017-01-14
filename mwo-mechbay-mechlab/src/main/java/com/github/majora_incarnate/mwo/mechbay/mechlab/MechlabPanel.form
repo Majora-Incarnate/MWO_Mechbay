@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.4" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1280, 700]"/>
     </Property>
+    <Property name="name" type="java.lang.String" value="Form" noResource="true"/>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1280, 700]"/>
     </Property>
   </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
-    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
-    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
-    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="1"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
     <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-68,0,0,5,0"/>
@@ -26,14 +27,12 @@
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="MechTabPane">
       <Properties>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[320, 470]"/>
-        </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[320, 470]"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="MechTabPane" noResource="true"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[320, 512]"/>
+          <Dimension value="[320, 470]"/>
         </Property>
       </Properties>
       <Events>
@@ -41,13 +40,16 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-          <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
+          <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
         </Constraint>
       </Constraints>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="ChassisPanel">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="ChassisPanel" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Chassis">
@@ -70,6 +72,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="loadButton" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
@@ -92,6 +95,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="saveButton" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
@@ -114,6 +118,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="importButton" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
@@ -136,6 +141,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="exportButton" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
@@ -157,6 +163,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="chassisComboBox" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
@@ -185,6 +192,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="modelComboBox" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
@@ -210,6 +218,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="variantNameField" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
@@ -230,6 +239,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="variantCostLabel" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
@@ -250,6 +260,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="techBaseLabel" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
@@ -270,6 +281,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="mechTypeLabel" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
@@ -290,6 +302,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="unreleasedLabel" noResource="true"/>
                 <Property name="opaque" type="boolean" value="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
@@ -311,6 +324,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="unconfirmedLabel" noResource="true"/>
                 <Property name="opaque" type="boolean" value="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
@@ -332,6 +346,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="ecmCapableLabel" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
@@ -352,6 +367,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jumpCapableLabel" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[39, 20]"/>
                 </Property>
@@ -365,6 +381,9 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JScrollPane" name="UpgradesScrollPane">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="UpgradesScrollPane" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Upgrades">
@@ -376,11 +395,15 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
             <Container class="javax.swing.JPanel" name="UpgradesPanel">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="UpgradesPanel" noResource="true"/>
+              </Properties>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
               <SubComponents>
                 <Container class="javax.swing.JPanel" name="AdjustmentsPanel">
                   <Properties>
+                    <Property name="name" type="java.lang.String" value="AdjustmentsPanel" noResource="true"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[0, 0]"/>
                     </Property>
@@ -398,6 +421,7 @@
                         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                           <Connection code="engineRatingSpinnerModel" type="code"/>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="engineRatingSpinner" noResource="true"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -408,6 +432,9 @@
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="SystemsPanel">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="SystemsPanel" noResource="true"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                       <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -426,6 +453,7 @@
                             <StringItem index="3" value="Item 4"/>
                           </StringArray>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="engineComboBox" noResource="true"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -446,6 +474,7 @@
                             <StringItem index="3" value="Item 4"/>
                           </StringArray>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="structureComboBox" noResource="true"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -466,6 +495,7 @@
                             <StringItem index="3" value="Item 4"/>
                           </StringArray>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="armorComboBox" noResource="true"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -486,6 +516,7 @@
                             <StringItem index="3" value="Item 4"/>
                           </StringArray>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="gyroComboBox" noResource="true"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -506,6 +537,7 @@
                             <StringItem index="3" value="Item 4"/>
                           </StringArray>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="cockpitComboBox" noResource="true"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -526,6 +558,7 @@
                             <StringItem index="3" value="Item 4"/>
                           </StringArray>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="heatSinkComboBox" noResource="true"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -546,6 +579,7 @@
                             <StringItem index="3" value="Item 4"/>
                           </StringArray>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="myomerComboBox" noResource="true"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -566,6 +600,7 @@
                             <StringItem index="3" value="Item 4"/>
                           </StringArray>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="jumpJetComboBox" noResource="true"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -579,6 +614,9 @@
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="EfficienciesPanel">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="EfficienciesPanel" noResource="true"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                       <GridBagConstraints gridX="0" gridY="3" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -592,10 +630,13 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="WeaponsPanel">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="WeaponsPanel" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Weapons">
-                <Property name="tabTitle" type="java.lang.String" value="Weapons"/>
+              <JTabbedPaneConstraints tabName="Equipment">
+                <Property name="tabTitle" type="java.lang.String" value="Equipment"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -603,6 +644,9 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
         </Container>
         <Container class="javax.swing.JPanel" name="ArmorPanel">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="ArmorPanel" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Armor">
@@ -616,6 +660,7 @@
             <Component class="javax.swing.JLabel" name="pointsPerTonLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Points Per Ton"/>
+                <Property name="name" type="java.lang.String" value="pointsPerTonLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -626,6 +671,7 @@
             <Component class="javax.swing.JLabel" name="pointsPerTonAmountLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0.0"/>
+                <Property name="name" type="java.lang.String" value="pointsPerTonAmountLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -636,7 +682,11 @@
             <Component class="javax.swing.JButton" name="maximumArmorButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Maximum Armor"/>
+                <Property name="name" type="java.lang.String" value="maximumArmorButton" noResource="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maximumArmorButtonActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="13" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -646,6 +696,7 @@
             <Component class="javax.swing.JButton" name="clearArmorButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Clear Armor"/>
+                <Property name="name" type="java.lang.String" value="clearArmorButton" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -657,6 +708,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Efficient Maximum"/>
                 <Property name="enabled" type="boolean" value="false"/>
+                <Property name="name" type="java.lang.String" value="efficientArmorButton" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -668,6 +720,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Custom Tonnage"/>
                 <Property name="enabled" type="boolean" value="false"/>
+                <Property name="name" type="java.lang.String" value="tonnageArmorButton" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -678,6 +731,7 @@
             <Component class="javax.swing.JLabel" name="jLabel21">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Section"/>
+                <Property name="name" type="java.lang.String" value="jLabel21" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -688,6 +742,7 @@
             <Component class="javax.swing.JLabel" name="jLabel22">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Front"/>
+                <Property name="name" type="java.lang.String" value="jLabel22" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -698,6 +753,7 @@
             <Component class="javax.swing.JLabel" name="jLabel23">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Rear"/>
+                <Property name="name" type="java.lang.String" value="jLabel23" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -708,6 +764,7 @@
             <Component class="javax.swing.JLabel" name="jLabel24">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Amount"/>
+                <Property name="name" type="java.lang.String" value="jLabel24" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -720,6 +777,7 @@
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="SectionType.HEAD.shortName" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jLabel25" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -730,6 +788,7 @@
             <Component class="javax.swing.JLabel" name="headArmorAmountLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0/0"/>
+                <Property name="name" type="java.lang.String" value="headArmorAmountLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -742,6 +801,7 @@
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="SectionType.CENTER_TORSO.shortName" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jLabel29" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -752,6 +812,7 @@
             <Component class="javax.swing.JLabel" name="centerTorsoArmorAmountLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0/0"/>
+                <Property name="name" type="java.lang.String" value="centerTorsoArmorAmountLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -764,6 +825,7 @@
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="SectionType.RIGHT_TORSO.shortName" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jLabel33" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -774,6 +836,7 @@
             <Component class="javax.swing.JLabel" name="rightTorsoArmorAmountLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0/0"/>
+                <Property name="name" type="java.lang.String" value="rightTorsoArmorAmountLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -786,6 +849,7 @@
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="SectionType.LEFT_TORSO.shortName" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jLabel37" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -796,6 +860,7 @@
             <Component class="javax.swing.JLabel" name="leftTorsoArmorAmountLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0/0"/>
+                <Property name="name" type="java.lang.String" value="leftTorsoArmorAmountLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -808,6 +873,7 @@
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="SectionType.RIGHT_ARM.shortName" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jLabel41" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -818,6 +884,7 @@
             <Component class="javax.swing.JLabel" name="rightArmArmorAmountLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0/0"/>
+                <Property name="name" type="java.lang.String" value="rightArmArmorAmountLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -830,6 +897,7 @@
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="SectionType.LEFT_ARM.shortName" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jLabel45" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -840,6 +908,7 @@
             <Component class="javax.swing.JLabel" name="leftArmArmorAmountLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0/0"/>
+                <Property name="name" type="java.lang.String" value="leftArmArmorAmountLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -852,6 +921,7 @@
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="SectionType.RIGHT_LEG.shortName" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jLabel49" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -862,6 +932,7 @@
             <Component class="javax.swing.JLabel" name="rightLegArmorAmountLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0/0"/>
+                <Property name="name" type="java.lang.String" value="rightLegArmorAmountLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -874,6 +945,7 @@
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="SectionType.LEFT_LEG.shortName" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jLabel50" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -884,6 +956,7 @@
             <Component class="javax.swing.JLabel" name="leftLegArmorAmountLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0/0"/>
+                <Property name="name" type="java.lang.String" value="leftLegArmorAmountLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -896,6 +969,7 @@
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="SectionType.SPECIAL_ONE.shortName" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jLabel51" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -906,6 +980,7 @@
             <Component class="javax.swing.JLabel" name="special1ArmorAmountLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0/0"/>
+                <Property name="name" type="java.lang.String" value="special1ArmorAmountLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -918,6 +993,7 @@
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="SectionType.SPECIAL_TWO.shortName" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jLabel55" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -928,6 +1004,7 @@
             <Component class="javax.swing.JLabel" name="special2ArmorAmountLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0/0"/>
+                <Property name="name" type="java.lang.String" value="special2ArmorAmountLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -938,6 +1015,7 @@
             <Component class="javax.swing.JLabel" name="totalArmorLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Total"/>
+                <Property name="name" type="java.lang.String" value="totalArmorLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -948,6 +1026,7 @@
             <Component class="javax.swing.JLabel" name="totalArmorAmountLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0/0"/>
+                <Property name="name" type="java.lang.String" value="totalArmorAmountLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -960,6 +1039,7 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="centerTorsoSpinnerModel" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="centerTorsoSpinner" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -972,6 +1052,7 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="centerRearTorsoSpinnerModel" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="centerRearTorsoSpinner" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -984,6 +1065,7 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="rightTorsoSpinnerModel" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="rightTorsoSpinner" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -996,6 +1078,7 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="rightRearTorsoSpinnerModel" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="rightRearTorsoSpinner" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1008,6 +1091,7 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="leftTorsoSpinnerModel" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="leftTorsoSpinner" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1020,6 +1104,7 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="leftRearTorsoSpinnerModel" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="leftRearTorsoSpinner" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1032,6 +1117,7 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="headSpinnerModel" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="headSpinner" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1044,7 +1130,11 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="rightArmSpinnerModel" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="rightArmSpinner" noResource="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="armorSpinnerStateChanged"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="1" gridY="6" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
@@ -1056,6 +1146,7 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="leftArmSpinnerModel" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="leftArmSpinner" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1068,6 +1159,7 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="leftLegSpinnerModel" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="leftLegSpinner" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1080,6 +1172,7 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="rightLegSpinnerModel" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="rightLegSpinner" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1092,6 +1185,7 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="special1SpinnerModel" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="special1Spinner" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1104,6 +1198,7 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="special2SpinnerModel" type="code"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="special2Spinner" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1117,19 +1212,17 @@
     </Container>
     <Container class="javax.swing.JPanel" name="statisticsPanel">
       <Properties>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[192, 470]"/>
-        </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[192, 470]"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="statisticsPanel" noResource="true"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[192, 512]"/>
+          <Dimension value="[192, 470]"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-          <GridBagConstraints gridX="1" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
+          <GridBagConstraints gridX="1" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
         </Constraint>
       </Constraints>
 
@@ -1142,7 +1235,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder justification="4" position="2" title="Tonnage">
-                  <Connection PropertyName="font" code="User.preferences.DEFAULT_FONT_SIZE_12" type="code"/>
+                  <Connection PropertyName="font" code="preferences.DEFAULT_FONT_SIZE_12" type="code"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -1152,6 +1245,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="tonnageProgressBar" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
@@ -1168,7 +1262,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder justification="4" position="2" title="Speed">
-                  <Connection PropertyName="font" code="User.preferences.DEFAULT_FONT_SIZE_12" type="code"/>
+                  <Connection PropertyName="font" code="preferences.DEFAULT_FONT_SIZE_12" type="code"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -1178,6 +1272,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="speedProgressBar" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
@@ -1194,7 +1289,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder justification="4" position="2" title="Jump Distance">
-                  <Connection PropertyName="font" code="User.preferences.DEFAULT_FONT_SIZE_12" type="code"/>
+                  <Connection PropertyName="font" code="preferences.DEFAULT_FONT_SIZE_12" type="code"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -1204,6 +1299,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="jumpDistanceProgressBar" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
@@ -1220,7 +1316,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder justification="4" position="2" title="Jump Height">
-                  <Connection PropertyName="font" code="User.preferences.DEFAULT_FONT_SIZE_12" type="code"/>
+                  <Connection PropertyName="font" code="preferences.DEFAULT_FONT_SIZE_12" type="code"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -1230,6 +1326,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="jumpHeightProgressBar" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
@@ -1246,7 +1343,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder justification="4" position="2" title="Armor">
-                  <Connection PropertyName="font" code="User.preferences.DEFAULT_FONT_SIZE_12" type="code"/>
+                  <Connection PropertyName="font" code="preferences.DEFAULT_FONT_SIZE_12" type="code"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -1256,6 +1353,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="armorProgressBar" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
@@ -1272,7 +1370,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder justification="4" position="2" title="Alpha Damage">
-                  <Connection PropertyName="font" code="User.preferences.DEFAULT_FONT_SIZE_12" type="code"/>
+                  <Connection PropertyName="font" code="preferences.DEFAULT_FONT_SIZE_12" type="code"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -1282,6 +1380,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="alphaDamageProgressBar" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
@@ -1298,7 +1397,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder justification="4" position="2" title="Alpha Heat">
-                  <Connection PropertyName="font" code="User.preferences.DEFAULT_FONT_SIZE_12" type="code"/>
+                  <Connection PropertyName="font" code="preferences.DEFAULT_FONT_SIZE_12" type="code"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -1308,6 +1407,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="alphaHeatProgressBar" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
@@ -1324,7 +1424,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder justification="4" position="2" title="Firepower">
-                  <Connection PropertyName="font" code="User.preferences.DEFAULT_FONT_SIZE_12" type="code"/>
+                  <Connection PropertyName="font" code="preferences.DEFAULT_FONT_SIZE_12" type="code"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -1334,6 +1434,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="firepowerProgressBar" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
@@ -1350,7 +1451,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder justification="4" position="2" title="Heat Efficiency">
-                  <Connection PropertyName="font" code="User.preferences.DEFAULT_FONT_SIZE_12" type="code"/>
+                  <Connection PropertyName="font" code="preferences.DEFAULT_FONT_SIZE_12" type="code"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -1360,6 +1461,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="heatEfficiencyProgressBar" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
@@ -1376,7 +1478,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder justification="4" position="2" title="Range">
-                  <Connection PropertyName="font" code="User.preferences.DEFAULT_FONT_SIZE_12" type="code"/>
+                  <Connection PropertyName="font" code="preferences.DEFAULT_FONT_SIZE_12" type="code"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -1386,6 +1488,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="rangeProgressBar" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
@@ -1402,7 +1505,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder justification="4" position="2" title="Criticals">
-                  <Connection PropertyName="font" code="User.preferences.DEFAULT_FONT_SIZE_12" type="code"/>
+                  <Connection PropertyName="font" code="preferences.DEFAULT_FONT_SIZE_12" type="code"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -1412,6 +1515,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="criticalsProgressBar" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[0, 0]"/>
             </Property>
@@ -1427,19 +1531,17 @@
     </Container>
     <Container class="javax.swing.JPanel" name="mechPanel">
       <Properties>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[512, 470]"/>
-        </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[512, 470]"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="mechPanel" noResource="true"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[512, 512]"/>
+          <Dimension value="[512, 470]"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-          <GridBagConstraints gridX="2" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
+          <GridBagConstraints gridX="2" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
         </Constraint>
       </Constraints>
 
@@ -1453,6 +1555,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 128]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="headPanel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 128]"/>
             </Property>
@@ -1475,6 +1578,7 @@
                     <StringItem index="3" value="Item 4"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="headOmnipodComboBox" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1488,6 +1592,7 @@
             <Component class="javax.swing.JLabel" name="headAMSHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="headAMSHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1498,6 +1603,7 @@
             <Component class="javax.swing.JLabel" name="headECMHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="headECMHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1508,6 +1614,7 @@
             <Component class="javax.swing.JLabel" name="headEnergyHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="headEnergyHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1518,6 +1625,7 @@
             <Component class="javax.swing.JLabel" name="headBallisticHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="headBallisticHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1528,6 +1636,7 @@
             <Component class="javax.swing.JLabel" name="headMissileHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="headMissileHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1536,6 +1645,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="headStructureProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="headStructureProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -1543,6 +1655,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="headArmorProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="headArmorProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -1560,6 +1675,7 @@
                     <StringItem index="4" value="Item 5"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="headCriticalList" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1580,6 +1696,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 256]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="centerTorsoPanel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 256]"/>
             </Property>
@@ -1602,6 +1719,7 @@
                     <StringItem index="3" value="Item 4"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="centerTorsoOmnipodComboBox" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1615,6 +1733,7 @@
             <Component class="javax.swing.JLabel" name="centerTorsoAMSHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="centerTorsoAMSHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1625,6 +1744,7 @@
             <Component class="javax.swing.JLabel" name="centerTorsoECMHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="centerTorsoECMHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1635,6 +1755,7 @@
             <Component class="javax.swing.JLabel" name="centerTorsoEnergyHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="centerTorsoEnergyHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1645,6 +1766,7 @@
             <Component class="javax.swing.JLabel" name="centerTorsoBallisticHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="centerTorsoBallisticHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1655,6 +1777,7 @@
             <Component class="javax.swing.JLabel" name="centerTorsoMissileHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="centerTorsoMissileHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1663,6 +1786,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="centerTorsoStructureProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="centerTorsoStructureProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -1670,6 +1796,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="centerTorsoFrontArmorProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="centerTorsoFrontArmorProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -1677,6 +1806,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="centerTorsoRearArmorProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="centerTorsoRearArmorProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -1694,6 +1826,7 @@
                     <StringItem index="4" value="Item 5"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="centerTorsoCriticalList" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1714,6 +1847,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 256]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="leftTorsoPanel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 256]"/>
             </Property>
@@ -1736,6 +1870,7 @@
                     <StringItem index="3" value="Item 4"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="leftTorsoOmnipodComboBox" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1749,6 +1884,7 @@
             <Component class="javax.swing.JLabel" name="leftTorsoBallisticHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="leftTorsoBallisticHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1759,6 +1895,7 @@
             <Component class="javax.swing.JLabel" name="leftTorsoEnergyHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="leftTorsoEnergyHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1769,6 +1906,7 @@
             <Component class="javax.swing.JLabel" name="leftTorsoAMSHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="leftTorsoAMSHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1779,6 +1917,7 @@
             <Component class="javax.swing.JLabel" name="leftTorsoECMHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="leftTorsoECMHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1789,6 +1928,7 @@
             <Component class="javax.swing.JLabel" name="leftTorsoMissileHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="leftTorsoMissileHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1797,6 +1937,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="leftTorsoStructureProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="leftTorsoStructureProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -1804,6 +1947,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="leftTorsoFrontArmorProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="leftTorsoFrontArmorProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -1811,6 +1957,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="leftTorsoRearArmorProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="leftTorsoRearArmorProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -1828,6 +1977,7 @@
                     <StringItem index="4" value="Item 5"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="leftTorsoCriticalList" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1841,6 +1991,7 @@
             <Component class="javax.swing.JToggleButton" name="leftTorsoCASEToggleButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="CASE"/>
+                <Property name="name" type="java.lang.String" value="leftTorsoCASEToggleButton" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="leftTorsoCASEToggleButtonActionPerformed"/>
@@ -1861,6 +2012,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 256]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="rightTorsoPanel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 256]"/>
             </Property>
@@ -1883,6 +2035,7 @@
                     <StringItem index="3" value="Item 4"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="rightTorsoOmnipodComboBox" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1896,6 +2049,7 @@
             <Component class="javax.swing.JLabel" name="rightTorsoBallisticHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="rightTorsoBallisticHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1906,6 +2060,7 @@
             <Component class="javax.swing.JLabel" name="rightTorsoEnergyHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="rightTorsoEnergyHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1916,6 +2071,7 @@
             <Component class="javax.swing.JLabel" name="rightTorsoAMSHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="rightTorsoAMSHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1926,6 +2082,7 @@
             <Component class="javax.swing.JLabel" name="rightTorsoECMHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="rightTorsoECMHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1936,6 +2093,7 @@
             <Component class="javax.swing.JLabel" name="rightTorsoMissileHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="rightTorsoMissileHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1944,6 +2102,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="rightTorsoStructureProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="rightTorsoStructureProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -1951,6 +2112,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="rightTorsoFrontArmorProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="rightTorsoFrontArmorProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -1958,6 +2122,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="rightTorsoRearArmorProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="rightTorsoRearArmorProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -1975,6 +2142,7 @@
                     <StringItem index="4" value="Item 5"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="rightTorsoCriticalList" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1988,6 +2156,7 @@
             <Component class="javax.swing.JToggleButton" name="rightTorsoCASEToggleButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="CASE"/>
+                <Property name="name" type="java.lang.String" value="rightTorsoCASEToggleButton" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rightTorsoCASEToggleButtonActionPerformed"/>
@@ -2008,6 +2177,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 128]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="leftLegPanel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 128]"/>
             </Property>
@@ -2030,6 +2200,7 @@
                     <StringItem index="3" value="Item 4"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="leftLegOmnipodComboBox" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2043,6 +2214,7 @@
             <Component class="javax.swing.JLabel" name="leftLegBallisticHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="leftLegBallisticHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2053,6 +2225,7 @@
             <Component class="javax.swing.JLabel" name="leftLegEnergyHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="leftLegEnergyHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2063,6 +2236,7 @@
             <Component class="javax.swing.JLabel" name="leftLegAMSHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="leftLegAMSHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2073,6 +2247,7 @@
             <Component class="javax.swing.JLabel" name="leftLegECMHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="leftLegECMHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2083,6 +2258,7 @@
             <Component class="javax.swing.JLabel" name="leftLegMissileHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="leftLegMissileHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2091,6 +2267,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="leftLegStructureProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="leftLegStructureProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -2098,6 +2277,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="leftLegArmorProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="leftLegArmorProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -2115,6 +2297,7 @@
                     <StringItem index="4" value="Item 5"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="leftLegCriticalList" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2135,6 +2318,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 128]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="rightLegPanel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 128]"/>
             </Property>
@@ -2157,6 +2341,7 @@
                     <StringItem index="3" value="Item 4"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="rightLegOmnipodComboBox" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2170,6 +2355,7 @@
             <Component class="javax.swing.JLabel" name="rightLegBallisticHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="rightLegBallisticHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2180,6 +2366,7 @@
             <Component class="javax.swing.JLabel" name="rightLegEnergyHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="rightLegEnergyHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2190,6 +2377,7 @@
             <Component class="javax.swing.JLabel" name="rightLegAMSHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="rightLegAMSHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2200,6 +2388,7 @@
             <Component class="javax.swing.JLabel" name="rightLegECMHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="rightLegECMHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2210,6 +2399,7 @@
             <Component class="javax.swing.JLabel" name="rightLegMissileHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="rightLegMissileHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2218,6 +2408,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="rightLegStructureProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="rightLegStructureProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -2225,6 +2418,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="rightLegArmorProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="rightLegArmorProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -2242,6 +2438,7 @@
                     <StringItem index="4" value="Item 5"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="rightLegCriticalList" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2262,6 +2459,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 256]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="leftArmPanel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 256]"/>
             </Property>
@@ -2284,6 +2482,7 @@
                     <StringItem index="3" value="Item 4"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="leftArmOmnipodComboBox" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2297,6 +2496,7 @@
             <Component class="javax.swing.JLabel" name="leftArmECMHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="leftArmECMHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2307,6 +2507,7 @@
             <Component class="javax.swing.JLabel" name="leftArmEnergyHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="leftArmEnergyHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2317,6 +2518,7 @@
             <Component class="javax.swing.JLabel" name="leftArmMissileHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="leftArmMissileHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2327,6 +2529,7 @@
             <Component class="javax.swing.JLabel" name="leftArmAMSHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="leftArmAMSHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2337,6 +2540,7 @@
             <Component class="javax.swing.JLabel" name="leftArmBallisticHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="leftArmBallisticHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2347,6 +2551,7 @@
             <Component class="javax.swing.JToggleButton" name="leftLowerArmToggleButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Lower Arm"/>
+                <Property name="name" type="java.lang.String" value="leftLowerArmToggleButton" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="leftLowerArmToggleButtonActionPerformed"/>
@@ -2360,6 +2565,7 @@
             <Component class="javax.swing.JToggleButton" name="leftHandToggleButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hand"/>
+                <Property name="name" type="java.lang.String" value="leftHandToggleButton" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2368,6 +2574,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="leftArmStructureProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="leftArmStructureProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -2375,6 +2584,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="leftArmArmorProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="leftArmArmorProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -2392,6 +2604,7 @@
                     <StringItem index="4" value="Item 5"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="leftArmCriticalList" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2412,6 +2625,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 256]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="rightArmPanel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 256]"/>
             </Property>
@@ -2434,6 +2648,7 @@
                     <StringItem index="3" value="Item 4"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="rightArmOmnipodComboBox" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2447,6 +2662,7 @@
             <Component class="javax.swing.JLabel" name="rightArmECMHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="rightArmECMHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2457,6 +2673,7 @@
             <Component class="javax.swing.JLabel" name="rightArmEnergyHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="rightArmEnergyHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2467,6 +2684,7 @@
             <Component class="javax.swing.JLabel" name="rightArmMissileHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="rightArmMissileHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2477,6 +2695,7 @@
             <Component class="javax.swing.JLabel" name="rightArmAMSHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="rightArmAMSHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2487,6 +2706,7 @@
             <Component class="javax.swing.JLabel" name="rightArmBallisticHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="rightArmBallisticHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2497,6 +2717,7 @@
             <Component class="javax.swing.JToggleButton" name="rightLowerArmToggleButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Lower Arm"/>
+                <Property name="name" type="java.lang.String" value="rightLowerArmToggleButton" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rightLowerArmToggleButtonActionPerformed"/>
@@ -2510,6 +2731,7 @@
             <Component class="javax.swing.JToggleButton" name="rightHandToggleButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hand"/>
+                <Property name="name" type="java.lang.String" value="rightHandToggleButton" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rightHandToggleButtonActionPerformed"/>
@@ -2521,6 +2743,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="rightArmStructureProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="rightArmStructureProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -2528,6 +2753,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="rightArmArmorProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="rightArmArmorProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -2545,6 +2773,7 @@
                     <StringItem index="4" value="Item 5"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="rightArmCriticalList" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2559,6 +2788,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="special1Panel">
           <Properties>
+            <Property name="name" type="java.lang.String" value="special1Panel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 128]"/>
             </Property>
@@ -2581,6 +2811,7 @@
                     <StringItem index="3" value="Item 4"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="section1OmnipodComboBox" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2594,6 +2825,7 @@
             <Component class="javax.swing.JLabel" name="section1AMSHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="section1AMSHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2604,6 +2836,7 @@
             <Component class="javax.swing.JLabel" name="section1ECMHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="section1ECMHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2614,6 +2847,7 @@
             <Component class="javax.swing.JLabel" name="section1EnergyHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="section1EnergyHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2624,6 +2858,7 @@
             <Component class="javax.swing.JLabel" name="section1BallisticHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="section1BallisticHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2634,6 +2869,7 @@
             <Component class="javax.swing.JLabel" name="section1MissileHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="section1MissileHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2642,6 +2878,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="section1StructureProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="section1StructureProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -2649,6 +2888,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="section1ArmorProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="section1ArmorProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -2666,6 +2908,7 @@
                     <StringItem index="4" value="Item 5"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="section1CriticalList" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2680,6 +2923,7 @@
         </Container>
         <Container class="javax.swing.JPanel" name="special2Panel">
           <Properties>
+            <Property name="name" type="java.lang.String" value="special2Panel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 128]"/>
             </Property>
@@ -2702,6 +2946,7 @@
                     <StringItem index="3" value="Item 4"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="section2OmnipodComboBox" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2715,6 +2960,7 @@
             <Component class="javax.swing.JLabel" name="section2AMSHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="section2AMSHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2725,6 +2971,7 @@
             <Component class="javax.swing.JLabel" name="section2ECMHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="section2ECMHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2735,6 +2982,7 @@
             <Component class="javax.swing.JLabel" name="section2EnergyHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="section2EnergyHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2745,6 +2993,7 @@
             <Component class="javax.swing.JLabel" name="section2BallisticHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="section2BallisticHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2755,6 +3004,7 @@
             <Component class="javax.swing.JLabel" name="section2MissileHardpointLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel21"/>
+                <Property name="name" type="java.lang.String" value="section2MissileHardpointLabel" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -2763,6 +3013,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="section2StructureProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="section2StructureProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -2770,6 +3023,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="section2ArmorProgressBar">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="section2ArmorProgressBar" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
@@ -2787,6 +3043,7 @@
                     <StringItem index="4" value="Item 5"/>
                   </StringArray>
                 </Property>
+                <Property name="name" type="java.lang.String" value="section2CriticalList" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2803,25 +3060,26 @@
     </Container>
     <Container class="javax.swing.JTabbedPane" name="secondaryTabbedPane">
       <Properties>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[256, 470]"/>
-        </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[256, 470]"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="secondaryTabbedPane" noResource="true"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[256, 512]"/>
+          <Dimension value="[256, 470]"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-          <GridBagConstraints gridX="3" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
+          <GridBagConstraints gridX="3" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
         </Constraint>
       </Constraints>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="quirksPanel">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="quirksPanel" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Quirks">
@@ -2833,6 +3091,9 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
           <SubComponents>
             <Container class="javax.swing.JScrollPane" name="quirksJScrollPane">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="quirksJScrollPane" noResource="true"/>
+              </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -2849,6 +3110,7 @@
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="name" type="java.lang.String" value="quirksJTextArea" noResource="true"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -2856,6 +3118,9 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JScrollPane" name="componentsScrollPane">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="componentsScrollPane" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Components">
@@ -2867,8 +3132,93 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
             <Container class="javax.swing.JPanel" name="componentsPanel">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="componentsPanel" noResource="true"/>
+              </Properties>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+              <SubComponents>
+                <Component class="com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel" name="engineComponentPanel">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="engineComponentPanel" noResource="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="5" insetsBottom="5" insetsRight="5" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel" name="heatsinkComponentPanel">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="heatsinkComponentPanel" noResource="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="5" insetsBottom="5" insetsRight="5" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel" name="structureComponentPanel">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="structureComponentPanel" noResource="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="5" insetsBottom="5" insetsRight="5" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel" name="armorComponentPanel">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="armorComponentPanel" noResource="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="5" insetsBottom="5" insetsRight="5" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel" name="gyroComponentPanel">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="gyroComponentPanel" noResource="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="5" insetsBottom="5" insetsRight="5" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel" name="myomerComponentPanel">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="myomerComponentPanel" noResource="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="5" insetsBottom="5" insetsRight="5" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel" name="jumpjetComponentPanel">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="jumpjetComponentPanel" noResource="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="0" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="5" insetsBottom="5" insetsRight="5" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel" name="cockpitComponentPanel">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="cockpitComponentPanel" noResource="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+              </SubComponents>
             </Container>
           </SubComponents>
         </Container>
@@ -2876,25 +3226,26 @@
     </Container>
     <Container class="javax.swing.JTabbedPane" name="InformationTabbedPane">
       <Properties>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[1024, 230]"/>
-        </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[1024, 230]"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="InformationTabbedPane" noResource="true"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[1024, 230]"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-          <GridBagConstraints gridX="0" gridY="1" gridWidth="3" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
+          <GridBagConstraints gridX="0" gridY="1" gridWidth="3" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
         </Constraint>
       </Constraints>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="ModelOverviewPanel">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="ModelOverviewPanel" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Model Overview">
@@ -2907,12 +3258,22 @@
           <SubComponents>
             <Container class="javax.swing.JScrollPane" name="descriptionScrollPane">
               <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Mech Overview">
+                      <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
+                      </Border>
+                    </TitledBorder>
+                  </Border>
+                </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[295, 100]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[295, 100]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="descriptionScrollPane" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[295, 100]"/>
                 </Property>
@@ -2922,7 +3283,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                  <GridBagConstraints gridX="-1" gridY="1" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
                 </Constraint>
               </Constraints>
 
@@ -2932,27 +3293,37 @@
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="name" type="java.lang.String" value="descriptionTextArea" noResource="true"/>
                   </Properties>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel" name="overviewComponentPanel">
+            <Component class="com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel" name="overviewComponentPanel">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="overviewComponentPanel" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                  <GridBagConstraints gridX="-1" gridY="1" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel" name="hardpointComponentPanel">
+            <Component class="com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel" name="hardpointComponentPanel">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="hardpointComponentPanel" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                  <GridBagConstraints gridX="-1" gridY="1" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
                 </Constraint>
               </Constraints>
             </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="ModelSpecificationsPanel">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="ModelSpecificationsPanel" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Model Specifications">
@@ -2963,37 +3334,52 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
           <SubComponents>
-            <Component class="com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel" name="speedComponentPanel">
+            <Component class="com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel" name="speedComponentPanel">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="speedComponentPanel" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                  <GridBagConstraints gridX="-1" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel" name="manueverabilityComponentPanel">
+            <Component class="com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel" name="manueverabilityComponentPanel">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="manueverabilityComponentPanel" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                  <GridBagConstraints gridX="-1" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel" name="movementRangeComponentPanel">
+            <Component class="com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel" name="movementRangeComponentPanel">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="movementRangeComponentPanel" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                  <GridBagConstraints gridX="-1" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="com.github.majora_incarnate.mwo_mechbay.mechlab.ComponentPanel" name="movementSpeedComponentPanel">
+            <Component class="com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel" name="movementSpeedComponentPanel">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="movementSpeedComponentPanel" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                  <GridBagConstraints gridX="-1" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
                 </Constraint>
               </Constraints>
             </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="InformationSpecificationsPanel">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="InformationSpecificationsPanel" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Sensors/Targetting Specifications">
@@ -3005,6 +3391,9 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
         </Container>
         <Container class="javax.swing.JPanel" name="EquipmentSpecificationsPanel">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="EquipmentSpecificationsPanel" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Equipment Specifications">
@@ -3019,19 +3408,11 @@
     </Container>
     <Container class="javax.swing.JPanel" name="OptionsPanel">
       <Properties>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[256, 256]"/>
-        </Property>
-        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[256, 256]"/>
-        </Property>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[256, 256]"/>
-        </Property>
+        <Property name="name" type="java.lang.String" value="OptionsPanel" noResource="true"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-          <GridBagConstraints gridX="3" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
+          <GridBagConstraints gridX="3" gridY="1" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
         </Constraint>
       </Constraints>
 
@@ -3045,6 +3426,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[256, 230]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="FeaturesPanel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[256, 230]"/>
             </Property>
@@ -3062,6 +3444,7 @@
                 <Property name="text" type="java.lang.String" value="Frankenmechs"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="name" type="java.lang.String" value="FrankenmechToggle" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[0, 0]"/>
                 </Property>
@@ -3077,6 +3460,7 @@
                 <Property name="text" type="java.lang.String" value="Mixtech"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="name" type="java.lang.String" value="MixtechToggle" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[0, 0]"/>
                 </Property>
@@ -3092,6 +3476,7 @@
                 <Property name="text" type="java.lang.String" value="Futuretech"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="name" type="java.lang.String" value="FuturetechToggle" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[0, 0]"/>
                 </Property>
@@ -3107,6 +3492,7 @@
                 <Property name="text" type="java.lang.String" value="Omni Restrictions"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="name" type="java.lang.String" value="OmniRestrictionsToggle" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[0, 0]"/>
                 </Property>

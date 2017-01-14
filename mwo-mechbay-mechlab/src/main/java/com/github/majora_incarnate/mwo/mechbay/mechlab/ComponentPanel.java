@@ -6,7 +6,6 @@ import javax.swing.border.TitledBorder;
 
 import com.github.majora_incarnate.mwo.mechbay.entities.Constants;
 import com.github.majora_incarnate.mwo.mechbay.entities.Preferences;
-import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.*;
 import com.github.majora_incarnate.mwo.mechbay.entities.User;
 import com.github.majora_incarnate.mwo.mechbay.entities.Variant;
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.WeightClass;
@@ -17,12 +16,19 @@ import com.github.majora_incarnate.mwo.mechbay.entities.enums.WeightClass;
  */
 public class ComponentPanel extends javax.swing.JPanel {
     private static final long serialVersionUID = 7577995873909787972L;
+    private final Preferences preferences;
 
     /**
      * Creates new form ComponentPanel2
      */
+    public ComponentPanel() {
+        preferences = new Preferences();
+        initComponents(this.preferences);
+    }
+    
     public ComponentPanel(final Preferences preferences) {
-        initComponents(preferences);
+        this.preferences = preferences;
+        initComponents(this.preferences);
     }
 
     /**

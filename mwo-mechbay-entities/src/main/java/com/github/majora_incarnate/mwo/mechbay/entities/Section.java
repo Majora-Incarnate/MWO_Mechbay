@@ -43,7 +43,9 @@ public final class Section {
         }
 
         for (HardpointType hardpointType : HardpointType.values()) {
-            maximumHardpoints.put(hardpointType, sectionBlueprint.hardpoints.get(hardpointType));
+            final Optional<Integer> sectionHardpointCount = Optional.ofNullable(sectionBlueprint.hardpoints.get(hardpointType));
+           
+            maximumHardpoints.put(hardpointType, sectionHardpointCount.orElse(0));
             currentHardpoints.put(hardpointType, 0);
         }
 
@@ -104,8 +106,7 @@ public final class Section {
 
         if (!item.hardpointType.toString().equals("None")) {
             for (HardpointType hardpointType : HardpointType.values()) {
-                if (hardpointType.equals(item.hardpointType)
-                    && this.currentHardpoints.get(hardpointType) + 1 > this.maximumHardpoints.get(hardpointType)) {
+                if (hardpointType.equals(item.hardpointType) && this.currentHardpoints.get(hardpointType) + 1 > this.maximumHardpoints.get(hardpointType)) {
                     return false;
                 }
             }

@@ -48,6 +48,7 @@ public class EngineBlueprint extends Blueprint {
     @Override
     public Crittable getCrittable() {
         Crittable crittable = new Crittable();
+        
         crittable.isLocked = true;
         crittable.name = this.name;
         crittable.itemType = CriticalType.ENGINE;
@@ -56,15 +57,17 @@ public class EngineBlueprint extends Blueprint {
         crittable.tonnage = 0.0D;
         crittable.position = -1;
         crittable.reference = this;
+        
         return crittable;
     }
 
-    public Optional<Crittable> getCrittable(boolean isSideTorso) {
+    public Crittable getCrittable(boolean isSideTorso) {
         if (!isSideTorso) {
-            return Optional.empty();
+            return null;
         }
 
         Crittable crittable = new Crittable();
+        
         crittable.isLocked = true;
         crittable.name = this.name;
         crittable.itemType = CriticalType.ENGINE;
@@ -73,6 +76,7 @@ public class EngineBlueprint extends Blueprint {
         crittable.tonnage = 0.0D;
         crittable.position = -1;
         crittable.reference = this;
-        return Optional.of(crittable);
+        
+        return crittable;
     }
 }

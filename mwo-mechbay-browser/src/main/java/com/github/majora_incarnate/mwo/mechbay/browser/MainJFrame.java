@@ -20,7 +20,7 @@ import javax.swing.WindowConstants;
 
 import com.github.majora_incarnate.mwo.mechbay.creator.CreatorJPanel;
 import com.github.majora_incarnate.mwo.mechbay.entities.Constants;
-import com.github.majora_incarnate.mwo.mechbay.mechlab.MechlabJPanel;
+import com.github.majora_incarnate.mwo.mechbay.mechlab.MechlabPanel;
 import com.github.majora_incarnate.mwo.mechbay.encyclopedia.EncyclopediaJPanel;
 import com.github.majora_incarnate.mwo.mechbay.entities.Database;
 import com.github.majora_incarnate.mwo.mechbay.entities.Preferences;
@@ -191,15 +191,21 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void newMechlabTabJMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_newMechlabTabJMenuItemActionPerformed
-        browserJTabbedPane.addTab("Mechlab", new MechlabJPanel(PREFERENCES, MASTER_DATABASE));
+        final MechlabPanel mechlabPanel = new MechlabPanel(PREFERENCES, MASTER_DATABASE);
+        browserJTabbedPane.addTab("Mechlab", mechlabPanel);
+        browserJTabbedPane.setSelectedComponent(mechlabPanel);
     }//GEN-LAST:event_newMechlabTabJMenuItemActionPerformed
 
     private void newCreatorTabJMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_newCreatorTabJMenuItemActionPerformed
-        browserJTabbedPane.addTab("Creator", new CreatorJPanel(PREFERENCES, MASTER_DATABASE));
+        final CreatorJPanel creatorPanel = new CreatorJPanel(PREFERENCES, MASTER_DATABASE);
+        browserJTabbedPane.addTab("Creator", creatorPanel);
+        browserJTabbedPane.setSelectedComponent(creatorPanel);
     }//GEN-LAST:event_newCreatorTabJMenuItemActionPerformed
 
     private void newEncyclopediaTabJMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_newEncyclopediaTabJMenuItemActionPerformed
-        browserJTabbedPane.addTab("Encyclopedia", new EncyclopediaJPanel(PREFERENCES, MASTER_DATABASE));
+        final EncyclopediaJPanel encyclopediaPanel = new EncyclopediaJPanel(PREFERENCES, MASTER_DATABASE);
+        browserJTabbedPane.addTab("Encyclopedia", encyclopediaPanel);
+        browserJTabbedPane.setSelectedComponent(encyclopediaPanel);
     }//GEN-LAST:event_newEncyclopediaTabJMenuItemActionPerformed
 
     private void exitJMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_exitJMenuItemActionPerformed

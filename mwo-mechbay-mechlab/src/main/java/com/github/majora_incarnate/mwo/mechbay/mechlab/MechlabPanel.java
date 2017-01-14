@@ -1,42 +1,64 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.github.majora_incarnate.mwo.mechbay.mechlab;
 
+import com.github.majora_incarnate.mwo.mechbay.entities.Crittable;
+import com.github.majora_incarnate.mwo.mechbay.entities.Database;
+import com.github.majora_incarnate.mwo.mechbay.entities.Preferences;
+import com.github.majora_incarnate.mwo.mechbay.entities.Section;
+import com.github.majora_incarnate.mwo.mechbay.entities.User;
+import com.github.majora_incarnate.mwo.mechbay.entities.Variant;
+import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.Blueprint;
+import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.ChassisBlueprint;
+import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.ModelBlueprint;
+import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.WeaponBlueprint;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.HardpointType;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.MechType;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.SectionType;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.TechBase;
+import com.google.common.collect.ImmutableMap;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.function.Predicate;
-
+import javax.swing.AbstractListModel;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.SpinnerNumberModel;
-
-import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.*;
-import com.github.majora_incarnate.mwo.mechbay.entities.Crittable;
-import com.github.majora_incarnate.mwo.mechbay.entities.Database;
-import com.github.majora_incarnate.mwo.mechbay.entities.Section;
-import com.github.majora_incarnate.mwo.mechbay.entities.User;
-import com.github.majora_incarnate.mwo.mechbay.entities.Variant;
-import com.github.majora_incarnate.mwo.mechbay.entities.enums.*;
-
-import java.util.HashMap;
-import java.util.Map;
-
+import javax.swing.SwingConstants;
+import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import com.github.majora_incarnate.mwo.mechbay.entities.Preferences;
-import com.google.common.collect.ImmutableMap;
-
 /**
  *
- * @author Trevin
+ * @author quicksilver
  */
-public class MechlabJPanel extends javax.swing.JPanel {
+public class MechlabPanel extends JPanel {
     private static final long serialVersionUID = 5605339237691950478L;
     
     private final Preferences preferences;
@@ -63,7 +85,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
      * @param preferences
      * @param masterDatabase
      */
-    public MechlabJPanel(final Preferences preferences, final Database masterDatabase) {
+    public MechlabPanel(final Preferences preferences, final Database masterDatabase) {
         this.preferences = preferences;
         this.masterDatabase = masterDatabase;
         selectedDatabase = new Database(masterDatabase, (blueprint) -> true);
@@ -112,17 +134,17 @@ public class MechlabJPanel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
+        GridBagConstraints gridBagConstraints;
 
-        MechTabPane = new javax.swing.JTabbedPane();
-        ChassisPanel = new javax.swing.JPanel();
-        loadButton = new javax.swing.JButton();
-        saveButton = new javax.swing.JButton();
-        importButton = new javax.swing.JButton();
-        exportButton = new javax.swing.JButton();
+        MechTabPane = new JTabbedPane();
+        ChassisPanel = new JPanel();
+        loadButton = new JButton();
+        saveButton = new JButton();
+        importButton = new JButton();
+        exportButton = new JButton();
         chassisComboBox = new JComboBox<>();
         modelComboBox = new JComboBox<>();
-        variantNameField = new javax.swing.JTextField();
+        variantNameField = new JTextField();
         variantCostLabel = new JLabel();
         techBaseLabel = new JLabel();
         mechTypeLabel = new JLabel();
@@ -130,11 +152,11 @@ public class MechlabJPanel extends javax.swing.JPanel {
         unconfirmedLabel = new JLabel();
         ecmCapableLabel = new JLabel();
         jumpCapableLabel = new JLabel();
-        UpgradesScrollPane = new javax.swing.JScrollPane();
-        UpgradesPanel = new javax.swing.JPanel();
-        AdjustmentsPanel = new javax.swing.JPanel();
-        engineRatingSpinner = new javax.swing.JSpinner();
-        SystemsPanel = new javax.swing.JPanel();
+        UpgradesScrollPane = new JScrollPane();
+        UpgradesPanel = new JPanel();
+        AdjustmentsPanel = new JPanel();
+        engineRatingSpinner = new JSpinner();
+        SystemsPanel = new JPanel();
         engineComboBox = new JComboBox<>();
         structureComboBox = new JComboBox<>();
         armorComboBox = new JComboBox<>();
@@ -143,15 +165,15 @@ public class MechlabJPanel extends javax.swing.JPanel {
         heatSinkComboBox = new JComboBox<>();
         myomerComboBox = new JComboBox<>();
         jumpJetComboBox = new JComboBox<>();
-        EfficienciesPanel = new javax.swing.JPanel();
-        WeaponsPanel = new javax.swing.JPanel();
-        ArmorPanel = new javax.swing.JPanel();
+        EfficienciesPanel = new JPanel();
+        WeaponsPanel = new JPanel();
+        ArmorPanel = new JPanel();
         pointsPerTonLabel = new JLabel();
         pointsPerTonAmountLabel = new JLabel();
-        maximumArmorButton = new javax.swing.JButton();
-        clearArmorButton = new javax.swing.JButton();
-        efficientArmorButton = new javax.swing.JButton();
-        tonnageArmorButton = new javax.swing.JButton();
+        maximumArmorButton = new JButton();
+        clearArmorButton = new JButton();
+        efficientArmorButton = new JButton();
+        tonnageArmorButton = new JButton();
         jLabel21 = new JLabel();
         jLabel22 = new JLabel();
         jLabel23 = new JLabel();
@@ -178,20 +200,20 @@ public class MechlabJPanel extends javax.swing.JPanel {
         special2ArmorAmountLabel = new JLabel();
         totalArmorLabel = new JLabel();
         totalArmorAmountLabel = new JLabel();
-        centerTorsoSpinner = new javax.swing.JSpinner();
-        centerRearTorsoSpinner = new javax.swing.JSpinner();
-        rightTorsoSpinner = new javax.swing.JSpinner();
-        rightRearTorsoSpinner = new javax.swing.JSpinner();
-        leftTorsoSpinner = new javax.swing.JSpinner();
-        leftRearTorsoSpinner = new javax.swing.JSpinner();
-        headSpinner = new javax.swing.JSpinner();
-        rightArmSpinner = new javax.swing.JSpinner();
-        leftArmSpinner = new javax.swing.JSpinner();
-        leftLegSpinner = new javax.swing.JSpinner();
-        rightLegSpinner = new javax.swing.JSpinner();
-        special1Spinner = new javax.swing.JSpinner();
-        special2Spinner = new javax.swing.JSpinner();
-        statisticsPanel = new javax.swing.JPanel();
+        centerTorsoSpinner = new JSpinner();
+        centerRearTorsoSpinner = new JSpinner();
+        rightTorsoSpinner = new JSpinner();
+        rightRearTorsoSpinner = new JSpinner();
+        leftTorsoSpinner = new JSpinner();
+        leftRearTorsoSpinner = new JSpinner();
+        headSpinner = new JSpinner();
+        rightArmSpinner = new JSpinner();
+        leftArmSpinner = new JSpinner();
+        leftLegSpinner = new JSpinner();
+        rightLegSpinner = new JSpinner();
+        special1Spinner = new JSpinner();
+        special2Spinner = new JSpinner();
+        statisticsPanel = new JPanel();
         tonnageProgressBar = new JProgressBar();
         speedProgressBar = new JProgressBar();
         jumpDistanceProgressBar = new JProgressBar();
@@ -203,8 +225,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         heatEfficiencyProgressBar = new JProgressBar();
         rangeProgressBar = new JProgressBar();
         criticalsProgressBar = new JProgressBar();
-        mechPanel = new javax.swing.JPanel();
-        headPanel = new javax.swing.JPanel();
+        mechPanel = new JPanel();
+        headPanel = new JPanel();
         headOmnipodComboBox = new JComboBox<>();
         headAMSHardpointLabel = new JLabel();
         headECMHardpointLabel = new JLabel();
@@ -214,7 +236,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         headStructureProgressBar = new JProgressBar();
         headArmorProgressBar = new JProgressBar();
         headCriticalList = new JList<>();
-        centerTorsoPanel = new javax.swing.JPanel();
+        centerTorsoPanel = new JPanel();
         centerTorsoOmnipodComboBox = new JComboBox<>();
         centerTorsoAMSHardpointLabel = new JLabel();
         centerTorsoECMHardpointLabel = new JLabel();
@@ -225,7 +247,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         centerTorsoFrontArmorProgressBar = new JProgressBar();
         centerTorsoRearArmorProgressBar = new JProgressBar();
         centerTorsoCriticalList = new JList<>();
-        leftTorsoPanel = new javax.swing.JPanel();
+        leftTorsoPanel = new JPanel();
         leftTorsoOmnipodComboBox = new JComboBox<>();
         leftTorsoBallisticHardpointLabel = new JLabel();
         leftTorsoEnergyHardpointLabel = new JLabel();
@@ -237,7 +259,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         leftTorsoRearArmorProgressBar = new JProgressBar();
         leftTorsoCriticalList = new JList<>();
         leftTorsoCASEToggleButton = new JToggleButton();
-        rightTorsoPanel = new javax.swing.JPanel();
+        rightTorsoPanel = new JPanel();
         rightTorsoOmnipodComboBox = new JComboBox<>();
         rightTorsoBallisticHardpointLabel = new JLabel();
         rightTorsoEnergyHardpointLabel = new JLabel();
@@ -249,7 +271,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         rightTorsoRearArmorProgressBar = new JProgressBar();
         rightTorsoCriticalList = new JList<>();
         rightTorsoCASEToggleButton = new JToggleButton();
-        leftLegPanel = new javax.swing.JPanel();
+        leftLegPanel = new JPanel();
         leftLegOmnipodComboBox = new JComboBox<>();
         leftLegBallisticHardpointLabel = new JLabel();
         leftLegEnergyHardpointLabel = new JLabel();
@@ -259,7 +281,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         leftLegStructureProgressBar = new JProgressBar();
         leftLegArmorProgressBar = new JProgressBar();
         leftLegCriticalList = new JList<>();
-        rightLegPanel = new javax.swing.JPanel();
+        rightLegPanel = new JPanel();
         rightLegOmnipodComboBox = new JComboBox<>();
         rightLegBallisticHardpointLabel = new JLabel();
         rightLegEnergyHardpointLabel = new JLabel();
@@ -269,7 +291,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         rightLegStructureProgressBar = new JProgressBar();
         rightLegArmorProgressBar = new JProgressBar();
         rightLegCriticalList = new JList<>();
-        leftArmPanel = new javax.swing.JPanel();
+        leftArmPanel = new JPanel();
         leftArmOmnipodComboBox = new JComboBox<>();
         leftArmECMHardpointLabel = new JLabel();
         leftArmEnergyHardpointLabel = new JLabel();
@@ -281,7 +303,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         leftArmStructureProgressBar = new JProgressBar();
         leftArmArmorProgressBar = new JProgressBar();
         leftArmCriticalList = new JList<>();
-        rightArmPanel = new javax.swing.JPanel();
+        rightArmPanel = new JPanel();
         rightArmOmnipodComboBox = new JComboBox<>();
         rightArmECMHardpointLabel = new JLabel();
         rightArmEnergyHardpointLabel = new JLabel();
@@ -293,7 +315,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         rightArmStructureProgressBar = new JProgressBar();
         rightArmArmorProgressBar = new JProgressBar();
         rightArmCriticalList = new JList<>();
-        special1Panel = new javax.swing.JPanel();
+        special1Panel = new JPanel();
         section1OmnipodComboBox = new JComboBox<>();
         section1AMSHardpointLabel = new JLabel();
         section1ECMHardpointLabel = new JLabel();
@@ -303,7 +325,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         section1StructureProgressBar = new JProgressBar();
         section1ArmorProgressBar = new JProgressBar();
         section1CriticalList = new JList<>();
-        special2Panel = new javax.swing.JPanel();
+        special2Panel = new JPanel();
         section2OmnipodComboBox = new JComboBox<>();
         section2AMSHardpointLabel = new JLabel();
         section2ECMHardpointLabel = new JLabel();
@@ -313,287 +335,308 @@ public class MechlabJPanel extends javax.swing.JPanel {
         section2StructureProgressBar = new JProgressBar();
         section2ArmorProgressBar = new JProgressBar();
         section2CriticalList = new JList<>();
-        secondaryTabbedPane = new javax.swing.JTabbedPane();
-        quirksPanel = new javax.swing.JPanel();
-        quirksJScrollPane = new javax.swing.JScrollPane();
-        quirksJTextArea = new javax.swing.JTextArea();
-        componentsScrollPane = new javax.swing.JScrollPane();
-        componentsPanel = new javax.swing.JPanel();
-        InformationTabbedPane = new javax.swing.JTabbedPane();
-        ModelOverviewPanel = new javax.swing.JPanel();
-        descriptionScrollPane = new javax.swing.JScrollPane();
-        descriptionTextArea = new javax.swing.JTextArea();
-        overviewComponentPanel = new ComponentPanel(preferences);
-        hardpointComponentPanel = new ComponentPanel(preferences);
-        ModelSpecificationsPanel = new javax.swing.JPanel();
-        speedComponentPanel = new ComponentPanel(preferences);
-        manueverabilityComponentPanel = new ComponentPanel(preferences);
-        movementRangeComponentPanel = new ComponentPanel(preferences);
-        movementSpeedComponentPanel = new ComponentPanel(preferences);
-        InformationSpecificationsPanel = new javax.swing.JPanel();
-        EquipmentSpecificationsPanel = new javax.swing.JPanel();
-        OptionsPanel = new javax.swing.JPanel();
-        FeaturesPanel = new javax.swing.JPanel();
+        secondaryTabbedPane = new JTabbedPane();
+        quirksPanel = new JPanel();
+        quirksJScrollPane = new JScrollPane();
+        quirksJTextArea = new JTextArea();
+        componentsScrollPane = new JScrollPane();
+        componentsPanel = new JPanel();
+        engineComponentPanel = new ComponentPanel();
+        heatsinkComponentPanel = new ComponentPanel();
+        structureComponentPanel = new ComponentPanel();
+        armorComponentPanel = new ComponentPanel();
+        gyroComponentPanel = new ComponentPanel();
+        myomerComponentPanel = new ComponentPanel();
+        jumpjetComponentPanel = new ComponentPanel();
+        cockpitComponentPanel = new ComponentPanel();
+        InformationTabbedPane = new JTabbedPane();
+        ModelOverviewPanel = new JPanel();
+        descriptionScrollPane = new JScrollPane();
+        descriptionTextArea = new JTextArea();
+        overviewComponentPanel = new ComponentPanel();
+        hardpointComponentPanel = new ComponentPanel();
+        ModelSpecificationsPanel = new JPanel();
+        speedComponentPanel = new ComponentPanel();
+        manueverabilityComponentPanel = new ComponentPanel();
+        movementRangeComponentPanel = new ComponentPanel();
+        movementSpeedComponentPanel = new ComponentPanel();
+        InformationSpecificationsPanel = new JPanel();
+        EquipmentSpecificationsPanel = new JPanel();
+        OptionsPanel = new JPanel();
+        FeaturesPanel = new JPanel();
         FrankenmechToggle = new JToggleButton();
         MixtechToggle = new JToggleButton();
         FuturetechToggle = new JToggleButton();
         OmniRestrictionsToggle = new JToggleButton();
 
+        FormListener formListener = new FormListener();
+
         setMinimumSize(new Dimension(1280, 700));
+        setName("Form"); // NOI18N
         setPreferredSize(new Dimension(1280, 700));
-        setLayout(new java.awt.GridBagLayout());
+        setLayout(new GridBagLayout());
 
-        MechTabPane.setMaximumSize(new Dimension(320, 470));
         MechTabPane.setMinimumSize(new Dimension(320, 470));
-        MechTabPane.setPreferredSize(new Dimension(320, 512));
-        MechTabPane.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent evt) {
-                MechTabPaneStateChanged(evt);
-            }
-        });
+        MechTabPane.setName("MechTabPane"); // NOI18N
+        MechTabPane.setPreferredSize(new Dimension(320, 470));
+        MechTabPane.addChangeListener(formListener);
 
-        ChassisPanel.setLayout(new java.awt.GridBagLayout());
+        ChassisPanel.setName("ChassisPanel"); // NOI18N
+        ChassisPanel.setLayout(new GridBagLayout());
 
         loadButton.setText("Load");
         loadButton.setAlignmentY(0.0F);
         loadButton.setEnabled(false);
-        loadButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        loadButton.setHorizontalTextPosition(SwingConstants.CENTER);
         loadButton.setMaximumSize(new Dimension(39, 20));
         loadButton.setMinimumSize(new Dimension(39, 20));
+        loadButton.setName("loadButton"); // NOI18N
         loadButton.setPreferredSize(new Dimension(39, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new Insets(10, 10, 10, 10);
         ChassisPanel.add(loadButton, gridBagConstraints);
 
         saveButton.setText("Save");
         saveButton.setAlignmentY(0.0F);
         saveButton.setEnabled(false);
-        saveButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        saveButton.setHorizontalTextPosition(SwingConstants.CENTER);
         saveButton.setMaximumSize(new Dimension(39, 20));
         saveButton.setMinimumSize(new Dimension(39, 20));
+        saveButton.setName("saveButton"); // NOI18N
         saveButton.setPreferredSize(new Dimension(39, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new Insets(10, 10, 10, 10);
         ChassisPanel.add(saveButton, gridBagConstraints);
 
         importButton.setText("Import");
         importButton.setAlignmentY(0.0F);
         importButton.setEnabled(false);
-        importButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        importButton.setHorizontalTextPosition(SwingConstants.CENTER);
         importButton.setMaximumSize(new Dimension(39, 20));
         importButton.setMinimumSize(new Dimension(39, 20));
+        importButton.setName("importButton"); // NOI18N
         importButton.setPreferredSize(new Dimension(39, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new Insets(10, 10, 10, 10);
         ChassisPanel.add(importButton, gridBagConstraints);
 
         exportButton.setText("Export");
         exportButton.setAlignmentY(0.0F);
         exportButton.setEnabled(false);
-        exportButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportButton.setHorizontalTextPosition(SwingConstants.CENTER);
         exportButton.setMaximumSize(new Dimension(39, 20));
         exportButton.setMinimumSize(new Dimension(39, 20));
+        exportButton.setName("exportButton"); // NOI18N
         exportButton.setPreferredSize(new Dimension(39, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new Insets(10, 10, 10, 10);
         ChassisPanel.add(exportButton, gridBagConstraints);
 
         chassisComboBox.setModel(new DefaultComboBoxModel(masterDatabase.CHASSIS_BLUEPRINTS.toArray()));
         chassisComboBox.setMaximumSize(new Dimension(39, 20));
         chassisComboBox.setMinimumSize(new Dimension(39, 20));
+        chassisComboBox.setName("chassisComboBox"); // NOI18N
         chassisComboBox.setPreferredSize(new Dimension(39, 20));
-        chassisComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chassisComboBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        chassisComboBox.addActionListener(formListener);
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new Insets(10, 10, 10, 10);
         ChassisPanel.add(chassisComboBox, gridBagConstraints);
 
         modelComboBox.setMaximumSize(new Dimension(39, 20));
         modelComboBox.setMinimumSize(new Dimension(39, 20));
+        modelComboBox.setName("modelComboBox"); // NOI18N
         modelComboBox.setPreferredSize(new Dimension(39, 20));
-        modelComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modelComboBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        modelComboBox.addActionListener(formListener);
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new Insets(10, 10, 10, 10);
         ChassisPanel.add(modelComboBox, gridBagConstraints);
 
         variantNameField.setMaximumSize(new Dimension(39, 20));
         variantNameField.setMinimumSize(new Dimension(39, 20));
+        variantNameField.setName("variantNameField"); // NOI18N
         variantNameField.setPreferredSize(new Dimension(39, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new Insets(10, 10, 10, 10);
         ChassisPanel.add(variantNameField, gridBagConstraints);
 
-        variantCostLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        variantCostLabel.setHorizontalAlignment(SwingConstants.CENTER);
         variantCostLabel.setText("0 C-Bills");
         variantCostLabel.setMaximumSize(new Dimension(39, 20));
         variantCostLabel.setMinimumSize(new Dimension(39, 20));
+        variantCostLabel.setName("variantCostLabel"); // NOI18N
         variantCostLabel.setPreferredSize(new Dimension(39, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new Insets(10, 10, 10, 10);
         ChassisPanel.add(variantCostLabel, gridBagConstraints);
 
-        techBaseLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        techBaseLabel.setHorizontalAlignment(SwingConstants.CENTER);
         techBaseLabel.setText("CLAN TECH");
         techBaseLabel.setMaximumSize(new Dimension(39, 20));
         techBaseLabel.setMinimumSize(new Dimension(39, 20));
+        techBaseLabel.setName("techBaseLabel"); // NOI18N
         techBaseLabel.setPreferredSize(new Dimension(39, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new Insets(10, 10, 10, 10);
         ChassisPanel.add(techBaseLabel, gridBagConstraints);
 
-        mechTypeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mechTypeLabel.setHorizontalAlignment(SwingConstants.CENTER);
         mechTypeLabel.setText("OMNIMECH");
         mechTypeLabel.setMaximumSize(new Dimension(39, 20));
         mechTypeLabel.setMinimumSize(new Dimension(39, 20));
+        mechTypeLabel.setName("mechTypeLabel"); // NOI18N
         mechTypeLabel.setPreferredSize(new Dimension(39, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new Insets(10, 10, 10, 10);
         ChassisPanel.add(mechTypeLabel, gridBagConstraints);
 
-        unreleasedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        unreleasedLabel.setHorizontalAlignment(SwingConstants.CENTER);
         unreleasedLabel.setText("UNRELEASED");
         unreleasedLabel.setMaximumSize(new Dimension(39, 20));
         unreleasedLabel.setMinimumSize(new Dimension(39, 20));
+        unreleasedLabel.setName("unreleasedLabel"); // NOI18N
         unreleasedLabel.setOpaque(true);
         unreleasedLabel.setPreferredSize(new Dimension(39, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new Insets(10, 10, 10, 10);
         ChassisPanel.add(unreleasedLabel, gridBagConstraints);
 
-        unconfirmedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        unconfirmedLabel.setHorizontalAlignment(SwingConstants.CENTER);
         unconfirmedLabel.setText("UNCONFIRMED");
         unconfirmedLabel.setMaximumSize(new Dimension(39, 20));
         unconfirmedLabel.setMinimumSize(new Dimension(39, 20));
+        unconfirmedLabel.setName("unconfirmedLabel"); // NOI18N
         unconfirmedLabel.setOpaque(true);
         unconfirmedLabel.setPreferredSize(new Dimension(39, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new Insets(10, 10, 10, 10);
         ChassisPanel.add(unconfirmedLabel, gridBagConstraints);
 
-        ecmCapableLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ecmCapableLabel.setHorizontalAlignment(SwingConstants.CENTER);
         ecmCapableLabel.setText("ECM CAPABLE");
         ecmCapableLabel.setMaximumSize(new Dimension(39, 20));
         ecmCapableLabel.setMinimumSize(new Dimension(39, 20));
+        ecmCapableLabel.setName("ecmCapableLabel"); // NOI18N
         ecmCapableLabel.setPreferredSize(new Dimension(39, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new Insets(10, 10, 10, 10);
         ChassisPanel.add(ecmCapableLabel, gridBagConstraints);
 
-        jumpCapableLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jumpCapableLabel.setHorizontalAlignment(SwingConstants.CENTER);
         jumpCapableLabel.setText("JUMP CAPABLE");
         jumpCapableLabel.setMaximumSize(new Dimension(39, 20));
         jumpCapableLabel.setMinimumSize(new Dimension(39, 20));
+        jumpCapableLabel.setName("jumpCapableLabel"); // NOI18N
         jumpCapableLabel.setPreferredSize(new Dimension(39, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new Insets(10, 10, 10, 10);
         ChassisPanel.add(jumpCapableLabel, gridBagConstraints);
 
         MechTabPane.addTab("Chassis", ChassisPanel);
 
-        UpgradesPanel.setLayout(new java.awt.GridBagLayout());
+        UpgradesScrollPane.setName("UpgradesScrollPane"); // NOI18N
 
+        UpgradesPanel.setName("UpgradesPanel"); // NOI18N
+        UpgradesPanel.setLayout(new GridBagLayout());
+
+        AdjustmentsPanel.setName("AdjustmentsPanel"); // NOI18N
         AdjustmentsPanel.setPreferredSize(new Dimension(0, 0));
-        AdjustmentsPanel.setLayout(new java.awt.GridBagLayout());
+        AdjustmentsPanel.setLayout(new GridBagLayout());
 
         engineRatingSpinner.setModel(engineRatingSpinnerModel);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        engineRatingSpinner.setName("engineRatingSpinner"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         AdjustmentsPanel.add(engineRatingSpinner, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         UpgradesPanel.add(AdjustmentsPanel, gridBagConstraints);
 
-        SystemsPanel.setLayout(new java.awt.GridBagLayout());
+        SystemsPanel.setName("SystemsPanel"); // NOI18N
+        SystemsPanel.setLayout(new GridBagLayout());
 
         engineComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        engineComboBox.setName("engineComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.weightx = 1.0;
@@ -601,7 +644,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         SystemsPanel.add(engineComboBox, gridBagConstraints);
 
         structureComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        structureComboBox.setName("structureComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.weightx = 1.0;
@@ -609,7 +653,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         SystemsPanel.add(structureComboBox, gridBagConstraints);
 
         armorComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        armorComboBox.setName("armorComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.weightx = 1.0;
@@ -617,7 +662,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         SystemsPanel.add(armorComboBox, gridBagConstraints);
 
         gyroComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gyroComboBox.setName("gyroComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.weightx = 1.0;
@@ -625,7 +671,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         SystemsPanel.add(gyroComboBox, gridBagConstraints);
 
         cockpitComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        cockpitComboBox.setName("cockpitComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.weightx = 1.0;
@@ -633,7 +680,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         SystemsPanel.add(cockpitComboBox, gridBagConstraints);
 
         heatSinkComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        heatSinkComboBox.setName("heatSinkComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.weightx = 1.0;
@@ -641,7 +689,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         SystemsPanel.add(heatSinkComboBox, gridBagConstraints);
 
         myomerComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        myomerComboBox.setName("myomerComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.weightx = 1.0;
@@ -649,26 +698,28 @@ public class MechlabJPanel extends javax.swing.JPanel {
         SystemsPanel.add(myomerComboBox, gridBagConstraints);
 
         jumpJetComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        jumpJetComboBox.setName("jumpJetComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         SystemsPanel.add(jumpJetComboBox, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         UpgradesPanel.add(SystemsPanel, gridBagConstraints);
 
-        EfficienciesPanel.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        EfficienciesPanel.setName("EfficienciesPanel"); // NOI18N
+        EfficienciesPanel.setLayout(new GridBagLayout());
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         UpgradesPanel.add(EfficienciesPanel, gridBagConstraints);
@@ -677,13 +728,16 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
         MechTabPane.addTab("Upgrades", UpgradesScrollPane);
 
-        WeaponsPanel.setLayout(new java.awt.GridBagLayout());
-        MechTabPane.addTab("Weapons", WeaponsPanel);
+        WeaponsPanel.setName("WeaponsPanel"); // NOI18N
+        WeaponsPanel.setLayout(new GridBagLayout());
+        MechTabPane.addTab("Equipment", WeaponsPanel);
 
-        ArmorPanel.setLayout(new java.awt.GridBagLayout());
+        ArmorPanel.setName("ArmorPanel"); // NOI18N
+        ArmorPanel.setLayout(new GridBagLayout());
 
         pointsPerTonLabel.setText("Points Per Ton");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        pointsPerTonLabel.setName("pointsPerTonLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
@@ -692,7 +746,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         ArmorPanel.add(pointsPerTonLabel, gridBagConstraints);
 
         pointsPerTonAmountLabel.setText("0.0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        pointsPerTonAmountLabel.setName("pointsPerTonAmountLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.weightx = 1.0;
@@ -700,7 +755,9 @@ public class MechlabJPanel extends javax.swing.JPanel {
         ArmorPanel.add(pointsPerTonAmountLabel, gridBagConstraints);
 
         maximumArmorButton.setText("Maximum Armor");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        maximumArmorButton.setName("maximumArmorButton"); // NOI18N
+        maximumArmorButton.addActionListener(formListener);
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 2;
@@ -709,7 +766,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         ArmorPanel.add(maximumArmorButton, gridBagConstraints);
 
         clearArmorButton.setText("Clear Armor");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        clearArmorButton.setName("clearArmorButton"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.weightx = 1.0;
@@ -718,7 +776,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
         efficientArmorButton.setText("Efficient Maximum");
         efficientArmorButton.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        efficientArmorButton.setName("efficientArmorButton"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 2;
@@ -728,7 +787,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
         tonnageArmorButton.setText("Custom Tonnage");
         tonnageArmorButton.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        tonnageArmorButton.setName("tonnageArmorButton"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.weightx = 1.0;
@@ -736,151 +796,176 @@ public class MechlabJPanel extends javax.swing.JPanel {
         ArmorPanel.add(tonnageArmorButton, gridBagConstraints);
 
         jLabel21.setText("Section");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        jLabel21.setName("jLabel21"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         ArmorPanel.add(jLabel21, gridBagConstraints);
 
         jLabel22.setText("Front");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        jLabel22.setName("jLabel22"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         ArmorPanel.add(jLabel22, gridBagConstraints);
 
         jLabel23.setText("Rear");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        jLabel23.setName("jLabel23"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         ArmorPanel.add(jLabel23, gridBagConstraints);
 
         jLabel24.setText("Amount");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        jLabel24.setName("jLabel24"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         ArmorPanel.add(jLabel24, gridBagConstraints);
 
         jLabel25.setText(SectionType.HEAD.shortName);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        jLabel25.setName("jLabel25"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         ArmorPanel.add(jLabel25, gridBagConstraints);
 
         headArmorAmountLabel.setText("0/0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        headArmorAmountLabel.setName("headArmorAmountLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         ArmorPanel.add(headArmorAmountLabel, gridBagConstraints);
 
         jLabel29.setText(SectionType.CENTER_TORSO.shortName);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        jLabel29.setName("jLabel29"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         ArmorPanel.add(jLabel29, gridBagConstraints);
 
         centerTorsoArmorAmountLabel.setText("0/0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        centerTorsoArmorAmountLabel.setName("centerTorsoArmorAmountLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
         ArmorPanel.add(centerTorsoArmorAmountLabel, gridBagConstraints);
 
         jLabel33.setText(SectionType.RIGHT_TORSO.shortName);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        jLabel33.setName("jLabel33"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         ArmorPanel.add(jLabel33, gridBagConstraints);
 
         rightTorsoArmorAmountLabel.setText("0/0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightTorsoArmorAmountLabel.setName("rightTorsoArmorAmountLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
         ArmorPanel.add(rightTorsoArmorAmountLabel, gridBagConstraints);
 
         jLabel37.setText(SectionType.LEFT_TORSO.shortName);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        jLabel37.setName("jLabel37"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         ArmorPanel.add(jLabel37, gridBagConstraints);
 
         leftTorsoArmorAmountLabel.setText("0/0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftTorsoArmorAmountLabel.setName("leftTorsoArmorAmountLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
         ArmorPanel.add(leftTorsoArmorAmountLabel, gridBagConstraints);
 
         jLabel41.setText(SectionType.RIGHT_ARM.shortName);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        jLabel41.setName("jLabel41"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         ArmorPanel.add(jLabel41, gridBagConstraints);
 
         rightArmArmorAmountLabel.setText("0/0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightArmArmorAmountLabel.setName("rightArmArmorAmountLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
         ArmorPanel.add(rightArmArmorAmountLabel, gridBagConstraints);
 
         jLabel45.setText(SectionType.LEFT_ARM.shortName);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        jLabel45.setName("jLabel45"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         ArmorPanel.add(jLabel45, gridBagConstraints);
 
         leftArmArmorAmountLabel.setText("0/0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftArmArmorAmountLabel.setName("leftArmArmorAmountLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 7;
         ArmorPanel.add(leftArmArmorAmountLabel, gridBagConstraints);
 
         jLabel49.setText(SectionType.RIGHT_LEG.shortName);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        jLabel49.setName("jLabel49"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
         ArmorPanel.add(jLabel49, gridBagConstraints);
 
         rightLegArmorAmountLabel.setText("0/0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightLegArmorAmountLabel.setName("rightLegArmorAmountLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 8;
         ArmorPanel.add(rightLegArmorAmountLabel, gridBagConstraints);
 
         jLabel50.setText(SectionType.LEFT_LEG.shortName);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        jLabel50.setName("jLabel50"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
         ArmorPanel.add(jLabel50, gridBagConstraints);
 
         leftLegArmorAmountLabel.setText("0/0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftLegArmorAmountLabel.setName("leftLegArmorAmountLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 9;
         ArmorPanel.add(leftLegArmorAmountLabel, gridBagConstraints);
 
         jLabel51.setText(SectionType.SPECIAL_ONE.shortName);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        jLabel51.setName("jLabel51"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
         ArmorPanel.add(jLabel51, gridBagConstraints);
 
         special1ArmorAmountLabel.setText("0/0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        special1ArmorAmountLabel.setName("special1ArmorAmountLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 10;
         ArmorPanel.add(special1ArmorAmountLabel, gridBagConstraints);
 
         jLabel55.setText(SectionType.SPECIAL_TWO.shortName);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        jLabel55.setName("jLabel55"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
         ArmorPanel.add(jLabel55, gridBagConstraints);
 
         special2ArmorAmountLabel.setText("0/0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        special2ArmorAmountLabel.setName("special2ArmorAmountLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 11;
         ArmorPanel.add(special2ArmorAmountLabel, gridBagConstraints);
 
         totalArmorLabel.setText("Total");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        totalArmorLabel.setName("totalArmorLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 2;
@@ -889,7 +974,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
         ArmorPanel.add(totalArmorLabel, gridBagConstraints);
 
         totalArmorAmountLabel.setText("0/0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        totalArmorAmountLabel.setName("totalArmorAmountLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 2;
@@ -898,310 +984,347 @@ public class MechlabJPanel extends javax.swing.JPanel {
         ArmorPanel.add(totalArmorAmountLabel, gridBagConstraints);
 
         centerTorsoSpinner.setModel(centerTorsoSpinnerModel);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        centerTorsoSpinner.setName("centerTorsoSpinner"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         ArmorPanel.add(centerTorsoSpinner, gridBagConstraints);
 
         centerRearTorsoSpinner.setModel(centerRearTorsoSpinnerModel);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        centerRearTorsoSpinner.setName("centerRearTorsoSpinner"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         ArmorPanel.add(centerRearTorsoSpinner, gridBagConstraints);
 
         rightTorsoSpinner.setModel(rightTorsoSpinnerModel);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightTorsoSpinner.setName("rightTorsoSpinner"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         ArmorPanel.add(rightTorsoSpinner, gridBagConstraints);
 
         rightRearTorsoSpinner.setModel(rightRearTorsoSpinnerModel);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightRearTorsoSpinner.setName("rightRearTorsoSpinner"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         ArmorPanel.add(rightRearTorsoSpinner, gridBagConstraints);
 
         leftTorsoSpinner.setModel(leftTorsoSpinnerModel);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftTorsoSpinner.setName("leftTorsoSpinner"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
         ArmorPanel.add(leftTorsoSpinner, gridBagConstraints);
 
         leftRearTorsoSpinner.setModel(leftRearTorsoSpinnerModel);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftRearTorsoSpinner.setName("leftRearTorsoSpinner"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
         ArmorPanel.add(leftRearTorsoSpinner, gridBagConstraints);
 
         headSpinner.setModel(headSpinnerModel);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        headSpinner.setName("headSpinner"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         ArmorPanel.add(headSpinner, gridBagConstraints);
 
         rightArmSpinner.setModel(rightArmSpinnerModel);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightArmSpinner.setName("rightArmSpinner"); // NOI18N
+        rightArmSpinner.addChangeListener(formListener);
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
         ArmorPanel.add(rightArmSpinner, gridBagConstraints);
 
         leftArmSpinner.setModel(leftArmSpinnerModel);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftArmSpinner.setName("leftArmSpinner"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
         ArmorPanel.add(leftArmSpinner, gridBagConstraints);
 
         leftLegSpinner.setModel(leftLegSpinnerModel);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftLegSpinner.setName("leftLegSpinner"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;
         ArmorPanel.add(leftLegSpinner, gridBagConstraints);
 
         rightLegSpinner.setModel(rightLegSpinnerModel);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightLegSpinner.setName("rightLegSpinner"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
         ArmorPanel.add(rightLegSpinner, gridBagConstraints);
 
         special1Spinner.setModel(special1SpinnerModel);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        special1Spinner.setName("special1Spinner"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
         ArmorPanel.add(special1Spinner, gridBagConstraints);
 
         special2Spinner.setModel(special2SpinnerModel);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        special2Spinner.setName("special2Spinner"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
         ArmorPanel.add(special2Spinner, gridBagConstraints);
 
         MechTabPane.addTab("Armor", ArmorPanel);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         add(MechTabPane, gridBagConstraints);
 
-        statisticsPanel.setMaximumSize(new Dimension(192, 470));
         statisticsPanel.setMinimumSize(new Dimension(192, 470));
-        statisticsPanel.setPreferredSize(new Dimension(192, 512));
-        statisticsPanel.setLayout(new java.awt.GridBagLayout());
+        statisticsPanel.setName("statisticsPanel"); // NOI18N
+        statisticsPanel.setPreferredSize(new Dimension(192, 470));
+        statisticsPanel.setLayout(new GridBagLayout());
 
         tonnageProgressBar.setAlignmentX(0.0F);
         tonnageProgressBar.setAlignmentY(0.0F);
-        tonnageProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Tonnage", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
+        tonnageProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Tonnage", TitledBorder.LEADING, TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         tonnageProgressBar.setMaximumSize(new Dimension(0, 0));
         tonnageProgressBar.setMinimumSize(new Dimension(0, 0));
+        tonnageProgressBar.setName("tonnageProgressBar"); // NOI18N
         tonnageProgressBar.setPreferredSize(new Dimension(0, 0));
         tonnageProgressBar.setStringPainted(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(tonnageProgressBar, gridBagConstraints);
 
-        speedProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Speed", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
+        speedProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Speed", TitledBorder.LEADING, TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         speedProgressBar.setMaximumSize(new Dimension(0, 0));
         speedProgressBar.setMinimumSize(new Dimension(0, 0));
+        speedProgressBar.setName("speedProgressBar"); // NOI18N
         speedProgressBar.setPreferredSize(new Dimension(0, 0));
         speedProgressBar.setStringPainted(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(speedProgressBar, gridBagConstraints);
 
-        jumpDistanceProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Jump Distance", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
+        jumpDistanceProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Jump Distance", TitledBorder.LEADING, TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         jumpDistanceProgressBar.setMaximumSize(new Dimension(0, 0));
         jumpDistanceProgressBar.setMinimumSize(new Dimension(0, 0));
+        jumpDistanceProgressBar.setName("jumpDistanceProgressBar"); // NOI18N
         jumpDistanceProgressBar.setPreferredSize(new Dimension(0, 0));
         jumpDistanceProgressBar.setStringPainted(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(jumpDistanceProgressBar, gridBagConstraints);
 
-        jumpHeightProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Jump Height", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
+        jumpHeightProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Jump Height", TitledBorder.LEADING, TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         jumpHeightProgressBar.setMaximumSize(new Dimension(0, 0));
         jumpHeightProgressBar.setMinimumSize(new Dimension(0, 0));
+        jumpHeightProgressBar.setName("jumpHeightProgressBar"); // NOI18N
         jumpHeightProgressBar.setPreferredSize(new Dimension(0, 0));
         jumpHeightProgressBar.setStringPainted(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(jumpHeightProgressBar, gridBagConstraints);
 
-        armorProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Armor", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
+        armorProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Armor", TitledBorder.LEADING, TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         armorProgressBar.setMaximumSize(new Dimension(0, 0));
         armorProgressBar.setMinimumSize(new Dimension(0, 0));
+        armorProgressBar.setName("armorProgressBar"); // NOI18N
         armorProgressBar.setPreferredSize(new Dimension(0, 0));
         armorProgressBar.setStringPainted(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(armorProgressBar, gridBagConstraints);
 
-        alphaDamageProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Alpha Damage", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
+        alphaDamageProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Alpha Damage", TitledBorder.LEADING, TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         alphaDamageProgressBar.setMaximumSize(new Dimension(0, 0));
         alphaDamageProgressBar.setMinimumSize(new Dimension(0, 0));
+        alphaDamageProgressBar.setName("alphaDamageProgressBar"); // NOI18N
         alphaDamageProgressBar.setPreferredSize(new Dimension(0, 0));
         alphaDamageProgressBar.setStringPainted(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(alphaDamageProgressBar, gridBagConstraints);
 
-        alphaHeatProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Alpha Heat", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
+        alphaHeatProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Alpha Heat", TitledBorder.LEADING, TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         alphaHeatProgressBar.setMaximumSize(new Dimension(0, 0));
         alphaHeatProgressBar.setMinimumSize(new Dimension(0, 0));
+        alphaHeatProgressBar.setName("alphaHeatProgressBar"); // NOI18N
         alphaHeatProgressBar.setPreferredSize(new Dimension(0, 0));
         alphaHeatProgressBar.setStringPainted(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(alphaHeatProgressBar, gridBagConstraints);
 
-        firepowerProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Firepower", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
+        firepowerProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Firepower", TitledBorder.LEADING, TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         firepowerProgressBar.setMaximumSize(new Dimension(0, 0));
         firepowerProgressBar.setMinimumSize(new Dimension(0, 0));
+        firepowerProgressBar.setName("firepowerProgressBar"); // NOI18N
         firepowerProgressBar.setPreferredSize(new Dimension(0, 0));
         firepowerProgressBar.setStringPainted(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(firepowerProgressBar, gridBagConstraints);
 
-        heatEfficiencyProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Heat Efficiency", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
+        heatEfficiencyProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Heat Efficiency", TitledBorder.LEADING, TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         heatEfficiencyProgressBar.setMaximumSize(new Dimension(0, 0));
         heatEfficiencyProgressBar.setMinimumSize(new Dimension(0, 0));
+        heatEfficiencyProgressBar.setName("heatEfficiencyProgressBar"); // NOI18N
         heatEfficiencyProgressBar.setPreferredSize(new Dimension(0, 0));
         heatEfficiencyProgressBar.setStringPainted(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(heatEfficiencyProgressBar, gridBagConstraints);
 
-        rangeProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Range", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
+        rangeProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Range", TitledBorder.LEADING, TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         rangeProgressBar.setMaximumSize(new Dimension(0, 0));
         rangeProgressBar.setMinimumSize(new Dimension(0, 0));
+        rangeProgressBar.setName("rangeProgressBar"); // NOI18N
         rangeProgressBar.setPreferredSize(new Dimension(0, 0));
         rangeProgressBar.setStringPainted(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(rangeProgressBar, gridBagConstraints);
 
-        criticalsProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Criticals", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
+        criticalsProgressBar.setBorder(BorderFactory.createTitledBorder(null, "Criticals", TitledBorder.LEADING, TitledBorder.TOP, preferences.DEFAULT_FONT_SIZE_12));
         criticalsProgressBar.setMaximumSize(new Dimension(0, 0));
         criticalsProgressBar.setMinimumSize(new Dimension(0, 0));
+        criticalsProgressBar.setName("criticalsProgressBar"); // NOI18N
         criticalsProgressBar.setPreferredSize(new Dimension(0, 0));
         criticalsProgressBar.setStringPainted(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         statisticsPanel.add(criticalsProgressBar, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         add(statisticsPanel, gridBagConstraints);
 
-        mechPanel.setMaximumSize(new Dimension(512, 470));
         mechPanel.setMinimumSize(new Dimension(512, 470));
-        mechPanel.setPreferredSize(new Dimension(512, 512));
-        mechPanel.setLayout(new java.awt.GridBagLayout());
+        mechPanel.setName("mechPanel"); // NOI18N
+        mechPanel.setPreferredSize(new Dimension(512, 470));
+        mechPanel.setLayout(new GridBagLayout());
 
         headPanel.setMaximumSize(new Dimension(100, 128));
         headPanel.setMinimumSize(new Dimension(100, 128));
+        headPanel.setName("headPanel"); // NOI18N
         headPanel.setPreferredSize(new Dimension(100, 128));
-        headPanel.setLayout(new java.awt.GridBagLayout());
+        headPanel.setLayout(new GridBagLayout());
 
         headOmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        headOmnipodComboBox.setName("headOmnipodComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         headPanel.add(headOmnipodComboBox, gridBagConstraints);
 
         headAMSHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        headAMSHardpointLabel.setName("headAMSHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         headPanel.add(headAMSHardpointLabel, gridBagConstraints);
 
         headECMHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        headECMHardpointLabel.setName("headECMHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         headPanel.add(headECMHardpointLabel, gridBagConstraints);
 
         headEnergyHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        headEnergyHardpointLabel.setName("headEnergyHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         headPanel.add(headEnergyHardpointLabel, gridBagConstraints);
 
         headBallisticHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        headBallisticHardpointLabel.setName("headBallisticHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         headPanel.add(headBallisticHardpointLabel, gridBagConstraints);
 
         headMissileHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        headMissileHardpointLabel.setName("headMissileHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         headPanel.add(headMissileHardpointLabel, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        headStructureProgressBar.setName("headStructureProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         headPanel.add(headStructureProgressBar, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        headArmorProgressBar.setName("headArmorProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         headPanel.add(headArmorProgressBar, gridBagConstraints);
 
-        headCriticalList.setModel(new javax.swing.AbstractListModel<String>() {
+        headCriticalList.setModel(new AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        headCriticalList.setName("headCriticalList"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         headPanel.add(headCriticalList, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1210,78 +1333,92 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
         centerTorsoPanel.setMaximumSize(new Dimension(100, 256));
         centerTorsoPanel.setMinimumSize(new Dimension(100, 256));
+        centerTorsoPanel.setName("centerTorsoPanel"); // NOI18N
         centerTorsoPanel.setPreferredSize(new Dimension(100, 256));
-        centerTorsoPanel.setLayout(new java.awt.GridBagLayout());
+        centerTorsoPanel.setLayout(new GridBagLayout());
 
         centerTorsoOmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        centerTorsoOmnipodComboBox.setName("centerTorsoOmnipodComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoOmnipodComboBox, gridBagConstraints);
 
         centerTorsoAMSHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        centerTorsoAMSHardpointLabel.setName("centerTorsoAMSHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoAMSHardpointLabel, gridBagConstraints);
 
         centerTorsoECMHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        centerTorsoECMHardpointLabel.setName("centerTorsoECMHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoECMHardpointLabel, gridBagConstraints);
 
         centerTorsoEnergyHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        centerTorsoEnergyHardpointLabel.setName("centerTorsoEnergyHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoEnergyHardpointLabel, gridBagConstraints);
 
         centerTorsoBallisticHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        centerTorsoBallisticHardpointLabel.setName("centerTorsoBallisticHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoBallisticHardpointLabel, gridBagConstraints);
 
         centerTorsoMissileHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        centerTorsoMissileHardpointLabel.setName("centerTorsoMissileHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoMissileHardpointLabel, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        centerTorsoStructureProgressBar.setName("centerTorsoStructureProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoStructureProgressBar, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        centerTorsoFrontArmorProgressBar.setName("centerTorsoFrontArmorProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoFrontArmorProgressBar, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        centerTorsoRearArmorProgressBar.setName("centerTorsoRearArmorProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoRearArmorProgressBar, gridBagConstraints);
 
-        centerTorsoCriticalList.setModel(new javax.swing.AbstractListModel<String>() {
+        centerTorsoCriticalList.setModel(new AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        centerTorsoCriticalList.setName("centerTorsoCriticalList"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoCriticalList, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.weightx = 1.0;
@@ -1290,90 +1427,101 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
         leftTorsoPanel.setMaximumSize(new Dimension(100, 256));
         leftTorsoPanel.setMinimumSize(new Dimension(100, 256));
+        leftTorsoPanel.setName("leftTorsoPanel"); // NOI18N
         leftTorsoPanel.setPreferredSize(new Dimension(100, 256));
-        leftTorsoPanel.setLayout(new java.awt.GridBagLayout());
+        leftTorsoPanel.setLayout(new GridBagLayout());
 
         leftTorsoOmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftTorsoOmnipodComboBox.setName("leftTorsoOmnipodComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoOmnipodComboBox, gridBagConstraints);
 
         leftTorsoBallisticHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftTorsoBallisticHardpointLabel.setName("leftTorsoBallisticHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoBallisticHardpointLabel, gridBagConstraints);
 
         leftTorsoEnergyHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftTorsoEnergyHardpointLabel.setName("leftTorsoEnergyHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoEnergyHardpointLabel, gridBagConstraints);
 
         leftTorsoAMSHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftTorsoAMSHardpointLabel.setName("leftTorsoAMSHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoAMSHardpointLabel, gridBagConstraints);
 
         leftTorsoECMHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftTorsoECMHardpointLabel.setName("leftTorsoECMHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoECMHardpointLabel, gridBagConstraints);
 
         leftTorsoMissileHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftTorsoMissileHardpointLabel.setName("leftTorsoMissileHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoMissileHardpointLabel, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        leftTorsoStructureProgressBar.setName("leftTorsoStructureProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoStructureProgressBar, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        leftTorsoFrontArmorProgressBar.setName("leftTorsoFrontArmorProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoFrontArmorProgressBar, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        leftTorsoRearArmorProgressBar.setName("leftTorsoRearArmorProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoRearArmorProgressBar, gridBagConstraints);
 
-        leftTorsoCriticalList.setModel(new javax.swing.AbstractListModel<String>() {
+        leftTorsoCriticalList.setModel(new AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftTorsoCriticalList.setName("leftTorsoCriticalList"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoCriticalList, gridBagConstraints);
 
         leftTorsoCASEToggleButton.setText("CASE");
-        leftTorsoCASEToggleButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                leftTorsoCASEToggleButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftTorsoCASEToggleButton.setName("leftTorsoCASEToggleButton"); // NOI18N
+        leftTorsoCASEToggleButton.addActionListener(formListener);
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoCASEToggleButton, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
@@ -1383,90 +1531,101 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
         rightTorsoPanel.setMaximumSize(new Dimension(100, 256));
         rightTorsoPanel.setMinimumSize(new Dimension(100, 256));
+        rightTorsoPanel.setName("rightTorsoPanel"); // NOI18N
         rightTorsoPanel.setPreferredSize(new Dimension(100, 256));
-        rightTorsoPanel.setLayout(new java.awt.GridBagLayout());
+        rightTorsoPanel.setLayout(new GridBagLayout());
 
         rightTorsoOmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightTorsoOmnipodComboBox.setName("rightTorsoOmnipodComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoOmnipodComboBox, gridBagConstraints);
 
         rightTorsoBallisticHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightTorsoBallisticHardpointLabel.setName("rightTorsoBallisticHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoBallisticHardpointLabel, gridBagConstraints);
 
         rightTorsoEnergyHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightTorsoEnergyHardpointLabel.setName("rightTorsoEnergyHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoEnergyHardpointLabel, gridBagConstraints);
 
         rightTorsoAMSHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightTorsoAMSHardpointLabel.setName("rightTorsoAMSHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoAMSHardpointLabel, gridBagConstraints);
 
         rightTorsoECMHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightTorsoECMHardpointLabel.setName("rightTorsoECMHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoECMHardpointLabel, gridBagConstraints);
 
         rightTorsoMissileHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightTorsoMissileHardpointLabel.setName("rightTorsoMissileHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoMissileHardpointLabel, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        rightTorsoStructureProgressBar.setName("rightTorsoStructureProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoStructureProgressBar, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        rightTorsoFrontArmorProgressBar.setName("rightTorsoFrontArmorProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoFrontArmorProgressBar, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        rightTorsoRearArmorProgressBar.setName("rightTorsoRearArmorProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoRearArmorProgressBar, gridBagConstraints);
 
-        rightTorsoCriticalList.setModel(new javax.swing.AbstractListModel<String>() {
+        rightTorsoCriticalList.setModel(new AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightTorsoCriticalList.setName("rightTorsoCriticalList"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoCriticalList, gridBagConstraints);
 
         rightTorsoCASEToggleButton.setText("CASE");
-        rightTorsoCASEToggleButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rightTorsoCASEToggleButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightTorsoCASEToggleButton.setName("rightTorsoCASEToggleButton"); // NOI18N
+        rightTorsoCASEToggleButton.addActionListener(formListener);
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoCASEToggleButton, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
@@ -1476,73 +1635,85 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
         leftLegPanel.setMaximumSize(new Dimension(100, 128));
         leftLegPanel.setMinimumSize(new Dimension(100, 128));
+        leftLegPanel.setName("leftLegPanel"); // NOI18N
         leftLegPanel.setPreferredSize(new Dimension(100, 128));
-        leftLegPanel.setLayout(new java.awt.GridBagLayout());
+        leftLegPanel.setLayout(new GridBagLayout());
 
         leftLegOmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftLegOmnipodComboBox.setName("leftLegOmnipodComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftLegPanel.add(leftLegOmnipodComboBox, gridBagConstraints);
 
         leftLegBallisticHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftLegBallisticHardpointLabel.setName("leftLegBallisticHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftLegPanel.add(leftLegBallisticHardpointLabel, gridBagConstraints);
 
         leftLegEnergyHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftLegEnergyHardpointLabel.setName("leftLegEnergyHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftLegPanel.add(leftLegEnergyHardpointLabel, gridBagConstraints);
 
         leftLegAMSHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftLegAMSHardpointLabel.setName("leftLegAMSHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftLegPanel.add(leftLegAMSHardpointLabel, gridBagConstraints);
 
         leftLegECMHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftLegECMHardpointLabel.setName("leftLegECMHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftLegPanel.add(leftLegECMHardpointLabel, gridBagConstraints);
 
         leftLegMissileHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftLegMissileHardpointLabel.setName("leftLegMissileHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftLegPanel.add(leftLegMissileHardpointLabel, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        leftLegStructureProgressBar.setName("leftLegStructureProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftLegPanel.add(leftLegStructureProgressBar, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        leftLegArmorProgressBar.setName("leftLegArmorProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftLegPanel.add(leftLegArmorProgressBar, gridBagConstraints);
 
-        leftLegCriticalList.setModel(new javax.swing.AbstractListModel<String>() {
+        leftLegCriticalList.setModel(new AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftLegCriticalList.setName("leftLegCriticalList"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftLegPanel.add(leftLegCriticalList, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.weightx = 1.0;
@@ -1551,73 +1722,85 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
         rightLegPanel.setMaximumSize(new Dimension(100, 128));
         rightLegPanel.setMinimumSize(new Dimension(100, 128));
+        rightLegPanel.setName("rightLegPanel"); // NOI18N
         rightLegPanel.setPreferredSize(new Dimension(100, 128));
-        rightLegPanel.setLayout(new java.awt.GridBagLayout());
+        rightLegPanel.setLayout(new GridBagLayout());
 
         rightLegOmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightLegOmnipodComboBox.setName("rightLegOmnipodComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightLegPanel.add(rightLegOmnipodComboBox, gridBagConstraints);
 
         rightLegBallisticHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightLegBallisticHardpointLabel.setName("rightLegBallisticHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightLegPanel.add(rightLegBallisticHardpointLabel, gridBagConstraints);
 
         rightLegEnergyHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightLegEnergyHardpointLabel.setName("rightLegEnergyHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightLegPanel.add(rightLegEnergyHardpointLabel, gridBagConstraints);
 
         rightLegAMSHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightLegAMSHardpointLabel.setName("rightLegAMSHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightLegPanel.add(rightLegAMSHardpointLabel, gridBagConstraints);
 
         rightLegECMHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightLegECMHardpointLabel.setName("rightLegECMHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightLegPanel.add(rightLegECMHardpointLabel, gridBagConstraints);
 
         rightLegMissileHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightLegMissileHardpointLabel.setName("rightLegMissileHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightLegPanel.add(rightLegMissileHardpointLabel, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        rightLegStructureProgressBar.setName("rightLegStructureProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightLegPanel.add(rightLegStructureProgressBar, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        rightLegArmorProgressBar.setName("rightLegArmorProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightLegPanel.add(rightLegArmorProgressBar, gridBagConstraints);
 
-        rightLegCriticalList.setModel(new javax.swing.AbstractListModel<String>() {
+        rightLegCriticalList.setModel(new AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightLegCriticalList.setName("rightLegCriticalList"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightLegPanel.add(rightLegCriticalList, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.weightx = 1.0;
@@ -1626,92 +1809,102 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
         leftArmPanel.setMaximumSize(new Dimension(100, 256));
         leftArmPanel.setMinimumSize(new Dimension(100, 256));
+        leftArmPanel.setName("leftArmPanel"); // NOI18N
         leftArmPanel.setPreferredSize(new Dimension(100, 256));
-        leftArmPanel.setLayout(new java.awt.GridBagLayout());
+        leftArmPanel.setLayout(new GridBagLayout());
 
         leftArmOmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftArmOmnipodComboBox.setName("leftArmOmnipodComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftArmOmnipodComboBox, gridBagConstraints);
 
         leftArmECMHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftArmECMHardpointLabel.setName("leftArmECMHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftArmECMHardpointLabel, gridBagConstraints);
 
         leftArmEnergyHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftArmEnergyHardpointLabel.setName("leftArmEnergyHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftArmEnergyHardpointLabel, gridBagConstraints);
 
         leftArmMissileHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftArmMissileHardpointLabel.setName("leftArmMissileHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftArmMissileHardpointLabel, gridBagConstraints);
 
         leftArmAMSHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftArmAMSHardpointLabel.setName("leftArmAMSHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftArmAMSHardpointLabel, gridBagConstraints);
 
         leftArmBallisticHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftArmBallisticHardpointLabel.setName("leftArmBallisticHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftArmBallisticHardpointLabel, gridBagConstraints);
 
         leftLowerArmToggleButton.setText("Lower Arm");
-        leftLowerArmToggleButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                leftLowerArmToggleButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftLowerArmToggleButton.setName("leftLowerArmToggleButton"); // NOI18N
+        leftLowerArmToggleButton.addActionListener(formListener);
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftLowerArmToggleButton, gridBagConstraints);
 
         leftHandToggleButton.setText("Hand");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftHandToggleButton.setName("leftHandToggleButton"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftHandToggleButton, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        leftArmStructureProgressBar.setName("leftArmStructureProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftArmStructureProgressBar, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        leftArmArmorProgressBar.setName("leftArmArmorProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftArmArmorProgressBar, gridBagConstraints);
 
-        leftArmCriticalList.setModel(new javax.swing.AbstractListModel<String>() {
+        leftArmCriticalList.setModel(new AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        leftArmCriticalList.setName("leftArmCriticalList"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftArmCriticalList, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.weightx = 1.0;
@@ -1720,421 +1913,602 @@ public class MechlabJPanel extends javax.swing.JPanel {
 
         rightArmPanel.setMaximumSize(new Dimension(100, 256));
         rightArmPanel.setMinimumSize(new Dimension(100, 256));
+        rightArmPanel.setName("rightArmPanel"); // NOI18N
         rightArmPanel.setPreferredSize(new Dimension(100, 256));
-        rightArmPanel.setLayout(new java.awt.GridBagLayout());
+        rightArmPanel.setLayout(new GridBagLayout());
 
         rightArmOmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightArmOmnipodComboBox.setName("rightArmOmnipodComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightArmOmnipodComboBox, gridBagConstraints);
 
         rightArmECMHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightArmECMHardpointLabel.setName("rightArmECMHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightArmECMHardpointLabel, gridBagConstraints);
 
         rightArmEnergyHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightArmEnergyHardpointLabel.setName("rightArmEnergyHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightArmEnergyHardpointLabel, gridBagConstraints);
 
         rightArmMissileHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightArmMissileHardpointLabel.setName("rightArmMissileHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightArmMissileHardpointLabel, gridBagConstraints);
 
         rightArmAMSHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightArmAMSHardpointLabel.setName("rightArmAMSHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightArmAMSHardpointLabel, gridBagConstraints);
 
         rightArmBallisticHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightArmBallisticHardpointLabel.setName("rightArmBallisticHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightArmBallisticHardpointLabel, gridBagConstraints);
 
         rightLowerArmToggleButton.setText("Lower Arm");
-        rightLowerArmToggleButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rightLowerArmToggleButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightLowerArmToggleButton.setName("rightLowerArmToggleButton"); // NOI18N
+        rightLowerArmToggleButton.addActionListener(formListener);
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightLowerArmToggleButton, gridBagConstraints);
 
         rightHandToggleButton.setText("Hand");
-        rightHandToggleButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rightHandToggleButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightHandToggleButton.setName("rightHandToggleButton"); // NOI18N
+        rightHandToggleButton.addActionListener(formListener);
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightHandToggleButton, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        rightArmStructureProgressBar.setName("rightArmStructureProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightArmStructureProgressBar, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        rightArmArmorProgressBar.setName("rightArmArmorProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightArmArmorProgressBar, gridBagConstraints);
 
-        rightArmCriticalList.setModel(new javax.swing.AbstractListModel<String>() {
+        rightArmCriticalList.setModel(new AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        rightArmCriticalList.setName("rightArmCriticalList"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightArmCriticalList, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         mechPanel.add(rightArmPanel, gridBagConstraints);
 
+        special1Panel.setName("special1Panel"); // NOI18N
         special1Panel.setPreferredSize(new Dimension(100, 128));
-        special1Panel.setLayout(new java.awt.GridBagLayout());
+        special1Panel.setLayout(new GridBagLayout());
 
         section1OmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        section1OmnipodComboBox.setName("section1OmnipodComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special1Panel.add(section1OmnipodComboBox, gridBagConstraints);
 
         section1AMSHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        section1AMSHardpointLabel.setName("section1AMSHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special1Panel.add(section1AMSHardpointLabel, gridBagConstraints);
 
         section1ECMHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        section1ECMHardpointLabel.setName("section1ECMHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special1Panel.add(section1ECMHardpointLabel, gridBagConstraints);
 
         section1EnergyHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        section1EnergyHardpointLabel.setName("section1EnergyHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special1Panel.add(section1EnergyHardpointLabel, gridBagConstraints);
 
         section1BallisticHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        section1BallisticHardpointLabel.setName("section1BallisticHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special1Panel.add(section1BallisticHardpointLabel, gridBagConstraints);
 
         section1MissileHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        section1MissileHardpointLabel.setName("section1MissileHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special1Panel.add(section1MissileHardpointLabel, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        section1StructureProgressBar.setName("section1StructureProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special1Panel.add(section1StructureProgressBar, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        section1ArmorProgressBar.setName("section1ArmorProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special1Panel.add(section1ArmorProgressBar, gridBagConstraints);
 
-        section1CriticalList.setModel(new javax.swing.AbstractListModel<String>() {
+        section1CriticalList.setModel(new AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        section1CriticalList.setName("section1CriticalList"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special1Panel.add(section1CriticalList, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         mechPanel.add(special1Panel, gridBagConstraints);
 
+        special2Panel.setName("special2Panel"); // NOI18N
         special2Panel.setPreferredSize(new Dimension(100, 128));
-        special2Panel.setLayout(new java.awt.GridBagLayout());
+        special2Panel.setLayout(new GridBagLayout());
 
         section2OmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        section2OmnipodComboBox.setName("section2OmnipodComboBox"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special2Panel.add(section2OmnipodComboBox, gridBagConstraints);
 
         section2AMSHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        section2AMSHardpointLabel.setName("section2AMSHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special2Panel.add(section2AMSHardpointLabel, gridBagConstraints);
 
         section2ECMHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        section2ECMHardpointLabel.setName("section2ECMHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special2Panel.add(section2ECMHardpointLabel, gridBagConstraints);
 
         section2EnergyHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        section2EnergyHardpointLabel.setName("section2EnergyHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special2Panel.add(section2EnergyHardpointLabel, gridBagConstraints);
 
         section2BallisticHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        section2BallisticHardpointLabel.setName("section2BallisticHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special2Panel.add(section2BallisticHardpointLabel, gridBagConstraints);
 
         section2MissileHardpointLabel.setText("jLabel21");
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        section2MissileHardpointLabel.setName("section2MissileHardpointLabel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special2Panel.add(section2MissileHardpointLabel, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        section2StructureProgressBar.setName("section2StructureProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special2Panel.add(section2StructureProgressBar, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
+
+        section2ArmorProgressBar.setName("section2ArmorProgressBar"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special2Panel.add(section2ArmorProgressBar, gridBagConstraints);
 
-        section2CriticalList.setModel(new javax.swing.AbstractListModel<String>() {
+        section2CriticalList.setModel(new AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        section2CriticalList.setName("section2CriticalList"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special2Panel.add(section2CriticalList, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         mechPanel.add(special2Panel, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         add(mechPanel, gridBagConstraints);
 
-        secondaryTabbedPane.setMaximumSize(new Dimension(256, 470));
         secondaryTabbedPane.setMinimumSize(new Dimension(256, 470));
-        secondaryTabbedPane.setPreferredSize(new Dimension(256, 512));
+        secondaryTabbedPane.setName("secondaryTabbedPane"); // NOI18N
+        secondaryTabbedPane.setPreferredSize(new Dimension(256, 470));
 
-        quirksPanel.setLayout(new java.awt.GridBagLayout());
+        quirksPanel.setName("quirksPanel"); // NOI18N
+        quirksPanel.setLayout(new GridBagLayout());
+
+        quirksJScrollPane.setName("quirksJScrollPane"); // NOI18N
 
         quirksJTextArea.setEditable(false);
         quirksJTextArea.setColumns(20);
         quirksJTextArea.setRows(5);
+        quirksJTextArea.setName("quirksJTextArea"); // NOI18N
         quirksJScrollPane.setViewportView(quirksJTextArea);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         quirksPanel.add(quirksJScrollPane, gridBagConstraints);
 
         secondaryTabbedPane.addTab("Quirks", quirksPanel);
 
-        componentsPanel.setLayout(new java.awt.GridBagLayout());
+        componentsScrollPane.setName("componentsScrollPane"); // NOI18N
+
+        componentsPanel.setName("componentsPanel"); // NOI18N
+        componentsPanel.setLayout(new GridBagLayout());
+
+        engineComponentPanel.setName("engineComponentPanel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        componentsPanel.add(engineComponentPanel, gridBagConstraints);
+
+        heatsinkComponentPanel.setName("heatsinkComponentPanel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        componentsPanel.add(heatsinkComponentPanel, gridBagConstraints);
+
+        structureComponentPanel.setName("structureComponentPanel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        componentsPanel.add(structureComponentPanel, gridBagConstraints);
+
+        armorComponentPanel.setName("armorComponentPanel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        componentsPanel.add(armorComponentPanel, gridBagConstraints);
+
+        gyroComponentPanel.setName("gyroComponentPanel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        componentsPanel.add(gyroComponentPanel, gridBagConstraints);
+
+        myomerComponentPanel.setName("myomerComponentPanel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        componentsPanel.add(myomerComponentPanel, gridBagConstraints);
+
+        jumpjetComponentPanel.setName("jumpjetComponentPanel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        componentsPanel.add(jumpjetComponentPanel, gridBagConstraints);
+
+        cockpitComponentPanel.setName("cockpitComponentPanel"); // NOI18N
+        componentsPanel.add(cockpitComponentPanel, new GridBagConstraints());
+
         componentsScrollPane.setViewportView(componentsPanel);
 
         secondaryTabbedPane.addTab("Components", componentsScrollPane);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         add(secondaryTabbedPane, gridBagConstraints);
 
-        InformationTabbedPane.setMaximumSize(new Dimension(1024, 230));
         InformationTabbedPane.setMinimumSize(new Dimension(1024, 230));
+        InformationTabbedPane.setName("InformationTabbedPane"); // NOI18N
         InformationTabbedPane.setPreferredSize(new Dimension(1024, 230));
 
-        ModelOverviewPanel.setLayout(new java.awt.GridBagLayout());
+        ModelOverviewPanel.setName("ModelOverviewPanel"); // NOI18N
+        ModelOverviewPanel.setLayout(new GridBagLayout());
 
+        descriptionScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Mech Overview"));
         descriptionScrollPane.setMaximumSize(new Dimension(295, 100));
         descriptionScrollPane.setMinimumSize(new Dimension(295, 100));
+        descriptionScrollPane.setName("descriptionScrollPane"); // NOI18N
         descriptionScrollPane.setPreferredSize(new Dimension(295, 100));
 
         descriptionTextArea.setColumns(20);
         descriptionTextArea.setRows(5);
+        descriptionTextArea.setName("descriptionTextArea"); // NOI18N
         descriptionScrollPane.setViewportView(descriptionTextArea);
 
-        ModelOverviewPanel.add(descriptionScrollPane, new java.awt.GridBagConstraints());
-        ModelOverviewPanel.add(overviewComponentPanel, new java.awt.GridBagConstraints());
-        ModelOverviewPanel.add(hardpointComponentPanel, new java.awt.GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ModelOverviewPanel.add(descriptionScrollPane, gridBagConstraints);
+
+        overviewComponentPanel.setName("overviewComponentPanel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ModelOverviewPanel.add(overviewComponentPanel, gridBagConstraints);
+
+        hardpointComponentPanel.setName("hardpointComponentPanel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ModelOverviewPanel.add(hardpointComponentPanel, gridBagConstraints);
 
         InformationTabbedPane.addTab("Model Overview", ModelOverviewPanel);
 
-        ModelSpecificationsPanel.setLayout(new java.awt.GridBagLayout());
-        ModelSpecificationsPanel.add(speedComponentPanel, new java.awt.GridBagConstraints());
-        ModelSpecificationsPanel.add(manueverabilityComponentPanel, new java.awt.GridBagConstraints());
-        ModelSpecificationsPanel.add(movementRangeComponentPanel, new java.awt.GridBagConstraints());
-        ModelSpecificationsPanel.add(movementSpeedComponentPanel, new java.awt.GridBagConstraints());
+        ModelSpecificationsPanel.setName("ModelSpecificationsPanel"); // NOI18N
+        ModelSpecificationsPanel.setLayout(new GridBagLayout());
+
+        speedComponentPanel.setName("speedComponentPanel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ModelSpecificationsPanel.add(speedComponentPanel, gridBagConstraints);
+
+        manueverabilityComponentPanel.setName("manueverabilityComponentPanel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ModelSpecificationsPanel.add(manueverabilityComponentPanel, gridBagConstraints);
+
+        movementRangeComponentPanel.setName("movementRangeComponentPanel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ModelSpecificationsPanel.add(movementRangeComponentPanel, gridBagConstraints);
+
+        movementSpeedComponentPanel.setName("movementSpeedComponentPanel"); // NOI18N
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        ModelSpecificationsPanel.add(movementSpeedComponentPanel, gridBagConstraints);
 
         InformationTabbedPane.addTab("Model Specifications", ModelSpecificationsPanel);
 
-        InformationSpecificationsPanel.setLayout(new java.awt.GridBagLayout());
+        InformationSpecificationsPanel.setName("InformationSpecificationsPanel"); // NOI18N
+        InformationSpecificationsPanel.setLayout(new GridBagLayout());
         InformationTabbedPane.addTab("Sensors/Targetting Specifications", InformationSpecificationsPanel);
 
-        EquipmentSpecificationsPanel.setLayout(new java.awt.GridBagLayout());
+        EquipmentSpecificationsPanel.setName("EquipmentSpecificationsPanel"); // NOI18N
+        EquipmentSpecificationsPanel.setLayout(new GridBagLayout());
         InformationTabbedPane.addTab("Equipment Specifications", EquipmentSpecificationsPanel);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         add(InformationTabbedPane, gridBagConstraints);
 
-        OptionsPanel.setMaximumSize(new Dimension(256, 256));
-        OptionsPanel.setMinimumSize(new Dimension(256, 256));
-        OptionsPanel.setPreferredSize(new Dimension(256, 256));
-        OptionsPanel.setLayout(new java.awt.GridBagLayout());
+        OptionsPanel.setName("OptionsPanel"); // NOI18N
+        OptionsPanel.setLayout(new GridBagLayout());
 
         FeaturesPanel.setMaximumSize(new Dimension(256, 230));
         FeaturesPanel.setMinimumSize(new Dimension(256, 230));
+        FeaturesPanel.setName("FeaturesPanel"); // NOI18N
         FeaturesPanel.setPreferredSize(new Dimension(256, 230));
-        FeaturesPanel.setLayout(new java.awt.GridBagLayout());
+        FeaturesPanel.setLayout(new GridBagLayout());
 
         FrankenmechToggle.setText("Frankenmechs");
         FrankenmechToggle.setEnabled(false);
-        FrankenmechToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        FrankenmechToggle.setHorizontalTextPosition(SwingConstants.CENTER);
+        FrankenmechToggle.setName("FrankenmechToggle"); // NOI18N
         FrankenmechToggle.setPreferredSize(new Dimension(0, 0));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
         FeaturesPanel.add(FrankenmechToggle, gridBagConstraints);
 
         MixtechToggle.setText("Mixtech");
         MixtechToggle.setEnabled(false);
-        MixtechToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        MixtechToggle.setHorizontalTextPosition(SwingConstants.CENTER);
+        MixtechToggle.setName("MixtechToggle"); // NOI18N
         MixtechToggle.setPreferredSize(new Dimension(0, 0));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
         FeaturesPanel.add(MixtechToggle, gridBagConstraints);
 
         FuturetechToggle.setText("Futuretech");
         FuturetechToggle.setEnabled(false);
-        FuturetechToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        FuturetechToggle.setHorizontalTextPosition(SwingConstants.CENTER);
+        FuturetechToggle.setName("FuturetechToggle"); // NOI18N
         FuturetechToggle.setPreferredSize(new Dimension(0, 0));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
         FeaturesPanel.add(FuturetechToggle, gridBagConstraints);
 
         OmniRestrictionsToggle.setText("Omni Restrictions");
         OmniRestrictionsToggle.setEnabled(false);
-        OmniRestrictionsToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        OmniRestrictionsToggle.setHorizontalTextPosition(SwingConstants.CENTER);
+        OmniRestrictionsToggle.setName("OmniRestrictionsToggle"); // NOI18N
         OmniRestrictionsToggle.setPreferredSize(new Dimension(0, 0));
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        gridBagConstraints.insets = new Insets(15, 15, 15, 15);
         FeaturesPanel.add(OmniRestrictionsToggle, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         OptionsPanel.add(FeaturesPanel, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         add(OptionsPanel, gridBagConstraints);
-    }// </editor-fold>
+    }
 
-    private void chassisComboBoxActionPerformed(java.awt.event.ActionEvent evt) {
+    // Code for dispatching events from components to event handlers.
+
+    private class FormListener implements ActionListener, ChangeListener {
+        FormListener() {}
+        public void actionPerformed(ActionEvent evt) {
+            if (evt.getSource() == chassisComboBox) {
+                MechlabPanel.this.chassisComboBoxActionPerformed(evt);
+            }
+            else if (evt.getSource() == modelComboBox) {
+                MechlabPanel.this.modelComboBoxActionPerformed(evt);
+            }
+            else if (evt.getSource() == leftTorsoCASEToggleButton) {
+                MechlabPanel.this.leftTorsoCASEToggleButtonActionPerformed(evt);
+            }
+            else if (evt.getSource() == rightTorsoCASEToggleButton) {
+                MechlabPanel.this.rightTorsoCASEToggleButtonActionPerformed(evt);
+            }
+            else if (evt.getSource() == leftLowerArmToggleButton) {
+                MechlabPanel.this.leftLowerArmToggleButtonActionPerformed(evt);
+            }
+            else if (evt.getSource() == rightLowerArmToggleButton) {
+                MechlabPanel.this.rightLowerArmToggleButtonActionPerformed(evt);
+            }
+            else if (evt.getSource() == rightHandToggleButton) {
+                MechlabPanel.this.rightHandToggleButtonActionPerformed(evt);
+            }
+            else if (evt.getSource() == maximumArmorButton) {
+                MechlabPanel.this.maximumArmorButtonActionPerformed(evt);
+            }
+        }
+
+        public void stateChanged(ChangeEvent evt) {
+            if (evt.getSource() == MechTabPane) {
+                MechlabPanel.this.MechTabPaneStateChanged(evt);
+            }
+            else if (evt.getSource() == rightArmSpinner) {
+                MechlabPanel.this.armorSpinnerStateChanged(evt);
+            }
+        }
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void chassisComboBoxActionPerformed(ActionEvent evt) {//GEN-FIRST:event_chassisComboBoxActionPerformed
         ChassisBlueprint chassis = (ChassisBlueprint)chassisComboBox.getSelectedItem();
 
         selectedDatabase.MODEL_BLUEPRINTS.clear();
 
         masterDatabase.MODEL_BLUEPRINTS.stream().
-                filter((model) -> (model.chassisName.equals(chassis.name))).
-                forEach((model) -> {
-                    selectedDatabase.MODEL_BLUEPRINTS.add(model);
+        filter((model) -> (model.chassisName.equals(chassis.name))).
+        forEach((model) -> {
+            selectedDatabase.MODEL_BLUEPRINTS.add(model);
         });
 
         modelComboBox.setModel(new DefaultComboBoxModel(selectedDatabase.MODEL_BLUEPRINTS.toArray()));
         modelComboBox.setSelectedIndex(0);
-    }
+    }//GEN-LAST:event_chassisComboBoxActionPerformed
 
-    private void modelComboBoxActionPerformed(java.awt.event.ActionEvent evt) {
+    private void modelComboBoxActionPerformed(ActionEvent evt) {//GEN-FIRST:event_modelComboBoxActionPerformed
         ChassisBlueprint chassis = (ChassisBlueprint)chassisComboBox.getSelectedItem();
         ModelBlueprint model = (ModelBlueprint)modelComboBox.getSelectedItem();
 
@@ -2194,6 +2568,18 @@ public class MechlabJPanel extends javax.swing.JPanel {
         cockpitComboBox.setModel(new DefaultComboBoxModel(selectedDatabase.COCKPIT_BLUEPRINTS.toArray()));
 
         updateCriticalPanelVisibility();
+        
+        headSpinnerModel.setMaximum(user.variant.sections.get(SectionType.HEAD).maximumArmor);
+        leftArmSpinnerModel.setMaximum(user.variant.sections.get(SectionType.LEFT_ARM).maximumArmor);
+        rightArmSpinnerModel.setMaximum(user.variant.sections.get(SectionType.RIGHT_ARM).maximumArmor);
+        leftLegSpinnerModel.setMaximum(user.variant.sections.get(SectionType.LEFT_LEG).maximumArmor);
+        rightLegSpinnerModel.setMaximum(user.variant.sections.get(SectionType.RIGHT_LEG).maximumArmor);
+        leftTorsoSpinnerModel.setMaximum(user.variant.sections.get(SectionType.LEFT_TORSO).maximumArmor);
+        rightTorsoSpinnerModel.setMaximum(user.variant.sections.get(SectionType.RIGHT_TORSO).maximumArmor);
+        centerTorsoSpinnerModel.setMaximum(user.variant.sections.get(SectionType.CENTER_TORSO).maximumArmor);
+        rightRearTorsoSpinnerModel.setMaximum(user.variant.sections.get(SectionType.LEFT_TORSO).maximumArmor);
+        leftRearTorsoSpinnerModel.setMaximum(user.variant.sections.get(SectionType.RIGHT_TORSO).maximumArmor);
+        centerRearTorsoSpinnerModel.setMaximum(user.variant.sections.get(SectionType.CENTER_TORSO).maximumArmor);
 
         engineRatingSpinnerModel.setMinimum(user.variant.modelType.minEngineRating);
         engineRatingSpinnerModel.setMaximum(user.variant.modelType.maxEngineRating);
@@ -2224,39 +2610,51 @@ public class MechlabJPanel extends javax.swing.JPanel {
         criticalsProgressBar.setValue(user.variant.currentCriticals);
         criticalsProgressBar.setString(String.format("%d/78", user.variant.currentCriticals));
 
-        //engineComponentPanel.Set_Engine(user.variant.engine, user.variant.currentEngineRating);
-        //gyroComponentPanel.Set_Gyro(user.variant.gyro, user.variant.currentEngineRating);
-        //armorComponentPanel.Set_Armor(user.variant.armor, user.variant.GetCurrentArmorTotal());
-        //structureComponentPanel.Set_Structure(user.variant.structure, user.variant.currentTonnage);
-        //heatSinksComponentPanel.Set_Heatsinks(user.variant.heatsinks, user.variant.currentHeatSinkCount, user.variant.currentEngineRating);
-        //jumpJetsComponentPanel.Set_Jumpjets(user.variant.jumpjets, user.variant.currentJumpJets, user.variant.currentTonnage);
-        //cockpitComponentPanel.Set_Cockpit(user.variant.cockpit);
-        //myomerComponentPanel.Set_Myomer(user.variant.myomer);
+        engineComponentPanel.setEngine(user.variant);
+        gyroComponentPanel.setGyro(user.variant);
+        armorComponentPanel.setArmor(user.variant);
+        structureComponentPanel.setStructure(user.variant);
+        heatsinkComponentPanel.setHeatsinks(user.variant);
+        jumpjetComponentPanel.setJumpjets(user.variant);
+        cockpitComponentPanel.setCockpit(user.variant);
+        myomerComponentPanel.setMyomer(user.variant);
     }//GEN-LAST:event_modelComboBoxActionPerformed
 
-    private void MechTabPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MechTabPaneStateChanged
+    private void MechTabPaneStateChanged(ChangeEvent evt) {//GEN-FIRST:event_MechTabPaneStateChanged
         this.updateCriticalPanelVisibility();
     }//GEN-LAST:event_MechTabPaneStateChanged
 
-    private void leftTorsoCASEToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftTorsoCASEToggleButtonActionPerformed
+    private void leftTorsoCASEToggleButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_leftTorsoCASEToggleButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_leftTorsoCASEToggleButtonActionPerformed
 
-    private void rightTorsoCASEToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightTorsoCASEToggleButtonActionPerformed
+    private void rightTorsoCASEToggleButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_rightTorsoCASEToggleButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rightTorsoCASEToggleButtonActionPerformed
 
-    private void leftLowerArmToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftLowerArmToggleButtonActionPerformed
+    private void leftLowerArmToggleButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_leftLowerArmToggleButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_leftLowerArmToggleButtonActionPerformed
 
-    private void rightLowerArmToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightLowerArmToggleButtonActionPerformed
+    private void rightLowerArmToggleButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_rightLowerArmToggleButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rightLowerArmToggleButtonActionPerformed
 
-    private void rightHandToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightHandToggleButtonActionPerformed
+    private void rightHandToggleButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_rightHandToggleButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rightHandToggleButtonActionPerformed
+
+    private void armorSpinnerStateChanged(ChangeEvent evt) {//GEN-FIRST:event_armorSpinnerStateChanged
+        updateArmor();
+    }//GEN-LAST:event_armorSpinnerStateChanged
+
+    private void maximumArmorButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_maximumArmorButtonActionPerformed
+        headSpinnerModel.setValue(headSpinnerModel.getMaximum());
+        leftArmSpinnerModel.setValue(leftArmSpinnerModel.getMaximum());
+        rightArmSpinnerModel.setValue(rightArmSpinnerModel.getMaximum());
+        leftLegSpinnerModel.setValue(leftLegSpinnerModel.getMaximum());
+        rightLegSpinnerModel.setValue(rightLegSpinnerModel.getMaximum());
+    }//GEN-LAST:event_maximumArmorButtonActionPerformed
 
     private void updateCriticalPanelVisibility() {
         updateHardpoints();
@@ -2452,7 +2850,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         structureProgressBar.setVisible(temp);
     }
 
-    private void updateArmorLabels(final JProgressBar frontArmorProgressBar, final JProgressBar structureProgressBar, final JProgressBar rearArmorProgressBar, final SectionType sectionIndex) {
+    private void updateArmorLabels(final JProgressBar frontArmorProgressBar, final JProgressBar rearArmorProgressBar, final JProgressBar structureProgressBar, final SectionType sectionIndex) {
         if (user.variant == null) {
             return;
         }
@@ -2460,9 +2858,11 @@ public class MechlabJPanel extends javax.swing.JPanel {
         frontArmorProgressBar.setMaximum(user.variant.sections.get(sectionIndex).maximumArmor);
         frontArmorProgressBar.setValue(user.variant.sections.get(sectionIndex).frontArmor);
         frontArmorProgressBar.setString("" + user.variant.sections.get(sectionIndex).frontArmor);
+        
         structureProgressBar.setMaximum(user.variant.sections.get(sectionIndex).health);
         structureProgressBar.setValue(user.variant.sections.get(sectionIndex).health);
         structureProgressBar.setString("" + user.variant.sections.get(sectionIndex).health);
+        
         if (sectionIndex.hasRear && rearArmorProgressBar != null) {
             rearArmorProgressBar.setMaximum(user.variant.sections.get(sectionIndex).maximumArmor);
             rearArmorProgressBar.setValue(user.variant.sections.get(sectionIndex).rearArmor);
@@ -2562,9 +2962,9 @@ public class MechlabJPanel extends javax.swing.JPanel {
         
         user.variant.currentEngineRating = (Integer) this.engineRatingSpinner.getValue();
         
-        this.speedProgressBar.setValue(user.variant.currentEngineRating);
-        this.speedProgressBar.setString(String.format("%.1f kph", user.variant.engine.getSpeed(user.variant.chassisType.tonnage, user.variant.currentEngineRating)));
-        //this.enginePanelsSetEngine(user.variant.engine, user.variant.currentEngineRating);
+        speedProgressBar.setValue(user.variant.currentEngineRating);
+        speedProgressBar.setString(String.format("%.1f kph", user.variant.engine.getSpeed(user.variant.chassisType.tonnage, user.variant.currentEngineRating)));
+        engineComponentPanel.setEngine(user.variant);
     }
 
     private void updateHeatsinks() {
@@ -2580,7 +2980,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
             }
         }
         n = user.variant.currentHeatSinkCount - n;
-        //this.heatSinkComponentPanel.setHeatsinks(user.variant.heatsinks, user.variant.currentEngineRating, user.variant.currentHeatSinkCount);
+        
+        heatsinkComponentPanel.setHeatsinks(user.variant);
     }
 
     private void updateJumpjets() {
@@ -2612,7 +3013,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         }*/
         this.jumpDistanceProgressBar.setValue(user.variant.currentJumpJets);
         this.jumpHeightProgressBar.setValue(user.variant.currentJumpJets);
-        //this.jumpjetComponentPanel.setJumpjets(user.variant.jumpjets, user.variant.currentJumpJets, user.variant.chassisType.tonnage);
+        jumpjetComponentPanel.setJumpjets(user.variant);
         this.manueverabilityComponentPanel.setManueverability(user.variant);
     }
 
@@ -2620,10 +3021,12 @@ public class MechlabJPanel extends javax.swing.JPanel {
         if (user.variant.armor == null) {
             return;
         }
-        //this.ArmorPanel.setArmor(user.variant.armor, user.variant.GetCurrentArmorTotal());
-        this.pointsPerTonAmountLabel.setText(String.format("%.2f", user.variant.armor.pointsPerTon));
-        this.armorProgressBar.setString("" + user.variant.getCurrentArmorTotal());
-        this.armorProgressBar.setValue(user.variant.getCurrentArmorTotal());
+        
+        armorComponentPanel.setArmor(user.variant);
+        pointsPerTonAmountLabel.setText(String.format("%.2f", user.variant.armor.pointsPerTon));
+        armorProgressBar.setString("" + user.variant.getCurrentArmorTotal());
+        armorProgressBar.setValue(user.variant.getCurrentArmorTotal());
+        
         this.updateArmorLabels(this.rightArmArmorProgressBar, null, this.rightArmStructureProgressBar, SectionType.RIGHT_ARM);
         this.updateArmorLabels(this.leftArmArmorProgressBar, null, this.leftArmStructureProgressBar, SectionType.LEFT_ARM);
         this.updateArmorLabels(this.rightLegArmorProgressBar, null, this.rightLegStructureProgressBar, SectionType.RIGHT_LEG);
@@ -2632,6 +3035,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
         this.updateArmorLabels(this.leftTorsoFrontArmorProgressBar, this.leftTorsoRearArmorProgressBar, this.leftTorsoStructureProgressBar, SectionType.LEFT_TORSO);
         this.updateArmorLabels(this.centerTorsoFrontArmorProgressBar, this.centerTorsoRearArmorProgressBar, this.centerTorsoStructureProgressBar, SectionType.CENTER_TORSO);
         this.updateArmorLabels(this.headArmorProgressBar, null, this.headStructureProgressBar, SectionType.HEAD);
+        
         this.rightArmArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections.get(SectionType.RIGHT_ARM).frontArmor, user.variant.sections.get(SectionType.RIGHT_ARM).maximumArmor));
         this.leftArmArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections.get(SectionType.LEFT_ARM).frontArmor, user.variant.sections.get(SectionType.LEFT_ARM).maximumArmor));
         this.rightTorsoArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections.get(SectionType.RIGHT_TORSO).frontArmor + user.variant.sections.get(SectionType.RIGHT_TORSO).rearArmor, user.variant.sections.get(SectionType.RIGHT_TORSO).maximumArmor));
@@ -2888,31 +3292,32 @@ public class MechlabJPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel AdjustmentsPanel;
-    private javax.swing.JPanel ArmorPanel;
-    private javax.swing.JPanel ChassisPanel;
-    private javax.swing.JPanel EfficienciesPanel;
-    private javax.swing.JPanel EquipmentSpecificationsPanel;
-    private javax.swing.JPanel FeaturesPanel;
+    private JPanel AdjustmentsPanel;
+    private JPanel ArmorPanel;
+    private JPanel ChassisPanel;
+    private JPanel EfficienciesPanel;
+    private JPanel EquipmentSpecificationsPanel;
+    private JPanel FeaturesPanel;
     private JToggleButton FrankenmechToggle;
     private JToggleButton FuturetechToggle;
-    private javax.swing.JPanel InformationSpecificationsPanel;
-    private javax.swing.JTabbedPane InformationTabbedPane;
-    private javax.swing.JTabbedPane MechTabPane;
+    private JPanel InformationSpecificationsPanel;
+    private JTabbedPane InformationTabbedPane;
+    private JTabbedPane MechTabPane;
     private JToggleButton MixtechToggle;
-    private javax.swing.JPanel ModelOverviewPanel;
-    private javax.swing.JPanel ModelSpecificationsPanel;
+    private JPanel ModelOverviewPanel;
+    private JPanel ModelSpecificationsPanel;
     private JToggleButton OmniRestrictionsToggle;
-    private javax.swing.JPanel OptionsPanel;
-    private javax.swing.JPanel SystemsPanel;
-    private javax.swing.JPanel UpgradesPanel;
-    private javax.swing.JScrollPane UpgradesScrollPane;
-    private javax.swing.JPanel WeaponsPanel;
+    private JPanel OptionsPanel;
+    private JPanel SystemsPanel;
+    private JPanel UpgradesPanel;
+    private JScrollPane UpgradesScrollPane;
+    private JPanel WeaponsPanel;
     private JProgressBar alphaDamageProgressBar;
     private JProgressBar alphaHeatProgressBar;
     private JComboBox<String> armorComboBox;
+    private ComponentPanel armorComponentPanel;
     private JProgressBar armorProgressBar;
-    private javax.swing.JSpinner centerRearTorsoSpinner;
+    private JSpinner centerRearTorsoSpinner;
     private JLabel centerTorsoAMSHardpointLabel;
     private JLabel centerTorsoArmorAmountLabel;
     private JLabel centerTorsoBallisticHardpointLabel;
@@ -2922,26 +3327,29 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private JProgressBar centerTorsoFrontArmorProgressBar;
     private JLabel centerTorsoMissileHardpointLabel;
     private JComboBox<String> centerTorsoOmnipodComboBox;
-    private javax.swing.JPanel centerTorsoPanel;
+    private JPanel centerTorsoPanel;
     private JProgressBar centerTorsoRearArmorProgressBar;
-    private javax.swing.JSpinner centerTorsoSpinner;
+    private JSpinner centerTorsoSpinner;
     private JProgressBar centerTorsoStructureProgressBar;
-    private JComboBox<String> chassisComboBox;
-    private javax.swing.JButton clearArmorButton;
+    JComboBox<String> chassisComboBox;
+    private JButton clearArmorButton;
     private JComboBox<String> cockpitComboBox;
-    private javax.swing.JPanel componentsPanel;
-    private javax.swing.JScrollPane componentsScrollPane;
+    private ComponentPanel cockpitComponentPanel;
+    private JPanel componentsPanel;
+    private JScrollPane componentsScrollPane;
     private JProgressBar criticalsProgressBar;
-    private javax.swing.JScrollPane descriptionScrollPane;
-    private javax.swing.JTextArea descriptionTextArea;
+    private JScrollPane descriptionScrollPane;
+    private JTextArea descriptionTextArea;
     private JLabel ecmCapableLabel;
-    private javax.swing.JButton efficientArmorButton;
+    private JButton efficientArmorButton;
     private JComboBox<String> engineComboBox;
-    private javax.swing.JSpinner engineRatingSpinner;
-    private javax.swing.JButton exportButton;
+    private ComponentPanel engineComponentPanel;
+    private JSpinner engineRatingSpinner;
+    private JButton exportButton;
     private JProgressBar firepowerProgressBar;
     private JComboBox<String> gyroComboBox;
-    private com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel hardpointComponentPanel;
+    private ComponentPanel gyroComponentPanel;
+    private ComponentPanel hardpointComponentPanel;
     private JLabel headAMSHardpointLabel;
     private JLabel headArmorAmountLabel;
     private JProgressBar headArmorProgressBar;
@@ -2951,12 +3359,13 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private JLabel headEnergyHardpointLabel;
     private JLabel headMissileHardpointLabel;
     private JComboBox<String> headOmnipodComboBox;
-    private javax.swing.JPanel headPanel;
-    private javax.swing.JSpinner headSpinner;
+    private JPanel headPanel;
+    private JSpinner headSpinner;
     private JProgressBar headStructureProgressBar;
     private JProgressBar heatEfficiencyProgressBar;
     private JComboBox<String> heatSinkComboBox;
-    private javax.swing.JButton importButton;
+    private ComponentPanel heatsinkComponentPanel;
+    private JButton importButton;
     private JLabel jLabel21;
     private JLabel jLabel22;
     private JLabel jLabel23;
@@ -2975,6 +3384,7 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private JProgressBar jumpDistanceProgressBar;
     private JProgressBar jumpHeightProgressBar;
     private JComboBox<String> jumpJetComboBox;
+    private ComponentPanel jumpjetComponentPanel;
     private JLabel leftArmAMSHardpointLabel;
     private JLabel leftArmArmorAmountLabel;
     private JProgressBar leftArmArmorProgressBar;
@@ -2984,8 +3394,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private JLabel leftArmEnergyHardpointLabel;
     private JLabel leftArmMissileHardpointLabel;
     private JComboBox<String> leftArmOmnipodComboBox;
-    private javax.swing.JPanel leftArmPanel;
-    private javax.swing.JSpinner leftArmSpinner;
+    private JPanel leftArmPanel;
+    private JSpinner leftArmSpinner;
     private JProgressBar leftArmStructureProgressBar;
     private JToggleButton leftHandToggleButton;
     private JLabel leftLegAMSHardpointLabel;
@@ -2997,11 +3407,11 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private JLabel leftLegEnergyHardpointLabel;
     private JLabel leftLegMissileHardpointLabel;
     private JComboBox<String> leftLegOmnipodComboBox;
-    private javax.swing.JPanel leftLegPanel;
-    private javax.swing.JSpinner leftLegSpinner;
+    private JPanel leftLegPanel;
+    private JSpinner leftLegSpinner;
     private JProgressBar leftLegStructureProgressBar;
     private JToggleButton leftLowerArmToggleButton;
-    private javax.swing.JSpinner leftRearTorsoSpinner;
+    private JSpinner leftRearTorsoSpinner;
     private JLabel leftTorsoAMSHardpointLabel;
     private JLabel leftTorsoArmorAmountLabel;
     private JLabel leftTorsoBallisticHardpointLabel;
@@ -3012,25 +3422,26 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private JProgressBar leftTorsoFrontArmorProgressBar;
     private JLabel leftTorsoMissileHardpointLabel;
     private JComboBox<String> leftTorsoOmnipodComboBox;
-    private javax.swing.JPanel leftTorsoPanel;
+    private JPanel leftTorsoPanel;
     private JProgressBar leftTorsoRearArmorProgressBar;
-    private javax.swing.JSpinner leftTorsoSpinner;
+    private JSpinner leftTorsoSpinner;
     private JProgressBar leftTorsoStructureProgressBar;
-    private javax.swing.JButton loadButton;
-    private com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel manueverabilityComponentPanel;
-    private javax.swing.JButton maximumArmorButton;
-    private javax.swing.JPanel mechPanel;
+    private JButton loadButton;
+    private ComponentPanel manueverabilityComponentPanel;
+    private JButton maximumArmorButton;
+    private JPanel mechPanel;
     private JLabel mechTypeLabel;
-    private JComboBox<String> modelComboBox;
-    private com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel movementRangeComponentPanel;
-    private com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel movementSpeedComponentPanel;
+    JComboBox<String> modelComboBox;
+    private ComponentPanel movementRangeComponentPanel;
+    private ComponentPanel movementSpeedComponentPanel;
     private JComboBox<String> myomerComboBox;
-    private com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel overviewComponentPanel;
+    private ComponentPanel myomerComponentPanel;
+    private ComponentPanel overviewComponentPanel;
     private JLabel pointsPerTonAmountLabel;
     private JLabel pointsPerTonLabel;
-    private javax.swing.JScrollPane quirksJScrollPane;
-    private javax.swing.JTextArea quirksJTextArea;
-    private javax.swing.JPanel quirksPanel;
+    private JScrollPane quirksJScrollPane;
+    private JTextArea quirksJTextArea;
+    private JPanel quirksPanel;
     private JProgressBar rangeProgressBar;
     private JLabel rightArmAMSHardpointLabel;
     private JLabel rightArmArmorAmountLabel;
@@ -3041,8 +3452,8 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private JLabel rightArmEnergyHardpointLabel;
     private JLabel rightArmMissileHardpointLabel;
     private JComboBox<String> rightArmOmnipodComboBox;
-    private javax.swing.JPanel rightArmPanel;
-    private javax.swing.JSpinner rightArmSpinner;
+    private JPanel rightArmPanel;
+    private JSpinner rightArmSpinner;
     private JProgressBar rightArmStructureProgressBar;
     private JToggleButton rightHandToggleButton;
     private JLabel rightLegAMSHardpointLabel;
@@ -3054,11 +3465,11 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private JLabel rightLegEnergyHardpointLabel;
     private JLabel rightLegMissileHardpointLabel;
     private JComboBox<String> rightLegOmnipodComboBox;
-    private javax.swing.JPanel rightLegPanel;
-    private javax.swing.JSpinner rightLegSpinner;
+    private JPanel rightLegPanel;
+    private JSpinner rightLegSpinner;
     private JProgressBar rightLegStructureProgressBar;
     private JToggleButton rightLowerArmToggleButton;
-    private javax.swing.JSpinner rightRearTorsoSpinner;
+    private JSpinner rightRearTorsoSpinner;
     private JLabel rightTorsoAMSHardpointLabel;
     private JLabel rightTorsoArmorAmountLabel;
     private JLabel rightTorsoBallisticHardpointLabel;
@@ -3069,12 +3480,12 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private JProgressBar rightTorsoFrontArmorProgressBar;
     private JLabel rightTorsoMissileHardpointLabel;
     private JComboBox<String> rightTorsoOmnipodComboBox;
-    private javax.swing.JPanel rightTorsoPanel;
+    private JPanel rightTorsoPanel;
     private JProgressBar rightTorsoRearArmorProgressBar;
-    private javax.swing.JSpinner rightTorsoSpinner;
+    private JSpinner rightTorsoSpinner;
     private JProgressBar rightTorsoStructureProgressBar;
-    private javax.swing.JButton saveButton;
-    private javax.swing.JTabbedPane secondaryTabbedPane;
+    private JButton saveButton;
+    private JTabbedPane secondaryTabbedPane;
     private JLabel section1AMSHardpointLabel;
     private JProgressBar section1ArmorProgressBar;
     private JLabel section1BallisticHardpointLabel;
@@ -3094,23 +3505,24 @@ public class MechlabJPanel extends javax.swing.JPanel {
     private JComboBox<String> section2OmnipodComboBox;
     private JProgressBar section2StructureProgressBar;
     private JLabel special1ArmorAmountLabel;
-    private javax.swing.JPanel special1Panel;
-    private javax.swing.JSpinner special1Spinner;
+    private JPanel special1Panel;
+    private JSpinner special1Spinner;
     private JLabel special2ArmorAmountLabel;
-    private javax.swing.JPanel special2Panel;
-    private javax.swing.JSpinner special2Spinner;
-    private com.github.majora_incarnate.mwo.mechbay.mechlab.ComponentPanel speedComponentPanel;
+    private JPanel special2Panel;
+    private JSpinner special2Spinner;
+    private ComponentPanel speedComponentPanel;
     private JProgressBar speedProgressBar;
-    private javax.swing.JPanel statisticsPanel;
+    private JPanel statisticsPanel;
     private JComboBox<String> structureComboBox;
+    private ComponentPanel structureComponentPanel;
     private JLabel techBaseLabel;
-    private javax.swing.JButton tonnageArmorButton;
+    private JButton tonnageArmorButton;
     private JProgressBar tonnageProgressBar;
     private JLabel totalArmorAmountLabel;
     private JLabel totalArmorLabel;
     private JLabel unconfirmedLabel;
     private JLabel unreleasedLabel;
     private JLabel variantCostLabel;
-    private javax.swing.JTextField variantNameField;
-    // End of variables declaration
+    private JTextField variantNameField;
+    // End of variables declaration//GEN-END:variables
 }
