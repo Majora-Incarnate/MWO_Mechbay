@@ -4,6 +4,7 @@ import com.github.majora_incarnate.mwo.mechbay.entities.Constants;
 import com.github.majora_incarnate.mwo.mechbay.entities.Crittable;
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.CriticalType;
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.HardpointType;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.SectionType;
 
 public class StructureBlueprint extends Blueprint {
     public double tonnageModifier;
@@ -12,8 +13,8 @@ public class StructureBlueprint extends Blueprint {
     public double costModifier;
     public double upgradeModifier;
 
-    public int getLocationHealth(double tonnage, int sectionIndex, int quirkModifier) {
-        return (int) (this.healthModifier * Constants.INTERNALS_PER_SECTION[(int)(tonnage / 5.0)][sectionIndex]) + quirkModifier;
+    public int getLocationHealth(double tonnage, SectionType sectionIndex, int quirkModifier) {
+        return (int) (this.healthModifier * Constants.INTERNALS_PER_SECTION.get(tonnage).get(sectionIndex) + quirkModifier);
     }
 
     public int getItemCost(double tonnage) {

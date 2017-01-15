@@ -17,6 +17,7 @@ public class Variant implements Serializable {
     public String variantName;
     public double currentTonnage;
     public int currentCriticals;
+    public int maximumCriticals;
     public EngineBlueprint engine;
     public ArmorBlueprint armor;
     public StructureBlueprint structure;
@@ -48,6 +49,7 @@ public class Variant implements Serializable {
             
                     this.minimumJumpJets += section.minimumJumpJetModifier;
                     this.maximumJumpJets += section.maximumJumpJetModifier;
+                    this.maximumCriticals += section.section.criticalCount;
                     break;
                 }
             }
@@ -57,26 +59,26 @@ public class Variant implements Serializable {
             sections.put(sectionType.getKey(), new Section(database, sectionType.getValue(), this.chassisType.tonnage));
         });
         
-        database.ENGINE_BLUEPRINTS.stream().filter((engine_blueprint) -> (engine_blueprint.name.equals(modelBlueprint.engineType))).forEach((engine_blueprint) -> {
-            this.engine = engine_blueprint;
+        database.ENGINE_BLUEPRINTS.stream().filter((engineBlueprint) -> (engineBlueprint.name.equals(modelBlueprint.engineType))).forEach((engineBlueprint) -> {
+            this.engine = engineBlueprint;
         });
-        database.ARMOR_BLUEPRINTS.stream().filter((armor_blueprint) -> (armor_blueprint.name.equals(modelBlueprint.armorType))).forEach((armor_blueprint) -> {
-            this.armor = armor_blueprint;
+        database.ARMOR_BLUEPRINTS.stream().filter((armorBlueprint) -> (armorBlueprint.name.equals(modelBlueprint.armorType))).forEach((armorBlueprint) -> {
+            this.armor = armorBlueprint;
         });
-        database.HEAT_SINK_BLUEPRINTS.stream().filter((heatsink_blueprint) -> (heatsink_blueprint.name.equals(modelBlueprint.heatsinkType))).forEach((heatsink_blueprint) -> {
-            this.heatsinks = heatsink_blueprint;
+        database.HEAT_SINK_BLUEPRINTS.stream().filter((heatsinkBlueprint) -> (heatsinkBlueprint.name.equals(modelBlueprint.heatsinkType))).forEach((heatsinkBlueprint) -> {
+            this.heatsinks = heatsinkBlueprint;
         });
-        database.GYRO_BLUEPRINTS.stream().filter((gyro_blueprint) -> (gyro_blueprint.name.equals(modelBlueprint.gyroType))).forEach((gyro_blueprint) -> {
-            this.gyro = gyro_blueprint;
+        database.GYRO_BLUEPRINTS.stream().filter((gyroBlueprint) -> (gyroBlueprint.name.equals(modelBlueprint.gyroType))).forEach((gyroBlueprint) -> {
+            this.gyro = gyroBlueprint;
         });
-        database.STRUCTURE_BLUEPRINTS.stream().filter((structure_blueprint) -> (structure_blueprint.name.equals(modelBlueprint.structureType))).forEach((structure_blueprint) -> {
-            this.structure = structure_blueprint;
+        database.STRUCTURE_BLUEPRINTS.stream().filter((structureBlueprint) -> (structureBlueprint.name.equals(modelBlueprint.structureType))).forEach((structureBlueprint) -> {
+            this.structure = structureBlueprint;
         });
-        database.COCKPIT_BLUEPRINTS.stream().filter((cockpit_blueprint) -> (cockpit_blueprint.name.equals(modelBlueprint.cockpitType))).forEach((cockpit_blueprint) -> {
-            this.cockpit = cockpit_blueprint;
+        database.COCKPIT_BLUEPRINTS.stream().filter((cockpitBlueprint) -> (cockpitBlueprint.name.equals(modelBlueprint.cockpitType))).forEach((cockpitBlueprint) -> {
+            this.cockpit = cockpitBlueprint;
         });
-        database.JUMP_JET_BLUEPRINTS.stream().filter((jumpjet_blueprint) -> (jumpjet_blueprint.name.equals(modelBlueprint.jumpjetType))).forEach((jumpjet_blueprint) -> {
-            this.jumpjets = jumpjet_blueprint;
+        database.JUMP_JET_BLUEPRINTS.stream().filter((jumpjetBlueprint) -> (jumpjetBlueprint.name.equals(modelBlueprint.jumpjetType))).forEach((jumpjetBlueprint) -> {
+            this.jumpjets = jumpjetBlueprint;
         });
         
         this.currentHeatSinkCount = modelBlueprint.heatsinkCount;

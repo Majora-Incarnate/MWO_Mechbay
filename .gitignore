@@ -16,7 +16,7 @@
 *.iws
 
 bin
-target
+target/*
 .profiler
 
 .clover

@@ -15,6 +15,7 @@ import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.Blueprint;
 import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.ChassisBlueprint;
 import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.ModelBlueprint;
 import com.github.majora_incarnate.mwo.mechbay.entities.blueprints.WeaponBlueprint;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.CriticalType;
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.HardpointType;
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.MechType;
 import com.github.majora_incarnate.mwo.mechbay.entities.enums.SectionType;
@@ -29,7 +30,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.ResourceBundle;
 import java.util.function.Predicate;
 import javax.swing.AbstractListModel;
 import javax.swing.BorderFactory;
@@ -168,38 +168,38 @@ public class MechlabPanel extends JPanel {
         EfficienciesPanel = new JPanel();
         WeaponsPanel = new JPanel();
         ArmorPanel = new JPanel();
-        pointsPerTonLabel = new JLabel();
-        pointsPerTonAmountLabel = new JLabel();
+        armorPointsPerTonTitle = new JLabel();
+        armorPointsPerTonLabel = new JLabel();
         maximumArmorButton = new JButton();
         clearArmorButton = new JButton();
         efficientArmorButton = new JButton();
         tonnageArmorButton = new JButton();
-        jLabel21 = new JLabel();
-        jLabel22 = new JLabel();
-        jLabel23 = new JLabel();
-        jLabel24 = new JLabel();
-        jLabel25 = new JLabel();
+        armorSectionTitle = new JLabel();
+        armorFrontTitle = new JLabel();
+        armorRearTitle = new JLabel();
+        armorAmountTitle = new JLabel();
+        armorSection1Title = new JLabel();
         headArmorAmountLabel = new JLabel();
-        jLabel29 = new JLabel();
+        armorSection2Title = new JLabel();
         centerTorsoArmorAmountLabel = new JLabel();
-        jLabel33 = new JLabel();
+        armorSection3Title = new JLabel();
         rightTorsoArmorAmountLabel = new JLabel();
-        jLabel37 = new JLabel();
+        armorSection4Title = new JLabel();
         leftTorsoArmorAmountLabel = new JLabel();
-        jLabel41 = new JLabel();
+        armorSection5Title = new JLabel();
         rightArmArmorAmountLabel = new JLabel();
-        jLabel45 = new JLabel();
+        armorSection6Title = new JLabel();
         leftArmArmorAmountLabel = new JLabel();
-        jLabel49 = new JLabel();
+        armorSection7Title = new JLabel();
         rightLegArmorAmountLabel = new JLabel();
-        jLabel50 = new JLabel();
+        armorSection8Title = new JLabel();
         leftLegArmorAmountLabel = new JLabel();
-        jLabel51 = new JLabel();
+        armorSection9Title = new JLabel();
         special1ArmorAmountLabel = new JLabel();
-        jLabel55 = new JLabel();
+        armorSection10Title = new JLabel();
         special2ArmorAmountLabel = new JLabel();
-        totalArmorLabel = new JLabel();
-        totalArmorAmountLabel = new JLabel();
+        armorTotalTitle = new JLabel();
+        armorTotalLabel = new JLabel();
         centerTorsoSpinner = new JSpinner();
         centerRearTorsoSpinner = new JSpinner();
         rightTorsoSpinner = new JSpinner();
@@ -735,24 +735,24 @@ public class MechlabPanel extends JPanel {
         ArmorPanel.setName("ArmorPanel"); // NOI18N
         ArmorPanel.setLayout(new GridBagLayout());
 
-        pointsPerTonLabel.setText("Points Per Ton");
-        pointsPerTonLabel.setName("pointsPerTonLabel"); // NOI18N
+        armorPointsPerTonTitle.setText("Points Per Ton");
+        armorPointsPerTonTitle.setName("armorPointsPerTonTitle"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        ArmorPanel.add(pointsPerTonLabel, gridBagConstraints);
+        ArmorPanel.add(armorPointsPerTonTitle, gridBagConstraints);
 
-        pointsPerTonAmountLabel.setText("0.0");
-        pointsPerTonAmountLabel.setName("pointsPerTonAmountLabel"); // NOI18N
+        armorPointsPerTonLabel.setText("0.0");
+        armorPointsPerTonLabel.setName("armorPointsPerTonLabel"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        ArmorPanel.add(pointsPerTonAmountLabel, gridBagConstraints);
+        ArmorPanel.add(armorPointsPerTonLabel, gridBagConstraints);
 
         maximumArmorButton.setText("Maximum Armor");
         maximumArmorButton.setName("maximumArmorButton"); // NOI18N
@@ -767,6 +767,7 @@ public class MechlabPanel extends JPanel {
 
         clearArmorButton.setText("Clear Armor");
         clearArmorButton.setName("clearArmorButton"); // NOI18N
+        clearArmorButton.addActionListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 2;
@@ -795,40 +796,40 @@ public class MechlabPanel extends JPanel {
         gridBagConstraints.weighty = 1.0;
         ArmorPanel.add(tonnageArmorButton, gridBagConstraints);
 
-        jLabel21.setText("Section");
-        jLabel21.setName("jLabel21"); // NOI18N
+        armorSectionTitle.setText("Section");
+        armorSectionTitle.setName("armorSectionTitle"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        ArmorPanel.add(jLabel21, gridBagConstraints);
+        ArmorPanel.add(armorSectionTitle, gridBagConstraints);
 
-        jLabel22.setText("Front");
-        jLabel22.setName("jLabel22"); // NOI18N
+        armorFrontTitle.setText("Front");
+        armorFrontTitle.setName("armorFrontTitle"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        ArmorPanel.add(jLabel22, gridBagConstraints);
+        ArmorPanel.add(armorFrontTitle, gridBagConstraints);
 
-        jLabel23.setText("Rear");
-        jLabel23.setName("jLabel23"); // NOI18N
+        armorRearTitle.setText("Rear");
+        armorRearTitle.setName("armorRearTitle"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
-        ArmorPanel.add(jLabel23, gridBagConstraints);
+        ArmorPanel.add(armorRearTitle, gridBagConstraints);
 
-        jLabel24.setText("Amount");
-        jLabel24.setName("jLabel24"); // NOI18N
+        armorAmountTitle.setText("Amount");
+        armorAmountTitle.setName("armorAmountTitle"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
-        ArmorPanel.add(jLabel24, gridBagConstraints);
+        ArmorPanel.add(armorAmountTitle, gridBagConstraints);
 
-        jLabel25.setText(SectionType.HEAD.shortName);
-        jLabel25.setName("jLabel25"); // NOI18N
+        armorSection1Title.setText(SectionType.HEAD.shortName);
+        armorSection1Title.setName("armorSection1Title"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        ArmorPanel.add(jLabel25, gridBagConstraints);
+        ArmorPanel.add(armorSection1Title, gridBagConstraints);
 
         headArmorAmountLabel.setText("0/0");
         headArmorAmountLabel.setName("headArmorAmountLabel"); // NOI18N
@@ -837,12 +838,12 @@ public class MechlabPanel extends JPanel {
         gridBagConstraints.gridy = 2;
         ArmorPanel.add(headArmorAmountLabel, gridBagConstraints);
 
-        jLabel29.setText(SectionType.CENTER_TORSO.shortName);
-        jLabel29.setName("jLabel29"); // NOI18N
+        armorSection2Title.setText(SectionType.CENTER_TORSO.shortName);
+        armorSection2Title.setName("armorSection2Title"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        ArmorPanel.add(jLabel29, gridBagConstraints);
+        ArmorPanel.add(armorSection2Title, gridBagConstraints);
 
         centerTorsoArmorAmountLabel.setText("0/0");
         centerTorsoArmorAmountLabel.setName("centerTorsoArmorAmountLabel"); // NOI18N
@@ -851,12 +852,12 @@ public class MechlabPanel extends JPanel {
         gridBagConstraints.gridy = 3;
         ArmorPanel.add(centerTorsoArmorAmountLabel, gridBagConstraints);
 
-        jLabel33.setText(SectionType.RIGHT_TORSO.shortName);
-        jLabel33.setName("jLabel33"); // NOI18N
+        armorSection3Title.setText(SectionType.RIGHT_TORSO.shortName);
+        armorSection3Title.setName("armorSection3Title"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        ArmorPanel.add(jLabel33, gridBagConstraints);
+        ArmorPanel.add(armorSection3Title, gridBagConstraints);
 
         rightTorsoArmorAmountLabel.setText("0/0");
         rightTorsoArmorAmountLabel.setName("rightTorsoArmorAmountLabel"); // NOI18N
@@ -865,12 +866,12 @@ public class MechlabPanel extends JPanel {
         gridBagConstraints.gridy = 4;
         ArmorPanel.add(rightTorsoArmorAmountLabel, gridBagConstraints);
 
-        jLabel37.setText(SectionType.LEFT_TORSO.shortName);
-        jLabel37.setName("jLabel37"); // NOI18N
+        armorSection4Title.setText(SectionType.LEFT_TORSO.shortName);
+        armorSection4Title.setName("armorSection4Title"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        ArmorPanel.add(jLabel37, gridBagConstraints);
+        ArmorPanel.add(armorSection4Title, gridBagConstraints);
 
         leftTorsoArmorAmountLabel.setText("0/0");
         leftTorsoArmorAmountLabel.setName("leftTorsoArmorAmountLabel"); // NOI18N
@@ -879,12 +880,12 @@ public class MechlabPanel extends JPanel {
         gridBagConstraints.gridy = 5;
         ArmorPanel.add(leftTorsoArmorAmountLabel, gridBagConstraints);
 
-        jLabel41.setText(SectionType.RIGHT_ARM.shortName);
-        jLabel41.setName("jLabel41"); // NOI18N
+        armorSection5Title.setText(SectionType.RIGHT_ARM.shortName);
+        armorSection5Title.setName("armorSection5Title"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
-        ArmorPanel.add(jLabel41, gridBagConstraints);
+        ArmorPanel.add(armorSection5Title, gridBagConstraints);
 
         rightArmArmorAmountLabel.setText("0/0");
         rightArmArmorAmountLabel.setName("rightArmArmorAmountLabel"); // NOI18N
@@ -893,12 +894,12 @@ public class MechlabPanel extends JPanel {
         gridBagConstraints.gridy = 6;
         ArmorPanel.add(rightArmArmorAmountLabel, gridBagConstraints);
 
-        jLabel45.setText(SectionType.LEFT_ARM.shortName);
-        jLabel45.setName("jLabel45"); // NOI18N
+        armorSection6Title.setText(SectionType.LEFT_ARM.shortName);
+        armorSection6Title.setName("armorSection6Title"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
-        ArmorPanel.add(jLabel45, gridBagConstraints);
+        ArmorPanel.add(armorSection6Title, gridBagConstraints);
 
         leftArmArmorAmountLabel.setText("0/0");
         leftArmArmorAmountLabel.setName("leftArmArmorAmountLabel"); // NOI18N
@@ -907,12 +908,12 @@ public class MechlabPanel extends JPanel {
         gridBagConstraints.gridy = 7;
         ArmorPanel.add(leftArmArmorAmountLabel, gridBagConstraints);
 
-        jLabel49.setText(SectionType.RIGHT_LEG.shortName);
-        jLabel49.setName("jLabel49"); // NOI18N
+        armorSection7Title.setText(SectionType.RIGHT_LEG.shortName);
+        armorSection7Title.setName("armorSection7Title"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
-        ArmorPanel.add(jLabel49, gridBagConstraints);
+        ArmorPanel.add(armorSection7Title, gridBagConstraints);
 
         rightLegArmorAmountLabel.setText("0/0");
         rightLegArmorAmountLabel.setName("rightLegArmorAmountLabel"); // NOI18N
@@ -921,12 +922,12 @@ public class MechlabPanel extends JPanel {
         gridBagConstraints.gridy = 8;
         ArmorPanel.add(rightLegArmorAmountLabel, gridBagConstraints);
 
-        jLabel50.setText(SectionType.LEFT_LEG.shortName);
-        jLabel50.setName("jLabel50"); // NOI18N
+        armorSection8Title.setText(SectionType.LEFT_LEG.shortName);
+        armorSection8Title.setName("armorSection8Title"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
-        ArmorPanel.add(jLabel50, gridBagConstraints);
+        ArmorPanel.add(armorSection8Title, gridBagConstraints);
 
         leftLegArmorAmountLabel.setText("0/0");
         leftLegArmorAmountLabel.setName("leftLegArmorAmountLabel"); // NOI18N
@@ -935,56 +936,61 @@ public class MechlabPanel extends JPanel {
         gridBagConstraints.gridy = 9;
         ArmorPanel.add(leftLegArmorAmountLabel, gridBagConstraints);
 
-        jLabel51.setText(SectionType.SPECIAL_ONE.shortName);
-        jLabel51.setName("jLabel51"); // NOI18N
+        armorSection9Title.setText(SectionType.SPECIAL_ONE.shortName);
+        armorSection9Title.setEnabled(false);
+        armorSection9Title.setName("armorSection9Title"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
-        ArmorPanel.add(jLabel51, gridBagConstraints);
+        ArmorPanel.add(armorSection9Title, gridBagConstraints);
 
         special1ArmorAmountLabel.setText("0/0");
+        special1ArmorAmountLabel.setEnabled(false);
         special1ArmorAmountLabel.setName("special1ArmorAmountLabel"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 10;
         ArmorPanel.add(special1ArmorAmountLabel, gridBagConstraints);
 
-        jLabel55.setText(SectionType.SPECIAL_TWO.shortName);
-        jLabel55.setName("jLabel55"); // NOI18N
+        armorSection10Title.setText(SectionType.SPECIAL_TWO.shortName);
+        armorSection10Title.setEnabled(false);
+        armorSection10Title.setName("armorSection10Title"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
-        ArmorPanel.add(jLabel55, gridBagConstraints);
+        ArmorPanel.add(armorSection10Title, gridBagConstraints);
 
         special2ArmorAmountLabel.setText("0/0");
+        special2ArmorAmountLabel.setEnabled(false);
         special2ArmorAmountLabel.setName("special2ArmorAmountLabel"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 11;
         ArmorPanel.add(special2ArmorAmountLabel, gridBagConstraints);
 
-        totalArmorLabel.setText("Total");
-        totalArmorLabel.setName("totalArmorLabel"); // NOI18N
+        armorTotalTitle.setText("Total");
+        armorTotalTitle.setName("armorTotalTitle"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        ArmorPanel.add(totalArmorLabel, gridBagConstraints);
+        ArmorPanel.add(armorTotalTitle, gridBagConstraints);
 
-        totalArmorAmountLabel.setText("0/0");
-        totalArmorAmountLabel.setName("totalArmorAmountLabel"); // NOI18N
+        armorTotalLabel.setText("0/0");
+        armorTotalLabel.setName("armorTotalLabel"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        ArmorPanel.add(totalArmorAmountLabel, gridBagConstraints);
+        ArmorPanel.add(armorTotalLabel, gridBagConstraints);
 
         centerTorsoSpinner.setModel(centerTorsoSpinnerModel);
         centerTorsoSpinner.setName("centerTorsoSpinner"); // NOI18N
+        centerTorsoSpinner.addChangeListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -992,6 +998,7 @@ public class MechlabPanel extends JPanel {
 
         centerRearTorsoSpinner.setModel(centerRearTorsoSpinnerModel);
         centerRearTorsoSpinner.setName("centerRearTorsoSpinner"); // NOI18N
+        centerRearTorsoSpinner.addChangeListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -999,6 +1006,7 @@ public class MechlabPanel extends JPanel {
 
         rightTorsoSpinner.setModel(rightTorsoSpinnerModel);
         rightTorsoSpinner.setName("rightTorsoSpinner"); // NOI18N
+        rightTorsoSpinner.addChangeListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -1006,6 +1014,7 @@ public class MechlabPanel extends JPanel {
 
         rightRearTorsoSpinner.setModel(rightRearTorsoSpinnerModel);
         rightRearTorsoSpinner.setName("rightRearTorsoSpinner"); // NOI18N
+        rightRearTorsoSpinner.addChangeListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
@@ -1020,6 +1029,7 @@ public class MechlabPanel extends JPanel {
 
         leftRearTorsoSpinner.setModel(leftRearTorsoSpinnerModel);
         leftRearTorsoSpinner.setName("leftRearTorsoSpinner"); // NOI18N
+        leftRearTorsoSpinner.addChangeListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
@@ -1027,6 +1037,7 @@ public class MechlabPanel extends JPanel {
 
         headSpinner.setModel(headSpinnerModel);
         headSpinner.setName("headSpinner"); // NOI18N
+        headSpinner.addChangeListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -1042,6 +1053,7 @@ public class MechlabPanel extends JPanel {
 
         leftArmSpinner.setModel(leftArmSpinnerModel);
         leftArmSpinner.setName("leftArmSpinner"); // NOI18N
+        leftArmSpinner.addChangeListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
@@ -1049,6 +1061,7 @@ public class MechlabPanel extends JPanel {
 
         leftLegSpinner.setModel(leftLegSpinnerModel);
         leftLegSpinner.setName("leftLegSpinner"); // NOI18N
+        leftLegSpinner.addChangeListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;
@@ -1056,20 +1069,25 @@ public class MechlabPanel extends JPanel {
 
         rightLegSpinner.setModel(rightLegSpinnerModel);
         rightLegSpinner.setName("rightLegSpinner"); // NOI18N
+        rightLegSpinner.addChangeListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
         ArmorPanel.add(rightLegSpinner, gridBagConstraints);
 
         special1Spinner.setModel(special1SpinnerModel);
+        special1Spinner.setEnabled(false);
         special1Spinner.setName("special1Spinner"); // NOI18N
+        special1Spinner.addChangeListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
         ArmorPanel.add(special1Spinner, gridBagConstraints);
 
         special2Spinner.setModel(special2SpinnerModel);
+        special2Spinner.setEnabled(false);
         special2Spinner.setName("special2Spinner"); // NOI18N
+        special2Spinner.addChangeListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
@@ -1251,7 +1269,9 @@ public class MechlabPanel extends JPanel {
         headPanel.setLayout(new GridBagLayout());
 
         headOmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        headOmnipodComboBox.setMinimumSize(new Dimension(80, 20));
         headOmnipodComboBox.setName("headOmnipodComboBox"); // NOI18N
+        headOmnipodComboBox.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1259,7 +1279,9 @@ public class MechlabPanel extends JPanel {
         headPanel.add(headOmnipodComboBox, gridBagConstraints);
 
         headAMSHardpointLabel.setText("jLabel21");
+        headAMSHardpointLabel.setMinimumSize(new Dimension(80, 20));
         headAMSHardpointLabel.setName("headAMSHardpointLabel"); // NOI18N
+        headAMSHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1267,7 +1289,9 @@ public class MechlabPanel extends JPanel {
         headPanel.add(headAMSHardpointLabel, gridBagConstraints);
 
         headECMHardpointLabel.setText("jLabel21");
+        headECMHardpointLabel.setMinimumSize(new Dimension(80, 20));
         headECMHardpointLabel.setName("headECMHardpointLabel"); // NOI18N
+        headECMHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1275,7 +1299,9 @@ public class MechlabPanel extends JPanel {
         headPanel.add(headECMHardpointLabel, gridBagConstraints);
 
         headEnergyHardpointLabel.setText("jLabel21");
+        headEnergyHardpointLabel.setMinimumSize(new Dimension(80, 20));
         headEnergyHardpointLabel.setName("headEnergyHardpointLabel"); // NOI18N
+        headEnergyHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1283,7 +1309,9 @@ public class MechlabPanel extends JPanel {
         headPanel.add(headEnergyHardpointLabel, gridBagConstraints);
 
         headBallisticHardpointLabel.setText("jLabel21");
+        headBallisticHardpointLabel.setMinimumSize(new Dimension(80, 20));
         headBallisticHardpointLabel.setName("headBallisticHardpointLabel"); // NOI18N
+        headBallisticHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1291,21 +1319,27 @@ public class MechlabPanel extends JPanel {
         headPanel.add(headBallisticHardpointLabel, gridBagConstraints);
 
         headMissileHardpointLabel.setText("jLabel21");
+        headMissileHardpointLabel.setMinimumSize(new Dimension(80, 20));
         headMissileHardpointLabel.setName("headMissileHardpointLabel"); // NOI18N
+        headMissileHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         headPanel.add(headMissileHardpointLabel, gridBagConstraints);
 
+        headStructureProgressBar.setMinimumSize(new Dimension(80, 20));
         headStructureProgressBar.setName("headStructureProgressBar"); // NOI18N
+        headStructureProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         headPanel.add(headStructureProgressBar, gridBagConstraints);
 
+        headArmorProgressBar.setMinimumSize(new Dimension(80, 20));
         headArmorProgressBar.setName("headArmorProgressBar"); // NOI18N
+        headArmorProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1338,6 +1372,7 @@ public class MechlabPanel extends JPanel {
         centerTorsoPanel.setLayout(new GridBagLayout());
 
         centerTorsoOmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        centerTorsoOmnipodComboBox.setMinimumSize(new Dimension(80, 20));
         centerTorsoOmnipodComboBox.setName("centerTorsoOmnipodComboBox"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1346,6 +1381,7 @@ public class MechlabPanel extends JPanel {
         centerTorsoPanel.add(centerTorsoOmnipodComboBox, gridBagConstraints);
 
         centerTorsoAMSHardpointLabel.setText("jLabel21");
+        centerTorsoAMSHardpointLabel.setMinimumSize(new Dimension(80, 20));
         centerTorsoAMSHardpointLabel.setName("centerTorsoAMSHardpointLabel"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1354,6 +1390,7 @@ public class MechlabPanel extends JPanel {
         centerTorsoPanel.add(centerTorsoAMSHardpointLabel, gridBagConstraints);
 
         centerTorsoECMHardpointLabel.setText("jLabel21");
+        centerTorsoECMHardpointLabel.setMinimumSize(new Dimension(80, 20));
         centerTorsoECMHardpointLabel.setName("centerTorsoECMHardpointLabel"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1362,6 +1399,7 @@ public class MechlabPanel extends JPanel {
         centerTorsoPanel.add(centerTorsoECMHardpointLabel, gridBagConstraints);
 
         centerTorsoEnergyHardpointLabel.setText("jLabel21");
+        centerTorsoEnergyHardpointLabel.setMinimumSize(new Dimension(80, 20));
         centerTorsoEnergyHardpointLabel.setName("centerTorsoEnergyHardpointLabel"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1370,6 +1408,7 @@ public class MechlabPanel extends JPanel {
         centerTorsoPanel.add(centerTorsoEnergyHardpointLabel, gridBagConstraints);
 
         centerTorsoBallisticHardpointLabel.setText("jLabel21");
+        centerTorsoBallisticHardpointLabel.setMinimumSize(new Dimension(80, 20));
         centerTorsoBallisticHardpointLabel.setName("centerTorsoBallisticHardpointLabel"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1378,6 +1417,7 @@ public class MechlabPanel extends JPanel {
         centerTorsoPanel.add(centerTorsoBallisticHardpointLabel, gridBagConstraints);
 
         centerTorsoMissileHardpointLabel.setText("jLabel21");
+        centerTorsoMissileHardpointLabel.setMinimumSize(new Dimension(80, 20));
         centerTorsoMissileHardpointLabel.setName("centerTorsoMissileHardpointLabel"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1385,6 +1425,7 @@ public class MechlabPanel extends JPanel {
         gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoMissileHardpointLabel, gridBagConstraints);
 
+        centerTorsoStructureProgressBar.setMinimumSize(new Dimension(80, 20));
         centerTorsoStructureProgressBar.setName("centerTorsoStructureProgressBar"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1392,6 +1433,7 @@ public class MechlabPanel extends JPanel {
         gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoStructureProgressBar, gridBagConstraints);
 
+        centerTorsoFrontArmorProgressBar.setMinimumSize(new Dimension(80, 20));
         centerTorsoFrontArmorProgressBar.setName("centerTorsoFrontArmorProgressBar"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1399,6 +1441,7 @@ public class MechlabPanel extends JPanel {
         gridBagConstraints.weighty = 1.0;
         centerTorsoPanel.add(centerTorsoFrontArmorProgressBar, gridBagConstraints);
 
+        centerTorsoRearArmorProgressBar.setMinimumSize(new Dimension(80, 20));
         centerTorsoRearArmorProgressBar.setName("centerTorsoRearArmorProgressBar"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1432,7 +1475,9 @@ public class MechlabPanel extends JPanel {
         leftTorsoPanel.setLayout(new GridBagLayout());
 
         leftTorsoOmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        leftTorsoOmnipodComboBox.setMinimumSize(new Dimension(80, 20));
         leftTorsoOmnipodComboBox.setName("leftTorsoOmnipodComboBox"); // NOI18N
+        leftTorsoOmnipodComboBox.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1440,7 +1485,9 @@ public class MechlabPanel extends JPanel {
         leftTorsoPanel.add(leftTorsoOmnipodComboBox, gridBagConstraints);
 
         leftTorsoBallisticHardpointLabel.setText("jLabel21");
+        leftTorsoBallisticHardpointLabel.setMinimumSize(new Dimension(80, 20));
         leftTorsoBallisticHardpointLabel.setName("leftTorsoBallisticHardpointLabel"); // NOI18N
+        leftTorsoBallisticHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1448,7 +1495,9 @@ public class MechlabPanel extends JPanel {
         leftTorsoPanel.add(leftTorsoBallisticHardpointLabel, gridBagConstraints);
 
         leftTorsoEnergyHardpointLabel.setText("jLabel21");
+        leftTorsoEnergyHardpointLabel.setMinimumSize(new Dimension(80, 20));
         leftTorsoEnergyHardpointLabel.setName("leftTorsoEnergyHardpointLabel"); // NOI18N
+        leftTorsoEnergyHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1456,7 +1505,9 @@ public class MechlabPanel extends JPanel {
         leftTorsoPanel.add(leftTorsoEnergyHardpointLabel, gridBagConstraints);
 
         leftTorsoAMSHardpointLabel.setText("jLabel21");
+        leftTorsoAMSHardpointLabel.setMinimumSize(new Dimension(80, 20));
         leftTorsoAMSHardpointLabel.setName("leftTorsoAMSHardpointLabel"); // NOI18N
+        leftTorsoAMSHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1464,7 +1515,9 @@ public class MechlabPanel extends JPanel {
         leftTorsoPanel.add(leftTorsoAMSHardpointLabel, gridBagConstraints);
 
         leftTorsoECMHardpointLabel.setText("jLabel21");
+        leftTorsoECMHardpointLabel.setMinimumSize(new Dimension(80, 20));
         leftTorsoECMHardpointLabel.setName("leftTorsoECMHardpointLabel"); // NOI18N
+        leftTorsoECMHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1472,28 +1525,36 @@ public class MechlabPanel extends JPanel {
         leftTorsoPanel.add(leftTorsoECMHardpointLabel, gridBagConstraints);
 
         leftTorsoMissileHardpointLabel.setText("jLabel21");
+        leftTorsoMissileHardpointLabel.setMinimumSize(new Dimension(80, 20));
         leftTorsoMissileHardpointLabel.setName("leftTorsoMissileHardpointLabel"); // NOI18N
+        leftTorsoMissileHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoMissileHardpointLabel, gridBagConstraints);
 
+        leftTorsoStructureProgressBar.setMinimumSize(new Dimension(80, 20));
         leftTorsoStructureProgressBar.setName("leftTorsoStructureProgressBar"); // NOI18N
+        leftTorsoStructureProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoStructureProgressBar, gridBagConstraints);
 
+        leftTorsoFrontArmorProgressBar.setMinimumSize(new Dimension(80, 20));
         leftTorsoFrontArmorProgressBar.setName("leftTorsoFrontArmorProgressBar"); // NOI18N
+        leftTorsoFrontArmorProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftTorsoPanel.add(leftTorsoFrontArmorProgressBar, gridBagConstraints);
 
+        leftTorsoRearArmorProgressBar.setMinimumSize(new Dimension(80, 20));
         leftTorsoRearArmorProgressBar.setName("leftTorsoRearArmorProgressBar"); // NOI18N
+        leftTorsoRearArmorProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1513,7 +1574,9 @@ public class MechlabPanel extends JPanel {
         leftTorsoPanel.add(leftTorsoCriticalList, gridBagConstraints);
 
         leftTorsoCASEToggleButton.setText("CASE");
+        leftTorsoCASEToggleButton.setMinimumSize(new Dimension(80, 20));
         leftTorsoCASEToggleButton.setName("leftTorsoCASEToggleButton"); // NOI18N
+        leftTorsoCASEToggleButton.setPreferredSize(new Dimension(80, 20));
         leftTorsoCASEToggleButton.addActionListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1536,7 +1599,9 @@ public class MechlabPanel extends JPanel {
         rightTorsoPanel.setLayout(new GridBagLayout());
 
         rightTorsoOmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        rightTorsoOmnipodComboBox.setMinimumSize(new Dimension(80, 20));
         rightTorsoOmnipodComboBox.setName("rightTorsoOmnipodComboBox"); // NOI18N
+        rightTorsoOmnipodComboBox.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1544,7 +1609,9 @@ public class MechlabPanel extends JPanel {
         rightTorsoPanel.add(rightTorsoOmnipodComboBox, gridBagConstraints);
 
         rightTorsoBallisticHardpointLabel.setText("jLabel21");
+        rightTorsoBallisticHardpointLabel.setMinimumSize(new Dimension(80, 20));
         rightTorsoBallisticHardpointLabel.setName("rightTorsoBallisticHardpointLabel"); // NOI18N
+        rightTorsoBallisticHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1552,7 +1619,9 @@ public class MechlabPanel extends JPanel {
         rightTorsoPanel.add(rightTorsoBallisticHardpointLabel, gridBagConstraints);
 
         rightTorsoEnergyHardpointLabel.setText("jLabel21");
+        rightTorsoEnergyHardpointLabel.setMinimumSize(new Dimension(80, 20));
         rightTorsoEnergyHardpointLabel.setName("rightTorsoEnergyHardpointLabel"); // NOI18N
+        rightTorsoEnergyHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1560,7 +1629,9 @@ public class MechlabPanel extends JPanel {
         rightTorsoPanel.add(rightTorsoEnergyHardpointLabel, gridBagConstraints);
 
         rightTorsoAMSHardpointLabel.setText("jLabel21");
+        rightTorsoAMSHardpointLabel.setMinimumSize(new Dimension(80, 20));
         rightTorsoAMSHardpointLabel.setName("rightTorsoAMSHardpointLabel"); // NOI18N
+        rightTorsoAMSHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1568,7 +1639,9 @@ public class MechlabPanel extends JPanel {
         rightTorsoPanel.add(rightTorsoAMSHardpointLabel, gridBagConstraints);
 
         rightTorsoECMHardpointLabel.setText("jLabel21");
+        rightTorsoECMHardpointLabel.setMinimumSize(new Dimension(80, 20));
         rightTorsoECMHardpointLabel.setName("rightTorsoECMHardpointLabel"); // NOI18N
+        rightTorsoECMHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1576,28 +1649,36 @@ public class MechlabPanel extends JPanel {
         rightTorsoPanel.add(rightTorsoECMHardpointLabel, gridBagConstraints);
 
         rightTorsoMissileHardpointLabel.setText("jLabel21");
+        rightTorsoMissileHardpointLabel.setMinimumSize(new Dimension(80, 20));
         rightTorsoMissileHardpointLabel.setName("rightTorsoMissileHardpointLabel"); // NOI18N
+        rightTorsoMissileHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoMissileHardpointLabel, gridBagConstraints);
 
+        rightTorsoStructureProgressBar.setMinimumSize(new Dimension(80, 20));
         rightTorsoStructureProgressBar.setName("rightTorsoStructureProgressBar"); // NOI18N
+        rightTorsoStructureProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoStructureProgressBar, gridBagConstraints);
 
+        rightTorsoFrontArmorProgressBar.setMinimumSize(new Dimension(80, 20));
         rightTorsoFrontArmorProgressBar.setName("rightTorsoFrontArmorProgressBar"); // NOI18N
+        rightTorsoFrontArmorProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightTorsoPanel.add(rightTorsoFrontArmorProgressBar, gridBagConstraints);
 
+        rightTorsoRearArmorProgressBar.setMinimumSize(new Dimension(80, 20));
         rightTorsoRearArmorProgressBar.setName("rightTorsoRearArmorProgressBar"); // NOI18N
+        rightTorsoRearArmorProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1617,7 +1698,9 @@ public class MechlabPanel extends JPanel {
         rightTorsoPanel.add(rightTorsoCriticalList, gridBagConstraints);
 
         rightTorsoCASEToggleButton.setText("CASE");
+        rightTorsoCASEToggleButton.setMinimumSize(new Dimension(80, 20));
         rightTorsoCASEToggleButton.setName("rightTorsoCASEToggleButton"); // NOI18N
+        rightTorsoCASEToggleButton.setPreferredSize(new Dimension(80, 20));
         rightTorsoCASEToggleButton.addActionListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1640,7 +1723,9 @@ public class MechlabPanel extends JPanel {
         leftLegPanel.setLayout(new GridBagLayout());
 
         leftLegOmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        leftLegOmnipodComboBox.setMinimumSize(new Dimension(80, 20));
         leftLegOmnipodComboBox.setName("leftLegOmnipodComboBox"); // NOI18N
+        leftLegOmnipodComboBox.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1648,7 +1733,9 @@ public class MechlabPanel extends JPanel {
         leftLegPanel.add(leftLegOmnipodComboBox, gridBagConstraints);
 
         leftLegBallisticHardpointLabel.setText("jLabel21");
+        leftLegBallisticHardpointLabel.setMinimumSize(new Dimension(80, 20));
         leftLegBallisticHardpointLabel.setName("leftLegBallisticHardpointLabel"); // NOI18N
+        leftLegBallisticHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1656,7 +1743,9 @@ public class MechlabPanel extends JPanel {
         leftLegPanel.add(leftLegBallisticHardpointLabel, gridBagConstraints);
 
         leftLegEnergyHardpointLabel.setText("jLabel21");
+        leftLegEnergyHardpointLabel.setMinimumSize(new Dimension(80, 20));
         leftLegEnergyHardpointLabel.setName("leftLegEnergyHardpointLabel"); // NOI18N
+        leftLegEnergyHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1664,7 +1753,9 @@ public class MechlabPanel extends JPanel {
         leftLegPanel.add(leftLegEnergyHardpointLabel, gridBagConstraints);
 
         leftLegAMSHardpointLabel.setText("jLabel21");
+        leftLegAMSHardpointLabel.setMinimumSize(new Dimension(80, 20));
         leftLegAMSHardpointLabel.setName("leftLegAMSHardpointLabel"); // NOI18N
+        leftLegAMSHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1672,7 +1763,9 @@ public class MechlabPanel extends JPanel {
         leftLegPanel.add(leftLegAMSHardpointLabel, gridBagConstraints);
 
         leftLegECMHardpointLabel.setText("jLabel21");
+        leftLegECMHardpointLabel.setMinimumSize(new Dimension(80, 20));
         leftLegECMHardpointLabel.setName("leftLegECMHardpointLabel"); // NOI18N
+        leftLegECMHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1680,21 +1773,27 @@ public class MechlabPanel extends JPanel {
         leftLegPanel.add(leftLegECMHardpointLabel, gridBagConstraints);
 
         leftLegMissileHardpointLabel.setText("jLabel21");
+        leftLegMissileHardpointLabel.setMinimumSize(new Dimension(80, 20));
         leftLegMissileHardpointLabel.setName("leftLegMissileHardpointLabel"); // NOI18N
+        leftLegMissileHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftLegPanel.add(leftLegMissileHardpointLabel, gridBagConstraints);
 
+        leftLegStructureProgressBar.setMinimumSize(new Dimension(80, 20));
         leftLegStructureProgressBar.setName("leftLegStructureProgressBar"); // NOI18N
+        leftLegStructureProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftLegPanel.add(leftLegStructureProgressBar, gridBagConstraints);
 
+        leftLegArmorProgressBar.setMinimumSize(new Dimension(80, 20));
         leftLegArmorProgressBar.setName("leftLegArmorProgressBar"); // NOI18N
+        leftLegArmorProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1727,7 +1826,9 @@ public class MechlabPanel extends JPanel {
         rightLegPanel.setLayout(new GridBagLayout());
 
         rightLegOmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        rightLegOmnipodComboBox.setMinimumSize(new Dimension(80, 20));
         rightLegOmnipodComboBox.setName("rightLegOmnipodComboBox"); // NOI18N
+        rightLegOmnipodComboBox.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1735,7 +1836,9 @@ public class MechlabPanel extends JPanel {
         rightLegPanel.add(rightLegOmnipodComboBox, gridBagConstraints);
 
         rightLegBallisticHardpointLabel.setText("jLabel21");
+        rightLegBallisticHardpointLabel.setMinimumSize(new Dimension(80, 20));
         rightLegBallisticHardpointLabel.setName("rightLegBallisticHardpointLabel"); // NOI18N
+        rightLegBallisticHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1743,7 +1846,9 @@ public class MechlabPanel extends JPanel {
         rightLegPanel.add(rightLegBallisticHardpointLabel, gridBagConstraints);
 
         rightLegEnergyHardpointLabel.setText("jLabel21");
+        rightLegEnergyHardpointLabel.setMinimumSize(new Dimension(80, 20));
         rightLegEnergyHardpointLabel.setName("rightLegEnergyHardpointLabel"); // NOI18N
+        rightLegEnergyHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1751,7 +1856,9 @@ public class MechlabPanel extends JPanel {
         rightLegPanel.add(rightLegEnergyHardpointLabel, gridBagConstraints);
 
         rightLegAMSHardpointLabel.setText("jLabel21");
+        rightLegAMSHardpointLabel.setMinimumSize(new Dimension(80, 20));
         rightLegAMSHardpointLabel.setName("rightLegAMSHardpointLabel"); // NOI18N
+        rightLegAMSHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1759,7 +1866,9 @@ public class MechlabPanel extends JPanel {
         rightLegPanel.add(rightLegAMSHardpointLabel, gridBagConstraints);
 
         rightLegECMHardpointLabel.setText("jLabel21");
+        rightLegECMHardpointLabel.setMinimumSize(new Dimension(80, 20));
         rightLegECMHardpointLabel.setName("rightLegECMHardpointLabel"); // NOI18N
+        rightLegECMHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1767,21 +1876,27 @@ public class MechlabPanel extends JPanel {
         rightLegPanel.add(rightLegECMHardpointLabel, gridBagConstraints);
 
         rightLegMissileHardpointLabel.setText("jLabel21");
+        rightLegMissileHardpointLabel.setMinimumSize(new Dimension(80, 20));
         rightLegMissileHardpointLabel.setName("rightLegMissileHardpointLabel"); // NOI18N
+        rightLegMissileHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightLegPanel.add(rightLegMissileHardpointLabel, gridBagConstraints);
 
+        rightLegStructureProgressBar.setMinimumSize(new Dimension(80, 20));
         rightLegStructureProgressBar.setName("rightLegStructureProgressBar"); // NOI18N
+        rightLegStructureProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightLegPanel.add(rightLegStructureProgressBar, gridBagConstraints);
 
+        rightLegArmorProgressBar.setMinimumSize(new Dimension(80, 20));
         rightLegArmorProgressBar.setName("rightLegArmorProgressBar"); // NOI18N
+        rightLegArmorProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1814,7 +1929,9 @@ public class MechlabPanel extends JPanel {
         leftArmPanel.setLayout(new GridBagLayout());
 
         leftArmOmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        leftArmOmnipodComboBox.setMinimumSize(new Dimension(80, 20));
         leftArmOmnipodComboBox.setName("leftArmOmnipodComboBox"); // NOI18N
+        leftArmOmnipodComboBox.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1822,7 +1939,9 @@ public class MechlabPanel extends JPanel {
         leftArmPanel.add(leftArmOmnipodComboBox, gridBagConstraints);
 
         leftArmECMHardpointLabel.setText("jLabel21");
+        leftArmECMHardpointLabel.setMinimumSize(new Dimension(80, 20));
         leftArmECMHardpointLabel.setName("leftArmECMHardpointLabel"); // NOI18N
+        leftArmECMHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1830,7 +1949,9 @@ public class MechlabPanel extends JPanel {
         leftArmPanel.add(leftArmECMHardpointLabel, gridBagConstraints);
 
         leftArmEnergyHardpointLabel.setText("jLabel21");
+        leftArmEnergyHardpointLabel.setMinimumSize(new Dimension(80, 20));
         leftArmEnergyHardpointLabel.setName("leftArmEnergyHardpointLabel"); // NOI18N
+        leftArmEnergyHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1838,7 +1959,9 @@ public class MechlabPanel extends JPanel {
         leftArmPanel.add(leftArmEnergyHardpointLabel, gridBagConstraints);
 
         leftArmMissileHardpointLabel.setText("jLabel21");
+        leftArmMissileHardpointLabel.setMinimumSize(new Dimension(80, 20));
         leftArmMissileHardpointLabel.setName("leftArmMissileHardpointLabel"); // NOI18N
+        leftArmMissileHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1846,7 +1969,9 @@ public class MechlabPanel extends JPanel {
         leftArmPanel.add(leftArmMissileHardpointLabel, gridBagConstraints);
 
         leftArmAMSHardpointLabel.setText("jLabel21");
+        leftArmAMSHardpointLabel.setMinimumSize(new Dimension(80, 20));
         leftArmAMSHardpointLabel.setName("leftArmAMSHardpointLabel"); // NOI18N
+        leftArmAMSHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1854,7 +1979,9 @@ public class MechlabPanel extends JPanel {
         leftArmPanel.add(leftArmAMSHardpointLabel, gridBagConstraints);
 
         leftArmBallisticHardpointLabel.setText("jLabel21");
+        leftArmBallisticHardpointLabel.setMinimumSize(new Dimension(80, 20));
         leftArmBallisticHardpointLabel.setName("leftArmBallisticHardpointLabel"); // NOI18N
+        leftArmBallisticHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1862,7 +1989,9 @@ public class MechlabPanel extends JPanel {
         leftArmPanel.add(leftArmBallisticHardpointLabel, gridBagConstraints);
 
         leftLowerArmToggleButton.setText("Lower Arm");
+        leftLowerArmToggleButton.setMinimumSize(new Dimension(80, 20));
         leftLowerArmToggleButton.setName("leftLowerArmToggleButton"); // NOI18N
+        leftLowerArmToggleButton.setPreferredSize(new Dimension(80, 20));
         leftLowerArmToggleButton.addActionListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1871,21 +2000,27 @@ public class MechlabPanel extends JPanel {
         leftArmPanel.add(leftLowerArmToggleButton, gridBagConstraints);
 
         leftHandToggleButton.setText("Hand");
+        leftHandToggleButton.setMinimumSize(new Dimension(80, 20));
         leftHandToggleButton.setName("leftHandToggleButton"); // NOI18N
+        leftHandToggleButton.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftHandToggleButton, gridBagConstraints);
 
+        leftArmStructureProgressBar.setMinimumSize(new Dimension(80, 20));
         leftArmStructureProgressBar.setName("leftArmStructureProgressBar"); // NOI18N
+        leftArmStructureProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         leftArmPanel.add(leftArmStructureProgressBar, gridBagConstraints);
 
+        leftArmArmorProgressBar.setMinimumSize(new Dimension(80, 20));
         leftArmArmorProgressBar.setName("leftArmArmorProgressBar"); // NOI18N
+        leftArmArmorProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1918,7 +2053,9 @@ public class MechlabPanel extends JPanel {
         rightArmPanel.setLayout(new GridBagLayout());
 
         rightArmOmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        rightArmOmnipodComboBox.setMinimumSize(new Dimension(80, 20));
         rightArmOmnipodComboBox.setName("rightArmOmnipodComboBox"); // NOI18N
+        rightArmOmnipodComboBox.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1926,7 +2063,9 @@ public class MechlabPanel extends JPanel {
         rightArmPanel.add(rightArmOmnipodComboBox, gridBagConstraints);
 
         rightArmECMHardpointLabel.setText("jLabel21");
+        rightArmECMHardpointLabel.setMinimumSize(new Dimension(80, 20));
         rightArmECMHardpointLabel.setName("rightArmECMHardpointLabel"); // NOI18N
+        rightArmECMHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1934,7 +2073,9 @@ public class MechlabPanel extends JPanel {
         rightArmPanel.add(rightArmECMHardpointLabel, gridBagConstraints);
 
         rightArmEnergyHardpointLabel.setText("jLabel21");
+        rightArmEnergyHardpointLabel.setMinimumSize(new Dimension(80, 20));
         rightArmEnergyHardpointLabel.setName("rightArmEnergyHardpointLabel"); // NOI18N
+        rightArmEnergyHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1942,7 +2083,9 @@ public class MechlabPanel extends JPanel {
         rightArmPanel.add(rightArmEnergyHardpointLabel, gridBagConstraints);
 
         rightArmMissileHardpointLabel.setText("jLabel21");
+        rightArmMissileHardpointLabel.setMinimumSize(new Dimension(80, 20));
         rightArmMissileHardpointLabel.setName("rightArmMissileHardpointLabel"); // NOI18N
+        rightArmMissileHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1950,7 +2093,9 @@ public class MechlabPanel extends JPanel {
         rightArmPanel.add(rightArmMissileHardpointLabel, gridBagConstraints);
 
         rightArmAMSHardpointLabel.setText("jLabel21");
+        rightArmAMSHardpointLabel.setMinimumSize(new Dimension(80, 20));
         rightArmAMSHardpointLabel.setName("rightArmAMSHardpointLabel"); // NOI18N
+        rightArmAMSHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1958,7 +2103,9 @@ public class MechlabPanel extends JPanel {
         rightArmPanel.add(rightArmAMSHardpointLabel, gridBagConstraints);
 
         rightArmBallisticHardpointLabel.setText("jLabel21");
+        rightArmBallisticHardpointLabel.setMinimumSize(new Dimension(80, 20));
         rightArmBallisticHardpointLabel.setName("rightArmBallisticHardpointLabel"); // NOI18N
+        rightArmBallisticHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -1966,7 +2113,9 @@ public class MechlabPanel extends JPanel {
         rightArmPanel.add(rightArmBallisticHardpointLabel, gridBagConstraints);
 
         rightLowerArmToggleButton.setText("Lower Arm");
+        rightLowerArmToggleButton.setMinimumSize(new Dimension(80, 20));
         rightLowerArmToggleButton.setName("rightLowerArmToggleButton"); // NOI18N
+        rightLowerArmToggleButton.setPreferredSize(new Dimension(80, 20));
         rightLowerArmToggleButton.addActionListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1975,7 +2124,9 @@ public class MechlabPanel extends JPanel {
         rightArmPanel.add(rightLowerArmToggleButton, gridBagConstraints);
 
         rightHandToggleButton.setText("Hand");
+        rightHandToggleButton.setMinimumSize(new Dimension(80, 20));
         rightHandToggleButton.setName("rightHandToggleButton"); // NOI18N
+        rightHandToggleButton.setPreferredSize(new Dimension(80, 20));
         rightHandToggleButton.addActionListener(formListener);
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1983,14 +2134,18 @@ public class MechlabPanel extends JPanel {
         gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightHandToggleButton, gridBagConstraints);
 
+        rightArmStructureProgressBar.setMinimumSize(new Dimension(80, 20));
         rightArmStructureProgressBar.setName("rightArmStructureProgressBar"); // NOI18N
+        rightArmStructureProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         rightArmPanel.add(rightArmStructureProgressBar, gridBagConstraints);
 
+        rightArmArmorProgressBar.setMinimumSize(new Dimension(80, 20));
         rightArmArmorProgressBar.setName("rightArmArmorProgressBar"); // NOI18N
+        rightArmArmorProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -2003,6 +2158,7 @@ public class MechlabPanel extends JPanel {
             public String getElementAt(int i) { return strings[i]; }
         });
         rightArmCriticalList.setName("rightArmCriticalList"); // NOI18N
+        rightArmCriticalList.setPreferredSize(new Dimension(80, 135));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -2021,7 +2177,9 @@ public class MechlabPanel extends JPanel {
         special1Panel.setLayout(new GridBagLayout());
 
         section1OmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        section1OmnipodComboBox.setMinimumSize(new Dimension(80, 20));
         section1OmnipodComboBox.setName("section1OmnipodComboBox"); // NOI18N
+        section1OmnipodComboBox.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -2029,7 +2187,9 @@ public class MechlabPanel extends JPanel {
         special1Panel.add(section1OmnipodComboBox, gridBagConstraints);
 
         section1AMSHardpointLabel.setText("jLabel21");
+        section1AMSHardpointLabel.setMinimumSize(new Dimension(80, 20));
         section1AMSHardpointLabel.setName("section1AMSHardpointLabel"); // NOI18N
+        section1AMSHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -2037,7 +2197,9 @@ public class MechlabPanel extends JPanel {
         special1Panel.add(section1AMSHardpointLabel, gridBagConstraints);
 
         section1ECMHardpointLabel.setText("jLabel21");
+        section1ECMHardpointLabel.setMinimumSize(new Dimension(80, 20));
         section1ECMHardpointLabel.setName("section1ECMHardpointLabel"); // NOI18N
+        section1ECMHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -2045,7 +2207,9 @@ public class MechlabPanel extends JPanel {
         special1Panel.add(section1ECMHardpointLabel, gridBagConstraints);
 
         section1EnergyHardpointLabel.setText("jLabel21");
+        section1EnergyHardpointLabel.setMinimumSize(new Dimension(80, 20));
         section1EnergyHardpointLabel.setName("section1EnergyHardpointLabel"); // NOI18N
+        section1EnergyHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -2053,7 +2217,9 @@ public class MechlabPanel extends JPanel {
         special1Panel.add(section1EnergyHardpointLabel, gridBagConstraints);
 
         section1BallisticHardpointLabel.setText("jLabel21");
+        section1BallisticHardpointLabel.setMinimumSize(new Dimension(80, 20));
         section1BallisticHardpointLabel.setName("section1BallisticHardpointLabel"); // NOI18N
+        section1BallisticHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -2061,21 +2227,27 @@ public class MechlabPanel extends JPanel {
         special1Panel.add(section1BallisticHardpointLabel, gridBagConstraints);
 
         section1MissileHardpointLabel.setText("jLabel21");
+        section1MissileHardpointLabel.setMinimumSize(new Dimension(80, 20));
         section1MissileHardpointLabel.setName("section1MissileHardpointLabel"); // NOI18N
+        section1MissileHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special1Panel.add(section1MissileHardpointLabel, gridBagConstraints);
 
+        section1StructureProgressBar.setMinimumSize(new Dimension(80, 20));
         section1StructureProgressBar.setName("section1StructureProgressBar"); // NOI18N
+        section1StructureProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special1Panel.add(section1StructureProgressBar, gridBagConstraints);
 
+        section1ArmorProgressBar.setMinimumSize(new Dimension(80, 20));
         section1ArmorProgressBar.setName("section1ArmorProgressBar"); // NOI18N
+        section1ArmorProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -2106,7 +2278,9 @@ public class MechlabPanel extends JPanel {
         special2Panel.setLayout(new GridBagLayout());
 
         section2OmnipodComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        section2OmnipodComboBox.setMinimumSize(new Dimension(80, 20));
         section2OmnipodComboBox.setName("section2OmnipodComboBox"); // NOI18N
+        section2OmnipodComboBox.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -2114,7 +2288,9 @@ public class MechlabPanel extends JPanel {
         special2Panel.add(section2OmnipodComboBox, gridBagConstraints);
 
         section2AMSHardpointLabel.setText("jLabel21");
+        section2AMSHardpointLabel.setMinimumSize(new Dimension(80, 20));
         section2AMSHardpointLabel.setName("section2AMSHardpointLabel"); // NOI18N
+        section2AMSHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -2122,7 +2298,9 @@ public class MechlabPanel extends JPanel {
         special2Panel.add(section2AMSHardpointLabel, gridBagConstraints);
 
         section2ECMHardpointLabel.setText("jLabel21");
+        section2ECMHardpointLabel.setMinimumSize(new Dimension(80, 20));
         section2ECMHardpointLabel.setName("section2ECMHardpointLabel"); // NOI18N
+        section2ECMHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -2130,7 +2308,9 @@ public class MechlabPanel extends JPanel {
         special2Panel.add(section2ECMHardpointLabel, gridBagConstraints);
 
         section2EnergyHardpointLabel.setText("jLabel21");
+        section2EnergyHardpointLabel.setMinimumSize(new Dimension(80, 20));
         section2EnergyHardpointLabel.setName("section2EnergyHardpointLabel"); // NOI18N
+        section2EnergyHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -2138,7 +2318,9 @@ public class MechlabPanel extends JPanel {
         special2Panel.add(section2EnergyHardpointLabel, gridBagConstraints);
 
         section2BallisticHardpointLabel.setText("jLabel21");
+        section2BallisticHardpointLabel.setMinimumSize(new Dimension(80, 20));
         section2BallisticHardpointLabel.setName("section2BallisticHardpointLabel"); // NOI18N
+        section2BallisticHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -2146,21 +2328,27 @@ public class MechlabPanel extends JPanel {
         special2Panel.add(section2BallisticHardpointLabel, gridBagConstraints);
 
         section2MissileHardpointLabel.setText("jLabel21");
+        section2MissileHardpointLabel.setMinimumSize(new Dimension(80, 20));
         section2MissileHardpointLabel.setName("section2MissileHardpointLabel"); // NOI18N
+        section2MissileHardpointLabel.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special2Panel.add(section2MissileHardpointLabel, gridBagConstraints);
 
+        section2StructureProgressBar.setMinimumSize(new Dimension(80, 20));
         section2StructureProgressBar.setName("section2StructureProgressBar"); // NOI18N
+        section2StructureProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         special2Panel.add(section2StructureProgressBar, gridBagConstraints);
 
+        section2ArmorProgressBar.setMinimumSize(new Dimension(80, 20));
         section2ArmorProgressBar.setName("section2ArmorProgressBar"); // NOI18N
+        section2ArmorProgressBar.setPreferredSize(new Dimension(80, 20));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weightx = 1.0;
@@ -2265,7 +2453,9 @@ public class MechlabPanel extends JPanel {
         componentsPanel.add(jumpjetComponentPanel, gridBagConstraints);
 
         cockpitComponentPanel.setName("cockpitComponentPanel"); // NOI18N
-        componentsPanel.add(cockpitComponentPanel, new GridBagConstraints());
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        componentsPanel.add(cockpitComponentPanel, gridBagConstraints);
 
         componentsScrollPane.setViewportView(componentsPanel);
 
@@ -2463,6 +2653,9 @@ public class MechlabPanel extends JPanel {
             else if (evt.getSource() == modelComboBox) {
                 MechlabPanel.this.modelComboBoxActionPerformed(evt);
             }
+            else if (evt.getSource() == maximumArmorButton) {
+                MechlabPanel.this.maximumArmorButtonActionPerformed(evt);
+            }
             else if (evt.getSource() == leftTorsoCASEToggleButton) {
                 MechlabPanel.this.leftTorsoCASEToggleButtonActionPerformed(evt);
             }
@@ -2478,8 +2671,8 @@ public class MechlabPanel extends JPanel {
             else if (evt.getSource() == rightHandToggleButton) {
                 MechlabPanel.this.rightHandToggleButtonActionPerformed(evt);
             }
-            else if (evt.getSource() == maximumArmorButton) {
-                MechlabPanel.this.maximumArmorButtonActionPerformed(evt);
+            else if (evt.getSource() == clearArmorButton) {
+                MechlabPanel.this.clearArmorButtonActionPerformed(evt);
             }
         }
 
@@ -2488,6 +2681,39 @@ public class MechlabPanel extends JPanel {
                 MechlabPanel.this.MechTabPaneStateChanged(evt);
             }
             else if (evt.getSource() == rightArmSpinner) {
+                MechlabPanel.this.armorSpinnerStateChanged(evt);
+            }
+            else if (evt.getSource() == headSpinner) {
+                MechlabPanel.this.armorSpinnerStateChanged(evt);
+            }
+            else if (evt.getSource() == centerTorsoSpinner) {
+                MechlabPanel.this.armorSpinnerStateChanged(evt);
+            }
+            else if (evt.getSource() == rightTorsoSpinner) {
+                MechlabPanel.this.armorSpinnerStateChanged(evt);
+            }
+            else if (evt.getSource() == centerRearTorsoSpinner) {
+                MechlabPanel.this.armorSpinnerStateChanged(evt);
+            }
+            else if (evt.getSource() == rightRearTorsoSpinner) {
+                MechlabPanel.this.armorSpinnerStateChanged(evt);
+            }
+            else if (evt.getSource() == leftRearTorsoSpinner) {
+                MechlabPanel.this.armorSpinnerStateChanged(evt);
+            }
+            else if (evt.getSource() == rightLegSpinner) {
+                MechlabPanel.this.armorSpinnerStateChanged(evt);
+            }
+            else if (evt.getSource() == special2Spinner) {
+                MechlabPanel.this.armorSpinnerStateChanged(evt);
+            }
+            else if (evt.getSource() == special1Spinner) {
+                MechlabPanel.this.armorSpinnerStateChanged(evt);
+            }
+            else if (evt.getSource() == leftLegSpinner) {
+                MechlabPanel.this.armorSpinnerStateChanged(evt);
+            }
+            else if (evt.getSource() == leftArmSpinner) {
                 MechlabPanel.this.armorSpinnerStateChanged(evt);
             }
         }
@@ -2531,14 +2757,14 @@ public class MechlabPanel extends JPanel {
         selectedDatabase = null;
         selectedDatabase = new Database(masterDatabase, getDatabaseFilter(user.variant.chassisType.techBase, user.mixtechEnabled, user.futuretechEnabled));
 
-        SetSectionOmnipods(rightArmOmnipodComboBox, SectionType.RIGHT_ARM.index);
-        SetSectionOmnipods(leftArmOmnipodComboBox, SectionType.LEFT_ARM.index);
-        SetSectionOmnipods(rightTorsoOmnipodComboBox, SectionType.RIGHT_TORSO.index);
-        SetSectionOmnipods(leftTorsoOmnipodComboBox, SectionType.LEFT_TORSO.index);
-        SetSectionOmnipods(centerTorsoOmnipodComboBox, SectionType.CENTER_TORSO.index);
-        SetSectionOmnipods(headOmnipodComboBox, SectionType.HEAD.index);
-        SetSectionOmnipods(rightLegOmnipodComboBox, SectionType.RIGHT_LEG.index);
-        SetSectionOmnipods(leftLegOmnipodComboBox, SectionType.LEFT_LEG.index);
+        SetSectionOmnipods(rightArmOmnipodComboBox, SectionType.RIGHT_ARM);
+        SetSectionOmnipods(leftArmOmnipodComboBox, SectionType.LEFT_ARM);
+        SetSectionOmnipods(rightTorsoOmnipodComboBox, SectionType.RIGHT_TORSO);
+        SetSectionOmnipods(leftTorsoOmnipodComboBox, SectionType.LEFT_TORSO);
+        SetSectionOmnipods(centerTorsoOmnipodComboBox, SectionType.CENTER_TORSO);
+        SetSectionOmnipods(headOmnipodComboBox, SectionType.HEAD);
+        SetSectionOmnipods(rightLegOmnipodComboBox, SectionType.RIGHT_LEG);
+        SetSectionOmnipods(leftLegOmnipodComboBox, SectionType.LEFT_LEG);
         
         Map<String, Double> quirks = new HashMap<>();
         
@@ -2606,9 +2832,9 @@ public class MechlabPanel extends JPanel {
         jumpHeightProgressBar.setString(String.format("%.2fm", 0.0));
 
         criticalsProgressBar.setMinimum(0);
-        criticalsProgressBar.setMaximum(78);
+        criticalsProgressBar.setMaximum(user.variant.maximumCriticals);
         criticalsProgressBar.setValue(user.variant.currentCriticals);
-        criticalsProgressBar.setString(String.format("%d/78", user.variant.currentCriticals));
+        criticalsProgressBar.setString(String.format("%d/%d", user.variant.currentCriticals, user.variant.maximumCriticals));
 
         engineComponentPanel.setEngine(user.variant);
         gyroComponentPanel.setGyro(user.variant);
@@ -2650,12 +2876,37 @@ public class MechlabPanel extends JPanel {
 
     private void maximumArmorButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_maximumArmorButtonActionPerformed
         headSpinnerModel.setValue(headSpinnerModel.getMaximum());
-        leftArmSpinnerModel.setValue(leftArmSpinnerModel.getMaximum());
+        setMaximumTorsoArmor(SectionType.CENTER_TORSO, centerTorsoSpinnerModel, centerRearTorsoSpinnerModel);
+        setMaximumTorsoArmor(SectionType.RIGHT_TORSO, rightTorsoSpinnerModel, rightRearTorsoSpinnerModel);
+        setMaximumTorsoArmor(SectionType.LEFT_TORSO, leftTorsoSpinnerModel, leftRearTorsoSpinnerModel);
         rightArmSpinnerModel.setValue(rightArmSpinnerModel.getMaximum());
-        leftLegSpinnerModel.setValue(leftLegSpinnerModel.getMaximum());
+        leftArmSpinnerModel.setValue(leftArmSpinnerModel.getMaximum());
         rightLegSpinnerModel.setValue(rightLegSpinnerModel.getMaximum());
+        leftLegSpinnerModel.setValue(leftLegSpinnerModel.getMaximum());
     }//GEN-LAST:event_maximumArmorButtonActionPerformed
 
+    private void clearArmorButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_clearArmorButtonActionPerformed
+        headSpinnerModel.setValue(0);                                                 
+        centerTorsoSpinnerModel.setValue(0);                                                 
+        rightTorsoSpinnerModel.setValue(0);                                                 
+        leftTorsoSpinnerModel.setValue(0);                                                 
+        centerRearTorsoSpinnerModel.setValue(0);                                                 
+        rightRearTorsoSpinnerModel.setValue(0);                                                 
+        leftRearTorsoSpinnerModel.setValue(0);                                              
+        rightArmSpinnerModel.setValue(0);                                                 
+        leftArmSpinnerModel.setValue(0);                                                 
+        rightLegSpinnerModel.setValue(0);                                                 
+        leftLegSpinnerModel.setValue(0);
+    }//GEN-LAST:event_clearArmorButtonActionPerformed
+
+    private void setMaximumTorsoArmor(final SectionType sectionIndex, final SpinnerNumberModel frontSpinnerModel, final SpinnerNumberModel rearSpinnerModel) {
+        final int rearDistribution = (int) Math.round(user.variant.sections.get(sectionIndex).maximumArmor * preferences.REAR_ARMOR_PERCENTAGE);
+        final int frontDistribution = user.variant.sections.get(sectionIndex).maximumArmor - rearDistribution;
+        
+        frontSpinnerModel.setValue(frontDistribution);
+        rearSpinnerModel.setValue(rearDistribution);
+    }
+    
     private void updateCriticalPanelVisibility() {
         updateHardpoints();
         this.updateArmorLabelVisibility(this.rightArmArmorProgressBar, null, this.rightArmStructureProgressBar);
@@ -2677,17 +2928,20 @@ public class MechlabPanel extends JPanel {
         this.updateSectionOmnipodVisibility();
     }
 
-    private void SetSectionOmnipods(JComboBox omnipodComboBox, int sectionIndex) {
+    private void SetSectionOmnipods(JComboBox omnipodComboBox, SectionType sectionIndex) {
         omnipodComboBox.removeAllItems();
         
-        selectedDatabase.SECTION_BLUEPRINTS.stream().map((sectionBlueprint) -> {
-            omnipodComboBox.addItem(sectionBlueprint);
-            return sectionBlueprint;
-        }).filter((sectionBlueprint) -> !(!sectionBlueprint.name.equals(user.variant.modelType.sectionModels.get(sectionBlueprint.section)))).forEachOrdered((sectionBlueprint) -> {
-            omnipodComboBox.setSelectedItem(sectionBlueprint);
-        });
+        selectedDatabase.SECTION_BLUEPRINTS.stream()
+                .filter((sectionBlueprint) -> (sectionBlueprint.name.equals(user.variant.modelType.sectionModels.get(sectionBlueprint.section))))
+                .filter((sectionBlueprint) -> (sectionBlueprint.section.equals(sectionIndex)))
+                .map((sectionBlueprint) -> {
+                    omnipodComboBox.addItem(sectionBlueprint);
+                    return sectionBlueprint;
+                }).forEachOrdered((sectionBlueprint) -> {
+                    omnipodComboBox.setSelectedItem(sectionBlueprint);
+                });
         
-        if (sectionIndex == SectionType.CENTER_TORSO.index)
+        if (sectionIndex == SectionType.CENTER_TORSO)
             omnipodComboBox.setEnabled(false);
         else
             omnipodComboBox.setEnabled(user.variant.chassisType.mechType.equals(MechType.OMNIMECH) || user.frankenmechsEnabled);
@@ -2971,7 +3225,9 @@ public class MechlabPanel extends JPanel {
         int n = user.variant.engine.getHeatSinkCapacity(user.variant.currentEngineRating);
         for (Section section : user.variant.sections.values()) {
             for (int j = section.components.size() - 1; j >= 0; --j) {
-                if (!section.components.get(j).itemType.equals("Heat Sink")) continue;
+                if (!CriticalType.HEAT_SINK.equals(section.components.get(j).itemType)) {
+                    continue;
+                }
                 if (n >= user.variant.currentHeatSinkCount) {
                     section.components.remove(j);
                     continue;
@@ -2979,6 +3235,7 @@ public class MechlabPanel extends JPanel {
                 ++n;
             }
         }
+        
         n = user.variant.currentHeatSinkCount - n;
         
         heatsinkComponentPanel.setHeatsinks(user.variant);
@@ -3016,14 +3273,59 @@ public class MechlabPanel extends JPanel {
         jumpjetComponentPanel.setJumpjets(user.variant);
         this.manueverabilityComponentPanel.setManueverability(user.variant);
     }
+    
+    private void updateArmorSpinnerModel(final SectionType sectionIndex, final SpinnerNumberModel frontSpinnerModel) {
+        if (frontSpinnerModel == null) {
+            //log error
+            return;
+        }
+        
+        final Section section = user.variant.sections.get(sectionIndex);
+        
+        if (section.hasRearArmor) {
+            //log error
+            return;
+        }
+        
+        user.variant.sections.get(sectionIndex).frontArmor = (int) frontSpinnerModel.getValue();
+    }
+    
+    private void updateArmorSpinnerModel(final SectionType sectionIndex, final SpinnerNumberModel frontSpinnerModel, final SpinnerNumberModel rearSpinnerModel) {
+        if (frontSpinnerModel == null) {
+            //log error
+            return;
+        }
+        
+        final Section section = user.variant.sections.get(sectionIndex);
+        
+        if (!section.hasRearArmor || rearSpinnerModel == null) {
+            //log error
+            return;
+        }
+        
+        user.variant.sections.get(sectionIndex).frontArmor = (int) frontSpinnerModel.getValue();
+        user.variant.sections.get(sectionIndex).rearArmor = (int) rearSpinnerModel.getValue();
+
+        frontSpinnerModel.setMaximum(section.maximumArmor - section.rearArmor);
+        rearSpinnerModel.setMaximum(section.maximumArmor - section.frontArmor);
+    }
 
     private void updateArmor() {
         if (user.variant.armor == null) {
             return;
         }
         
+        updateArmorSpinnerModel(SectionType.HEAD, headSpinnerModel);
+        updateArmorSpinnerModel(SectionType.CENTER_TORSO, centerTorsoSpinnerModel, centerRearTorsoSpinnerModel);
+        updateArmorSpinnerModel(SectionType.RIGHT_TORSO, rightTorsoSpinnerModel, rightRearTorsoSpinnerModel);
+        updateArmorSpinnerModel(SectionType.LEFT_TORSO, leftTorsoSpinnerModel, leftRearTorsoSpinnerModel);
+        updateArmorSpinnerModel(SectionType.RIGHT_ARM, rightArmSpinnerModel);
+        updateArmorSpinnerModel(SectionType.LEFT_ARM, leftArmSpinnerModel);
+        updateArmorSpinnerModel(SectionType.RIGHT_LEG, rightLegSpinnerModel);
+        updateArmorSpinnerModel(SectionType.LEFT_LEG, leftLegSpinnerModel);
+        
         armorComponentPanel.setArmor(user.variant);
-        pointsPerTonAmountLabel.setText(String.format("%.2f", user.variant.armor.pointsPerTon));
+        armorPointsPerTonLabel.setText(String.format("%.2f", user.variant.armor.pointsPerTon));
         armorProgressBar.setString("" + user.variant.getCurrentArmorTotal());
         armorProgressBar.setValue(user.variant.getCurrentArmorTotal());
         
@@ -3036,15 +3338,15 @@ public class MechlabPanel extends JPanel {
         this.updateArmorLabels(this.centerTorsoFrontArmorProgressBar, this.centerTorsoRearArmorProgressBar, this.centerTorsoStructureProgressBar, SectionType.CENTER_TORSO);
         this.updateArmorLabels(this.headArmorProgressBar, null, this.headStructureProgressBar, SectionType.HEAD);
         
-        this.rightArmArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections.get(SectionType.RIGHT_ARM).frontArmor, user.variant.sections.get(SectionType.RIGHT_ARM).maximumArmor));
-        this.leftArmArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections.get(SectionType.LEFT_ARM).frontArmor, user.variant.sections.get(SectionType.LEFT_ARM).maximumArmor));
+        this.headArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections.get(SectionType.HEAD).frontArmor, user.variant.sections.get(SectionType.HEAD).maximumArmor));
+        this.centerTorsoArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections.get(SectionType.CENTER_TORSO).frontArmor + user.variant.sections.get(SectionType.CENTER_TORSO).rearArmor, user.variant.sections.get(SectionType.CENTER_TORSO).maximumArmor));
         this.rightTorsoArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections.get(SectionType.RIGHT_TORSO).frontArmor + user.variant.sections.get(SectionType.RIGHT_TORSO).rearArmor, user.variant.sections.get(SectionType.RIGHT_TORSO).maximumArmor));
         this.leftTorsoArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections.get(SectionType.LEFT_TORSO).frontArmor + user.variant.sections.get(SectionType.LEFT_TORSO).rearArmor, user.variant.sections.get(SectionType.LEFT_TORSO).maximumArmor));
-        this.centerTorsoArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections.get(SectionType.CENTER_TORSO).frontArmor + user.variant.sections.get(SectionType.CENTER_TORSO).rearArmor, user.variant.sections.get(SectionType.CENTER_TORSO).maximumArmor));
-        this.headArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections.get(SectionType.HEAD).frontArmor, user.variant.sections.get(SectionType.HEAD).maximumArmor));
+        this.rightArmArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections.get(SectionType.RIGHT_ARM).frontArmor, user.variant.sections.get(SectionType.RIGHT_ARM).maximumArmor));
+        this.leftArmArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections.get(SectionType.LEFT_ARM).frontArmor, user.variant.sections.get(SectionType.LEFT_ARM).maximumArmor));
         this.rightLegArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections.get(SectionType.RIGHT_LEG).frontArmor, user.variant.sections.get(SectionType.RIGHT_LEG).maximumArmor));
         this.leftLegArmorAmountLabel.setText(String.format("%d/%d", user.variant.sections.get(SectionType.LEFT_LEG).frontArmor, user.variant.sections.get(SectionType.LEFT_LEG).maximumArmor));
-        this.totalArmorAmountLabel.setText(String.format("%d/%d", user.variant.getCurrentArmorTotal(), user.variant.getMaximumArmorTotal()));
+        this.armorTotalLabel.setText(String.format("%d/%d", user.variant.getCurrentArmorTotal(), user.variant.getMaximumArmorTotal()));
     }
 
     private void updateSpeed() {
@@ -3068,7 +3370,10 @@ public class MechlabPanel extends JPanel {
         
         for (Section section2 : user.variant.sections.values()) {
             for (Crittable crittable3 : section2.components) {
-                if (!crittable3.itemType.equals("Weapon")) continue;
+                if (!CriticalType.WEAPON.equals(crittable3.itemType)) {
+                    continue;
+                }
+                
                 weaponBlueprint = (WeaponBlueprint) crittable3.reference;
                 d += weaponBlueprint.getEffectiveDamage();
                 d2 += weaponBlueprint.heat;
@@ -3079,7 +3384,10 @@ public class MechlabPanel extends JPanel {
         
         for (Section section2 : user.variant.sections.values()) {
             for (Crittable crittable3 : section2.components) {
-                if (!crittable3.itemType.equals("Weapon")) continue;
+                if (!CriticalType.WEAPON.equals(crittable3.itemType)) {
+                    continue;
+                }
+                
                 weaponBlueprint = (WeaponBlueprint) crittable3.reference;
                 n3 = (int) ((double) n3 + (double) weaponBlueprint.effective_range * (weaponBlueprint.getDPS(0.0) / d3));
             }
@@ -3087,10 +3395,17 @@ public class MechlabPanel extends JPanel {
         
         for (Section section2 : user.variant.sections.values()) {
             for (Crittable crittable3 : section2.components) {
-                if (!crittable3.itemType.equals("Weapon")) continue;
+                if (!CriticalType.WEAPON.equals(crittable3.itemType)) {
+                    continue;
+                }
+                
                 weaponBlueprint = (WeaponBlueprint) crittable3.reference;
                 int temp_int = Math.abs(weaponBlueprint.effective_range - n3);
-                if (temp_int >= n) continue;
+                
+                if (temp_int >= n) {
+                    continue;
+                }
+                
                 n = temp_int;
                 n2 = weaponBlueprint.effective_range;
             }
@@ -3130,7 +3445,7 @@ public class MechlabPanel extends JPanel {
             return;
         }
         
-        DefaultListModel<String> defaultListModel = new DefaultListModel<String>();
+        DefaultListModel<String> defaultListModel = new DefaultListModel<>();
         for (Crittable crittable : user.variant.sections.get(sectionType).components) {
             for (int i = 0; i < crittable.criticals; ++i) {
                 if (i == 0) {
@@ -3314,9 +3629,27 @@ public class MechlabPanel extends JPanel {
     private JPanel WeaponsPanel;
     private JProgressBar alphaDamageProgressBar;
     private JProgressBar alphaHeatProgressBar;
+    private JLabel armorAmountTitle;
     private JComboBox<String> armorComboBox;
     private ComponentPanel armorComponentPanel;
+    private JLabel armorFrontTitle;
+    private JLabel armorPointsPerTonLabel;
+    private JLabel armorPointsPerTonTitle;
     private JProgressBar armorProgressBar;
+    private JLabel armorRearTitle;
+    private JLabel armorSection10Title;
+    private JLabel armorSection1Title;
+    private JLabel armorSection2Title;
+    private JLabel armorSection3Title;
+    private JLabel armorSection4Title;
+    private JLabel armorSection5Title;
+    private JLabel armorSection6Title;
+    private JLabel armorSection7Title;
+    private JLabel armorSection8Title;
+    private JLabel armorSection9Title;
+    private JLabel armorSectionTitle;
+    private JLabel armorTotalLabel;
+    private JLabel armorTotalTitle;
     private JSpinner centerRearTorsoSpinner;
     private JLabel centerTorsoAMSHardpointLabel;
     private JLabel centerTorsoArmorAmountLabel;
@@ -3366,20 +3699,6 @@ public class MechlabPanel extends JPanel {
     private JComboBox<String> heatSinkComboBox;
     private ComponentPanel heatsinkComponentPanel;
     private JButton importButton;
-    private JLabel jLabel21;
-    private JLabel jLabel22;
-    private JLabel jLabel23;
-    private JLabel jLabel24;
-    private JLabel jLabel25;
-    private JLabel jLabel29;
-    private JLabel jLabel33;
-    private JLabel jLabel37;
-    private JLabel jLabel41;
-    private JLabel jLabel45;
-    private JLabel jLabel49;
-    private JLabel jLabel50;
-    private JLabel jLabel51;
-    private JLabel jLabel55;
     private JLabel jumpCapableLabel;
     private JProgressBar jumpDistanceProgressBar;
     private JProgressBar jumpHeightProgressBar;
@@ -3437,8 +3756,6 @@ public class MechlabPanel extends JPanel {
     private JComboBox<String> myomerComboBox;
     private ComponentPanel myomerComponentPanel;
     private ComponentPanel overviewComponentPanel;
-    private JLabel pointsPerTonAmountLabel;
-    private JLabel pointsPerTonLabel;
     private JScrollPane quirksJScrollPane;
     private JTextArea quirksJTextArea;
     private JPanel quirksPanel;
@@ -3518,8 +3835,6 @@ public class MechlabPanel extends JPanel {
     private JLabel techBaseLabel;
     private JButton tonnageArmorButton;
     private JProgressBar tonnageProgressBar;
-    private JLabel totalArmorAmountLabel;
-    private JLabel totalArmorLabel;
     private JLabel unconfirmedLabel;
     private JLabel unreleasedLabel;
     private JLabel variantCostLabel;

@@ -21,6 +21,7 @@ public class Preferences {
     public Color ECM_COLOR;
     public Color ARMOR_COLOR;
     public Color STRUCTURE_COLOR;
+    public double FRONT_ARMOR_PERCENTAGE;
     public double REAR_ARMOR_PERCENTAGE;
     public Color EMPTY_CRITICAL_FG;
     public Color EMPTY_CRITICAL_BG;
@@ -48,6 +49,7 @@ public class Preferences {
             this.ECM_COLOR = ((Color) inputStream.readObject());
             this.ARMOR_COLOR = ((Color) inputStream.readObject());
             this.STRUCTURE_COLOR = ((Color) inputStream.readObject());
+            this.FRONT_ARMOR_PERCENTAGE = inputStream.readDouble();
             this.REAR_ARMOR_PERCENTAGE = inputStream.readDouble();
             inputStream.close();
         } catch (IOException | ClassNotFoundException localException) {
@@ -66,6 +68,7 @@ public class Preferences {
             this.ECM_COLOR = new Color(128, 128, 128);
             this.ARMOR_COLOR = new Color(64, 128, 192);
             this.STRUCTURE_COLOR = new Color(192, 64, 64);
+            this.FRONT_ARMOR_PERCENTAGE = 0.75D;
             this.REAR_ARMOR_PERCENTAGE = 0.25D;
         }
         this.EMPTY_CRITICAL_FG = new Color(64, 64, 64);

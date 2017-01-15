@@ -1,5 +1,10 @@
 package com.github.majora_incarnate.mwo.mechbay.entities;
 
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.SectionClass;
+import com.github.majora_incarnate.mwo.mechbay.entities.enums.SectionType;
+import com.google.common.collect.ImmutableMap;
+import java.util.Map;
+
 public class Constants {
     public static final int DEFAULT_CRITICAL_HEIGHT = 12;
 
@@ -58,15 +63,41 @@ public class Constants {
     public static final int PITCH_MANUEVERABILITY_INDEX = 1;
     public static final int AXIS_OF_MOVEMENT = 2;
 
-    public static final int[][] INTERNALS_PER_SECTION = {{6, 6, 10, 10, 12, 15,
-        8, 8}, {8, 8, 12, 12, 16, 15, 12, 12}, {10, 10, 14, 14, 20, 15, 14, 14},
-    {12, 12, 16, 16, 22, 15, 16, 16}, {12, 12, 20, 20, 24, 15, 20, 20}, {14, 14,
-        22, 22, 28, 15, 22, 22}, {16, 16, 24, 24, 32, 15, 24, 24}, {18, 18, 26,
-        26, 36, 15, 26, 26}, {20, 20, 28, 28, 40, 15, 28, 28}, {20, 20, 30, 30,
-        42, 15, 30, 30}, {22, 22, 30, 30, 44, 15, 30, 30}, {24, 24, 32, 32, 46,
-        15, 32, 32}, {26, 26, 34, 34, 50, 15, 34, 34}, {28, 28, 36, 36, 54, 15,
-        36, 36}, {30, 30, 38, 38, 58, 15, 38, 38}, {32, 32, 40, 40, 60, 15, 40,
-        40}, {34, 34, 42, 42, 62, 15, 42, 42}};
+    public static final Map<Double, Map<SectionType, Integer>> INTERNALS_PER_SECTION = ImmutableMap.<Double, Map<SectionType, Integer>>builder()
+            .put(20.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 12).put(SectionType.RIGHT_TORSO, 10).put(SectionType.LEFT_TORSO, 10)
+                    .put(SectionType.LEFT_ARM, 6).put(SectionType.RIGHT_ARM, 6).put(SectionType.RIGHT_LEG, 8).put(SectionType.LEFT_LEG, 8).build())
+            .put(25.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 16).put(SectionType.RIGHT_TORSO, 12).put(SectionType.LEFT_TORSO, 12)
+                    .put(SectionType.LEFT_ARM, 8).put(SectionType.RIGHT_ARM, 8).put(SectionType.RIGHT_LEG, 12).put(SectionType.LEFT_LEG, 12).build())
+            .put(30.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 20).put(SectionType.RIGHT_TORSO, 14).put(SectionType.LEFT_TORSO, 14)
+                    .put(SectionType.LEFT_ARM, 10).put(SectionType.RIGHT_ARM, 10).put(SectionType.RIGHT_LEG, 14).put(SectionType.LEFT_LEG, 14).build())
+            .put(35.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 22).put(SectionType.RIGHT_TORSO, 16).put(SectionType.LEFT_TORSO, 16)
+                    .put(SectionType.LEFT_ARM, 12).put(SectionType.RIGHT_ARM, 12).put(SectionType.RIGHT_LEG, 16).put(SectionType.LEFT_LEG, 16).build())
+            .put(40.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 24).put(SectionType.RIGHT_TORSO, 20).put(SectionType.LEFT_TORSO, 20)
+                    .put(SectionType.LEFT_ARM, 12).put(SectionType.RIGHT_ARM, 12).put(SectionType.RIGHT_LEG, 20).put(SectionType.LEFT_LEG, 20).build())
+            .put(45.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 28).put(SectionType.RIGHT_TORSO, 22).put(SectionType.LEFT_TORSO, 22)
+                    .put(SectionType.LEFT_ARM, 14).put(SectionType.RIGHT_ARM, 14).put(SectionType.RIGHT_LEG, 22).put(SectionType.LEFT_LEG, 22).build())
+            .put(50.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 32).put(SectionType.RIGHT_TORSO, 24).put(SectionType.LEFT_TORSO, 24)
+                    .put(SectionType.LEFT_ARM, 16).put(SectionType.RIGHT_ARM, 16).put(SectionType.RIGHT_LEG, 24).put(SectionType.LEFT_LEG, 24).build())
+            .put(55.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 36).put(SectionType.RIGHT_TORSO, 26).put(SectionType.LEFT_TORSO, 26)
+                    .put(SectionType.LEFT_ARM, 18).put(SectionType.RIGHT_ARM, 18).put(SectionType.RIGHT_LEG, 26).put(SectionType.LEFT_LEG, 26).build())
+            .put(60.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 40).put(SectionType.RIGHT_TORSO, 28).put(SectionType.LEFT_TORSO, 28)
+                    .put(SectionType.LEFT_ARM, 20).put(SectionType.RIGHT_ARM, 20).put(SectionType.RIGHT_LEG, 28).put(SectionType.LEFT_LEG, 28).build())
+            .put(65.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 42).put(SectionType.RIGHT_TORSO, 30).put(SectionType.LEFT_TORSO, 30)
+                    .put(SectionType.LEFT_ARM, 20).put(SectionType.RIGHT_ARM, 20).put(SectionType.RIGHT_LEG, 30).put(SectionType.LEFT_LEG, 30).build())
+            .put(70.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 44).put(SectionType.RIGHT_TORSO, 30).put(SectionType.LEFT_TORSO, 30)
+                    .put(SectionType.LEFT_ARM, 22).put(SectionType.RIGHT_ARM, 22).put(SectionType.RIGHT_LEG, 30).put(SectionType.LEFT_LEG, 30).build())
+            .put(75.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 46).put(SectionType.RIGHT_TORSO, 32).put(SectionType.LEFT_TORSO, 32)
+                    .put(SectionType.LEFT_ARM, 24).put(SectionType.RIGHT_ARM, 24).put(SectionType.RIGHT_LEG, 32).put(SectionType.LEFT_LEG, 32).build())
+            .put(80.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 50).put(SectionType.RIGHT_TORSO, 34).put(SectionType.LEFT_TORSO, 34)
+                    .put(SectionType.LEFT_ARM, 26).put(SectionType.RIGHT_ARM, 26).put(SectionType.RIGHT_LEG, 34).put(SectionType.LEFT_LEG, 34).build())
+            .put(85.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 54).put(SectionType.RIGHT_TORSO, 36).put(SectionType.LEFT_TORSO, 36)
+                    .put(SectionType.LEFT_ARM, 28).put(SectionType.RIGHT_ARM, 28).put(SectionType.RIGHT_LEG, 36).put(SectionType.LEFT_LEG, 36).build())
+            .put(90.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 58).put(SectionType.RIGHT_TORSO, 38).put(SectionType.LEFT_TORSO, 30)
+                    .put(SectionType.LEFT_ARM, 30).put(SectionType.RIGHT_ARM, 30).put(SectionType.RIGHT_LEG, 38).put(SectionType.LEFT_LEG, 38).build())
+            .put(95.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 60).put(SectionType.RIGHT_TORSO, 40).put(SectionType.LEFT_TORSO, 40)
+                    .put(SectionType.LEFT_ARM, 32).put(SectionType.RIGHT_ARM, 32).put(SectionType.RIGHT_LEG, 40).put(SectionType.LEFT_LEG, 40).build())
+            .put(100.0D, ImmutableMap.<SectionType, Integer>builder().put(SectionType.HEAD, 15).put(SectionType.CENTER_TORSO, 62).put(SectionType.RIGHT_TORSO, 42).put(SectionType.LEFT_TORSO, 42)
+                    .put(SectionType.LEFT_ARM, 34).put(SectionType.RIGHT_ARM, 34).put(SectionType.RIGHT_LEG, 42).put(SectionType.LEFT_LEG, 42).build()).build();
     public static final double[] ENGINE_TONNAGES = {0.0D, 0.5D, 0.5D, 0.5D, 0.5D,
         0.5D, 1.0D, 1.0D, 1.0D, 1.0D, 1.5D, 1.5D, 1.5D, 2.0D, 2.0D, 2.0D, 2.5D,
         2.5D, 3.0D, 3.0D, 3.0D, 3.5D, 3.5D, 4.0D, 4.0D, 4.0D, 4.5D, 4.5D, 5.0D,

@@ -16,6 +16,7 @@ import com.github.majora_incarnate.mwo.mechbay.entities.enums.SectionType;
 import com.google.common.collect.Lists;
 
 public final class Section {
+    public final SectionBlueprint sectionBlueprint;
     public final boolean hasRearArmor;
     public final int maximumCriticals;
     public int currentCriticals;
@@ -29,10 +30,11 @@ public final class Section {
     public final ArrayList<Crittable> components = new ArrayList();
 
     public Section(final Database database, final SectionBlueprint sectionBlueprint, final double tonnage) {
+        this.sectionBlueprint = sectionBlueprint;
         this.hasRearArmor = sectionBlueprint.section.hasRear;
         this.maximumCriticals = sectionBlueprint.section.criticalCount;
         this.currentCriticals = 0;
-        this.health = Constants.INTERNALS_PER_SECTION[((int) ((tonnage - 20.0D) / 5.0D))][sectionBlueprint.section.index];
+        this.health = Constants.INTERNALS_PER_SECTION.get(tonnage).get(sectionBlueprint.section);
         this.rearArmor = 0;
         this.minimumArmor = this.frontArmor = 0;
 
